@@ -7,7 +7,6 @@ class MPESATransactions{
     private $table_name = 'mpesa_transactions';
     //Declare class properties 
     public $id;
-    public $app_token;
     public $transaction_type;
     public $transaction_id;
     public $transaction_time;
@@ -81,13 +80,12 @@ class MPESATransactions{
 
     public function update()
     {
-        $query = "UPDATE ".$this->table_name." SET app_token = :app_token, transaction_type = :transaction_type, transaction_id = :transaction_id, transaction_time = :transaction_time, transaction_amount = :transaction_amount, business_shortcode = :business_shortcode, bill_refnumber = :bill_refnumber, invoice_number = :invoice_number, original_balance = :original_balance, third_party_transaction_id = :third_party_transaction_id, msisdn = :msisdn, first_name = :first_name, last_name = :last_name WHERE id = :id";
+        $query = "UPDATE ".$this->table_name." SET transaction_type = :transaction_type, transaction_id = :transaction_id, transaction_time = :transaction_time, transaction_amount = :transaction_amount, business_shortcode = :business_shortcode, bill_refnumber = :bill_refnumber, invoice_number = :invoice_number, original_balance = :original_balance, third_party_transaction_id = :third_party_transaction_id, msisdn = :msisdn, first_name = :first_name, last_name = :last_name WHERE id = :id";
 
         // Prepare statement
         $stmt = $this->conn->prepare($query);
 
         //clean data
-        $this->app_token = htmlentities($this->app_token);
         $this->transaction_type = htmlentities($this->transaction_type);
         $this->transaction_id = htmlentities($this->transaction_id);
         $this->transaction_time = htmlentities($this->transaction_time);
@@ -103,7 +101,6 @@ class MPESATransactions{
         $this->last_name = htmlentities($this->last_name);
 
         //Bind Data
-        $stmt->bindParam(':app_token', $this->app_token);
         $stmt->bindParam(':transaction_type', $this->transaction_type);
         $stmt->bindParam(':transaction_id', $this->transaction_id);
         $stmt->bindParam(':transaction_time', $this->transaction_time);

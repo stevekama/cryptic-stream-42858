@@ -7,7 +7,6 @@ class Transactions{
     private $table_name = 'transactions';
     //Declare class properties 
     public $id;
-    public $app_token;
     public $transaction_id;
     public $transaction_time;
     public $product;
@@ -76,7 +75,7 @@ class Transactions{
 
     public function update()
     {
-        $query = "UPDATE ".$this->table_name." SET app_token = :app_token, transaction_id = :transaction_id, transaction_time = :transaction_time, product = :product, transaction_amount = :transaction_amount, transaction_currency = :transaction_currency, transaction_method = :transaction_method, transaction_status = :transaction_status WHERE id = :id";
+        $query = "UPDATE ".$this->table_name." SET transaction_id = :transaction_id, transaction_time = :transaction_time, product = :product, transaction_amount = :transaction_amount, transaction_currency = :transaction_currency, transaction_method = :transaction_method, transaction_status = :transaction_status WHERE id = :id";
 
         // Prepare statement
         $stmt = $this->conn->prepare($query);
