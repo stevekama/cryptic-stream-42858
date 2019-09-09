@@ -11,7 +11,7 @@ $app = new Apps();
 
 $current_app = $app->find_by_token($_POST['token']);
 
-echo print_r($current_app);
+echo $current_app['app_key'];
 
 // if($current_app){
 //     $key    = $current_app['app_key'];
