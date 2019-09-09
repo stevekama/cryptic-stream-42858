@@ -50,7 +50,7 @@ if(!$mpesa_details){
 
 $ShortCode  = $mpesa_details['shortcode']; // Shortcode. Same as the one on register_url.php
 $amount     = $_POST['amount']; // amount the client/we are paying to the paybill
-$msisdn     = $_POST['number']; // phone number paying 
+$msisdn     = '254708374149'; // phone number paying 
 $billRef    = $_POST['invoice']; // This is anything that helps identify the specific transaction. Can be a clients ID, Account Number, Invoice amount, cart no.. etc
 
 $curl = curl_init();
@@ -70,9 +70,9 @@ curl_setopt($curl, CURLOPT_POST, true);
 curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
 $curl_response = curl_exec($curl);
 $data = json_decode($curl_response);
-if($data->{'ResponseDescription'} == 'Accept the service request successfully.'){
-    echo json_encode(array('message'=>'success'));
-}else{
+if(!$data->{'ResponseDescription'} == 'Accept the service request successfully.'){
     echo $curl_response;
+    die();
 }
+echo json_encode(array('message'=>'success'));
 ?>

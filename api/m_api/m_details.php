@@ -59,6 +59,7 @@ $data = json_decode($curl_response);
 
 if(!$data->{'ResponseDescription'} == 'success'){
     echo $curl_response;
+    die();
 }
 
 //initiate mpesa details 
