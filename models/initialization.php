@@ -1,7 +1,7 @@
 <?php 
 //define the path
 defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
-defined('SITE_ROOT') ? null : define('SITE_ROOT', DS.'app'.DS.'.heroku'.DS.'php'.DS.'lib'.DS.'php');
+defined('SITE_ROOT') ? null : define('SITE_ROOT', DS.'app');
 defined('CONFIG_PATH') ? null : define('CONFIG_PATH', SITE_ROOT.DS.'config');
 defined('LIB_PATH') ? null : define('LIB_PATH', SITE_ROOT.DS.'models');
 defined('VENDOR_PATH') ? null : define('VENDOR_PATH', SITE_ROOT.DS.'vendor');

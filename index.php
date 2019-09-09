@@ -1,4 +1,4 @@
-<?php require_once('models/functions.php'); ?>
+<?php require_once('models/initialization.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
