@@ -1,7 +1,7 @@
 <?php 
 
 function base_url(){
-    $url = "http://localhost/payments/";
+    $url = "https://cryptic-stream-42858.herokuapp.com/";
     return $url;
 }
 
