@@ -18,6 +18,7 @@ $jsonMpesaResponse = json_decode($m_response, true); // We will then use this to
 // 1. initiate mpesa transaction
 $transaction = new MPESATransactions();
 
+// 2. Add data in tables
 $transaction->transaction_type = $jsonMpesaResponse['TransactionType'];
 $transaction->transaction_id = $jsonMpesaResponse['TransID'];
 $transaction->transaction_time = $jsonMpesaResponse['TransTime'];

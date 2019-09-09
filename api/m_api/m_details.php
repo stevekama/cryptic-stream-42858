@@ -34,8 +34,6 @@ if($current_app){
 
     $validationUrl = base_url().'api/mp_api/validation.php'; // path to your validation url. can be IP address that is publicly accessible or a url
 
-    $callBackUrl = base_url().'api/mp_api/callback_url.php';
-
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, $register_url);
     curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer '.$access_token)); //setting custom header
@@ -58,6 +56,7 @@ if($current_app){
     if($data->{'ResponseDescription'} == 'success'){
 
         //initiate mpesa details 
+        
         $details = new MPESA_APPS_Details();
         $details->app_token = $current_app['app_token'];
         $details->shortcode = $shortCode;
@@ -65,10 +64,10 @@ if($current_app){
         $details->validation = $validationUrl;
         $details->lipanampesacode = $_POST['mpesa_code'];
         $details->passkey = $_POST['pass_key'];
+        $callBackUrl = base_url().'api/mp_api/callback_url.php';
+        $return_data = array();
         $details->callback_url = $callBackUrl;
         $details->timestamp =  date('YmdHis');
-
-        $return_data = array();
         if($details->create()){
             $return_data['message'] = 'success';
         }else{
