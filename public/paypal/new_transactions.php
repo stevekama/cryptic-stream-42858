@@ -35,12 +35,12 @@ require_once('../layouts/systems/header.php'); ?>
                             <input type="text" name="price" class="form-control" id="price" placeholder="Enter price">
                         </div>
                         <div class="form-group">
-                            <label for="currency">Product: </label>
-                            <input type="text" class="form-control" id="currency" placeholder="Enter currency">
+                            <label for="currency">Currency: </label>
+                            <input type="text" name="currency" class="form-control" id="currency" placeholder="Enter currency">
                         </div>
                         <div class="form-group">
                             <label for="product">Quantity: </label>
-                            <input type="text" name="quantity" class="form-control" id="quantity" placeholder="Enter quantity">
+                            <input type="text" name="qty" class="form-control" id="quantity" placeholder="Enter quantity">
                         </div>
                         <input type="hidden" name="token" value="d1e3c87869f97d3d011c" class="form-control" />
                     </div>
