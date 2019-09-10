@@ -24,8 +24,8 @@ $app = new Apps();
 $current_app = $app->find_by_token($_POST['token']);
 
 $data = array();
-$data['key'] = $current_app['key'];
-$data['secret'] = $current_app['secret'];
+$data['key'] = $current_app['app_key'];
+$data['secret'] = $current_app['app_secret'];
 echo json_encode($data);
 // if(!$current_app){
 //     echo json_encode(array('message'=>'errorApp'));
