@@ -45,20 +45,11 @@ $product = $_POST['product'];
 $price = $_POST['price'];
 $shipping = 2.00;
 $currency = $_POST['currency'];
+$total = $price + $shipping;
 
-
-$test_data = array();
-$test_data['product'] = $product;
-$test_data['price'] = $price;
-$test_data['shipping'] = $shipping;
-$test_data['currency'] = $currency;
-
-echo json_encode($test_data);
-// $total = $price + $shipping;
-
-// // define user payment method 
-// $payer = new Payer();
-// $payer->setPaymentMethod('paypal');
+// define user payment method 
+$payer = new Payer();
+$payer->setPaymentMethod('paypal');
 
 // $item = new Item();
 // $item->setName($product)
