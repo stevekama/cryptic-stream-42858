@@ -96,14 +96,15 @@ try {
     $payment->create($paypal);
 
 } catch(PayPal\Exception\PayPalConnectionException $ex){
-    echo $ex->getCode(); // Prints the Error Code
-    echo $ex->getData(); // Prints the detailed error message 
-    die($ex);
+    $error_data = array();
+    $error_data['code'] = $ex->getCode(); // Prints the Error Code
+    $error_data['data'] = $ex->getData(); // Prints the detailed error message 
+    echo json_encode($error_data);
+    die();
 } catch (Exception $e) {
     die($e);
 }
 
-// $approvalUrl = $payment->getApprovalLink();
-
-// echo $approvalUrl;
+$approvalUrl = $payment->getApprovalLink();
+echo $approvalUrl;
 // //header("Location: {$approvalUrl}"); 
