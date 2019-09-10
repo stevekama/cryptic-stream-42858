@@ -45,6 +45,7 @@ $product = $_POST['product'];
 $price = $_POST['price'];
 $shipping = 2.00;
 $currency = $_POST['currency'];
+$quantity = $_POST['qty'];
 $total = $price + $shipping;
 
 // define user payment method 
@@ -54,7 +55,7 @@ $payer->setPaymentMethod('paypal');
 $item = new Item();
 $item->setName($product)
     ->setCurrency($currency)
-    ->setQuantity(1)
+    ->setQuantity($quantity)
     ->setPrice($price);
 
 //create item List 
