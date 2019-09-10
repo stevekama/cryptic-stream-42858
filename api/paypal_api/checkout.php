@@ -68,27 +68,27 @@ $details->setShipping($shipping)
         ->setSubtotal($price);
 
 //create amount details 
-$amount = new Amount();
-$amount->setCurrency($currency)
-        ->setTotal($total)
-        ->setDetails($details);
+// $amount = new Amount();
+// $amount->setCurrency($currency)
+//         ->setTotal($total)
+//         ->setDetails($details);
 
-//set Transaction 
-$transaction = new Transaction();
-$transaction->setAmount($amount)
-            ->setItemList($itemList)
-            ->setDescription('Paypal payments test')
-            ->setInvoiceNumber(uniqid());   
+// //set Transaction 
+// $transaction = new Transaction();
+// $transaction->setAmount($amount)
+//             ->setItemList($itemList)
+//             ->setDescription('Paypal payments test')
+//             ->setInvoiceNumber(uniqid());   
 
-$redirectUrls = new RedirectUrls();
-$redirectUrls->setReturnUrl(SITE_URL . '/pay.php?success=true')
-            ->setCancelUrl(SITE_URL . '/pay.php?success=false');
+// $redirectUrls = new RedirectUrls();
+// $redirectUrls->setReturnUrl(SITE_URL . '/pay.php?success=true')
+//             ->setCancelUrl(SITE_URL . '/pay.php?success=false');
 
-$payment = new Payment();
-$payment->setIntent('sale')
-        ->setPayer($payer)
-        ->setRedirectUrls($redirectUrls)
-        ->setTransactions([$transaction]);
+// $payment = new Payment();
+// $payment->setIntent('sale')
+//         ->setPayer($payer)
+//         ->setRedirectUrls($redirectUrls)
+//         ->setTransactions([$transaction]);
 
 
 // try {
