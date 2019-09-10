@@ -98,7 +98,7 @@ try {
 } catch(PayPal\Exception\PayPalConnectionException $ex){
     $error_data = array();
     $error_data['code'] = $ex->getCode(); // Prints the Error Code
-    $error_data['data'] = $ex->getData(); // Prints the detailed error message 
+    $error_data['data'] = array($ex->getData()); // Prints the detailed error message 
     echo json_encode($error_data);
     die();
 } catch (Exception $e) {
