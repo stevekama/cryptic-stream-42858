@@ -80,9 +80,9 @@ $transaction->setAmount($amount)
             ->setDescription('Paypal payments test')
             ->setInvoiceNumber(uniqid());   
 
-// $redirectUrls = new RedirectUrls();
-// $redirectUrls->setReturnUrl(SITE_URL . '/pay.php?success=true')
-//             ->setCancelUrl(SITE_URL . '/pay.php?success=false');
+$redirectUrls = new RedirectUrls();
+$redirectUrls->setReturnUrl(base_url() . 'api/paypal_api/pay.php?success=true')
+            ->setCancelUrl(base_url() . 'api/paypal_api/pay.php?success=false');
 
 // $payment = new Payment();
 // $payment->setIntent('sale')
