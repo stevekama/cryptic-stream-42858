@@ -51,13 +51,13 @@ $total = $price + $shipping;
 $payer = new Payer();
 $payer->setPaymentMethod('paypal');
 
-// $item = new Item();
-// $item->setName($product)
-//     ->setCurrency($currency)
-//     ->setQuantity(1)
-//     ->setPrice($price);
+$item = new Item();
+$item->setName($product)
+    ->setCurrency($currency)
+    ->setQuantity(1)
+    ->setPrice($price);
 
-// //create item List 
+//create item List 
 // $itemList = new ItemList();
 // $itemList->setItems([$item]);
 
