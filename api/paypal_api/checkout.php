@@ -38,7 +38,7 @@ if(!$paypal){
     echo json_encode(array('message'=>'errorAuth'));
     die();
 }
-
+echo $paypal;
 // // process payments
 // // get post data
 // $product = $_POST['product'];
