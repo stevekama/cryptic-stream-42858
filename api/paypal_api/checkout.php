@@ -38,13 +38,13 @@ if(!$paypal){
     echo json_encode(array('message'=>'errorAuth'));
     die();
 }
-echo $paypal;
-// // process payments
-// // get post data
-// $product = $_POST['product'];
-// $price = $_POST['price'];
-// $shipping = 2.00;
-// $currency = $_POST['currency'];
+
+// process payments
+// get post data
+$product = $_POST['product'];
+$price = $_POST['price'];
+$shipping = 2.00;
+$currency = $_POST['currency'];
 
 // $total = $price + $shipping;
 
