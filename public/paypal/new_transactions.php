@@ -57,4 +57,5 @@ require_once('../layouts/systems/header.php'); ?>
     <!-- /.row -->
 </section>
 <!-- /.content -->
+<script src="<?php echo base_url(); ?>public/dist/js/pages/paypal_transactions.js"></script>
 <?php require_once('../layouts/systems/footer.php'); ?>
