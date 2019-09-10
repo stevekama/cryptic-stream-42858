@@ -31,8 +31,14 @@ if(!$current_app){
 // Paypal Auth 
 $paypal_auth = new PayPalAuth($current_app['key'], $current_app['secret']);
 
-// // get paypal details 
-// $paypal = $paypal_auth->auth();
+// get paypal details 
+$paypal = $paypal_auth->auth();
+
+if(!$paypal){
+    echo json_encode(array('message'=>'errorAuth'));
+    die();
+}
+
 // // process payments
 // // get post data
 // $product = $_POST['product'];
