@@ -29,71 +29,72 @@ $paypal_auth = new PayPalAuth($current_app['key'], $current_app['secret']);
 // get paypal details 
 $paypal = $paypal_auth->auth();
 
-// process payments
-// get post data
-$product = $_POST['product'];
-$price = $_POST['price'];
-$shipping = 2.00;
-$currency = $_POST['currency'];
+echo $paypal;
+// // process payments
+// // get post data
+// $product = $_POST['product'];
+// $price = $_POST['price'];
+// $shipping = 2.00;
+// $currency = $_POST['currency'];
 
-$total = $price + $shipping;
+// $total = $price + $shipping;
 
-// define user payment method 
-$payer = new Payer();
-$payer->setPaymentMethod('paypal');
+// // define user payment method 
+// $payer = new Payer();
+// $payer->setPaymentMethod('paypal');
 
-$item = new Item();
-$item->setName($product)
-    ->setCurrency($currency)
-    ->setQuantity(1)
-    ->setPrice($price);
+// $item = new Item();
+// $item->setName($product)
+//     ->setCurrency($currency)
+//     ->setQuantity(1)
+//     ->setPrice($price);
 
-//create item List 
-$itemList = new ItemList();
-$itemList->setItems([$item]);
+// //create item List 
+// $itemList = new ItemList();
+// $itemList->setItems([$item]);
 
-//create details 
-$details = new Details();
-$details->setShipping($shipping)
-        ->setSubtotal($price);
+// //create details 
+// $details = new Details();
+// $details->setShipping($shipping)
+//         ->setSubtotal($price);
 
-//create amount details 
-$amount = new Amount();
-$amount->setCurrency('USD')
-        ->setTotal($total)
-        ->setDetails($details);
+// //create amount details 
+// $amount = new Amount();
+// $amount->setCurrency('USD')
+//         ->setTotal($total)
+//         ->setDetails($details);
 
-//set Transaction 
-$transaction = new Transaction();
-$transaction->setAmount($amount)
-            ->setItemList($itemList)
-            ->setDescription('Paypal payments test')
-            ->setInvoiceNumber(uniqid());   
+// //set Transaction 
+// $transaction = new Transaction();
+// $transaction->setAmount($amount)
+//             ->setItemList($itemList)
+//             ->setDescription('Paypal payments test')
+//             ->setInvoiceNumber(uniqid());   
 
-$redirectUrls = new RedirectUrls();
-$redirectUrls->setReturnUrl(SITE_URL . '/pay.php?success=true')
-            ->setCancelUrl(SITE_URL . '/pay.php?success=false');
+// $redirectUrls = new RedirectUrls();
+// $redirectUrls->setReturnUrl(SITE_URL . '/pay.php?success=true')
+//             ->setCancelUrl(SITE_URL . '/pay.php?success=false');
 
-$payment = new Payment();
-$payment->setIntent('sale')
-        ->setPayer($payer)
-        ->setRedirectUrls($redirectUrls)
-        ->setTransactions([$transaction]);
+// $payment = new Payment();
+// $payment->setIntent('sale')
+//         ->setPayer($payer)
+//         ->setRedirectUrls($redirectUrls)
+//         ->setTransactions([$transaction]);
 
 
-try {
+// try {
 
-    $payment->create($paypal);
+//     $payment->create($paypal);
 
-} catch(PayPal\Exception\PayPalConnectionException $ex){
-    echo $ex->getCode(); // Prints the Error Code
-    echo $ex->getData(); // Prints the detailed error message 
-    die($ex);
-} catch (Exception $e) {
-    die($e);
-}
+// } catch(PayPal\Exception\PayPalConnectionException $ex){
+//     echo $ex->getCode(); // Prints the Error Code
+//     echo $ex->getData(); // Prints the detailed error message 
+//     die($ex);
+// } catch (Exception $e) {
+//     die($e);
+// }
 
-$approvalUrl = $payment->getApprovalLink();
+// $approvalUrl = $payment->getApprovalLink();
 
-echo $approvalUrl;
-//header("Location: {$approvalUrl}"); 
+// echo $approvalUrl;
+// //header("Location: {$approvalUrl}"); 
