@@ -91,17 +91,17 @@ $payment->setIntent('sale')
         ->setTransactions([$transaction]);
 
 
-// try {
+try {
 
-//     $payment->create($paypal);
+    $payment->create($paypal);
 
-// } catch(PayPal\Exception\PayPalConnectionException $ex){
-//     echo $ex->getCode(); // Prints the Error Code
-//     echo $ex->getData(); // Prints the detailed error message 
-//     die($ex);
-// } catch (Exception $e) {
-//     die($e);
-// }
+} catch(PayPal\Exception\PayPalConnectionException $ex){
+    echo $ex->getCode(); // Prints the Error Code
+    echo $ex->getData(); // Prints the detailed error message 
+    die($ex);
+} catch (Exception $e) {
+    die($e);
+}
 
 // $approvalUrl = $payment->getApprovalLink();
 
