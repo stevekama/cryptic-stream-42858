@@ -73,12 +73,12 @@ $amount->setCurrency($currency)
         ->setTotal($total)
         ->setDetails($details);
 
-// //set Transaction 
-// $transaction = new Transaction();
-// $transaction->setAmount($amount)
-//             ->setItemList($itemList)
-//             ->setDescription('Paypal payments test')
-//             ->setInvoiceNumber(uniqid());   
+//set Transaction
+$transaction = new Transaction();
+$transaction->setAmount($amount)
+            ->setItemList($itemList)
+            ->setDescription('Paypal payments test')
+            ->setInvoiceNumber(uniqid());   
 
 // $redirectUrls = new RedirectUrls();
 // $redirectUrls->setReturnUrl(SITE_URL . '/pay.php?success=true')
