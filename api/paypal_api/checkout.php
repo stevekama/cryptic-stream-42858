@@ -44,7 +44,7 @@ $payer->setPaymentMethod('paypal');
 
 $item = new Item();
 $item->setName($product)
-    ->setCurrency('USD')
+    ->setCurrency($currency)
     ->setQuantity(1)
     ->setPrice($price);
 
