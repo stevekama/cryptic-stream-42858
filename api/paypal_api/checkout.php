@@ -81,8 +81,8 @@ $transaction->setAmount($amount)
             ->setInvoiceNumber(uniqid());   
 
 $redirectUrls = new RedirectUrls();
-$redirectUrls->setReturnUrl(base_url() . 'api/paypal_api/pay.php?success=true')
-            ->setCancelUrl(base_url() . 'api/paypal_api/pay.php?success=false');
+$redirectUrls->setReturnUrl(base_url() . 'api/paypal_api/pay.php?success=true&app_token='.$current_app['app_token'])
+            ->setCancelUrl(base_url() . 'api/paypal_api/pay.php?success=false&app_token='.$current_app['app_token']);
 
 // $payment = new Payment();
 // $payment->setIntent('sale')
