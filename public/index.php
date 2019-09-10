@@ -1,4 +1,4 @@
-<?php require_once('../models/initialization.php'); 
+<?php require_once('../models/functions.php'); 
 require_once('layouts/systems/header.php'); ?>
   <!-- Content Header (Page header) -->
   <section class="content-header">

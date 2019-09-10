@@ -89,8 +89,6 @@ $payment->setIntent('sale')
         ->setPayer($payer)
         ->setRedirectUrls($redirectUrls)
         ->setTransactions([$transaction]);
-
-
 try {
 
     $payment->create($paypal);
@@ -106,5 +104,5 @@ try {
 }
 
 $approvalUrl = $payment->getApprovalLink();
-echo $approvalUrl;
 //header("Location: {$approvalUrl}"); 
+redirect_to($approvalUrl);
