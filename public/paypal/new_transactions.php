@@ -24,7 +24,7 @@ require_once('../layouts/systems/header.php'); ?>
                     <h3 class="box-title">Transactions</h3>
                 </div>
                 <!-- /.box-header -->
-                <form id="paypalForm" role="form">
+                <form action="<?php echo base_url(); ?>api/paypal_api/checkout.php" method="post" role="form">
                     <div class="box-body">
                         <div class="form-group">
                             <label for="product">Product: </label>
@@ -57,5 +57,4 @@ require_once('../layouts/systems/header.php'); ?>
     <!-- /.row -->
 </section>
 <!-- /.content -->
-<script src="<?php echo base_url(); ?>public/dist/js/pages/paypal_transactions.js"></script>
 <?php require_once('../layouts/systems/footer.php'); ?>
