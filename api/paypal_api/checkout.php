@@ -59,8 +59,8 @@ $item->setName($product)
     ->setPrice($price);
 
 //create item List 
-// $itemList = new ItemList();
-// $itemList->setItems([$item]);
+$itemList = new ItemList();
+$itemList->setItems([$item]);
 
 // //create details 
 // $details = new Details();
