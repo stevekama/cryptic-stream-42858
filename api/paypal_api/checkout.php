@@ -68,10 +68,10 @@ $details->setShipping($shipping)
         ->setSubtotal($price);
 
 //create amount details 
-// $amount = new Amount();
-// $amount->setCurrency($currency)
-//         ->setTotal($total)
-//         ->setDetails($details);
+$amount = new Amount();
+$amount->setCurrency($currency)
+        ->setTotal($total)
+        ->setDetails($details);
 
 // //set Transaction 
 // $transaction = new Transaction();
