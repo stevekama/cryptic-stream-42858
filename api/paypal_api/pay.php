@@ -58,17 +58,29 @@ try{
 
 //save to db    
 //initialize paypal transation class
-$trns = new PayPalTransactions();
-$trns->app_token = $current_app['app_token'];
-$trns->transaction_id = $payment->getId();
-$trns->payment_amount = $payment->transactions[0]->amount->total;
-$trns->payment_status = $payment->getState();
-$trns->invoice_id = $payment->transactions[0]->invoice_number;
-$trns->transaction_date = date('YmdHis');
+$paypal_trns = new PayPalTransactions();
+$paypal_trns->app_token = $current_app['app_token'];
+$paypal_trns->transaction_id = $payment->getId();
+$paypal_trns->payment_amount = $payment->transactions[0]->amount->total;
+$paypal_trns->payment_status = $payment->getState();
+$paypal_trns->invoice_id = $payment->transactions[0]->invoice_number;
+$paypal_trns->transaction_date = date('YmdHis');
 
-if($trns->create()){
-    // redirect to the users response url
-    redirect_to($current_app['response_url']);
+if($paypal_trns->create()){
+    // update transactions 
+    $trns = new Transactions();
+    // populate transactions 
+    $trns->app_token = $current_app['app_token'];
+    $trns->transaction_id = $payment->getId();
+    $trns->transaction_time = date('YmdHis');
+    $trns->transaction_amount = $payment->transactions[0]->amount->total;
+    $trns->transaction_status = $payment->getState();
+
+    // save data 
+    if($trns->update()){
+        // redirect to the users response url
+        redirect_to($current_app['response_url']);
+    }
 }else{
     $data['message'] = 'Error in storing data';
     echo json_encode($data);

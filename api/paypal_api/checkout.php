@@ -90,13 +90,28 @@ $payment->setIntent('sale')
         ->setRedirectUrls($redirectUrls)
         ->setTransactions([$transaction]);
 try {
-
     $payment->create($paypal);
 
+    // initiate transactions 
+    $trns = new Transactions();
+    
+    //popuplate variables 
+    $trns->app_token = $current_app['app_token'];
+    $trns->transaction_id = $payment->getId();
+    $trns->transaction_time = date('YmdHis');
+    $trns->product = $product;
+    $trns->transaction_amount = 0;
+    $trns->transaction_currency = $currency;
+    $trns->transaction_method = 'PAYPAL';
+    $trns->transaction_status = 'NEW';
+
+    //save transactions 
+    $trns->create();
 } catch(PayPal\Exception\PayPalConnectionException $ex){
     $error_data = array();
     $error_data['code'] = $ex->getCode(); // Prints the Error Code
     $error_data['data'] = array($ex->getData()); // Prints the detailed error message 
+
     echo json_encode($error_data);
     die();
 } catch (Exception $e) {

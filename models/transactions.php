@@ -7,6 +7,7 @@ class Transactions{
     private $table_name = 'transactions';
     //Declare class properties 
     public $id;
+    public $app_token;
     public $transaction_id;
     public $transaction_time;
     public $product;
@@ -24,12 +25,13 @@ class Transactions{
 
     public function create()
     {
-       $query = 'INSERT INTO '.$this->table_name.'(transaction_id, transaction_time, product, transaction_amount, transaction_currency, transaction_method, transaction_status)VALUES(:transaction_id, :transaction_time, :product, :transaction_amount, :transaction_currency, :transaction_method, :transaction_status)';
+       $query = 'INSERT INTO '.$this->table_name.'(app_token, transaction_id, transaction_time, product, transaction_amount, transaction_currency, transaction_method, transaction_status)VALUES(:app_token, :transaction_id, :transaction_time, :product, :transaction_amount, :transaction_currency, :transaction_method, :transaction_status)';
 
        //Prepare statement
        $stmt = $this->conn->prepare($query);
 
        //clean data 
+       $this->app_token = htmlentities($this->app_token);
        $this->transaction_id = htmlentities($this->transaction_id);
        $this->transaction_time = htmlentities($this->transaction_time);
        $this->product = htmlentities($this->product);
@@ -39,6 +41,7 @@ class Transactions{
        $this->transaction_status = htmlentities($this->transaction_status);
 
        //Bind Data
+       $stmt->bindParam(':transaction_id', $this->app_token);
        $stmt->bindParam(':transaction_id', $this->transaction_id);
        $stmt->bindParam(':transaction_time', $this->transaction_time);
        $stmt->bindParam(':product', $this->product);
@@ -73,14 +76,16 @@ class Transactions{
         return $stmt;
     }
 
+    // update with transaction id 
     public function update()
     {
-        $query = "UPDATE ".$this->table_name." SET transaction_id = :transaction_id, transaction_time = :transaction_time, product = :product, transaction_amount = :transaction_amount, transaction_currency = :transaction_currency, transaction_method = :transaction_method, transaction_status = :transaction_status WHERE id = :id";
+        $query = "UPDATE ".$this->table_name." SET app_token = :app_token, transaction_time = :transaction_time, product = :product, transaction_amount = :transaction_amount, transaction_currency = :transaction_currency, transaction_method = :transaction_method, transaction_status = :transaction_status WHERE transaction_id = :transaction_id";
 
         // Prepare statement
         $stmt = $this->conn->prepare($query);
 
         //clean data 
+        $this->app_token = htmlentities($this->app_token);
         $this->transaction_id = htmlentities($this->transaction_id);
         $this->transaction_time = htmlentities($this->transaction_time);
         $this->product = htmlentities($this->product);
@@ -90,6 +95,7 @@ class Transactions{
         $this->transaction_status = htmlentities($this->transaction_status);
 
         //Bind Data
+        $stmt->bindParam(':app_token', $this->app_token);
         $stmt->bindParam(':transaction_id', $this->transaction_id);
         $stmt->bindParam(':transaction_time', $this->transaction_time);
         $stmt->bindParam(':product', $this->product);
@@ -111,6 +117,7 @@ class Transactions{
             return false;
         }
     } 
+
 
     // Delete
     public function delete() 
