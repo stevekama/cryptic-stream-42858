@@ -77,6 +77,20 @@ class Transactions{
         return $stmt;
     }
 
+    /// find transactions by transaction id 
+    public function find_by_transaction_id($transaction_id = '')
+    {
+        $query = "SELECT * FROM ".$this->table_name." WHERE transaction_id = :transaction_id LIMIT 1";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute(array('transaction_id'=>$transaction_id));
+        $count = $stmt->rowCount();
+        if($count > 0){
+            $app = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $app;
+        }else{
+            return false;
+        }
+    }
     // update with transaction id 
     public function update()
     {

@@ -69,11 +69,23 @@ $paypal_trns->transaction_date = date('YmdHis');
 if($paypal_trns->create()){
     // update transactions 
     $trns = new Transactions();
+
+    // find transaction by id 
+    $current_transaction = $trns->find_by_transaction_id($trns->transaction_id);
+
+    if(!$current_transaction){
+        $data['message'] = 'Transaction doesnot exists';
+        echo json_encode($data);
+        die();
+    }
     // populate transactions 
     $trns->app_token = $current_app['app_token'];
     $trns->transaction_id = $payment->getId();
     $trns->transaction_time = date('YmdHis');
+    $trns->product = $current_transaction['product'];
     $trns->transaction_amount = $payment->transactions[0]->amount->total;
+    $trns->transaction_currency = $current_transaction['transaction_currency'];
+    $trns->transaction_method = $current_transaction['transaction_method'];
     $trns->transaction_status = $payment->getState();
 
     // save data 
