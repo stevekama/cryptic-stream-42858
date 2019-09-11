@@ -74,4 +74,6 @@ $record_data['payment_status'] = $payment->getState();
 $record_data['invoice_id'] = $payment->transactions[0]->invoice_number;
 $record_data['transaction_date'] = date('YmdHis');
 
-echo json_encode($record_data);
+if($trns->create()){
+    echo json_encode($record_data);
+}
