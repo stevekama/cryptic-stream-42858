@@ -71,7 +71,7 @@ if($paypal_trns->create()){
     $trns = new Transactions();
 
     // find transaction by id 
-    $current_transaction = $trns->find_by_transaction_id($trns->transaction_id);
+    $current_transaction = $trns->find_by_transaction_id($payment->getId());
 
     if(!$current_transaction){
         $data['message'] = 'Transaction doesnot exists';
