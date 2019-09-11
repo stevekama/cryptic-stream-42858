@@ -41,7 +41,8 @@ class Transactions{
        $this->transaction_status = htmlentities($this->transaction_status);
 
        //Bind Data
-       $stmt->bindParam(':transaction_id', $this->app_token);
+       
+       $stmt->bindParam(':app_token', $this->app_token);
        $stmt->bindParam(':transaction_id', $this->transaction_id);
        $stmt->bindParam(':transaction_time', $this->transaction_time);
        $stmt->bindParam(':product', $this->product);
