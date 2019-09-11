@@ -23,7 +23,7 @@ class PayPalTransactions{
 
     public function create()
     {
-       $query = 'INSERT INTO '.$this->table_name.'(app_token, transaction_id, payment_amount, payment_status, invoice_id, transaction_date)VALUES(:app_token, :transaction_id, :payment_amount, :payment_amount, :payment_status, :invoice_id, :transaction_date)';
+       $query = 'INSERT INTO '.$this->table_name.'(app_token, transaction_id, payment_amount, payment_status, invoice_id, transaction_date)VALUES(:app_token, :transaction_id, :payment_amount, :payment_status, :invoice_id, :transaction_date)';
 
        //Prepare statement
        $stmt = $this->conn->prepare($query);
