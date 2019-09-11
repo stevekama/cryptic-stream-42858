@@ -13,6 +13,7 @@ class Apps{
     public $app_secret;
     public $app_token;
     public $response_url;
+    public $user_id;
     
     //connect to db 
     public function __construct()
@@ -23,7 +24,7 @@ class Apps{
 
     public function create()
     {
-       $query = 'INSERT INTO '.$this->table_name.'(app_name, app_method, app_key, app_secret, app_token, response_url)VALUES(:app_name, :app_method, :app_key, :app_secret, :app_token, :response_url)';  
+       $query = 'INSERT INTO '.$this->table_name.'(app_name, app_method, app_key, app_secret, app_token, response_url, user_id)VALUES(:app_name, :app_method, :app_key, :app_secret, :app_token, :response_url, :user_id)';  
 
        //Prepare statement
        $stmt = $this->conn->prepare($query);
@@ -35,6 +36,7 @@ class Apps{
        $this->app_secret = htmlentities($this->app_secret);
        $this->app_token = bin2hex(openssl_random_pseudo_bytes(10));
        $this->response_url = htmlentities($this->response_url);
+       $this->user_id = htmlentities($this->user_id);
        
        //Bind Data
        $stmt->bindParam(':app_name', $this->app_name);
@@ -43,6 +45,7 @@ class Apps{
        $stmt->bindParam(':app_secret', $this->app_secret);
        $stmt->bindParam(':app_token', $this->app_token);
        $stmt->bindParam(':response_url', $this->response_url);
+       $stmt->bindParam(':user_id', $this->user_id);
 
        //Execute query 
        if($stmt->execute()){

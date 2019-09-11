@@ -13,6 +13,7 @@ $app->app_method = $_POST['method'];
 $app->app_key = $_POST['key'];
 $app->app_secret = $_POST['secret'];
 $app->response_url = $_POST['url'];
+$app->user_id = $session->user_id;
 
 $data = array();
 if($app->create()){
