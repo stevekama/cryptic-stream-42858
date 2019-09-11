@@ -12,6 +12,7 @@ class Apps{
     public $app_key;
     public $app_secret;
     public $app_token;
+    public $response_url;
     
     //connect to db 
     public function __construct()
@@ -22,7 +23,7 @@ class Apps{
 
     public function create()
     {
-       $query = 'INSERT INTO '.$this->table_name.'(app_name, app_method, app_key, app_secret, app_token)VALUES(:app_name, :app_method, :app_key, :app_secret, :app_token)';  
+       $query = 'INSERT INTO '.$this->table_name.'(app_name, app_method, app_key, app_secret, app_token, response_url)VALUES(:app_name, :app_method, :app_key, :app_secret, :app_token, :response_url)';  
 
        //Prepare statement
        $stmt = $this->conn->prepare($query);
@@ -33,6 +34,7 @@ class Apps{
        $this->app_key = htmlentities($this->app_key);
        $this->app_secret = htmlentities($this->app_secret);
        $this->app_token = bin2hex(openssl_random_pseudo_bytes(10));
+       $this->response_url = htmlentities($this->response_url);
        
        //Bind Data
        $stmt->bindParam(':app_name', $this->app_name);
@@ -40,7 +42,8 @@ class Apps{
        $stmt->bindParam(':app_key', $this->app_key);
        $stmt->bindParam(':app_secret', $this->app_secret);
        $stmt->bindParam(':app_token', $this->app_token);
-       
+       $stmt->bindParam(':response_url', $this->response_url);
+
        //Execute query 
        if($stmt->execute()){
            return true;
