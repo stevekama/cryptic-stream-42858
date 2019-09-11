@@ -47,3 +47,6 @@ require_once(LIB_PATH.DS.'transactions.php');
 
 // bring in paypal 
 require_once(LIB_PATH.DS.'paypal_auth.php');
+
+//paypal transactions 
+require_once(LIB_PATH.DS.'paypal_transactions.php');

@@ -60,7 +60,7 @@ class Transactions{
        }
     }
 
-    public function find_all(Type $var = null)
+    public function find_all()
     {
         $query = "SELECT * FROM ".$this->table_name." ORDER BY id DESC";
         
