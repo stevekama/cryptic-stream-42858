@@ -59,6 +59,13 @@ try{
 //save to db    
 //initialize paypal transation class
 $trns = new PayPalTransactions();
+$trns->app_token = $current_app['app_token'];
+$trns->transaction_id = $payment->getId();
+$trns->payment_amount = $payment->transactions[0]->amount->total;
+$trns->payment_status = $payment->getState();
+$trns->invoice_id = $payment->transactions[0]->invoice_number;
+$trns->transaction_date = date('YmdHis');
+
 $record_data = array();
 $record_data['app_token'] = $current_app['app_token'];
 $record_data['transaction_id'] = $payment->getId();
@@ -66,6 +73,5 @@ $record_data['payment_amount'] = $payment->transactions[0]->amount->total;
 $record_data['payment_status'] = $payment->getState();
 $record_data['invoice_id'] = $payment->transactions[0]->invoice_number;
 $record_data['transaction_date'] = date('YmdHis');
-
 
 echo json_encode($record_data);
