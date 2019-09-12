@@ -25,14 +25,14 @@ if($count > 0){
     while($user_app = $user_apps->fetch(PDO::FETCH_ASSOC)){
 
         $apps_array = array(
-            'id'=>$id,
+            'id'=>$user_app['id'],
             'app_name'=>$user_app['app_name'],
-            'app_method'=>$app_method,
-            'app_key'=>$app_key,
-            'app_secret'=>$app_secret,
-            'app_token'=>$app_token,
-            'response_url'=>$response_url,
-            'user_id'=>$user_id
+            'app_method'=>$user_app['app_method'],
+            'app_key'=>$user_app['app_key'],
+            'app_secret'=>$user_app['app_secret'],
+            'app_token'=>$user_app['app_token'],
+            'response_url'=>$user_app['response_url'],
+            'user_id'=>$user_app['user_id']
         );
         // push data 
         array_push($data, $apps_array);
