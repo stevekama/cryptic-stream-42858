@@ -6,11 +6,11 @@ $(document).ready(function(){
             type:'POST',
             dataType:'json',
             success:function(data){
-                var dataItems = "";
-                $.each(data, function (index, itemData) {
-                    dataItems += index + ": " + itemData + "\n";
+                $.map(data, function(val, key) {
+                    alert("Value is :" + val);
+                    alert("key is :" + key);
                 });
-                console.log(dataItems);
+                
             }
         });
     }
