@@ -29,7 +29,7 @@ require_once('layouts/systems/header.php'); ?>
           <h3 class="box-title">Transactions</h3>
           <div class="box-tools pull-right">
             <button type="button" id="newAppBtn" class="btn btn-box-tool">
-              <i class="fa fa-plus"></i>
+              <i class="fa fa-plus"></i> NEW APP
             </button>
           </div>
         </div>
