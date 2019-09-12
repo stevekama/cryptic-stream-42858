@@ -60,7 +60,7 @@ $(document).ready(function(){
         event.preventDefault();
         var form_data = $(this).serialize();
         $.ajax({
-            url:base_url+'',
+            url:base_url+'api/app/register_app.php',
             type: 'POST',
             data:form_data,
             dataType:'json',
