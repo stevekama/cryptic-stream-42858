@@ -41,7 +41,6 @@ $(document).ready(function(){
                     create_div += '<td>'+opt.transaction_time+'</td>';
                     create_div += '<td>'+opt.product+'</td>';
                     create_div += '<td>'+opt.transaction_amount+'</td>';
-                    create_div += '<td>'+opt.transaction_currency+'</td>';
                     create_div += '<td>'+opt.transaction_method+'</td>';
                     create_div += '<td>'+opt.transaction_status+'</td>';
                     create_div += '</tr>';
@@ -51,4 +50,30 @@ $(document).ready(function(){
         });
     }
     fetch_transactions();
+
+    $('#newAppBtn').click(function(){
+        $('#newAppModal').modal('show');
+        $('#newAppForm')[0].reset();
+    });
+
+    $('#newAppForm').submit(function(event){
+        event.preventDefault();
+        var form_data = $(this).serialize();
+        $.ajax({
+            url:base_url+'',
+            type: 'POST',
+            data:form_data,
+            dataType:'json',
+            cache:false,
+            success:function(data){
+                if(data.message == 'success'){
+                    if(data.method == 'PAYPAL'){
+                        fetch_apps();
+                        $('#newAppModal').modal('hide');
+                        $('#newAppForm')[0].reset();
+                    }
+                }
+            }
+        });
+    });
 });
