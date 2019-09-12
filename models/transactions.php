@@ -82,7 +82,7 @@ class Transactions{
     }
 
     //find transactions by app token 
-    public function find_all_by_user_id($user_id = 0)
+    public function find_all_by_user_id($user_id = 0    )
     {
         $query = "SELECT * FROM ".$this->table_name." INNER JOIN apps ON transactions.app_token = apps.app_token WHERE transactions.user_id = :user_id";
         $stmt = $this->conn->prepare($query);
