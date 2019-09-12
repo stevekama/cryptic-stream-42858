@@ -26,7 +26,7 @@ if($count > 0){
 
         $apps_array = array(
             'id'=>$id,
-            'app_name'=>$app_name,
+            'app_name'=>$user_app['app_name'],
             'app_method'=>$app_method,
             'app_key'=>$app_key,
             'app_secret'=>$app_secret,
