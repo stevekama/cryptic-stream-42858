@@ -78,6 +78,20 @@ $(document).ready(function(){
     });
 
     $(document).on('click', '.selectApp', function(){
-        alert();
+        var app_id = $(this).attr('id');
+        $.ajax({
+            url:base_url+'api/app/fetch_single.php',
+            type:'POST',
+            data:{id:app_id},
+            dataType: 'json',
+            success:function(data){
+                $('#appName').html(data.app_name);
+                $('#appKey').html(data.app_key);
+                $('#appSecret').html(data.app_secret);
+                $('#appToken').html(data.app_token);
+                $('#appDetailsModal').modal('show');
+            }
+
+        });
     });
 });
