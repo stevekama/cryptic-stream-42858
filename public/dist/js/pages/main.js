@@ -6,9 +6,11 @@ $(document).ready(function(){
             type:'POST',
             dataType:'json',
             success:function(data){
-                $.each(data, function( key, value ) {
-                    console.log( key + ": " + value );
+                var dataItems = "";
+                $.each(data, function (index, itemData) {
+                    dataItems += index + ": " + itemData + "\n";
                 });
+                console.log(dataItems);
             }
         });
     }
