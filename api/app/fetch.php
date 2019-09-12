@@ -35,7 +35,7 @@ if($count > 0){
             'user_id'=>$user_app['user_id']
         );
         // push data 
-        array_push($data, $apps_array);
+        array_push($data['data'], $apps_array);
     }
 }else{
     $data['message'] = "empty";
