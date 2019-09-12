@@ -7,7 +7,7 @@ $(document).ready(function(){
             dataType:'json',
             success:function(data){
                 $.each(data, function( key, value ) {
-                    alert( key + ": " + value );
+                    console.log( key + ": " + value );
                 });
             }
         });
