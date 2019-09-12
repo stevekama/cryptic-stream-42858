@@ -118,27 +118,29 @@ require_once('layouts/systems/header.php'); ?>
               <h4 class="modal-title">App Details</h4>
             </div>
             <div class="modal-body">
-              <table class="table table-bordered">
-                <tr>
-                  <th>App Name</th>
-                  <td id="appName"></td>
-                </tr>
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <tr>
+                    <th>App Name</th>
+                    <td id="appName"></td>
+                  </tr>
 
-                <tr>
-                  <th>App Key</th>
-                  <td id="appKey"></td>
-                </tr>
+                  <tr>
+                    <th>App Key</th>
+                    <td id="appKey"></td>
+                  </tr>
 
-                <tr>
-                  <th>App Secret</th>
-                  <td id="appSecret"></td>
-                </tr>
+                  <tr>
+                    <th>App Secret</th>
+                    <td id="appSecret"></td>
+                  </tr>
 
-                <tr>
-                  <th style="width: 40px">Use this Token</th>
-                  <td id="appToken"></td>
-                </tr>
-              </table>
+                  <tr>
+                    <th>Use this Token</th>
+                    <td id="appToken"></td>
+                  </tr>
+                </table>
+              </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default pull-left" data-dismiss="modal">
