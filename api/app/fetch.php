@@ -9,7 +9,7 @@ include_once '../../models/initialization.php';
 // instatiate apps 
 $app = new Apps();
 
-$user_id = $session->user_id;
+$user_id = $_POST['user_id'];
 // read user apps 
 
 $user_apps = $app->find_by_user_id($user_id);
