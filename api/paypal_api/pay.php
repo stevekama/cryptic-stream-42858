@@ -65,6 +65,7 @@ $paypal_trns->payment_amount = $payment->transactions[0]->amount->total;
 $paypal_trns->payment_status = $payment->getState();
 $paypal_trns->invoice_id = $payment->transactions[0]->invoice_number;
 $paypal_trns->transaction_date = date('YmdHis');
+$paypal_trns->user_id = $current_app['user_id'];
 
 if($paypal_trns->create()){
     // update transactions 
@@ -87,6 +88,7 @@ if($paypal_trns->create()){
     $trns->transaction_currency = $current_transaction['transaction_currency'];
     $trns->transaction_method = $current_transaction['transaction_method'];
     $trns->transaction_status = $payment->getState();
+    $trns->user_id = $current_app['user_id'];
 
     // save data 
     if($trns->update()){

@@ -13,6 +13,7 @@ class PayPalTransactions{
     public $payment_status;
     public $invoice_id;
     public $transaction_date;
+    public $user_id;
 
     //connect to db 
     public function __construct()
@@ -23,7 +24,7 @@ class PayPalTransactions{
 
     public function create()
     {
-       $query = 'INSERT INTO '.$this->table_name.'(app_token, transaction_id, payment_amount, payment_status, invoice_id, transaction_date)VALUES(:app_token, :transaction_id, :payment_amount, :payment_status, :invoice_id, :transaction_date)';
+       $query = 'INSERT INTO '.$this->table_name.'(app_token, transaction_id, payment_amount, payment_status, invoice_id, transaction_date, user_id)VALUES(:app_token, :transaction_id, :payment_amount, :payment_status, :invoice_id, :transaction_date, :user_id)';
 
        //Prepare statement
        $stmt = $this->conn->prepare($query);
@@ -35,6 +36,7 @@ class PayPalTransactions{
        $this->payment_status = htmlentities($this->payment_status);
        $this->invoice_id = htmlentities($this->invoice_id);
        $this->transaction_date = htmlentities($this->transaction_date);
+       $this->user_id = htmlentities($this->user_id);
        
        //Bind Data
        $stmt->bindParam(':app_token', $this->app_token);
@@ -43,7 +45,7 @@ class PayPalTransactions{
        $stmt->bindParam(':payment_status', $this->payment_status);
        $stmt->bindParam(':invoice_id', $this->invoice_id);
        $stmt->bindParam(':transaction_date', $this->transaction_date);
-
+       $stmt->bindParam(':user_id', $this->user_id);
        //Execute query 
        if($stmt->execute()){
            return true;
@@ -56,6 +58,8 @@ class PayPalTransactions{
             return false;
        }
     }
+
+    // find transactions by app token
 
     public function find_all()
     {

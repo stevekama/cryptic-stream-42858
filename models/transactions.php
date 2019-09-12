@@ -5,6 +5,7 @@ class Transactions{
     //Decalare table name 
     private $conn;
     private $table_name = 'transactions';
+    
     //Declare class properties 
     public $id;
     public $app_token;
@@ -15,6 +16,7 @@ class Transactions{
     public $transaction_currency;
     public $transaction_method;
     public $transaction_status;
+    public $user_id;
 
     //connect to db 
     public function __construct()
@@ -25,7 +27,7 @@ class Transactions{
 
     public function create()
     {
-       $query = 'INSERT INTO '.$this->table_name.'(app_token, transaction_id, transaction_time, product, transaction_amount, transaction_currency, transaction_method, transaction_status)VALUES(:app_token, :transaction_id, :transaction_time, :product, :transaction_amount, :transaction_currency, :transaction_method, :transaction_status)';
+       $query = 'INSERT INTO '.$this->table_name.'(app_token, transaction_id, transaction_time, product, transaction_amount, transaction_currency, transaction_method, transaction_status, user_id)VALUES(:app_token, :transaction_id, :transaction_time, :product, :transaction_amount, :transaction_currency, :transaction_method, :transaction_status, :user_id)';
 
        //Prepare statement
        $stmt = $this->conn->prepare($query);
@@ -39,7 +41,8 @@ class Transactions{
        $this->transaction_currency = htmlentities($this->transaction_currency);
        $this->transaction_method = htmlentities($this->transaction_method);
        $this->transaction_status = htmlentities($this->transaction_status);
-
+       $this->transaction_status = htmlentities($this->transaction_status);
+       $this->user_id = htmlentities($this->user_id);
        //Bind Data
        
        $stmt->bindParam(':app_token', $this->app_token);
@@ -50,7 +53,8 @@ class Transactions{
        $stmt->bindParam(':transaction_currency', $this->transaction_currency);
        $stmt->bindParam(':transaction_method', $this->transaction_method);
        $stmt->bindParam(':transaction_status', $this->transaction_status);
-       
+       $stmt->bindParam(':user_id', $this->user_id);
+
        //Execute query 
        if($stmt->execute()){
            return true;
@@ -77,6 +81,13 @@ class Transactions{
         return $stmt;
     }
 
+    //find transactions by app token 
+    public function find_all_by_app_token($app_token = "", $user_id = "")
+    {
+        # code...
+    }
+    
+
     /// find transactions by transaction id 
     public function find_by_transaction_id($transaction_id = '')
     {
@@ -94,7 +105,7 @@ class Transactions{
     // update with transaction id 
     public function update()
     {
-        $query = "UPDATE ".$this->table_name." SET app_token = :app_token, transaction_time = :transaction_time, product = :product, transaction_amount = :transaction_amount, transaction_currency = :transaction_currency, transaction_method = :transaction_method, transaction_status = :transaction_status WHERE transaction_id = :transaction_id";
+        $query = "UPDATE ".$this->table_name." SET app_token = :app_token, transaction_time = :transaction_time, product = :product, transaction_amount = :transaction_amount, transaction_currency = :transaction_currency, transaction_method = :transaction_method, transaction_status = :transaction_status, user_id=:user_id WHERE transaction_id = :transaction_id";
 
         // Prepare statement
         $stmt = $this->conn->prepare($query);
@@ -108,6 +119,7 @@ class Transactions{
         $this->transaction_currency = htmlentities($this->transaction_currency);
         $this->transaction_method = htmlentities($this->transaction_method);
         $this->transaction_status = htmlentities($this->transaction_status);
+        $this->user_id = htmlentities($this->user_id);
 
         //Bind Data
         $stmt->bindParam(':app_token', $this->app_token);
@@ -118,6 +130,7 @@ class Transactions{
         $stmt->bindParam(':transaction_currency', $this->transaction_currency);
         $stmt->bindParam(':transaction_method', $this->transaction_method);
         $stmt->bindParam(':transaction_status', $this->transaction_status);
+        $stmt->bindParam(':user_id', $this->user_id);
 
          // Execute query
         if($stmt->execute()) {
@@ -132,7 +145,6 @@ class Transactions{
             return false;
         }
     } 
-
 
     // Delete
     public function delete() 

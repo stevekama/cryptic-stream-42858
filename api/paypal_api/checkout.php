@@ -104,6 +104,7 @@ try {
     $trns->transaction_currency = $currency;
     $trns->transaction_method = 'PAYPAL';
     $trns->transaction_status = 'NEW';
+    $trns->user_id = $current_app['user_id'];
 
     //save transactions 
     $trns->create();
