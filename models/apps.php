@@ -81,4 +81,18 @@ class Apps{
         $stmt->execute(array('user_id'=>$user_id));
         return $stmt;   
     }
+
+    public function find_by_id()
+    {
+        $query = "SELECT * FROM ".$this->table_name." WHERE id = :id LIMIT 1";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute(array('id'=>$this->id));
+        $count = $stmt->rowCount();
+        if($count > 0){
+            $app = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $app;
+        }else{
+            return false;
+        }
+    }
 }

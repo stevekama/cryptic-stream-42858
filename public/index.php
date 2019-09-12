@@ -28,7 +28,7 @@ require_once('layouts/systems/header.php'); ?>
         <div class="box-header with-border">
           <h3 class="box-title">Transactions</h3>
           <div class="box-tools pull-right">
-            <button type="button" id="newAppBtn" class="btn btn-box-tool">
+            <button type="button" id="newAppBtn" class="btn btn-info btn-sm">
               <i class="fa fa-plus"></i> NEW APP
             </button>
           </div>
@@ -106,7 +106,52 @@ require_once('layouts/systems/header.php'); ?>
       </div>
       <!-- /.modal-dialog -->
     </div>
-        <!-- /.modal -->
+    <!-- /.modal -->
+
+    <div class="modal fade" id="appDetailsModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form id="newAppForm">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">App Details</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table table-bordered">
+                <tr>
+                  <th>App Name</th>
+                  <td id="appName"></td>
+                </tr>
+
+                <tr>
+                  <th>App Key</th>
+                  <td id="appKey"></td>
+                </tr>
+
+                <tr>
+                  <th>App Secret</th>
+                  <td id="appSecret"></td>
+                </tr>
+
+                <tr>
+                  <th style="width: 40px">Use this Token</th>
+                  <td id="appToken"></td>
+                </tr>
+              </table>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default pull-left" data-dismiss="modal">
+                Close
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
 </section>
 <!-- /.content -->
 <script src="<?php echo base_url(); ?>/public/dist/js/pages/main.js"></script>

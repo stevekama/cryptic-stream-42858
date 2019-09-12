@@ -17,7 +17,7 @@ $(document).ready(function(){
                     create_div += '<div class="icon">';
                     create_div += '<i class="ion ion-bag"></i>';
                     create_div += '</div>';
-                    create_div += '<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>';
+                    create_div += '<a href="#" id="'+opt.id+'" class="small-box-footer selectApp">More info <i class="fa fa-arrow-circle-right"></i></a>';
                     create_div += '</div>';
                     create_div += '</div>';
                 });
@@ -75,5 +75,9 @@ $(document).ready(function(){
                 }
             }
         });
+    });
+
+    $(document).on('.selectApp', function(){
+        alert();
     });
 });
