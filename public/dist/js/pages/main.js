@@ -26,4 +26,29 @@ $(document).ready(function(){
         });
     }
     fetch_apps();
+
+    function fetch_transactions(){
+        $.ajax({
+            url: base_url+'api/transactions/read.php',
+            type:'POST',
+            dataType:'json',
+            success:function(data){
+                var create_div = ""; 
+                data.map(function(opt){
+                    create_div += '<tr>';
+                    create_div += '<td>'+opt.app_name+'</td>';
+                    create_div += '<td>'+opt.transaction_id+'</td>';
+                    create_div += '<td>'+opt.transaction_time+'</td>';
+                    create_div += '<td>'+opt.product+'</td>';
+                    create_div += '<td>'+opt.transaction_amount+'</td>';
+                    create_div += '<td>'+opt.transaction_currency+'</td>';
+                    create_div += '<td>'+opt.transaction_method+'</td>';
+                    create_div += '<td>'+opt.transaction_status+'</td>';
+                    create_div += '</tr>';
+                });
+                $('#loadTransactions').append(create_div);
+            }
+        });
+    }
+    fetch_transactions();
 });

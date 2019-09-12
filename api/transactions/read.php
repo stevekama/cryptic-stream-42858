@@ -7,7 +7,7 @@ include_once '../../models/initialization.php';
 
 $transactions = new Transactions();
 
-$user_id = $_POST['user_id'];
+$user_id = $session->user_id;
 // Read Transactions 
 $results = $transactions->find_all_by_user_id($user_id);
 
