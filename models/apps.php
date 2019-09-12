@@ -74,4 +74,11 @@ class Apps{
         }
     }
 
+    public function find_by_user_id($user_id = 0)
+    {
+        $query = "SELECT * FROM ".$this->table_name." WHERE user_id = :user_id ORDER BY id DESC";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute(array('user_id'=>$user_id));
+        return $stmt;   
+    }
 }
