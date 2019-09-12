@@ -7,16 +7,18 @@ include_once '../../models/initialization.php';
 
 $transactions = new Transactions();
 
+$user_id = $_POST['user_id'];
 // Read Transactions 
-$results = $transactions->find_all();
+$results = $transactions->find_all_by_user_id($user_id);
 
-// num 
-$num = $results->rowCount();
+// count transactions
+$count = $results->rowCount();
 
-if($num > 0){
-     // Transactions array
-    $transactions_arr = array();
+$data =array();
+if($count > 0){
     $transactions_arr['data'] = array();
+
+    // fetch transactions
     while($result = $results->fetch(PDO::FETCH_ASSOC)){
         extract($result);
 
@@ -31,12 +33,11 @@ if($num > 0){
         );
 
         // Push to "data"
-        array_push($transactions_arr, $transactions_item);
+        array_push($data, $transactions_item);
 
     }
-    // Turn to JSON & output
-    echo json_encode($transactions_arr);
 }else{
     // No Posts
-    echo json_encode(array('message' => 'No Transactions Found'));
+    $data['message'] = 'No Transactions Found';
 }
+echo json_encode($data);
