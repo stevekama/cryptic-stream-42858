@@ -77,7 +77,7 @@ $(document).ready(function(){
         });
     });
 
-    $(document).on('.selectApp', function(){
+    $(document).on('click', '.selectApp', function(){
         alert();
     });
 });
