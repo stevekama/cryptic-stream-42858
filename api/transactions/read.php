@@ -26,6 +26,7 @@ if($count > 0){
             'id'                   => $id,
             'app'                  => $app_name,
             'transaction_id'       => $transaction_id,
+            'transaction_time'     => $transaction_time,
             'product'              => $product,
             'transaction_amount'   => $transaction_amount,
             'transaction_currency' => $transaction_currency,

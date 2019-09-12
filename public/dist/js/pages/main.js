@@ -36,7 +36,7 @@ $(document).ready(function(){
                 var create_div = ""; 
                 data.map(function(opt){
                     create_div += '<tr>';
-                    create_div += '<td>'+opt.app_name+'</td>';
+                    create_div += '<td>'+opt.app+'</td>';
                     create_div += '<td>'+opt.transaction_id+'</td>';
                     create_div += '<td>'+opt.transaction_time+'</td>';
                     create_div += '<td>'+opt.product+'</td>';
