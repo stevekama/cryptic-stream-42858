@@ -20,7 +20,7 @@ $(document).ready(function(){
                     create_div += '<div class="small-box bg-green">';
                     create_div += '<div class="inner">';
                     create_div += '<h3>&nbsp;</h3>';
-                    create_div += '<p>Transactions</p>';
+                    create_div += '<p>'+data.app_name+'</p>';
                     create_div += '</div>';
                     create_div += '<div class="icon">';
                     create_div += '<i class="ion ion-bag"></i>';
