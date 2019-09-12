@@ -20,6 +20,9 @@ $(document).ready(function(){
                     create_div += '<div class="small-box bg-green">';
                     create_div += '<div class="inner">';
                     create_div += '<h3>&nbsp;</h3>';
+                    for (var j = 0; j < app_data.length; j++) {
+                        console.log(data[i][col[j]]); 
+                    }
                     create_div += '<p>'+data.app_name+'</p>';
                     create_div += '</div>';
                     create_div += '<div class="icon">';
