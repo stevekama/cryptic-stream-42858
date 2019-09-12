@@ -24,6 +24,7 @@ if($count > 0){
 
         $transactions_item = array(
             'id'                   => $id,
+            'app'                  => $apps,
             'transaction_id'       => $transaction_id,
             'product'              => $product,
             'transaction_amount'   => $transaction_amount,
