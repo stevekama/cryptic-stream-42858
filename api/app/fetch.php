@@ -20,7 +20,7 @@ $count = $user_apps->rowCount();
 // check if the user has apps
 $data = array();
 if($count > 0){
-    $data['data'] = array();
+    // $data['data'] = array();
     // fetch data
     while($user_app = $user_apps->fetch(PDO::FETCH_ASSOC)){
 
@@ -35,7 +35,7 @@ if($count > 0){
             'user_id'=>$user_app['user_id']
         );
         // push data 
-        array_push($data['data'], $apps_array);
+        array_push($data, $apps_array);
     }
 }else{
     $data['message'] = "empty";
