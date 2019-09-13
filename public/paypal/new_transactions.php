@@ -42,7 +42,9 @@ require_once('../layouts/systems/header.php'); ?>
                             <label for="product">Quantity: </label>
                             <input type="text" name="qty" class="form-control" id="quantity" placeholder="Enter quantity">
                         </div>
-                        <input type="hidden" name="token" value="d1e3c87869f97d3d011c" class="form-control" />
+                        <div class="form-group">
+                            <input type="text" name="token" value="" class="form-control" />
+                        </div>
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
