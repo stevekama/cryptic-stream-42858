@@ -35,16 +35,16 @@ if($_POST['search']['value']){
 }
 
 // order
-if(isset($_POST['order'])){
-    $sql .= " ORDER BY '{$columns[$_POST['order']['0']['column']]}' '{$_POST['order']['0']['dir']}' ";
-}else{
-    $sql .= " ORDER BY paypal_transactions.id DESC ";
-}
+// if(isset($_POST['order'])){
+//     $sql .= " ORDER BY '{$columns[$_POST['order']['0']['column']]}' '{$_POST['order']['0']['dir']}' ";
+// }else{
+//     $sql .= " ORDER BY paypal_transactions.id DESC ";
+// }
 
-// limit 
-if($_POST['length'] != -1){
-    $sql .= "LIMIT {$_POST['start']}, {$_POST['length']}";
-}
+// // limit 
+// if($_POST['length'] != -1){
+//     $sql .= "LIMIT {$_POST['start']}, {$_POST['length']}";
+// }
 
 $stmt = $connection->prepare($sql);
 $results = $stmt->execute();

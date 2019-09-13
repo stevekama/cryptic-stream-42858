@@ -75,7 +75,7 @@ $details->callback_url = $callBackUrl;
 $details->timestamp =  date('YmdHis');
 $return_data = array();
 if($details->create()){
-    $return_data['message'] = 'success';
+    $retrun_data['message'] = 'success';
 }else{
     $return_data['message'] = 'failed';
 }

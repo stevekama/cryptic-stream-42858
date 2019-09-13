@@ -69,10 +69,5 @@ curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($curl, CURLOPT_POST, true);
 curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
 $curl_response = curl_exec($curl);
-$data = json_decode($curl_response);
-if(!$data->{'ResponseDescription'} == 'Accept the service request successfully.'){
-    echo $curl_response;
-    die();
-}
-echo json_encode(array('message'=>'success'));
+echo json_encode($curl_response);
 ?>
