@@ -19,25 +19,6 @@ require_once('../layouts/systems/header.php'); ?>
         <!-- Left col -->
         <div class="col-md-12">
             <!-- SEARCH: By App name -->
-            <div class="box">
-                <!-- /.box-header -->
-                <form id="searchAppForm">
-                    <div class="box-body">  
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <input type="text" class="form-control" placeholder=".col-xs-3">
-                            </div>
-                            <div class="col-xs-4">
-                                <input type="text" class="form-control" placeholder=".col-xs-4">
-                            </div>
-                            <div class="col-xs-5">
-                                <input type="text" class="form-control" placeholder=".col-xs-5">
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.box-body -->
-                </form>
-            </div>
             <!-- /.box -->
 
             <!-- TABLE: LATEST ORDERS -->
