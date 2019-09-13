@@ -60,7 +60,7 @@ class PayPalTransactions{
     }
 
     // find transactions by user id 
-    public function find_by_user_id($user_id = 0)
+    public function find_by_user_id()
     {
         $query = "SELECT * FROM ".$this->table_name." WHERE user_id = :user_id";
 
@@ -68,7 +68,7 @@ class PayPalTransactions{
         $stmt = $this->conn->prepare($query);
 
         //execute statement
-        $stmt->execute(array('user_id'=>$user_id));
+        $stmt->execute(array('user_id'=>$this->user_id));
         
         //return statement 
         return $stmt;

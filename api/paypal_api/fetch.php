@@ -13,7 +13,7 @@ $columns = array('app_name', 'transaction_id', 'payments_amount', 'payment_statu
 //initiate transactions 
 $trns = new PayPalTransactions();
 
-$user_id = $_POST['user_id'];
+$trns->user_id = $_POST['user_id'];
 
 // filter values 
 $count_trns = $trns->find_by_user_id($user_id);
