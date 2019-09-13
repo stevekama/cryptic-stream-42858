@@ -62,7 +62,7 @@ class PayPalTransactions{
     // find transactions by user id 
     public function find_by_user_id()
     {
-        $query = "SELECT * FROM ".$this->table_name." WHERE user_id = :user_id";
+        $query = "SELECT * FROM ".$this->table_name." INNER JOIN apps ON paypal_transactions.app_token = apps.app_token WHERE paypal_transactions.user_id = :user_id ORDER BY paypal_transactions.id DESC";
 
         // prepare statement
         $stmt = $this->conn->prepare($query);
