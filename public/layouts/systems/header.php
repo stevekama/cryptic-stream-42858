@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>public/components/font-awesome/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>public/components/Ionicons/css/ionicons.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="<?php echo base_url(); ?>public/components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <!-- jvectormap -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>public/components/jvectormap/jquery-jvectormap.css">
     <!-- Theme style -->
@@ -34,6 +36,9 @@
     <script src="<?php echo base_url(); ?>public/components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
     <script src="<?php echo base_url(); ?>public/components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- DataTables -->
+    <script src="<?php echo base_url(); ?>public/components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url(); ?>public/components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <!-- FastClick -->
     <script src="<?php echo base_url(); ?>public/components/fastclick/lib/fastclick.js"></script>
     <!-- AdminLTE App -->
