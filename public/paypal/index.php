@@ -48,7 +48,7 @@ require_once('../layouts/systems/header.php'); ?>
                 <!-- /.box-header -->
                 <div class="box-body">  
                     <div class="table-responsive">
-                        <table class="table table-bordered table-hover">
+                        <table id="payPalTrns" class="table table-bordered table-hover">
                             <thead>
                             <tr>
                                 <th>App Name</th>
