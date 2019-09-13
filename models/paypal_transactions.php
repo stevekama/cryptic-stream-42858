@@ -74,18 +74,18 @@ class PayPalTransactions{
         return $stmt;
     }
 
-    // public function find_all()
-    // {
-    //     $query = "SELECT * FROM ".$this->table_name." ORDER BY id DESC";
+    public function find_all()
+    {
+        $query = "SELECT * FROM ".$this->table_name." ORDER BY id DESC";
         
-    //     // Prepare statement
-    //     $stmt = $this->conn->prepare($query);
+        // Prepare statement
+        $stmt = $this->conn->prepare($query);
 
-    //     // Execute query
-    //     $stmt->execute();
+        // Execute query
+        $stmt->execute();
 
-    //     return $stmt;
-    // }
+        return $stmt;
+    }
     
     // Delete
     public function delete() 
