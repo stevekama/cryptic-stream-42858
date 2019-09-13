@@ -48,3 +48,21 @@ if($_POST['length'] != -1){
 
 $stmt = $connection->prepare($sql);
 $results = $stmt->execute();
+
+$data = array();
+while($row = $results->fetch(PDO::FETCH_ASSOC)){
+    $sub_array = array();
+    $sub_array[] = $row["app_name"];
+    $sub_array[] = $row["transaction_id"];
+    $sub_array[] = $row["payments_amount"];
+    $sub_array[] = $row["payments_status"];
+    $sub_array[] = $row["transaction_date"];
+    $data[] = $sub_array;
+}
+$output = array(
+    "draw"            => intval($_POST["draw"]),
+    "recordsTotal"    => intval(count($count_trns)),
+    "recordsFiltered" => intval($totalFilter),
+    "data" => $data
+);
+echo json_encode($output);
