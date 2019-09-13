@@ -21,7 +21,7 @@ $data = array();
 if($num_trns > 0){
     
     while($paypal_transaction = $paypal_transactions->fetch(PDO::FETCH_ASSOC)){
-        extract($paypal_transactions);
+        extract($paypal_transaction);
         $transactions_item = array(
             'app_name'         => $app_name,
             'transaction_id'   => $transaction_id,
