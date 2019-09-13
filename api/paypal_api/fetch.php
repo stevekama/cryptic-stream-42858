@@ -17,3 +17,7 @@ $trns->user_id = $_POST['user_id'];
 
 // filter values 
 $count_trns = $trns->find_by_user_id($user_id);
+$totalFilter = $count_trns->rowCount();
+
+// create connection 
+$connection = $database->connect();
