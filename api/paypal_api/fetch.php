@@ -9,3 +9,11 @@ include_once '../../models/initialization.php';
 
 // create connection 
 $connection = $database->connect();
+
+//find columns
+$columns = array('app_name', 'transaction_id', 'payments_amount', 'payment_status', 'transaction_date');
+
+// filter values 
+$user_id = $session->user_id;
+
+echo $user_id;
