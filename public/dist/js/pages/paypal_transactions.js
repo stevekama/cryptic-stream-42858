@@ -13,8 +13,9 @@ $(document).ready(function(){
                     create_div += '<td>'+opt.payment_amount+'</td>';
                     create_div += '<td>'+opt.payment_status+'</td>';
                     create_div += '<td>'+opt.transaction_date+'</td>';
+                    create_div += '</tr>';
                 });
-                $('#loadTransactions').append(create_div);
+                $('#paypalTransactionsData').append(create_div);
             }
         });
     }
