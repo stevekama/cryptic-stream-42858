@@ -42,9 +42,9 @@ if(isset($_POST['order'])){
 }
 
 // // limit 
-// if($_POST['length'] != -1){
-//     $sql .= "LIMIT {$_POST['start']}, {$_POST['length']}";
-// }
+if($_POST['length'] != -1){
+    $sql .= "LIMIT {$_POST['start']}, {$_POST['length']}";
+}
 
 $stmt = $connection->prepare($sql);
 $results = $stmt->execute();
