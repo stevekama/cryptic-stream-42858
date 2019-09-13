@@ -20,7 +20,7 @@ $trns->user_id = $session->user_id;
 
 // filter values 
 $count_trns = $trns->find_by_user_id();
-$totalFilter = $count_trns->rowCount();
+//$totalFilter = $count_trns->rowCount();
 
 // Search 
 // $sql = "SELECT * FROM paypal_transactions INNER JOIN apps ON paypal_transactions.app_token = apps.app_token WHERE paypal_transactions.user_id = '{$user_id}' ";
