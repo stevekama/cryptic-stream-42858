@@ -62,7 +62,7 @@ class PayPalTransactions{
     // find transactions by user id 
     public function find_by_user_id($user_id = 0)
     {
-        $query = "SELECT * FROM ".$this->table_name."WHERE user_id = :user_id ORDER BY id DESC";
+        $query = "SELECT * FROM ".$this->table_name." WHERE user_id = :user_id";
 
         // prepare statement
         $stmt = $this->conn->prepare($query);
@@ -74,18 +74,18 @@ class PayPalTransactions{
         return $stmt;
     }
 
-    public function find_all()
-    {
-        $query = "SELECT * FROM ".$this->table_name." ORDER BY id DESC";
+    // public function find_all()
+    // {
+    //     $query = "SELECT * FROM ".$this->table_name." ORDER BY id DESC";
         
-        // Prepare statement
-        $stmt = $this->conn->prepare($query);
+    //     // Prepare statement
+    //     $stmt = $this->conn->prepare($query);
 
-        // Execute query
-        $stmt->execute();
+    //     // Execute query
+    //     $stmt->execute();
 
-        return $stmt;
-    }
+    //     return $stmt;
+    // }
     
     // Delete
     public function delete() 
