@@ -13,7 +13,7 @@ $connection = $database->connect();
 $columns = array('app_name', 'transaction_id', 'payments_amount', 'payment_status', 'transaction_date');
 
 // filter values 
-$user_id = $_POST['user_id'];
+$user_id = $session->user_id;
 
 //initiate transactions 
 $transactions = new PayPalTransactions();
