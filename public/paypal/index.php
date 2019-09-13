@@ -48,7 +48,7 @@ require_once('../layouts/systems/header.php'); ?>
                 <!-- /.box-header -->
                 <div class="box-body">  
                     <div class="table-responsive">
-                        <table id="paypalTransactionsData" class="table table-bordered table-hover">
+                        <table class="table table-bordered table-hover">
                             <thead>
                             <tr>
                                 <th>App Name</th>
@@ -58,8 +58,7 @@ require_once('../layouts/systems/header.php'); ?>
                                 <th>Transaction Date</th>
                             </tr>
                             </thead>
-                            <tbody>
-
+                            <tbody id="paypalTransactionsData">
                             </tbody>
                             <tfoot>
                             <tr>

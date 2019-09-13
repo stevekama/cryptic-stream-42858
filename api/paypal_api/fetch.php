@@ -10,7 +10,7 @@ include_once '../../models/initialization.php';
 //initiate transactions 
 $trns = new PayPalTransactions();
 
-$trns->user_id = $_POST['user_id'];
+$trns->user_id = $session->user_id;
 
 // filter values 
 $paypal_transactions = $trns->find_by_user_id($user_id);
