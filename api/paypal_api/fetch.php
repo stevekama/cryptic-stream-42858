@@ -48,6 +48,7 @@ $totalFilter = $count_trns->rowCount();
 
 // $stmt = $connection->prepare($sql);
 // $results = $stmt->execute();
+
 // $data = array();
 // while($row = $results->fetch(PDO::FETCH_ASSOC)){
 //     $sub_array = array();
