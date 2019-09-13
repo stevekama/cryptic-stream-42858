@@ -60,11 +60,17 @@ class PayPalTransactions{
     }
 
     // find transactions by user id 
-    public function find_by_user_id()
+    public function find_by_user_id($user_id = 0)
     {
         $query = "SELECT * FROM ".$this->table_name."WHERE user_id = :user_id ORDER BY id DESC";
+
+        // prepare statement
         $stmt = $this->conn->prepare($query);
-        $stmt->execute(array('user_id'=>$this->user_id));
+
+        //execute statement
+        $stmt->execute(array('user_id'=>$user_id));
+        
+        //return statement 
         return $stmt;
     }
 
