@@ -5,6 +5,7 @@ class MPESATransactions{
     //Decalare table name 
     private $conn;
     private $table_name = 'mpesa_transactions';
+    
     //Declare class properties 
     public $id;
     public $transaction_type;
