@@ -11,8 +11,12 @@ class Auth{
         $this->consumer_secret = $secret;
     }
 
-    public function Access_Token($headers, $url)
+    public function Access_Token()
     {
+        $headers = ['Content-Type:application/json; charset=utf8'];
+
+        $url = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials';
+        
         $curl =  curl_init($url);
         curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
