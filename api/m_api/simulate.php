@@ -18,13 +18,4 @@ $app = new Auth($consumerKey, $consumerSecret);
 
 $access_token = $app->Access_Token();
 
-$shortCode = '600589'; // provide the short code obtained from your test credentials
-
-// 2. provide confirmation url and validation urls 
-$confirmationUrl = base_url().'api/m_api/confirmation.php'; // path to your confirmation url. can be IP address that is publicly accessible or a url
-$validationUrl = base_url().'api/m_api/validation.php'; // path to your validation url. can be IP address that is publicly accessible or a url
-
-// 3. call register url class
-$register_url = $app->register_url($access_token, $shortCode, $confirmationUrl, $validationUrl);
-
-echo $register_url;
+$url = 'https://sandbox.safaricom.co.ke/mpesa/c2b/v1/simulate';
