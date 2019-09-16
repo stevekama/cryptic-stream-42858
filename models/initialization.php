@@ -50,3 +50,6 @@ require_once(LIB_PATH.DS.'paypal_auth.php');
 
 //paypal transactions 
 require_once(LIB_PATH.DS.'paypal_transactions.php');
+
+//test table
+require_once(LIB_PATH.DS.'test_table.php');
