@@ -15,19 +15,20 @@ $jsonMpesaResponse = json_decode($mpesaResponse, true);
 // Save Data In DB
 // 1.initialize mpesa class
 $trns = new MPESATransactions();
-$trns->transaction_type   = '';
-$trns->transaction_id     = '';
-$trns->transaction_time   = '';
-$trns->transaction_amount = '';
-$trns->business_shortcode = '';
-$trns->bill_refnumber     = '';
-$trns->invoice_number     = '';
-$trns->original_balance   = '';
-$trns->third_party_transaction_id = '';
-$trns->msisdn             = '';
-$trns->first_name         = '';
-$trns->middle_name        = '';
-$trns->last_name          = '';
+
+$trns->transaction_type   = $jsonMpesaResponse['TransactionType'];
+$trns->transaction_id     = $jsonMpesaResponse['TransID'];
+$trns->transaction_time   = $jsonMpesaResponse['TransTime'];
+$trns->transaction_amount = $jsonMpesaResponse['TransAmount'];
+$trns->business_shortcode = $jsonMpesaResponse['BusinessShortCode'];
+$trns->bill_refnumber     = $jsonMpesaResponse['BillRefNumber'];
+$trns->invoice_number     = $jsonMpesaResponse['InvoiceNumber'];
+$trns->original_balance   = $jsonMpesaResponse['OrgAccountBalance'];
+$trns->third_party_transaction_id = $jsonMpesaResponse['ThirdPartyTransID'];
+$trns->msisdn             = $jsonMpesaResponse['MSISDN'];
+$trns->first_name         = $jsonMpesaResponse['FirstName'];
+$trns->middle_name        = $jsonMpesaResponse['MiddleName'];
+$trns->last_name          = $jsonMpesaResponse['LastName'];
 
 if($trns->create()){
     echo $response;
