@@ -16,15 +16,14 @@ $consumerSecret = $_POST['secret']; // Fill with your app Secret
 // initialize mpesa auth class
 $app = new Auth($consumerKey, $consumerSecret);
 
-// simulate url
+// 2. simulate data
 $url = 'https://sandbox.safaricom.co.ke/mpesa/c2b/v1/simulate';
 
 $access_token = $app->Access_Token();
-
-$ShortCode  = ''; // Shortcode. Same as the one on register_url.php
-$amount     = ''; // amount the client/we are paying to the paybill
-$msisdn     = ''; // phone number paying 
-$billRef    = ''; // This is anything that helps identify the specific transaction. Can be a clients ID, Account Number, Invoice amount, cart no.. etc
+$ShortCode  = '600589'; // Shortcode. Same as the one on register_url.php
+$amount     = '100'; // amount the client/we are paying to the paybill
+$msisdn     = '254708374149'; // phone number paying 
+$billRef    = 'inv95'; // This is anything that helps identify the specific transaction. Can be a clients ID, Account Number, Invoice amount, cart no.. etc
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_URL, $url);
 curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer '.$access_token));
