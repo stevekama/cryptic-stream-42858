@@ -30,7 +30,5 @@ $trns->middle_name        = '';
 $trns->last_name          = '';
 
 if($trns->create()){
-    json_encode(array('message'=>'success'));
+    echo $response;
 }
-
-echo $response;
