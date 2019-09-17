@@ -43,7 +43,7 @@ curl_setopt($curl, CURLOPT_URL, $url);
 curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer '.$access_token)); //setting custom header
 
 $curl_post_data = array(
-  //Fill in the request parameters with valid values
+  //Fill in the request parameters with valid  values
   'BusinessShortCode' => $BusinessShortCode,
   'Password' => $Password,
   'Timestamp' => $Timestamp,

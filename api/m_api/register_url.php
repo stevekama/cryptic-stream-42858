@@ -27,4 +27,7 @@ $validationUrl = base_url().'api/m_api/validation.php'; // path to your validati
 // 3. call register url class
 $register_url = $app->register_url($access_token, $shortCode, $confirmationUrl, $validationUrl);
 
-echo $register_url;
+// decode data
+$data = json_decode($register_url, true);
+
+var_dump($data);
