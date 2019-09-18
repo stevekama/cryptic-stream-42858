@@ -76,7 +76,7 @@ $(document).ready(function(){
                     if(data.method == 'MPESA'){
                         $('#newAppModal').modal('hide');
                         $('#newAppForm')[0].reset();
-                        $('#mpesa_app_token').val(data.token);
+                        $('#mpesaAppToken').val('Hello');
                         $('#mpesaDetailsModal').modal('show');
                         $('#mpesaDetailsForm')[0].reset();
                     }
