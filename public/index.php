@@ -135,7 +135,7 @@ require_once('layouts/systems/header.php'); ?>
                 <input type="text" class="form-control" id="lipanampesapasskey" name="lipanampesapasskey" placeholder="Please enter Lipa na mpesa Passkey provided" required autocomplete="off">
               </div>
               <div class="form-group">
-                <input type="text" name="app_token" id="mpesaAppToken" class="form-control">
+                <input type="hidden" name="app_token" id="mpesaAppToken" class="form-control">
               </div>
             </div>
             <div class="modal-footer">
