@@ -30,4 +30,4 @@ $register_url = $app->register_url($access_token, $shortCode, $confirmationUrl, 
 // decode data
 $data = json_decode($register_url, true);
 
-var_dump($data);
+echo $data['ResponseDescription'];
