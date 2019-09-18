@@ -62,6 +62,8 @@ require_once('layouts/systems/header.php'); ?>
       <!-- /.col -->
     </div>
     <!-- /.row -->
+
+    <!--create new App -->
     <div class="modal fade" id="newAppModal">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -81,6 +83,7 @@ require_once('layouts/systems/header.php'); ?>
                 <select name="method" id="app_method" class="form-control" required>
                   <option disabled selected>Choose method</option>
                   <option value="PAYPAL">PAYPAL</option>
+                  <option value="MPESA">MPESA</option>
                 </select>
               </div>
               <div class="form-group">
@@ -107,6 +110,41 @@ require_once('layouts/systems/header.php'); ?>
       <!-- /.modal-dialog -->
     </div>
     <!-- /.modal -->
+
+    <!--mpesa details-->
+    <div class="modal fade" id="mpesaDetailsModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form id="mpesaDetailsForm">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">MPESA Details</h4>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="shortcode">App Short Code:</label>
+                <input type="text" class="form-control" id="shortcode" name="shortcode" placeholder="Please enter shortcode provided by mpesa" required>
+              </div>
+              <div class="form-group">
+                <label for="shortcode">Lipa na Mpesa code:</label>
+                <input type="text" class="form-control" id="lipanampesacode" name="lipanampesacode" placeholder="Please enter Lipa na mpesa code provided" required>
+              </div>
+              <div class="form-group">
+                <label for="shortcode">Lipa na Mpesa Passkey:</label>
+                <input type="text" class="form-control" id="lipanampesapasskey" name="lipanampesapasskey" placeholder="Please enter Lipa na mpesa Passkey provided" required>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </form>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
 
     <div class="modal fade" id="appDetailsModal">
       <div class="modal-dialog">

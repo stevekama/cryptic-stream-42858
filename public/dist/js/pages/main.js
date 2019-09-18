@@ -56,6 +56,7 @@ $(document).ready(function(){
         $('#newAppForm')[0].reset();
     });
 
+    // submit app
     $('#newAppForm').submit(function(event){
         event.preventDefault();
         var form_data = $(this).serialize();
@@ -72,11 +73,40 @@ $(document).ready(function(){
                         $('#newAppModal').modal('hide');
                         $('#newAppForm')[0].reset();
                     }
+                    if(data.method == 'MPESA'){
+                        $('#newAppModal').modal('hide');
+                        $('#newAppForm')[0].reset();
+                        $('#mpesaDetailsModal').modal('show');
+                        $('#mpesaDetailsForm')[0].reset();
+                    }
                 }
             }
         });
     });
 
+    // submit mpesa details 
+    $('#mpesaDetailsForm').submit(function(event){
+        event.preventDefault();
+        var form_data = $(this).serialize();
+        $.ajax({
+            url:base_url+'api/m_api/register_url.php',
+            type: 'POST',
+            data:form_data,
+            dataType:'json',
+            cache:false,
+            success:function(data){
+                if(data.message == 'success'){
+                    if(data.method == 'PAYPAL'){
+                        fetch_apps();
+                        $('#mpesaDetailsModal').modal('hide');
+                        $('#mpesaDetailsForm')[0].reset();
+                    }
+                }
+            }
+        });
+
+    });
+    
     $(document).on('click', '.selectApp', function(){
         var app_id = $(this).attr('id');
         $.ajax({
