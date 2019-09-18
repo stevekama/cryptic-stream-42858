@@ -21,7 +21,8 @@ class MPESATransactions{
     public $first_name;
     public $middle_name;
     public $last_name;
-    
+    public $app_token;
+
     //connect to db 
     public function __construct()
     {
@@ -31,7 +32,7 @@ class MPESATransactions{
 
     public function create()
     {
-       $query = 'INSERT INTO '.$this->table_name.'(transaction_type, transaction_id, transaction_time, transaction_amount, business_shortcode, bill_refnumber, invoice_number, original_balance, third_party_transaction_id, msisdn, first_name, middle_name, last_name)VALUES(:transaction_type, :transaction_id, :transaction_time, :transaction_amount, :business_shortcode, :bill_refnumber, :invoice_number, :original_balance, :third_party_transaction_id, :msisdn, :first_name, :middle_name, :last_name )';  
+       $query = 'INSERT INTO '.$this->table_name.'(transaction_type, transaction_id, transaction_time, transaction_amount, business_shortcode, bill_refnumber, invoice_number, original_balance, third_party_transaction_id, msisdn, first_name, middle_name, last_name, app_token)VALUES(:transaction_type, :transaction_id, :transaction_time, :transaction_amount, :business_shortcode, :bill_refnumber, :invoice_number, :original_balance, :third_party_transaction_id, :msisdn, :first_name, :middle_name, :last_name, :app_token)';  
 
        //Prepare statement
        $stmt = $this->conn->prepare($query);
@@ -50,6 +51,7 @@ class MPESATransactions{
        $this->first_name = htmlentities($this->first_name);
        $this->middle_name = htmlentities($this->middle_name);
        $this->last_name = htmlentities($this->last_name);
+       $this->app_token = htmlentities($this->app_toke);
 
        //Bind Data
        $stmt->bindParam(':transaction_type', $this->transaction_type);
@@ -65,6 +67,7 @@ class MPESATransactions{
        $stmt->bindParam(':first_name', $this->first_name);
        $stmt->bindParam(':middle_name', $this->middle_name);
        $stmt->bindParam(':last_name', $this->last_name);
+       $stmt->bindParam(':app_token', $this->app_token);
 
        //Execute query 
        if($stmt->execute()){

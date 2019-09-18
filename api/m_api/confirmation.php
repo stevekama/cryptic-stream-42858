@@ -29,6 +29,7 @@ $trns->msisdn             = $jsonMpesaResponse['MSISDN'];
 $trns->first_name         = $jsonMpesaResponse['FirstName'];
 $trns->middle_name        = $jsonMpesaResponse['MiddleName'];
 $trns->last_name          = $jsonMpesaResponse['LastName'];
+$trns->app_token          = $_GET['app_token'];
 
 if($trns->create()){
     echo $response;
