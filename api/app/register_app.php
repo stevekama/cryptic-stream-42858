@@ -19,6 +19,7 @@ $data = array();
 if($app->create()){
     $data['message'] = 'success';
     $data['method'] = $app->app_method;
+    $data['token'] = $app->app_token;
 }else{
     $data['message'] = 'failed';
     $data['method'] = 'null';

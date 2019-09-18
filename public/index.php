@@ -134,6 +134,9 @@ require_once('layouts/systems/header.php'); ?>
                 <label for="shortcode">Lipa na Mpesa Passkey:</label>
                 <input type="text" class="form-control" id="lipanampesapasskey" name="lipanampesapasskey" placeholder="Please enter Lipa na mpesa Passkey provided" required>
               </div>
+              <div class="form-group">
+                <input type="text" name="app_token" id="mpesa_app_token" class="form-control">
+              </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
