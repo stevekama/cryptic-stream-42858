@@ -22,39 +22,37 @@ $app = new Auth($consumerKey, $consumerSecret);
 
 $access_token = $app->Access_Token();
 
-echo $access_token;
+$shortCode = $_POST['shortcode']; // provide the short code obtained from your test credentials
 
-// $shortCode = $_POST['shortcode']; // provide the short code obtained from your test credentials
+// 2. provide confirmation url and validation urls 
+$confirmationUrl = base_url().'api/m_api/confirmation.php?app_token='.$current_app['app_token']; // path to your confirmation url. can be IP address that is publicly accessible or a url
+$validationUrl = base_url().'api/m_api/validation.php?app_token='.$current_app['app_token']; // path to your validation url. can be IP address that is publicly accessible or a url
 
-// // 2. provide confirmation url and validation urls 
-// $confirmationUrl = base_url().'api/m_api/confirmation.php?app_token='.$current_app['app_token']; // path to your confirmation url. can be IP address that is publicly accessible or a url
-// $validationUrl = base_url().'api/m_api/validation.php?app_token='.$current_app['app_token']; // path to your validation url. can be IP address that is publicly accessible or a url
+// 3. call register url class
+$register_url = $app->register_url($access_token, $shortCode, $confirmationUrl, $validationUrl);
 
-// // 3. call register url class
-// $register_url = $app->register_url($access_token, $shortCode, $confirmationUrl, $validationUrl);
+// decode data
+$data = json_decode($register_url, true);
+if($data['ResponseDescription'] == 'success'){
+    // save in the data in db
+    // 1. initiate mpesa details class
+    $details = new MPESA_APPS_Details();
 
-// // decode data
-// $data = json_decode($register_url, true);
-// if($data['ResponseDescription'] == 'success'){
-//     // save in the data in db
-//     // 1. initiate mpesa details class
-//     $details = new MPESA_APPS_Details();
-
-//     // put variables in placeholders 
-//     $details->app_token       = $current_app['app_token'];
-//     $details->shortcode       = $_POST['shortcode'];
-//     $details->lipanampesacode = $_POST['lipanampesacode'];
-//     $details->passkey         = $_POST['passkey'];
-//     // response data
-//     $response_data            = array();
-//     // save data to db 
-//     if($details->create()){
-//         $response_data['message'] = 'success';
-//     }else{
-//         $response_data['message'] = 'failed';
-//     }
-//     echo json_encode($response_data);
-// }else{
-//     // has not registered url
-//     echo $register_url;
-// }
+    // put variables in placeholders 
+    $details->app_token       = $current_app['app_token'];
+    $details->shortcode       = $_POST['shortcode'];
+    $details->lipanampesacode = $_POST['lipanampesacode'];
+    $details->passkey         = $_POST['passkey'];
+    // response data
+    $response_data            = array();
+    // save data to db 
+    if($details->create()){
+        $response_data['message'] = 'success';
+    }else{
+        $response_data['message'] = 'failed';
+    }
+    echo json_encode($response_data);
+}else{
+    // has not registered url
+    echo $register_url;
+}
