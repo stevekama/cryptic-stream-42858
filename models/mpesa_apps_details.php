@@ -9,12 +9,8 @@ class MPESA_APPS_Details{
     public $id;
     public $app_token;
     public $shortcode;
-    public $confirmation;
-    public $validation;
     public $lipanampesacode;
     public $passkey;
-    public $callback_url;
-    public $timestamp;
     
     //connect to db 
     public function __construct()
@@ -25,30 +21,23 @@ class MPESA_APPS_Details{
 
     public function create()
     {
-       $query = 'INSERT INTO '.$this->table_name.'(app_token, shortcode, confirmation, validation, lipanampesacode, passkey, callback_url, timestamp)VALUES(:app_token, :shortcode, :confirmation, :validation, :lipanampesacode, :passkey, :callback_url, :timestamp)';  
+       $query = 'INSERT INTO '.$this->table_name.'(app_token, shortcode, lipanampesacode, passkey)VALUES(:app_token, :shortcode, :lipanampesacode, :passkey)';  
 
        //Prepare statement
        $stmt = $this->conn->prepare($query);
 
-       //clean data 
-       $this->app_token = htmlentities($this->app_token);
-       $this->shortcode = htmlentities($this->shortcode);
-       $this->confirmation = htmlentities($this->confirmation);
-       $this->validation = htmlentities($this->validation);
-       $this->lipanampesacode = htmlentities($this->lipanampesacode);
-       $this->passkey = htmlentities($this->passkey);
-       $this->callback_url = htmlentities($this->callback_url);
-       $this->timestamp = htmlentities($this->timestamp);
+        //clean data 
+        $this->app_token = htmlentities($this->app_token);
+        $this->shortcode = htmlentities($this->shortcode);
+        $this->lipanampesacode = htmlentities($this->lipanampesacode);
+        $this->passkey = htmlentities($this->passkey);
        
        //Bind Data
-       $stmt->bindParam(':app_token', $this->app_token);
-       $stmt->bindParam(':shortcode', $this->shortcode);
-       $stmt->bindParam(':confirmation', $this->confirmation);
-       $stmt->bindParam(':validation', $this->validation);
-       $stmt->bindParam(':lipanampesacode', $this->lipanampesacode);
-       $stmt->bindParam(':passkey', $this->passkey);
-       $stmt->bindParam(':callback_url', $this->callback_url);
-       $stmt->bindParam(':timestamp', $this->timestamp);
+        $stmt->bindParam(':app_token', $this->app_token);
+        $stmt->bindParam(':shortcode', $this->shortcode);
+        $stmt->bindParam(':lipanampesacode', $this->lipanampesacode);
+        $stmt->bindParam(':passkey', $this->passkey);
+     
 
        //Execute query 
        if($stmt->execute()){

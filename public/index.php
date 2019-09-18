@@ -132,7 +132,7 @@ require_once('layouts/systems/header.php'); ?>
               </div>
               <div class="form-group">
                 <label for="shortcode">Lipa na Mpesa Passkey:</label>
-                <input type="text" class="form-control" id="lipanampesapasskey" name="lipanampesapasskey" placeholder="Please enter Lipa na mpesa Passkey provided" required autocomplete="off">
+                <input type="text" class="form-control" id="lipanampesapasskey" name="passkey" placeholder="Please enter Lipa na mpesa Passkey provided" required autocomplete="off">
               </div>
               <div class="form-group">
                 <input type="hidden" name="app_token" id="mpesaAppToken" class="form-control">
