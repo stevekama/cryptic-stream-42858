@@ -8,10 +8,14 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 include_once '../../models/initialization.php';
 
 // 1. Obtain access token and shortcode
+// Get app using app token 
+$apps = new Apps();
 
-$consumerKey = $_POST['key']; //Fill with your app Consumer Key
+$current_app = $apps->find_by_token($_POST['app_token']);
 
-$consumerSecret = $_POST['secret']; // Fill with your app Secret
+$consumerKey = $current_app['app_key']; //Fill with your app Consumer Key
+
+$consumerSecret = $current_app['app_secret']; // Fill with your app Secret
 
 // initialize mpesa auth class
 $app = new Auth($consumerKey, $consumerSecret);
@@ -20,7 +24,17 @@ $app = new Auth($consumerKey, $consumerSecret);
 $url = 'https://sandbox.safaricom.co.ke/mpesa/c2b/v1/simulate';
 
 $access_token = $app->Access_Token();
-$ShortCode  = '600589'; // Shortcode. Same as the one on register_url.php
+
+// get details from mpesa details table
+// initiate the mpesa details table 
+$m_datails = new MPESA_APPS_Details();
+
+$details = $m_datails->find_by_token($current_app['app_token']);
+
+$ShortCode  = $details['shortcode']; // Shortcode. Same as the one on register_url.php
+
+// This will be posted data
+
 $amount     = '100'; // amount the client/we are paying to the paybill
 $msisdn     = '254708374149'; // phone number paying 
 $billRef    = 'inv95'; // This is anything that helps identify the specific transaction. Can be a clients ID, Account Number, Invoice amount, cart no.. etc
