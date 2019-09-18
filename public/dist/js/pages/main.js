@@ -78,7 +78,6 @@ $(document).ready(function(){
                         $('#newAppForm')[0].reset();
                         $('#mpesaAppToken').val('Hello');
                         $('#mpesaDetailsModal').modal('show');
-                        $('#mpesaDetailsForm')[0].reset();
                     }
                 }
             }
