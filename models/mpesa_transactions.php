@@ -51,7 +51,7 @@ class MPESATransactions{
        $this->first_name = htmlentities($this->first_name);
        $this->middle_name = htmlentities($this->middle_name);
        $this->last_name = htmlentities($this->last_name);
-       $this->app_token = htmlentities($this->app_toke);
+       $this->app_token = htmlentities($this->app_token);
 
        //Bind Data
        $stmt->bindParam(':transaction_type', $this->transaction_type);
