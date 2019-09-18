@@ -124,15 +124,15 @@ require_once('layouts/systems/header.php'); ?>
             <div class="modal-body">
               <div class="form-group">
                 <label for="shortcode">App Short Code:</label>
-                <input type="text" class="form-control" id="shortcode" name="shortcode" placeholder="Please enter shortcode provided by mpesa" required>
+                <input type="text" class="form-control" id="shortcode" name="shortcode" placeholder="Please enter shortcode provided by mpesa" required autocomplete="off">
               </div>
               <div class="form-group">
                 <label for="shortcode">Lipa na Mpesa code:</label>
-                <input type="text" class="form-control" id="lipanampesacode" name="lipanampesacode" placeholder="Please enter Lipa na mpesa code provided" required>
+                <input type="text" class="form-control" id="lipanampesacode" name="lipanampesacode" placeholder="Please enter Lipa na mpesa code provided" required autocomplete="off">
               </div>
               <div class="form-group">
                 <label for="shortcode">Lipa na Mpesa Passkey:</label>
-                <input type="text" class="form-control" id="lipanampesapasskey" name="lipanampesapasskey" placeholder="Please enter Lipa na mpesa Passkey provided" required>
+                <input type="text" class="form-control" id="lipanampesapasskey" name="lipanampesapasskey" placeholder="Please enter Lipa na mpesa Passkey provided" required autocomplete="off">
               </div>
               <div class="form-group">
                 <input type="text" name="app_token" id="mpesaAppToken" class="form-control">

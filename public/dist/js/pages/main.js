@@ -76,7 +76,10 @@ $(document).ready(function(){
                     if(data.method == 'MPESA'){
                         $('#newAppModal').modal('hide');
                         $('#newAppForm')[0].reset();
-                        $('#mpesaAppToken').val('Hello');
+                        $('#shortcode').val('');
+                        $('#lipanampesacode').val('');
+                        $('#lipanampesapasskey').val('');
+                        $('#mpesaAppToken').val(data.token);
                         $('#mpesaDetailsModal').modal('show');
                     }
                 }
@@ -96,11 +99,9 @@ $(document).ready(function(){
             cache:false,
             success:function(data){
                 if(data.message == 'success'){
-                    if(data.method == 'PAYPAL'){
-                        fetch_apps();
-                        $('#mpesaDetailsModal').modal('hide');
-                        $('#mpesaDetailsForm')[0].reset();
-                    }
+                    fetch_apps();
+                    $('#mpesaDetailsModal').modal('hide');
+                    $('#mpesaDetailsForm')[0].reset();
                 }
             }
         });
