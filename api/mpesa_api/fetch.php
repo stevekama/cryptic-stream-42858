@@ -26,7 +26,7 @@ if($num_trns > 0){
             'app_name'             => $app_name,
             'transaction_id'       => $transaction_id,
             'transaction_amount'   => $transaction_amount,
-            'transaction_status'   => $transaction_status,
+            'business_code'        => $business_shortcode,
             'transaction_date'     => $transaction_time
         );
 
