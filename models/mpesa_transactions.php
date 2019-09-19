@@ -22,6 +22,7 @@ class MPESATransactions{
     public $middle_name;
     public $last_name;
     public $app_token;
+    public $user_id;
 
     //connect to db 
     public function __construct()
@@ -85,7 +86,7 @@ class MPESATransactions{
     // find transactions for user.
     public function find_all_transactions_by_user_id($user_id = 0)
     {
-        $query = "SELECT * FROM ".$this->table_name." INNER JOIN apps ON mpesa_transactions.app_token = apps.app_token INNER JOIN users ON apps.user_id = users.id WHERE users.id = :user_id ORDER BY mpesa_transactions.id DESC";
+        $query = "SELECT * FROM ".$this->table_name." INNER JOIN apps ON mpesa_transactions.app_token = apps.app_token WHERE mpesa_transactions.user_id = :user_id ORDER BY mpesa_transactions.id DESC";
         $stmt = $this->conn->prepare($query);
         $stmt->execute(array('user_id'=>$user_id));
         return $stmt;
