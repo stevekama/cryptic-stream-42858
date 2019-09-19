@@ -51,7 +51,6 @@ require_once('../layouts/systems/header.php'); ?>
                                 <th>Transaction Date</th>
                                 <th>Transaction Amount</th>
                                 <th>Transaction Status</th>
-                                
                             </tr>
                             </tfoot>
                         </table>

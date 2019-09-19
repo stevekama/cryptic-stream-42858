@@ -82,6 +82,16 @@ class MPESATransactions{
        }
     }
 
+    // find transactions for user.
+    public function find_all_transactions_by_user_id($user_id = 0)
+    {
+        $query = "SELECT * FROM ".$this->table_name." INNER JOIN apps ON mpesa_transactions.app_token = apps.app_token INNER JOIN users ON apps.user_id = users.id WHERE users.id = :user_id ORDER BY mpesa_transactions.id DESC";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute(array('user_id'=>$user_id));
+        return $stmt;
+    }
+
+    // update transactions
     public function update()
     {
         $query = "UPDATE ".$this->table_name." SET transaction_type = :transaction_type, transaction_id = :transaction_id, transaction_time = :transaction_time, transaction_amount = :transaction_amount, business_shortcode = :business_shortcode, bill_refnumber = :bill_refnumber, invoice_number = :invoice_number, original_balance = :original_balance, third_party_transaction_id = :third_party_transaction_id, msisdn = :msisdn, first_name = :first_name, last_name = :last_name WHERE id = :id";
