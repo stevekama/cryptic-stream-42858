@@ -33,7 +33,7 @@ class MPESATransactions{
 
     public function create()
     {
-       $query = 'INSERT INTO '.$this->table_name.'(transaction_type, transaction_id, transaction_time, transaction_amount, business_shortcode, bill_refnumber, invoice_number, original_balance, third_party_transaction_id, msisdn, first_name, middle_name, last_name, app_token)VALUES(:transaction_type, :transaction_id, :transaction_time, :transaction_amount, :business_shortcode, :bill_refnumber, :invoice_number, :original_balance, :third_party_transaction_id, :msisdn, :first_name, :middle_name, :last_name, :app_token)';  
+       $query = 'INSERT INTO '.$this->table_name.'(transaction_type, transaction_id, transaction_time, transaction_amount, business_shortcode, bill_refnumber, invoice_number, original_balance, third_party_transaction_id, msisdn, first_name, middle_name, last_name, app_token, user_id)VALUES(:transaction_type, :transaction_id, :transaction_time, :transaction_amount, :business_shortcode, :bill_refnumber, :invoice_number, :original_balance, :third_party_transaction_id, :msisdn, :first_name, :middle_name, :last_name, :app_token, :user_id)';  
 
        //Prepare statement
        $stmt = $this->conn->prepare($query);
@@ -53,6 +53,7 @@ class MPESATransactions{
        $this->middle_name = htmlentities($this->middle_name);
        $this->last_name = htmlentities($this->last_name);
        $this->app_token = htmlentities($this->app_token);
+       $this->user_id = htmlentities($this->user_id);
 
        //Bind Data
        $stmt->bindParam(':transaction_type', $this->transaction_type);
@@ -69,6 +70,7 @@ class MPESATransactions{
        $stmt->bindParam(':middle_name', $this->middle_name);
        $stmt->bindParam(':last_name', $this->last_name);
        $stmt->bindParam(':app_token', $this->app_token);
+       $stmt->bindParam(':user_id', $this->user_id);
 
        //Execute query 
        if($stmt->execute()){
