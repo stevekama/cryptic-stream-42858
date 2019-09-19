@@ -27,7 +27,7 @@ if($num_trns > 0){
             'transaction_id'       => $transaction_id,
             'transaction_amount'   => $transaction_amount,
             'transaction_status'   => $transaction_status,
-            'transaction_date'     => $transaction_date
+            'transaction_date'     => $transaction_time
         );
 
         // push to array 
