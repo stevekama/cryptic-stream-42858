@@ -34,8 +34,7 @@ $details = $m_datails->find_by_token($current_app['app_token']);
 $ShortCode  = $details['shortcode']; // Shortcode. Same as the one on register_url.php
 
 // This will be posted data
-
-$amount     = '100'; // amount the client/we are paying to the paybill
+$amount     = $_POST['amount']; // amount the client/we are paying to the paybill
 $msisdn     = '254708374149'; // phone number paying 
 $billRef    = 'inv95'; // This is anything that helps identify the specific transaction. Can be a clients ID, Account Number, Invoice amount, cart no.. etc
 $curl = curl_init();

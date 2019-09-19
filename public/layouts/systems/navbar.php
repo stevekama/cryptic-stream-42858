@@ -48,6 +48,15 @@
                     <li><a href="<?php echo base_url(); ?>public/paypal/index.php"><i class="fa fa-circle-o"></i> Transactions</a></li>
                 </ul>
             </li> 
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>MPESA</span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="<?php echo base_url(); ?>public/mpesa/index.php"><i class="fa fa-circle-o"></i> Transactions</a></li>
+                </ul>
+            </li> 
         </ul>
     </section>
     <!-- /.sidebar -->
