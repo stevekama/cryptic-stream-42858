@@ -34,11 +34,10 @@ require_once('../layouts/systems/header.php'); ?>
                             <tr>
                                 <th>App Name</th>
                                 <th>Transaction Type</th>
+                                <th>Business code</th>
                                 <th>Transaction ID</th>
                                 <th>Transaction Date</th>
-                                <th>Transaction Amount</th>
-                                <th>Transaction Status</th>
-                                
+                                <th>Transaction Amount</th>    
                             </tr>
                             </thead>
                             <tbody id="mpesaTransactionsData">
@@ -47,10 +46,10 @@ require_once('../layouts/systems/header.php'); ?>
                             <tr>
                                 <th>App Name</th>
                                 <th>Transaction Type</th>
+                                <th>Business code</th>
                                 <th>Transaction ID</th>
                                 <th>Transaction Date</th>
                                 <th>Transaction Amount</th>
-                                <th>Transaction Status</th>
                             </tr>
                             </tfoot>
                         </table>

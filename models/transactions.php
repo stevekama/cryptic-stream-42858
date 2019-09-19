@@ -90,7 +90,6 @@ class Transactions{
         return $stmt;
     }
     
-
     /// find transactions by transaction id 
     public function find_by_transaction_id($transaction_id = '')
     {

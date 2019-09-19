@@ -10,7 +10,7 @@ include_once '../../models/initialization.php';
 //initiate transactions 
 $trns = new MPESATransactions();
 
-$user_id = $_POST['user_id'];
+$user_id = $session->user_id;
 
 // filter values 
 $mpesa_transactions = $trns->find_all_transactions_by_user_id($user_id);
@@ -24,10 +24,11 @@ if($num_trns > 0){
         extract($mpesa_transaction);
         $mpesa_item = array(
             'app_name'             => $app_name,
-            'transaction_id'       => $transaction_id,
-            'transaction_amount'   => $transaction_amount,
+            'transaction_type'     => $transaction_type,
             'business_code'        => $business_shortcode,
-            'transaction_date'     => $transaction_time
+            'transaction_id'       => $transaction_id,
+            'transaction_date'     => $transaction_time,
+            'transaction_amount'   => $transaction_amount
         );
 
         // push to array 
