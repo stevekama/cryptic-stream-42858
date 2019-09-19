@@ -10,7 +10,7 @@ include_once '../../models/initialization.php';
 //initiate transactions 
 $trns = new MPESATransactions();
 
-$trns->user_id = $_POST['user_id'];
+$user_id = $_POST['user_id'];
 
 // filter values 
 $mpesa_transactions = $trns->find_all_transactions_by_user_id($user_id);
