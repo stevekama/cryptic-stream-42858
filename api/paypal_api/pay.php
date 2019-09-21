@@ -11,11 +11,9 @@ if(!isset($_GET['success'], $_GET['app_token'], $_GET['paymentId'], $_GET['Payer
     die();
 }
 
-if((bool)$_GET['success'] == false){
-    $data['message'] = 'could not make payments';
-    echo json_encode($data);
-    die();
-} 
+// get payments id and payer ID
+$paymentId = $_GET['paymentId'];
+$payerId = $_GET['PayerID'];
 
 $app_token = $_GET['app_token'];
 
@@ -32,15 +30,41 @@ if(!$current_app){
     die();
 }
 
+if((bool)$_GET['success'] == false){
+    // save data to transactions table set status as failed in the table 
+    // initiate transactions
+    $trns = new Transactions();
+    
+    //find transaction by transaction_id
+    $current_trns = $trns->find_by_transaction_id($paymentId);
+
+    // populate virables 
+    $trns->app_token            = $current_app['app_token'];
+    $trns->transaction_id       = $paymentId;
+    $trns->transaction_time     = $current_trns['transaction_time'];
+    $trns->product              = $current_trns['product'];
+    $trns->transaction_amount   = $current_trns['transaction_amount'];
+    $trns->transaction_currency = $current_trns['transaction_currency'];
+    $trns->transaction_method   = $current_trns['transaction_method'];
+    $trns->transaction_status   = 'CANCELLED';
+    $trns->user_id              = $current_trns['user_id'];
+
+    // Save 
+    if($trns->update()){
+        // send errors to the user link  
+        redirect_to($current_app['response_url'].'?transaction=canceled');
+        die();
+    }
+    
+} 
+
+
 // Paypal Auth 
 $paypal_auth = new PayPalAuth($current_app['app_key'], $current_app['app_secret']);
 
 // authenticate app
 $paypal = $paypal_auth->auth();
 
-// get payments id and payer ID
-$paymentId = $_GET['paymentId'];
-$payerId = $_GET['PayerID'];
 
 // load payment info
 $payment = Payment::get($paymentId, $paypal);
