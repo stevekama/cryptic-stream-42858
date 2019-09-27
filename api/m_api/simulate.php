@@ -52,5 +52,12 @@ curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($curl, CURLOPT_POST, true);
 curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
 $curl_response = curl_exec($curl);
-//print_r($curl_response);
-echo $curl_response;
+// print_r($curl_response);
+// 
+$data = json_decode($curl_response, true);
+$response_url = $current_app['response_url'];
+if($data['ResponseDescription'] != 'Accept the service request successfully.'){
+       redirect_to($response_url.'?transaction_status=failed');
+       die();
+}
+redirect_to($response_url.'?transaction_status=success');
