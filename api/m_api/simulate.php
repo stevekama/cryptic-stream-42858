@@ -57,7 +57,7 @@ $curl_response = curl_exec($curl);
 $data = json_decode($curl_response, true);
 $response_url = $current_app['response_url'];
 if($data['ResponseDescription'] != 'Accept the service request successfully.'){
-       redirect_to($response_url);
+       redirect_to($response_url.'?transaction_status=failed');
        die();
 }
-redirect_to($response_url);
+redirect_to($response_url.'?transaction_status=success');
