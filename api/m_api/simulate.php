@@ -57,7 +57,7 @@ $curl_response = curl_exec($curl);
 $data = json_decode($curl_response, true);
 $response_url = $current_app['response_url'];
 if($data['ResponseDescription'] != 'Accept the service request successfully.'){
-       echo $response_url;
+       redirect_to($response_url);
        die();
 }
-echo $response_url;
+redirect_to($response_url);
