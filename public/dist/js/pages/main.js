@@ -3,7 +3,7 @@ $(document).ready(function(){
      // get apps 
     function fetch_apps(){
         $.ajax({
-            url: base_url+'rest_api/app/fetch.php',
+            url: base_url+'api/app/fetch.php',
             type:'POST',
             dataType:'json',
             success:function(data){
@@ -45,7 +45,7 @@ $(document).ready(function(){
 
     function fetch_transactions(){
         $.ajax({
-            url: base_url+'rest_api/transactions/read.php',
+            url: base_url+'api/transactions/read.php',
             type:'POST',
             dataType:'json',
             success:function(data){
@@ -81,7 +81,7 @@ $(document).ready(function(){
         event.preventDefault();
         var form_data = $(this).serialize();
         $.ajax({
-            url:base_url+'rest_api/app/register_app.php',
+            url:base_url+'api/app/register_app.php',
             type: 'POST',
             data:form_data,
             dataType:'json',
@@ -113,7 +113,7 @@ $(document).ready(function(){
         event.preventDefault();
         var form_data = $(this).serialize();
         $.ajax({
-            url:base_url+'rest_api/m_api/register_url.php',
+            url:base_url+'api/m_api/register_url.php',
             type: 'POST',
             data:form_data,
             dataType:'json',
