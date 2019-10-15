@@ -18,19 +18,17 @@ class Users {
         global $database;
         $this->conn = $database->connect();
     }
+
     //get user by email 
-    public function find_user_by_id()
+    public function find_user_by_id($id=0)
     {
-        $query = 'SELECT * FROM ' . $this->table_name . ' WHERE id = ? LIMIT 0,1';
+        $query = 'SELECT * FROM ' . $this->table_name . ' WHERE id = :id LIMIT 1';
         
         //Prepare statement 
         $stmt = $this->conn->prepare($query);
 
-        //Bind Email
-        $stmt->bindParam(1, $this->id);
-
         // Execute query
-        $stmt->execute();
+        $stmt->execute(array('id'=>$id));
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
