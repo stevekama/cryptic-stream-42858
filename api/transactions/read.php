@@ -40,6 +40,6 @@ if($count > 0){
     }
 }else{
     // No Posts
-    $data['message'] = 'No Transactions Found';
+    $data['message'] = 'empty';
 }
 echo json_encode($data);

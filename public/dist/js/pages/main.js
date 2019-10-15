@@ -1,26 +1,42 @@
 $(document).ready(function(){
     // get apps 
+     // get apps 
     function fetch_apps(){
         $.ajax({
-            url: base_url+'api/app/fetch.php',
+            url: base_url+'rest_api/app/fetch.php',
             type:'POST',
             dataType:'json',
             success:function(data){
-                var create_div = ""; 
-                data.map(function(opt){
+                var create_div = "";
+                if(data.message == 'empty'){
                     create_div += '<div class="col-lg-3 col-xs-6">';
-                    create_div += '<div class="small-box bg-green">';
+                    create_div += '<div class="small-box bg-red">';
                     create_div += '<div class="inner">';
                     create_div += '<h3>&nbsp;</h3>';
-                    create_div += '<p>'+opt.app_name+'</p>';
+                    create_div += '<p>No Apps</p>';
                     create_div += '</div>';
                     create_div += '<div class="icon">';
                     create_div += '<i class="ion ion-bag"></i>';
                     create_div += '</div>';
-                    create_div += '<a href="#" id="'+opt.id+'" class="small-box-footer selectApp">More info <i class="fa fa-arrow-circle-right"></i></a>';
+                    create_div += '<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>';
                     create_div += '</div>';
                     create_div += '</div>';
-                });
+                }else{ 
+                    data.map(function(opt){
+                        create_div += '<div class="col-lg-3 col-xs-6">';
+                        create_div += '<div class="small-box bg-green">';
+                        create_div += '<div class="inner">';
+                        create_div += '<h3>&nbsp;</h3>';
+                        create_div += '<p>'+opt.app_name+'</p>';
+                        create_div += '</div>';
+                        create_div += '<div class="icon">';
+                        create_div += '<i class="ion ion-bag"></i>';
+                        create_div += '</div>';
+                        create_div += '<a href="#" id="'+opt.id+'" class="small-box-footer selectApp">More info <i class="fa fa-arrow-circle-right"></i></a>';
+                        create_div += '</div>';
+                        create_div += '</div>';
+                    });  
+                }
                 $('#apps_data').append(create_div);
             }
         });
@@ -29,23 +45,27 @@ $(document).ready(function(){
 
     function fetch_transactions(){
         $.ajax({
-            url: base_url+'api/transactions/read.php',
+            url: base_url+'rest_api/transactions/read.php',
             type:'POST',
             dataType:'json',
             success:function(data){
-                var create_div = ""; 
-                data.map(function(opt){
-                    create_div += '<tr>';
-                    create_div += '<td>'+opt.app+'</td>';
-                    create_div += '<td>'+opt.transaction_id+'</td>';
-                    create_div += '<td>'+opt.transaction_time+'</td>';
-                    create_div += '<td>'+opt.product+'</td>';
-                    create_div += '<td>'+opt.transaction_amount+'</td>';
-                    create_div += '<td>'+opt.transaction_method+'</td>';
-                    create_div += '<td>'+opt.transaction_status+'</td>';
-                    create_div += '</tr>';
-                });
-                $('#loadTransactions').append(create_div);
+                if(data.message == 'empty'){
+                    $('#errorMessageData').html('<div class="alert alert-danger alert-dismissible">No Transactions Found yet</div>');
+                }else{
+                    var create_div = ""; 
+                    data.map(function(opt){
+                        create_div += '<tr>';
+                        create_div += '<td>'+opt.app+'</td>';
+                        create_div += '<td>'+opt.transaction_id+'</td>';
+                        create_div += '<td>'+opt.transaction_time+'</td>';
+                        create_div += '<td>'+opt.product+'</td>';
+                        create_div += '<td>'+opt.transaction_amount+'</td>';
+                        create_div += '<td>'+opt.transaction_method+'</td>';
+                        create_div += '<td>'+opt.transaction_status+'</td>';
+                        create_div += '</tr>';
+                    });
+                    $('#loadTransactions').append(create_div);
+                }
             }
         });
     }
@@ -56,12 +76,12 @@ $(document).ready(function(){
         $('#newAppForm')[0].reset();
     });
 
-    // submit app
+     // submit app
     $('#newAppForm').submit(function(event){
         event.preventDefault();
         var form_data = $(this).serialize();
         $.ajax({
-            url:base_url+'api/app/register_app.php',
+            url:base_url+'rest_api/app/register_app.php',
             type: 'POST',
             data:form_data,
             dataType:'json',
@@ -72,6 +92,7 @@ $(document).ready(function(){
                         fetch_apps();
                         $('#newAppModal').modal('hide');
                         $('#newAppForm')[0].reset();
+                        window.location.href = base_url+'public/index.php';
                     }
                     if(data.method == 'MPESA'){
                         $('#newAppModal').modal('hide');
@@ -92,7 +113,7 @@ $(document).ready(function(){
         event.preventDefault();
         var form_data = $(this).serialize();
         $.ajax({
-            url:base_url+'api/m_api/register_url.php',
+            url:base_url+'rest_api/m_api/register_url.php',
             type: 'POST',
             data:form_data,
             dataType:'json',
@@ -102,6 +123,7 @@ $(document).ready(function(){
                     fetch_apps();
                     $('#mpesaDetailsModal').modal('hide');
                     $('#mpesaDetailsForm')[0].reset();
+                    window.location.href = base_url+'public/index.php';
                 }
             }
         });
