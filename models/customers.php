@@ -5,6 +5,7 @@ class Customers{
     //Decalare table name 
     private $conn;
     private $table_name = 'customers';
+
     //Declare class properties 
     public $id;
     public $first_name;
@@ -39,14 +40,14 @@ class Customers{
 
     public function create()
     {
-       $query = 'INSERT INTO '.$this->table_name.'(first_name, other_name, cust_type_id, customer_identity_doc_type_id1, identification_doc1, customer_identity_doc_type_id2, identification_doc2, customer_identity_doc_type_id3, identification_doc3, customer_identity_doc_type_id4, identification_doc4, customer_identity_doc_type_id5, identification_doc5, email_address, dob, date_of_registration, postal_address, physical_address, created_date, created_user_id, edited_date, edited_user_id)VALUES(:first_name, :other_name, :cust_type_id, :customer_identity_doc_type_id1, :identification_doc1, :customer_identity_doc_type_id2, :identification_doc2, :customer_identity_doc_type_id3, :identification_doc3, :customer_identity_doc_type_id4, :identification_doc4, :customer_identity_doc_type_id5, :identification_doc5, :email_address, :dob, :date_of_registration, :postal_address, :physical_address, :created_date, :created_user_id, :edited_date, :edited_user_id)'; 
+       $query = 'INSERT INTO '.$this->table_name.'(first_name, other_names, cust_type_id, customer_identity_doc_type_id1, identification_doc1, customer_identity_doc_type_id2, identification_doc2, customer_identity_doc_type_id3, identification_doc3, customer_identity_doc_type_id4, identification_doc4, customer_identity_doc_type_id5, identification_doc5, email_address, dob, date_of_registration, postal_address, physical_address, created_date, created_user_id, edited_date, edited_user_id)VALUES(:first_name, :other_names, :cust_type_id, :customer_identity_doc_type_id1, :identification_doc1, :customer_identity_doc_type_id2, :identification_doc2, :customer_identity_doc_type_id3, :identification_doc3, :customer_identity_doc_type_id4, :identification_doc4, :customer_identity_doc_type_id5, :identification_doc5, :email_address, :dob, :date_of_registration, :postal_address, :physical_address, :created_date, :created_user_id, :edited_date, :edited_user_id)'; 
        
        //Prepare statement
        $stmt = $this->conn->prepare($query);
 
        //clean data 
        $this->first_name = htmlentities($this->first_name);
-       $this->app_key = htmlentities($this->app_key);
+       $this->other_names = htmlentities($this->other_names);
        $this->app_secret = htmlentities($this->app_secret);
        $this->app_token = htmlentities($this->app_token);
        $this->shortcode = htmlentities($this->shortcode);
