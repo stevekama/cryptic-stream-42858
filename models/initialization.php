@@ -1,7 +1,7 @@
 <?php 
 //define the path
 defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
-defined('SITE_ROOT') ? null : define('SITE_ROOT', DS.'app');
+defined('SITE_ROOT') ? null : define('SITE_ROOT', DS.'var'.DS.'www'.DS.'html'.DS.'api');
 defined('CONFIG_PATH') ? null : define('CONFIG_PATH', SITE_ROOT.DS.'config');
 defined('LIB_PATH') ? null : define('LIB_PATH', SITE_ROOT.DS.'models');
 defined('VENDOR_PATH') ? null : define('VENDOR_PATH', SITE_ROOT.DS.'vendor');
