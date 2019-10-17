@@ -53,3 +53,6 @@ require_once(LIB_PATH.DS.'paypal_transactions.php');
 
 //test table
 require_once(LIB_PATH.DS.'test_table.php');
+
+//start using customer tables 
+require_once(LIB_PATH.DS.'customers.php');
