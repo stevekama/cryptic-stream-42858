@@ -30,4 +30,15 @@ class Customers{
     public $created_user_id;
     public $edited_date;
     public $edited_user_id;
+
+    //connect to db 
+    public function __construct()
+    {
+        global $database;
+        $this->conn = $database->connect();
+    }
+
+    
+
+    
 }
