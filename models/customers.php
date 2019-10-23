@@ -39,7 +39,7 @@ class Customers{
 
     public function create()
     {
-        $query = "INSERT INTO usr.".$this->table_name."(";
+        $query = "INSERT INTO ".$this->table_name."(";
         $query .= "first_name, other_names, cust_type_id, ";
         $query .= "customer_identity_doc_type_id1, identification_doc1, customer_identity_doc_type_id2, identification_doc2, ";
         $query .= "customer_identity_doc_type_id3, identification_doc3, customer_identity_doc_type_id4, identification_doc4 ";
