@@ -8,15 +8,8 @@ include_once '../../models/initialization.php';
 
 $customer = new Customers();
 
-$customer->app_name = $_POST['name'];
-$app->app_method = $_POST['method'];
-$app->app_key = $_POST['key'];
-$app->app_secret = $_POST['secret'];
-$app->response_url = $_POST['url'];
-$app->user_id = $session->user_id;
-
 $customer->first_name = $_POST['first_name'];
-$customer->other_names = $_POST['other_name'];
+$customer->other_names = $_POST['other_names'];
 $customer->cust_type_id = $_POST['cust_type_id'];
 $customer->customer_identity_doc_type_id1 = $_POST['customer_identity_doc_type_id1'];
 $customer->identification_doc1 = $_POST['identification_doc1'];
