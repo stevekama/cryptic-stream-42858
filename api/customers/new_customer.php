@@ -26,14 +26,17 @@ $customer->dob = $_POST['dob'];
 $customer->date_of_registration = $_POST['date_of_registration'];
 $customer->postal_address = $_POST['postal_address'];
 $customer->physical_address = $_POST['physical_address'];
-$customer->created_date = $_POST['created_date'];
-$customer->created_user_id = $_POST['created_user_id'];
-$customer->edited_date = $_POST['edited_date'];
-$customer->edited_user_id = $_POST['edited_user_id'];
 
+$d = new DateTime();
+
+$customer->created_date = $d->format('Y-m-d H:i:s');
+$customer->created_user_id = $customer->id;
+$customer->edited_date = $d->format('Y-m-d H:i:s');
+$customer->edited_user_id = $customer->id;
 $data = array();
 if($customer->create()){
     $data['message'] = 'success';
+    $data['customer_id'] = $customer->id;
 }else{
     $data['message'] = 'failed';
 }
