@@ -80,7 +80,7 @@ class Customers{
         $this->edited_date = htmlentities($this->edited_date);
         $this->edited_user_id = htmlentities($this->edited_user_id); 
         
-        //Bind Data
+        // Bind Data
         $stmt->bindParam(':first_name', $this->first_name);
         $stmt->bindParam(':other_names', $this->other_names);
         $stmt->bindParam(':cust_type_id', $this->cust_type_id);
