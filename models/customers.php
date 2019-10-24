@@ -106,6 +106,7 @@ class Customers{
         
         //Execute query 
         if($stmt->execute()){
+            $this->id = $this->conn->lastInsertId();
             return true;
         }
         //print error 
