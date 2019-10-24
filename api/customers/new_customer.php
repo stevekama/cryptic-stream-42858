@@ -30,9 +30,9 @@ $customer->physical_address = $_POST['physical_address'];
 $d = new DateTime();
 
 $customer->created_date = $d->format('Y-m-d H:i:s');
-$customer->created_user_id = '';
+$customer->created_user_id = 0;
 $customer->edited_date = $d->format('Y-m-d H:i:s');
-$customer->edited_user_id = '';
+$customer->edited_user_id = 0;
 $data = array();
 
 if($customer->create()){
