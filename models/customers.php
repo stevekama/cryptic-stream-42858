@@ -39,18 +39,18 @@ class Customers{
 
     public function create()
     {
-        $query = "INSERT INTO ".$this->table_name."(";
+        $query = "INSERT INTO usr.".$this->table_name."(";
         $query .= "first_name, other_names, cust_type_id, ";
         $query .= "customer_identity_doc_type_id1, identification_doc1, customer_identity_doc_type_id2, identification_doc2, ";
-        $query .= "customer_identity_doc_type_id3, identification_doc3, customer_identity_doc_type_id4, identification_doc4 ";
+        $query .= "customer_identity_doc_type_id3, identification_doc3, customer_identity_doc_type_id4, identification_doc4, ";
         $query .= "customer_identity_doc_type_id5, identification_doc5, email_address, dob, ";
-        $query .= "date_of_registration, postal_address, physical_address, created_date, created_user_id, edited_date, edited_user_id ";
+        $query .= "date_of_registration, postal_address, physical_address, created_date, created_user_id, edited_date, edited_user_id";
         $query .= ")VALUES(";
         $query .= ":first_name, :other_names, :cust_type_id, ";
         $query .= ":customer_identity_doc_type_id1, :identification_doc1, :customer_identity_doc_type_id2, :identification_doc2, ";
-        $query .= ":customer_identity_doc_type_id3, :identification_doc3, :customer_identity_doc_type_id4, :identification_doc4 ";
+        $query .= ":customer_identity_doc_type_id3, :identification_doc3, :customer_identity_doc_type_id4, :identification_doc4, ";
         $query .= ":customer_identity_doc_type_id5, :identification_doc5, :email_address, :dob, ";
-        $query .= ":date_of_registration, :postal_address, :physical_address, :created_date, :created_user_id, :edited_date, :edited_user_id ";
+        $query .= ":date_of_registration, :postal_address, :physical_address, :created_date, :created_user_id, :edited_date, :edited_user_id";
         $query .= ")";
 
         //Prepare statement
