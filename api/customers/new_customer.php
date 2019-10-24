@@ -37,7 +37,7 @@ $data = array();
 
 if($customer->create()){
     $data['message'] = 'success';
-    //$data['customer_id'] = $customer->id;
+    $data['customer_id'] = $customer->id;
 }else{
     $data['message'] = 'failed';
 }
