@@ -35,12 +35,12 @@ $customer->edited_date = $d->format('Y-m-d H:i:s');
 $customer->edited_user_id = $customer->id;
 $data = array();
 
-echo $customer->created_user_id;
+$data['customer_id'] = $customer->created_user_id;
 // if($customer->create()){
 //     $data['message'] = 'success';
 //     $data['customer_id'] = $customer->id;
 // }else{
 //     $data['message'] = 'failed';
 // }
-// echo json_encode($data);
+echo json_encode($data);
 ?>
