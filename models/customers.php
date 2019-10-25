@@ -22,9 +22,13 @@ class Customers{
     public $identification_doc5;
     public $email_address;
     public $dob;
-    public $date_of_registration; 
+    public $date_of_registration;
+    public $gender_id;
     public $postal_address;
     public $physical_address;
+    public $country_id;
+    public $phone_number;
+    public $alt_phone_number;
     public $created_date;
     public $created_user_id;
     public $edited_date;
@@ -44,13 +48,13 @@ class Customers{
         $query .= "customer_identity_doc_type_id1, identification_doc1, customer_identity_doc_type_id2, identification_doc2, ";
         $query .= "customer_identity_doc_type_id3, identification_doc3, customer_identity_doc_type_id4, identification_doc4, ";
         $query .= "customer_identity_doc_type_id5, identification_doc5, email_address, dob, ";
-        $query .= "date_of_registration, postal_address, physical_address, created_date, created_user_id, edited_date, edited_user_id";
+        $query .= "date_of_registration, gender_id, postal_address, physical_address, country_id, phone_number, alt_phone_number, created_date, created_user_id, edited_date, edited_user_id";
         $query .= ")VALUES(";
         $query .= ":first_name, :other_names, :cust_type_id, ";
         $query .= ":customer_identity_doc_type_id1, :identification_doc1, :customer_identity_doc_type_id2, :identification_doc2, ";
         $query .= ":customer_identity_doc_type_id3, :identification_doc3, :customer_identity_doc_type_id4, :identification_doc4, ";
         $query .= ":customer_identity_doc_type_id5, :identification_doc5, :email_address, :dob, ";
-        $query .= ":date_of_registration, :postal_address, :physical_address, :created_date, :created_user_id, :edited_date, :edited_user_id";
+        $query .= ":date_of_registration, :gender_id, :postal_address, :physical_address, :country_id, :phone_number, :alt_phone_number, :created_date, :created_user_id, :edited_date, :edited_user_id";
         $query .= ")";
 
         //Prepare statement

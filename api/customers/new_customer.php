@@ -21,11 +21,15 @@ $customer->customer_identity_doc_type_id4 = $_POST['customer_identity_doc_type_i
 $customer->identification_doc4 = $_POST['identification_doc4'];
 $customer->customer_identity_doc_type_id5 = $_POST['customer_identity_doc_type_id5'];
 $customer->identification_doc5 = $_POST['identification_doc5'];
+$customer->gender_id = $_POST['gender_id'];
 $customer->email_address = $_POST['email_address'];
 $customer->dob = $_POST['dob'];
 $customer->date_of_registration = $_POST['date_of_registration'];
 $customer->postal_address = $_POST['postal_address'];
 $customer->physical_address = $_POST['physical_address'];
+$customer->country_id = $_POST['country_id'];
+$customer->phone_number = $_POST['phone_number'];
+$customer->alt_phone_number = $_POST['alt_phone_number'];
 
 $d = new DateTime();
 
