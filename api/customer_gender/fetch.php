@@ -24,16 +24,16 @@ if($_POST['action'] == 'FETCH_ALL'){
             //extract($customer_gender);
 
             $customer_gender_item = array(
-                'id'              => $customer_gender['id']
-                // 'gender'          => $customer_gender['gender'],
-                // 'created_date'    => $customer_gender['created_date'],
-                // 'created_user_id' => $customer_gender['created_user_id'],
-                // 'edited_date'     => $customer_gender['edited_date'],
-                // 'edited_user_id'  => $customer_gender['edited_user_id'],
+                'id'              => $customer_gender['id'],
+                'gender'          => $customer_gender['gender'],
+                'created_date'    => $customer_gender['created_date'],
+                'created_user_id' => $customer_gender['created_user_id'],
+                'edited_date'     => $customer_gender['edited_date'],
+                'edited_user_id'  => $customer_gender['edited_user_id'],
             );
     
             // push to array 
-            array_push($data, $customer_doc_item);
+            array_push($data, $customer_gender_item);
         }
 
     }else{
