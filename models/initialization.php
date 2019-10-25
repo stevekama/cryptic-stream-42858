@@ -56,3 +56,6 @@ require_once(LIB_PATH.DS.'test_table.php');
 
 //start using customer tables 
 require_once(LIB_PATH.DS.'customers.php');
+
+//bring in customer type
+require_once(LIB_PATH.DS.'customer_type.php');
