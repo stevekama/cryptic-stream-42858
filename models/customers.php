@@ -5,6 +5,7 @@ class Customers{
     //Decalare table name 
     private $conn;
     private $table_name = 'customers';
+
     //Declare class properties 
     public $id;
     public $first_name;
@@ -33,7 +34,7 @@ class Customers{
     public $created_user_id;
     public $edited_date;
     public $edited_user_id;
-    
+
     //connect to db 
     public function __construct()
     {
@@ -87,7 +88,7 @@ class Customers{
         $this->created_user_id = htmlentities($this->created_user_id);
         $this->edited_date = htmlentities($this->edited_date);
         $this->edited_user_id = htmlentities($this->edited_user_id); 
-        
+
         // Bind Data
         $stmt->bindParam(':first_name', $this->first_name);
         $stmt->bindParam(':other_names', $this->other_names);
@@ -128,7 +129,10 @@ class Customers{
         if($error->create()){
             return false;
         }
-     
     }
+
+
+
+
 
 }
