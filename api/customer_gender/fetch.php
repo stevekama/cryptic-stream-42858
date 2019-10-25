@@ -21,15 +21,15 @@ if($_POST['action'] == 'FETCH_ALL'){
 
         while($customer_gender = $customer_genders->fetch(PDO::FETCH_ASSOC)){
 
-            extract($customer_gender);
+            //extract($customer_gender);
 
             $customer_gender_item = array(
-                'id'                        => $id,
-                'gender'          => $gender,
-                'created_date'    => $created_date,
-                'created_user_id' => $created_user_id,
-                'edited_date'     => $edited_date,
-                'edited_user_id'  => $edited_user_id,
+                'id'              => $customer_gender['id'],
+                'gender'          => $customer_gender['gender'],
+                'created_date'    => $customer_gender['created_date'],
+                'created_user_id' => $customer_gender['created_user_id'],
+                'edited_date'     => $customer_gender['edited_date'],
+                'edited_user_id'  => $customer_gender['edited_user_id'],
             );
     
             // push to array 
