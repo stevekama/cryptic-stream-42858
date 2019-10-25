@@ -59,3 +59,6 @@ require_once(LIB_PATH.DS.'customers.php');
 
 //bring in customer type
 require_once(LIB_PATH.DS.'customer_type.php');
+
+//bring in customer identity docs 
+require_once(LIB_PATH.DS.'customer_identity_docs.php');
