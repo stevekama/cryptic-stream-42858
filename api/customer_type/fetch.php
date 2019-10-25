@@ -24,6 +24,7 @@ if($_POST['action'] == 'FETCH_ALL'){
             extract($customer_type);
 
             $customer_type_item = array(
+                'id'                    => $id,
                 'cust_type'             => $cust_type,
                 'created_date'          => $created_date,
                 'created_user_id'       => $created_user_id,
