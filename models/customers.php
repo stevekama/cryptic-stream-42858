@@ -76,9 +76,13 @@ class Customers{
         $this->identification_doc5 = htmlentities($this->identification_doc5);
         $this->email_address = htmlentities($this->email_address);
         $this->dob = htmlentities($this->dob);
-        $this->date_of_registration = htmlentities($this->date_of_registration); 
+        $this->date_of_registration = htmlentities($this->date_of_registration);
+        $this->gender_id = htmlentities($this->gender_id);
         $this->postal_address = htmlentities($this->postal_address);
         $this->physical_address = htmlentities($this->physical_address);
+        $this->country_id = htmlentities($this->country_id);
+        $this->phone_number = htmlentities($this->phone_number);
+        $this->alt_phone_number = htmlentities($this->alt_phone_number);
         $this->created_date = htmlentities($this->created_date);
         $this->created_user_id = htmlentities($this->created_user_id);
         $this->edited_date = htmlentities($this->edited_date);
@@ -101,8 +105,12 @@ class Customers{
         $stmt->bindParam(':email_address', $this->email_address);
         $stmt->bindParam(':dob', $this->dob);
         $stmt->bindParam(':date_of_registration', $this->date_of_registration); 
+        $stmt->bindParam(':gender_id', $this->gender_id);
         $stmt->bindParam(':postal_address', $this->postal_address);
         $stmt->bindParam(':physical_address', $this->physical_address);
+        $stmt->bindParam(':country_id', $this->country_id);
+        $stmt->bindParam(':phone_number', $this->phone_number);
+        $stmt->bindParam(':alt_phone_number', $this->alt_phone_number);
         $stmt->bindParam(':created_date', $this->created_date);
         $stmt->bindParam(':created_user_id', $this->created_user_id);
         $stmt->bindParam(':edited_date', $this->edited_date);
