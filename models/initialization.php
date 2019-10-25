@@ -65,3 +65,6 @@ require_once(LIB_PATH.DS.'customer_identity_docs.php');
 
 //bring countries
 require_once(LIB_PATH.DS.'countries.php');
+
+//bring customer gender
+require_once(LIB_PATH.DS.'customer_gender.php');
