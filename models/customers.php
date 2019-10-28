@@ -131,4 +131,18 @@ class Customers{
         }
     }
 
+    public function find_by_id($id = "")
+    {
+        $query = "SELECT * FROM usr.".$this->table_name." WHERE id = :id LIMIT 1";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute(array('id'=>$id));
+        $count = $stmt->rowCount();
+        if($count > 0){
+            $customer = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $customer;
+        }else{
+            return false;
+        }
+    }
+
 }

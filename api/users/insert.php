@@ -10,12 +10,16 @@ include_once '../../models/initialization.php';
 $user = new Users();
 
 if($_POST['password'] === $_POST['confirm']){
-    $user->fullnames   = $_POST['fullnames'];
-    $user->phone       = $_POST['phone'];
-    $user->email       = $_POST['email'];
+    
+    // find customer by customer is 
+    $cust = new Customers();
+    $customer = $cust->find_by_id($_POST['customer_id']);
+    $user->fullnames   = $customer->first_name.' '.$customer->other_names;
+    $user->phone       = $customer->phone_number;
+    $user->email       = $customer->email_address;
     $user->username    = $_POST['username'];
     $user->password    = $_POST['password'];
-    $user->customer_id = $_POST['customer_id'];
+    $user->customer_id = $customer->id;
 
     //find user by email 
     $usermail = $user->find_user_by_email($user->email);
