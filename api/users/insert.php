@@ -20,7 +20,7 @@ if($_POST['password'] === $_POST['confirm']){
     $user->email       = $customer['email_address'];
     $user->username    = $_POST['username'];
     $user->password    = $_POST['password'];
-    $user->customer_id = $customer->id;
+    $user->customer_id = $customer['id'];
 
     //find user by email 
     $usermail = $user->find_user_by_email($user->email);
