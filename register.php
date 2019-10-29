@@ -21,12 +21,14 @@
       </div>
       <!-- /.col -->
     </div>
+
+    <a href="index.php" class="text-center">I already have a membership</a>
   </form>
 
   <!--individual form -->
   <form id="individualForm">
     <div class="form-group has-feedback">
-      <div id="messageAlert"></div>
+      <div id="individualFormMessageAlert"></div>
     </div>
     
     <div class="form-group has-feedback">
@@ -93,10 +95,42 @@
       </div>
       <!-- /.col -->
       <div class="col-xs-5">
-        <button type="submit" id="customerTypeBtn" class="btn btn-primary btn-block btn-flat">Select</button>
+        <button type="submit" id="individualFormBtn" class="btn btn-primary btn-block btn-flat">Select</button>
       </div>
       <!-- /.col -->
     </div>
   </form>
-  
+
+  <!--sign up account form -->
+  <form id="userAccountForm">
+    <div class="form-group has-feedback">
+      <div id="signupAccountFormMessageAlert"></div>
+    </div>
+
+    <div class="form-group has-feedback">
+      <input type="text" name="username" id="username" class="form-control" placeholder="Username">
+      <span class="glyphicon glyphicon-user form-control-feedback"></span>
+    </div>
+
+    <div class="form-group has-feedback">
+      <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+      <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+    </div>
+
+    <div class="form-group has-feedback">
+      <input type="password" name="confirm" id="confirm" class="form-control" placeholder="Retype password">
+      <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-7">
+        &nbsp;
+      </div>
+      <!-- /.col -->
+      <div class="col-xs-5">
+        <button type="submit" id="userAccountBtn" class="btn btn-primary btn-block btn-flat">Sign</button>
+      </div>
+      <!-- /.col -->
+    </div>
+  </form>
 <?php require_once('public/layouts/login/footer.php'); ?>
