@@ -49,6 +49,15 @@ function find_customer_type(){
 }
 find_customer_type();
 
+/// submit customer type form 
+$('#customerTypeForm').submit(function(event){
+  event.preventDefault();
+  var customer_type_id = $('#cust_type_id').val();
+  $('#type_id').val(customer_type_id);
+  $('#customerTypeForm').fadeOut(900).hide();
+  $('#individualForm').fadeIn(800).show();
+});
+
 $('#registerForm').submit(function(event){
   event.preventDefault();
   var form_data = $(this).serialize();

@@ -4,7 +4,7 @@
   <!-- Select customer type between corporates and individuals -->
   <form id="customerTypeForm" method="post">
     <div class="form-group has-feedback">
-      <select name="cust_type_id" id="cust_type_id" class="form-control">
+      <select id="cust_type_id" class="form-control">
       </select>
     </div>
     <div class="row">
@@ -35,6 +35,10 @@
     <div class="form-group has-feedback">
       <input type="text" name="other_names" class="form-control" placeholder="Other Names">
       <span class="glyphicon glyphicon-user form-control-feedback"></span>
+    </div>
+
+    <div class="form-group has-feedback">
+      <input type="text" name="cust_type_id" id="type_id" class="form-control">
     </div>
 
     <div class="form-group has-feedback">
