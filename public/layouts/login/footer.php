@@ -200,6 +200,42 @@ $('#individualForm').submit(function(event){
 });
 
 
+$('#userAccountForm').submit(function(event){
+  event.preventDefault();
+  var form_data = $(this).serialize();
+  $.ajax({
+    url : base_url+'api/users/insert.php',
+    type: 'POST',
+    data:form_data,
+    dataType: 'json',
+    beforeSend:function(){
+      $('#userAccountBtn').html('Loading...');
+    },
+    success:function(data){
+      $('#userAccountBtn').html('Sign up');
+      if(data.message == 'success'){
+        window.location.href = base_url+'index.php';  
+      }
+
+      if(data.message == 'emailError'){
+        $('#messageAlert').html('<div class="alert alert-danger alert-dismissible">Email Entererd Exist. Please Check and Try again...</div>');
+        return false;
+      }
+
+      if(data.message == 'failed'){
+        $('#messageAlert').html('<div class="alert alert-danger alert-dismissible">Failed To Register user. Please Try again..</div>');
+        return false;
+      }
+
+      if(data.message == 'errorPass'){
+        $('#messageAlert').html('<div class="alert alert-danger alert-dismissible">Failed To Register user. The password entered do not match. Please check and try again...</div>');
+        return false;
+      }
+    }
+  });
+});
+
+
 $('#registerForm').submit(function(event){
   event.preventDefault();
   var form_data = $(this).serialize();
