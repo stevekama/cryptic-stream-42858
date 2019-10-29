@@ -5,10 +5,6 @@
   <form id="customerTypeForm" method="post">
     <div class="form-group has-feedback">
       <select name="cust_type_id" id="cust_type_id" class="form-control">
-        <option disable selected>Choose type of registration</option>
-        <option value="1">INDIVIDUAL</option>
-        <option value="2">CO-OPORATE</option>
-        <option value="3">SYSTEM</option>
       </select>
     </div>
     <div class="row">
