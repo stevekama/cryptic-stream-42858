@@ -1,12 +1,28 @@
 <?php require_once('models/initialization.php'); ?>
 <?php require_once('public/layouts/login/header.php'); ?>
   <p class="login-box-msg">Register a new membership</p>
-  <form id="registerForm" method="post">
+  <!-- Select customer type between corporates and individuals -->
+  <form id="customerTypeForm">
+    <div class="form-group has-feedback">
+      <select name="cust_type_id" id="cust_type_id" class="form-control">
+        <option disable selected>Choose type of registration</option>
+        <option value="1">INDIVIDUAL</option>
+        <option value="2">CO-OPORATE</option>
+      </select>
+      <span class="glyphicon glyphicon-user form-control-feedback"></span>
+    </div>
+  </form>
+  <form id="individualForm" method="post">
     <div class="form-group has-feedback">
       <div id="messageAlert"></div>
     </div>
+    <!-- Have a form for customers and another for co-orporates -->
     <div class="form-group has-feedback">
-      <input type="text" name="fullnames" class="form-control" placeholder="Full name">
+      <input type="text" name="first_name" class="form-control" placeholder="First Name">
+      <span class="glyphicon glyphicon-user form-control-feedback"></span>
+    </div>
+    <div class="form-group has-feedback">
+      <input type="text" name="other_names" class="form-control" placeholder="Other Names">
       <span class="glyphicon glyphicon-user form-control-feedback"></span>
     </div>
     <div class="form-group has-feedback">
