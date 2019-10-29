@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>public/components/bootstrap/dist/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>public/components/font-awesome/css/font-awesome.min.css">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="<?php echo base_url(); ?>public/components/bootstrap-daterangepicker/daterangepicker.css">
+    <!-- bootstrap datepicker -->
+    <link rel="stylesheet" href="<?php echo base_url(); ?>public/components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>public/components/Ionicons/css/ionicons.min.css">
     <!-- Theme style -->
@@ -33,6 +37,11 @@
     <script src="<?php echo base_url(); ?>public/components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
     <script src="<?php echo base_url(); ?>public/components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- date-range-picker -->
+    <script src="<?php echo base_url(); ?>public/components/moment/min/moment.min.js"></script>
+    <script src="<?php echo base_url(); ?>public/components/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- bootstrap datepicker -->
+    <script src="<?php echo base_url(); ?>public/components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <!-- iCheck -->
     <script src="<?php echo base_url(); ?>public/plugins/iCheck/icheck.min.js"></script>
     <!-- Base URL -->
