@@ -122,6 +122,43 @@ function find_customer_gender(){
     }
   });
 }
+
+// function to select gender
+var isSelectCountry = 0;
+function selectCustomerCountry(data, countryId){
+  if(isSelectCountry == 0){
+    isSelectCountry = 1;
+    var select = document.getElementById(countryId);
+    var defaultOption = document.createElement('option');
+    defaultOption.appendChild(document.createTextNode('Choose customer country'));
+    defaultOption.setAttribute('value', '');
+    defaultOption.setAttribute('disabled', '');
+    defaultOption.setAttribute('selected', '');
+    select.appendChild(defaultOption);
+    data.map(function(oneOpt){
+        var option = document.createElement('option');
+        option.appendChild(document.createTextNode(oneOpt.country));
+        option.setAttribute('value', oneOpt.id);
+        select.appendChild(option);
+    });
+  }else{
+    isSelectCountry = 0;
+  }
+}
+
+function find_customer_country(){
+  var action = "FETCH_ALL";
+  $.ajax({
+    url : base_url+'api/countries/fetch.php',
+    type: 'POST',
+    data:{action:action},
+    dataType: 'json',
+    success:function(data){
+      selectCustomerCountry(data, 'country_id');
+    }
+  });
+}
+
 $('.datepicker').datepicker({
     format: 'yyyy-mm-dd'
 });
@@ -133,6 +170,7 @@ $('#customerTypeForm').submit(function(event){
   $('#customerTypeForm').fadeOut(900).hide();
   find_customer_doc();
   find_customer_gender();
+  find_customer_country();
   $('#individualForm').fadeIn(800).show();
   $('#userAccountForm').fadeOut(900).hide();
 });
