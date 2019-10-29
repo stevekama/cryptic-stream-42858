@@ -58,10 +58,6 @@
 
     <div class="form-group has-feedback">
       <select name="gender_id" id="gender_id" class="form-control">
-        <option disable selected>Choose gender</option>
-        <option value="1">MALE</option>
-        <option value="2">FEMALE</option>
-        <option value="3">OTHERS</option>
       </select>
     </div>
 
