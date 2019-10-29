@@ -122,8 +122,9 @@ function find_customer_gender(){
     }
   });
 }
-
-
+$('.datepicker').datepicker({
+    format: 'yyyy-mm-dd'
+});
 /// submit customer type form 
 $('#customerTypeForm').submit(function(event){
   event.preventDefault();

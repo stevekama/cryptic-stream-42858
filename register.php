@@ -57,7 +57,7 @@
     </div>
 
     <div class="form-group has-feedback">
-      <input type="text" name="dob" id="dob" class="form-control" placeholder="Date of birth">
+      <input type="text" name="dob" id="dob" class="form-control datepicker" placeholder="Date of birth">
       <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
     </div>
 
