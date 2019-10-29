@@ -69,6 +69,8 @@ function selectCustomerDoc(data, docId){
         option.setAttribute('value', oneOpt.id);
         select.appendChild(option);
     });
+  }else{
+    isSelectDoc = 0;
   }
 }
 
@@ -92,7 +94,7 @@ function selectCustomerGender(data, genderId){
     isSelectGender = 1;
     var select = document.getElementById(genderId);
     var defaultOption = document.createElement('option');
-    defaultOption.appendChild(document.createTextNode('Choose identification document'));
+    defaultOption.appendChild(document.createTextNode('Choose customer gender'));
     defaultOption.setAttribute('value', '');
     defaultOption.setAttribute('disabled', '');
     defaultOption.setAttribute('selected', '');
@@ -103,6 +105,8 @@ function selectCustomerGender(data, genderId){
         option.setAttribute('value', oneOpt.id);
         select.appendChild(option);
     });
+  }else{
+    isSelectGender = 0;
   }
 }
 
