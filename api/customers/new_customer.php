@@ -24,15 +24,13 @@ $customer->identification_doc5 = $_POST['identification_doc5'];
 $customer->gender_id = $_POST['gender_id'];
 $customer->email_address = $_POST['email_address'];
 $customer->dob = $_POST['dob'];
-$customer->date_of_registration = $_POST['date_of_registration'];
+$d = new DateTime();
+$customer->date_of_registration = $d->format('Y-m-d H:i:s');
 $customer->postal_address = $_POST['postal_address'];
 $customer->physical_address = $_POST['physical_address'];
 $customer->country_id = $_POST['country_id'];
 $customer->phone_number = $_POST['phone_number'];
 $customer->alt_phone_number = $_POST['alt_phone_number'];
-
-$d = new DateTime();
-
 $customer->created_date = $d->format('Y-m-d H:i:s');
 $customer->created_user_id = 0;
 $customer->edited_date = $d->format('Y-m-d H:i:s');

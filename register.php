@@ -42,7 +42,7 @@
     </div>
 
     <div class="form-group has-feedback">
-      <select name="customer_identity_doc_type1" id="customer_identity_doc_type1" class="form-control">
+      <select name="customer_identity_doc_type_id1" id="customer_identity_doc_type1" class="form-control">
       </select>
     </div>
 
@@ -52,7 +52,7 @@
     </div>
 
     <div class="form-group has-feedback">
-      <input type="text" name="customer_identity_doc_type2" class="form-control" value="0">
+      <input type="text" name="customer_identity_doc_type_id2" class="form-control" value="0">
     </div>
 
     <div class="form-group has-feedback">
@@ -60,7 +60,7 @@
     </div>
 
     <div class="form-group has-feedback">
-      <input type="text" name="customer_identity_doc_type3" class="form-control" value="0">
+      <input type="text" name="customer_identity_doc_type_id3" class="form-control" value="0">
     </div>
 
     <div class="form-group has-feedback">
@@ -68,7 +68,7 @@
     </div>
 
     <div class="form-group has-feedback">
-      <input type="text" name="customer_identity_doc_type4" class="form-control" value="0">
+      <input type="text" name="customer_identity_doc_type_id4" class="form-control" value="0">
     </div>
 
     <div class="form-group has-feedback">
@@ -76,13 +76,18 @@
     </div>
 
     <div class="form-group has-feedback">
-      <input type="text" name="customer_identity_doc_type5" class="form-control" value="0">
+      <input type="text" name="customer_identity_doc_type_id5" class="form-control" value="0">
     </div>
 
     <div class="form-group has-feedback">
       <input type="text" name="identification_doc5" class="form-control" value="NULL">
     </div>
 
+    <div class="form-group has-feedback">
+      <select name="gender_id" id="gender_id" class="form-control">
+      </select>
+    </div>
+    
     <div class="form-group has-feedback">
       <input type="email" name="email_address" class="form-control" placeholder="Email">
       <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -91,11 +96,6 @@
     <div class="form-group has-feedback">
       <input type="text" name="dob" id="dob" class="form-control datepicker" placeholder="Date of birth">
       <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
-    </div>
-
-    <div class="form-group has-feedback">
-      <select name="gender_id" id="gender_id" class="form-control">
-      </select>
     </div>
 
     <div class="form-group has-feedback">
@@ -112,7 +112,7 @@
       <select name="country_id" id="country_id" class="form-control">
       </select>
     </div>
-    
+
     <div class="form-group has-feedback">
       <input type="text" name="phone_number" id="phone_number" class="form-control" placeholder="Phone Number">
       <span class="glyphicon glyphicon-phone form-control-feedback"></span>
