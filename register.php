@@ -47,13 +47,18 @@
     </div>
 
     <div class="form-group has-feedback">
+      <input type="text" name="identification_doc1" class="form-control" placeholder="Identification number">
+      <span class="glyphicon glyphicon-file form-control-feedback"></span>
+    </div>
+
+    <div class="form-group has-feedback">
       <input type="email" name="email" class="form-control" placeholder="Email">
       <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
     </div>
 
     <div class="form-group has-feedback">
       <input type="text" name="dob" id="dob" class="form-control" placeholder="Date of birth">
-      <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
     </div>
 
     <div class="form-group has-feedback">
@@ -63,12 +68,12 @@
 
     <div class="form-group has-feedback">
       <input type="text" name="postal_address" id="postal_address" class="form-control" placeholder="Postal Address">
-      <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      <span class="glyphicon glyphicon-folder-close form-control-feedback"></span>
     </div>
 
     <div class="form-group has-feedback">
       <input type="text" name="physical_address" id="physical_address" class="form-control" placeholder="Physical Address">
-      <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      <span class="glyphicon glyphicon-briefcase form-control-feedback"></span>
     </div>
 
     <div class="form-group has-feedback">
