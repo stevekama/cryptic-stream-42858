@@ -136,9 +136,29 @@ $('#customerTypeForm').submit(function(event){
   $('#userAccountForm').fadeOut(900).hide();
 });
 
-
-
-
+/// submit individual form 
+$('#individualForm').submit(function(event){
+  event.preventDefault();
+  var form_data = $(this).serialize();
+  $.ajax({
+    url : base_url+'api/customers/new_customer.php',
+    type: 'POST',
+    data:form_data,
+    dataType: 'json',
+    beforeSend:function(){
+      $('#individualFormBtn').html('Loading...');
+    },
+    success:function(data){
+      $('#individualFormBtn').html('Save');
+      if(data.message == 'success'){
+        $('#customer_id').val(data.customer_id);
+        $('#individualForm').fadeIn(900).hide();
+        $('#userAccountForm').fadeIn(800).show();
+        $('#customerTypeForm').fadeOut(900).hide();
+      }
+    }
+  });
+});
 
 
 $('#registerForm').submit(function(event){

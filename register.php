@@ -87,7 +87,7 @@
       </div>
       <!-- /.col -->
       <div class="col-xs-5">
-        <button type="submit" id="individualFormBtn" class="btn btn-primary btn-block btn-flat">Select</button>
+        <button type="submit" id="individualFormBtn" class="btn btn-primary btn-block btn-flat">Save</button>
       </div>
       <!-- /.col -->
     </div>
@@ -97,6 +97,10 @@
   <form id="userAccountForm" method="post">
     <div class="form-group has-feedback">
       <div id="signupAccountFormMessageAlert"></div>
+    </div>
+
+    <div class="form-group has-feedback">
+      <input type="text" name="customer_id" id="customer_id" class="form-control">
     </div>
 
     <div class="form-group has-feedback">
