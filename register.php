@@ -9,7 +9,16 @@
         <option value="1">INDIVIDUAL</option>
         <option value="2">CO-OPORATE</option>
       </select>
-      <span class="glyphicon glyphicon-user form-control-feedback"></span>
+    </div>
+    <div class="row">
+      <div class="col-xs-7">
+        &nbsp;
+      </div>
+      <!-- /.col -->
+      <div class="col-xs-5">
+        <button type="submit" id="customerTypeBtn" class="btn btn-primary btn-block btn-flat">Select</button>
+      </div>
+      <!-- /.col -->
     </div>
   </form>
   <form id="individualForm" method="post">
