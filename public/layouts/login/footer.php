@@ -43,11 +43,82 @@ function find_customer_type(){
     dataType: 'json',
     success:function(data){
       selectCustomerType(data, 'cust_type_id');
-      $('#customerTypeForm').fadeIn(800).show(); 
+      $('#customerTypeForm').fadeIn(800).show();
+      $('#individualForm').fadeOut(900).hide();
+      $('#userAccountForm').fadeOut(900).hide();
     }
   });
 }
 find_customer_type();
+
+// functions to select customer doc type 
+var isSelectDoc = 0;
+function selectCustomerDoc(data, docId){
+  if(isSelectDoc == 0){
+    isSelectDoc = 1;
+    var select = document.getElementById(docId);
+    var defaultOption = document.createElement('option');
+    defaultOption.appendChild(document.createTextNode('Choose identification document'));
+    defaultOption.setAttribute('value', '');
+    defaultOption.setAttribute('disabled', '');
+    defaultOption.setAttribute('selected', '');
+    select.appendChild(defaultOption);
+    data.map(function(oneOpt){
+        var option = document.createElement('option');
+        option.appendChild(document.createTextNode(oneOpt.identification_doc_type));
+        option.setAttribute('value', oneOpt.id);
+        select.appendChild(option);
+    });
+  }
+}
+
+function find_customer_doc(){
+  var action = "FETCH_ALL";
+  $.ajax({
+    url : base_url+'api/customer_docs/fetch.php',
+    type: 'POST',
+    data:{action:action},
+    dataType: 'json',
+    success:function(data){
+      selectCustomerDoc(data, 'customer_identity_doc_type1');
+    }
+  });
+}
+
+// function to select gender
+var isSelectGender = 0;
+function selectCustomerGender(data, genderId){
+  if(isSelectGender == 0){
+    isSelectGender = 1;
+    var select = document.getElementById(genderId);
+    var defaultOption = document.createElement('option');
+    defaultOption.appendChild(document.createTextNode('Choose identification document'));
+    defaultOption.setAttribute('value', '');
+    defaultOption.setAttribute('disabled', '');
+    defaultOption.setAttribute('selected', '');
+    select.appendChild(defaultOption);
+    data.map(function(oneOpt){
+        var option = document.createElement('option');
+        option.appendChild(document.createTextNode(oneOpt.gender));
+        option.setAttribute('value', oneOpt.id);
+        select.appendChild(option);
+    });
+  }
+}
+
+function find_customer_gender(){
+  var action = "FETCH_ALL";
+  $.ajax({
+    url : base_url+'api/customer_gender/fetch.php',
+    type: 'POST',
+    data:{action:action},
+    dataType: 'json',
+    success:function(data){
+      selectCustomerGender(data, 'gender_id');
+    }
+  });
+}
+
 
 /// submit customer type form 
 $('#customerTypeForm').submit(function(event){
@@ -55,8 +126,16 @@ $('#customerTypeForm').submit(function(event){
   var customer_type_id = $('#cust_type_id').val();
   $('#type_id').val(customer_type_id);
   $('#customerTypeForm').fadeOut(900).hide();
+  find_customer_doc();
+  find_customer_gender();
   $('#individualForm').fadeIn(800).show();
+  $('#userAccountForm').fadeOut(900).hide();
 });
+
+
+
+
+
 
 $('#registerForm').submit(function(event){
   event.preventDefault();

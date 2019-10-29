@@ -38,15 +38,11 @@
     </div>
 
     <div class="form-group has-feedback">
-      <input type="text" name="cust_type_id" id="type_id" class="form-control">
+      <input type="hidden" name="cust_type_id" id="type_id" class="form-control">
     </div>
 
     <div class="form-group has-feedback">
       <select name="customer_identity_doc_type1" id="customer_identity_doc_type1" class="form-control">
-        <option disable selected>Choose identification document</option>
-        <option value="1">NATIONAL ID</option>
-        <option value="2">PASSPORT</option>
-        <option value="3">PIN CERTIFICATE</option>
       </select>
     </div>
 
