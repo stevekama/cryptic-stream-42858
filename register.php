@@ -26,7 +26,7 @@
   </form>
 
   <!--individual form -->
-  <form id="individualForm">
+  <form id="individualForm" method="post">
     <div class="form-group has-feedback">
       <div id="individualFormMessageAlert"></div>
     </div>
@@ -102,7 +102,7 @@
   </form>
 
   <!--sign up account form -->
-  <form id="userAccountForm">
+  <form id="userAccountForm" method="post">
     <div class="form-group has-feedback">
       <div id="signupAccountFormMessageAlert"></div>
     </div>
@@ -128,7 +128,7 @@
       </div>
       <!-- /.col -->
       <div class="col-xs-5">
-        <button type="submit" id="userAccountBtn" class="btn btn-primary btn-block btn-flat">Sign</button>
+        <button type="submit" id="userAccountBtn" class="btn btn-primary btn-block btn-flat">Sign up</button>
       </div>
       <!-- /.col -->
     </div>

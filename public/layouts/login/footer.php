@@ -12,6 +12,8 @@
   });
 </script>
 <script>
+$('#customerTypeForm').fadeIn(800).show();
+
 $('#registerForm').submit(function(event){
   event.preventDefault();
   var form_data = $(this).serialize();
