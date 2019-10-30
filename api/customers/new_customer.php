@@ -28,6 +28,7 @@ $customer->email_address = $_POST['email_address'];
 $current_customer_email = $customer->find_by_email($customer->email_address);
 if($current_customer_email){
     $data['message'] = 'duplicatedEmail';
+    echo json_encode($data);
     die();
 }
 // continue if the email is not found 
