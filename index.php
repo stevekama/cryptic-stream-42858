@@ -52,11 +52,11 @@
                     <div id="messageAlert"></div>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="email" name="email" class="form-control" placeholder="Email">
+                    <input type="email" name="email" id="loginEmail" class="form-control" placeholder="Email">
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" name="password" class="form-control" placeholder="Password">
+                    <input type="password" name="password" id="loginPass" class="form-control" placeholder="Password">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="row">
@@ -107,7 +107,8 @@
                             window.location.href = base_url+'public/index.php';
                         }
                         if(data.message == 'failed'){
-                            $('#messageAlert').html('Failed to Login. Please check your Email and Password and try again...');
+                            $('#messageAlert').html('<div class="alert alert-danger alert-dismissible">Failed to Login. Please check your Email and Password and try again...</div>');
+                            $('#loginPass').val('');
                         }
                     }
                 });
