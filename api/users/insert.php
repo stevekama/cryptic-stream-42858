@@ -21,15 +21,7 @@ if($_POST['password'] === $_POST['confirm']){
     $user->username    = $_POST['username'];
     $user->password    = $_POST['password'];
     $user->customer_id = $customer['id'];
-
-    //find user by email 
-    $usermail = $user->find_user_by_email($user->email);
-
-    if($usermail){
-        echo json_encode(array('message'=>'emailError'));
-        die();
-    }
-
+    
     ///create user 
     if($user->create()){
         echo json_encode(array('message'=>'success'));

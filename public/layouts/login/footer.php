@@ -220,19 +220,14 @@ $('#userAccountForm').submit(function(event){
       if(data.message == 'success'){
         window.location.href = base_url+'index.php';  
       }
-
-      if(data.message == 'emailError'){
-        $('#messageAlert').html('<div class="alert alert-danger alert-dismissible">Email Entererd Exist. Please Check and Try again...</div>');
-        return false;
-      }
-
+      
       if(data.message == 'failed'){
-        $('#messageAlert').html('<div class="alert alert-danger alert-dismissible">Failed To Register user. Please Try again..</div>');
+        $('#signupAccountFormMessageAlert').html('<div class="alert alert-danger alert-dismissible">Failed To Register user. Please Try again..</div>');
         return false;
       }
 
       if(data.message == 'errorPass'){
-        $('#messageAlert').html('<div class="alert alert-danger alert-dismissible">Failed To Register user. The password entered do not match. Please check and try again...</div>');
+        $('#signupAccountFormMessageAlert').html('<div class="alert alert-danger alert-dismissible">Failed To Register user. The password entered do not match. Please check and try again...</div>');
         return false;
       }
     }
