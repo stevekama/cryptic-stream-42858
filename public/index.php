@@ -90,7 +90,7 @@ require_once('layouts/systems/header.php'); ?>
       <!-- /.row (main row) -->
 
       <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12">
+        <section class="col-lg-12 col-md-12 col-sm-12">
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
             <div class="box-header with-border">
@@ -178,7 +178,7 @@ require_once('layouts/systems/header.php'); ?>
             <!-- /.box-footer -->
           </div>
           <!-- /.box -->
-        </div>
+        </section>
       </div>
       <!--row-->
     </section>
