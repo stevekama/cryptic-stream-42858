@@ -30,7 +30,10 @@ require_once('layouts/systems/header.php'); ?>
           <!-- /.info-box -->
         </div>
         <!-- /.col -->
+      </div>
+      <!--row --> 
 
+      <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
             <span class="info-box-icon bg-green"><i class="glyphicon glyphicon-file"></i></span>
@@ -44,8 +47,8 @@ require_once('layouts/systems/header.php'); ?>
           <!-- /.info-box -->
         </div>
         <!-- /.col -->
-
       </div>
+      <!--row-->
     </div>
 
     <div class="col-lg-5">
