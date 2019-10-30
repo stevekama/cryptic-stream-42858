@@ -107,7 +107,7 @@
                             window.location.href = base_url+'public/index.php';
                         }
                         if(data.message == 'failed'){
-                            $('#messageAlert').html('');
+                            $('#messageAlert').html('Failed to Login. Please check your Email and Password and try again...');
                         }
                     }
                 });

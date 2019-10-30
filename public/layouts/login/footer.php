@@ -268,6 +268,9 @@ $('#registerForm').submit(function(event){
     }
   });
 });
+
+
+//Login form
 </script>
 </body>
 </html>
