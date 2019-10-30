@@ -104,7 +104,7 @@ require_once('layouts/systems/header.php'); ?>
         <!-- right col (We are only adding the ID to make the widgets sortable)-->
         <section class="col-lg-5 connectedSortable">
           <div class="row">
-            <div class="col-lg-3 col-xs-6">
+            <div class="col-lg-5 col-xs-6">
               <!-- small box -->
               <div class="small-box bg-aqua">
                 <div class="inner">
