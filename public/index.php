@@ -15,41 +15,41 @@ require_once('layouts/systems/header.php'); ?>
 <!-- Main content -->
 <section class="content">
   <div class="row">
-    <div class="col-lg-7">
-      <div class="row">
-        <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-aqua"><i class="glyphicon glyphicon-euro"></i></span>
+    
+    <div class="row">
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-aqua"><i class="glyphicon glyphicon-euro"></i></span>
 
-            <div class="info-box-content">
-              <span class="info-box-text">Total Transactions</span>
-              <span class="info-box-number"><small>$</small>900</span>
-            </div>
-            <!-- /.info-box-content -->
+          <div class="info-box-content">
+            <span class="info-box-text">Total Transactions</span>
+            <span class="info-box-number"><small>$</small>900</span>
           </div>
-          <!-- /.info-box -->
+          <!-- /.info-box-content -->
         </div>
-        <!-- /.col -->
+        <!-- /.info-box -->
       </div>
-      <!--row --> 
-
-      <div class="row">
-        <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-green"><i class="glyphicon glyphicon-file"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Wallet</span>
-              <span class="info-box-number"><small>$</small>2000</span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
-      </div>
-      <!--row-->
+      <!-- /.col -->
     </div>
+    <!--row --> 
+
+    <div class="row">
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-green"><i class="glyphicon glyphicon-file"></i></span>
+
+          <div class="info-box-content">
+            <span class="info-box-text">Wallet</span>
+            <span class="info-box-number"><small>$</small>2000</span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+      </div>
+      <!-- /.col -->
+    </div>
+    <!--row-->
+    
 
     <div class="col-lg-5">
       
