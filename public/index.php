@@ -21,7 +21,21 @@ require_once('layouts/systems/header.php'); ?>
 
         <div class="info-box-content">
           <span class="info-box-text">Total Transactions</span>
-          <span class="info-box-number"><small>$</small>900</span>
+          <span class="info-box-number">$900</span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-green"><i class="glyphicon glyphicon-euro"></i></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text">Wallet</span>
+          <span class="info-box-number">$200</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -30,29 +44,6 @@ require_once('layouts/systems/header.php'); ?>
     <!-- /.col -->
   </div>
   <!--row --> 
-
-  <div class="row">
-    <section class="col-lg-7">
-      <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box">
-          <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
-
-          <div class="info-box-content">
-            <span class="info-box-text">Transactions</span>
-            <span class="info-box-number"><small>$</small>90</span>
-          </div>
-          <!-- /.info-box-content -->
-        </div>
-        <!-- /.info-box -->
-      </div>
-      <!-- /.col -->
-    
-    </section>
-
-    <section class="col-lg-5 connectedSortable">
-    </section>
-  </div>
-  <!--row-->
 
 </section>
 <!-- /.content -->
