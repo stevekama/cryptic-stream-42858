@@ -147,9 +147,9 @@ class Customers{
 
     // find customers by email
     public function find_by_email($email_address = ''){
-        $query = "SELECT * FROM usr.".$this->table_name." WHERE email_address = :email_address";
+        $query = "SELECT * FROM usr.".$this->table_name." WHERE email_address = :email_address LIMIT 1";
         $stmt = $this->conn->prepare($query);
-        $stmt->execute(array('email_address', $email_address));
+        $stmt->execute(array('email_address'=>$email_address));
         $count = $stmt->rowCount();
         if($count > 0){
             $customer = $stmt->fetch(PDO::FETCH_ASSOC);
