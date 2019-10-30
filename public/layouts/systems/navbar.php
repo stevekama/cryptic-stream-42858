@@ -42,7 +42,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
-                    <span>PayPal</span>
+                    <span>Transactions</span>
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="<?php echo base_url(); ?>public/paypal/index.php"><i class="fa fa-circle-o"></i> Transactions</a></li>
@@ -51,12 +51,32 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
-                    <span>MPESA</span>
+                    <span>Pay Bills</span>
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="<?php echo base_url(); ?>public/mpesa/index.php"><i class="fa fa-circle-o"></i> Transactions</a></li>
                 </ul>
-            </li> 
+            </li>
+            <li class="header">LABELS</li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>My Organizations</span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="<?php echo base_url(); ?>public/mpesa/index.php"><i class="fa fa-circle-o"></i> Transactions</a></li>
+                </ul>
+            </li>
+            
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>Apps Api</span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="<?php echo base_url(); ?>public/mpesa/index.php"><i class="fa fa-circle-o"></i> Transactions</a></li>
+                </ul>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->
