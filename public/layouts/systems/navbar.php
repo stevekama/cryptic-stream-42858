@@ -41,7 +41,7 @@
             </li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-files-o"></i>
+                    <i class="fa fa-money"></i>
                     <span>Transactions</span>
                 </a>
                 <ul class="treeview-menu">
@@ -50,7 +50,7 @@
             </li> 
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-files-o"></i>
+                    <i class="fa fa-fa-hourglass"></i>
                     <span>Pay Bills</span>
                 </a>
                 <ul class="treeview-menu">
@@ -60,17 +60,17 @@
             <li class="header">LABELS</li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-files-o"></i>
+                    <i class="fa fa-bank"></i>
                     <span>My Organizations</span>
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="<?php echo base_url(); ?>public/mpesa/index.php"><i class="fa fa-circle-o"></i> Transactions</a></li>
                 </ul>
             </li>
-            
+
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-files-o"></i>
+                    <i class="fa fa-check-square"></i>
                     <span>Apps Api</span>
                 </a>
                 <ul class="treeview-menu">
