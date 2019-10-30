@@ -195,6 +195,10 @@ $('#individualForm').submit(function(event){
         $('#userAccountForm').fadeIn(800).show();
         $('#customerTypeForm').fadeOut(900).hide();
       }
+      if(data.message == 'duplicatedEmail'){
+        $('#individualFormMessageAlert').html('<div class="alert alert-danger alert-dismissible">Email Entererd Exist. Please Check and Try again...</div>');
+        return false;
+      }
     }
   });
 });

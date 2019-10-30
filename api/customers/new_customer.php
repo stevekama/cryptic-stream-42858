@@ -7,6 +7,7 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 include_once '../../models/initialization.php';
 
 $customer = new Customers();
+$data = array();
 
 $customer->first_name = $_POST['first_name'];
 $customer->other_names = $_POST['other_names'];
@@ -23,6 +24,13 @@ $customer->customer_identity_doc_type_id5 = $_POST['customer_identity_doc_type_i
 $customer->identification_doc5 = $_POST['identification_doc5'];
 $customer->gender_id = $_POST['gender_id'];
 $customer->email_address = $_POST['email_address'];
+// check if the email exists
+$current_customer_email = $customer->find_by_email($customer->email_address);
+if($current_customer_email){
+    $data['message'] = 'duplicatedEmail';
+    die();
+}
+// continue if the email is not found 
 $customer->dob = $_POST['dob'];
 $d = new DateTime();
 $customer->date_of_registration = $d->format('Y-m-d H:i:s');
@@ -35,7 +43,7 @@ $customer->created_date = $d->format('Y-m-d H:i:s');
 $customer->created_user_id = 0;
 $customer->edited_date = $d->format('Y-m-d H:i:s');
 $customer->edited_user_id = 0;
-$data = array();
+
 
 if($customer->create()){
     $data['message'] = 'success';
