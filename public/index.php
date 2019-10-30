@@ -104,7 +104,7 @@ require_once('layouts/systems/header.php'); ?>
         <!-- right col (We are only adding the ID to make the widgets sortable)-->
         <section class="col-lg-5 connectedSortable">
           <div class="row">
-            <div class="col-lg-5 col-xs-6">
+            <div class="col-lg-5 col-xs-12">
               <!-- small box -->
               <div class="small-box bg-aqua">
                 <div class="inner">
@@ -112,12 +112,29 @@ require_once('layouts/systems/header.php'); ?>
                   <p>Transactions</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-bag"></i>
+                  <i class="glyphicon glyphicon-euro"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
+
+            <div class="col-lg-5 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-green">
+                <div class="inner">
+                  <h3>65</h3>
+
+                  <p>Wallet</p>
+                </div>
+                <div class="icon">
+                  <i class="glyphicon glyphicon-hdd"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <!-- ./col -->
+
           </div>
           <!--row-->
 
