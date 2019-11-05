@@ -13,6 +13,7 @@ class Users {
     public $username;
     public $password;
     public $customer_id;
+    public $profile;
 
     //db connect
     public function __construct(){
@@ -67,7 +68,7 @@ class Users {
     }
 
     public function create(){
-        $query = "INSERT INTO ".$this->table_name."(fullnames, phone, email, username, password, customer_id)VALUES(:fullnames, :phone, :email, :username, :password, :customer_id)";
+        $query = "INSERT INTO ".$this->table_name."(fullnames, phone, email, username, password, customer_id, profile)VALUES(:fullnames, :phone, :email, :username, :password, :customer_id, :profile)";
 
         //propare statement 
         $stmt = $this->conn->prepare($query);
@@ -79,6 +80,7 @@ class Users {
         $this->username = htmlentities($this->username);
         $this->password = password_hash($this->password, PASSWORD_DEFAULT);
         $this->customer_id = htmlentities($this->customer_id);
+        $this->profile = htmlentities($this->profile);
         
 
         //Bind Data
@@ -88,6 +90,7 @@ class Users {
         $stmt->bindParam(':username', $this->username);
         $stmt->bindParam(':password', $this->password);
         $stmt->bindParam(':customer_id', $this->customer_id);
+        $stmt->bindParam(':profile', $this->profile);
 
         //Execute Query 
         if($stmt->execute()){

@@ -21,7 +21,7 @@ if($_POST['password'] === $_POST['confirm']){
     $user->username    = $_POST['username'];
     $user->password    = $_POST['password'];
     $user->customer_id = $customer['id'];
-    
+    $user->profile     = 'profile.png'; 
     ///create user 
     if($user->create()){
         echo json_encode(array('message'=>'success'));
