@@ -12,7 +12,6 @@ $(document).ready(function(){
         });
     } 
     find_user_by_id();
-    // get customer details 
-
-
+    // get customer details
+    
 });

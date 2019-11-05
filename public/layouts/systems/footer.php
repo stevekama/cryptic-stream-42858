@@ -26,7 +26,7 @@
                             window.location.href = base_url + 'index.php';
                         }else{
                             $('#userFullNames').html(data.fullnames);
-                            $('#userName').html(data.username);
+                            $('.userName').html(data.username);
                             $('#userEmailAddress').html(data.email);
                         }
                     }
