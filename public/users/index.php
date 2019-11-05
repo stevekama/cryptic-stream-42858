@@ -1,5 +1,5 @@
-<?php require_once('../models/functions.php'); 
-require_once('layouts/systems/header.php'); ?>
+<?php require_once('../../models/functions.php'); 
+require_once('../layouts/systems/header.php'); ?>
 
 <!-- Content Header (Page header) -->
 <section class="content-header">
@@ -372,4 +372,4 @@ require_once('layouts/systems/header.php'); ?>
 
 </section>
 <!-- /.content -->
-<?php require_once('layouts/systems/footer.php'); ?>
+<?php require_once('../layouts/systems/footer.php'); ?>
