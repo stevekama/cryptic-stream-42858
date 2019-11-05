@@ -3,7 +3,7 @@ $(document).ready(function(){
     function find_user_by_id(){
         var action = "FETCH_USER";
         $.ajax({
-            url  : base_url+'',
+            url  : base_url+'api/users/users.php',
             type : "POST",
             data : {action:action}, 
             success: function(data){
