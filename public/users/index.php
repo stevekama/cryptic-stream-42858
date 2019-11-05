@@ -20,8 +20,8 @@ require_once('../layouts/systems/header.php'); ?>
             <!-- Profile Image -->
             <div class="box box-primary">
                 <div class="box-body box-profile">
-                    <img class="profile-user-img img-responsive img-circle" src="../../dist/img/user4-128x128.jpg" alt="User profile picture">
-                    <h3 class="profile-username text-center">Nina Mcintire</h3>
+                    <span id="profileImg"></span>
+                    <h3 class="profile-username text-center"></h3>
                     <p id="profileEmail" class="text-muted text-center"></p>
                     <ul class="list-group list-group-unbordered">
                         <li class="list-group-item">
