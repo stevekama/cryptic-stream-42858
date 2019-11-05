@@ -7,11 +7,13 @@ $(document).ready(function(){
             type : "POST",
             data : {action:action}, 
             success: function(data){
-                console.table(data);
+                $('.profile-username').html(data.username);
+                $('#profileEmail').html(data.email);
             }
         });
     } 
     find_user_by_id();
+    
     // get customer details
     
 });

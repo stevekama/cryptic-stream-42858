@@ -7,9 +7,9 @@ require_once('../layouts/systems/header.php'); ?>
         <span></span> Profile
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Examples</a></li>
-        <li class="active">User profile</li>
+        <li><a href="<?php echo base_url(); ?>public/index.php"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="<?php echo base_url(); ?>public/users/index.php">profile</a></li>
+        <li class="active">My profile</li>
     </ol>
 </section>
 
@@ -22,7 +22,7 @@ require_once('../layouts/systems/header.php'); ?>
                 <div class="box-body box-profile">
                     <img class="profile-user-img img-responsive img-circle" src="../../dist/img/user4-128x128.jpg" alt="User profile picture">
                     <h3 class="profile-username text-center">Nina Mcintire</h3>
-                    <p class="text-muted text-center">Software Engineer</p>
+                    <p id="profileEmail" class="text-muted text-center"></p>
                     <ul class="list-group list-group-unbordered">
                         <li class="list-group-item">
                             <b>Followers</b> <a class="pull-right">1,322</a>
