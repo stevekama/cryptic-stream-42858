@@ -50,7 +50,7 @@
             </li> 
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-fa-hourglass"></i>
+                    <i class="fa fa-industry"></i>
                     <span>Pay Bills</span>
                 </a>
                 <ul class="treeview-menu">

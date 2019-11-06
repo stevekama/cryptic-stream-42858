@@ -115,14 +115,14 @@ require_once('../layouts/systems/header.php'); ?>
                             <h3>Change Username</h3>
                             <hr>
                             <div class="form-group">
-                                <label for="accountUserName" class="col-sm-2 control-label">Name</label>
+                                <label for="accountUserName" class="col-sm-2 control-label">User Name: </label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="accountUserName" placeholder="User Name">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-danger">Update</button>
+                                    <button type="submit" class="btn btn-info">Update</button>
                                 </div>
                             </div>
                         </form>
@@ -155,7 +155,7 @@ require_once('../layouts/systems/header.php'); ?>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-danger">Submit</button>
+                                    <button type="submit" class="btn btn-info">Submit</button>
                                 </div>
                             </div>
                         </form>
