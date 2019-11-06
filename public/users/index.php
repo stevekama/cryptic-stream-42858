@@ -40,9 +40,6 @@ require_once('../layouts/systems/header.php'); ?>
                     <hr>
                     <strong><i class="fa fa-map-marker margin-r-5"></i> Email: </strong>
                     <p id="profileEmail" class="text-muted"></p>
-                    <hr>
-                    <strong><i class="fa fa-filae-text-o margin-r-5"></i> Notes</strong>
-                    <button class="btn btn-primary btn-block">Account Settings</button>
                 </div>
                 <!-- /.box-body -->
             </div>
@@ -55,167 +52,105 @@ require_once('../layouts/systems/header.php'); ?>
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#activity" data-toggle="tab">My Details</a></li>
                     <li><a href="#customer_document" data-toggle="tab">My Docs</a></li>
-                    <li><a href="#settings" data-toggle="tab">Settings</a></li>
+                    <li><a href="#settings" data-toggle="tab">Account Settings</a></li>
                 </ul>
                 <div class="tab-content">
                     <div class="active tab-pane" id="activity">
-                        <!-- Post -->
-                        <div class="post">
-                            <div class="user-block">
-                                <span class="username">
-                                    Full Names:
-                                </span>
-                            </div>
-                            <!-- /.user-block -->
-                            <p>Stephen Kamau</p>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>Full Names: </th>
+                                    <td>Stephen Kamau</td>
+                                </tr>
+                                <tr>
+                                    <th>Email Address:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Date of birth:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Gender:</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Postal Address</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Physical Address</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Country</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Phone Number</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Alt Phone Number</th>
+                                    <td></td>
+                                </tr>
+                            </table>
                         </div>
-                        <!-- /.post -->
-                        
-                        <!-- Post -->
-                        <div class="post clearfix">
-                            <div class="user-block">
-                                <span class="username">
-                                    Email Address
-                                </span>
-                            </div>
-                            <!-- /.user-block -->
-                            <p>stevekamahertz@gmail.com</p>
-                        </div>
-                        <!-- /.post -->
-
-                        <!-- Post -->
-                        <div class="post clearfix">
-                            <div class="user-block">
-                                <span class="username">
-                                    Date of Birth
-                                </span>
-                            </div>
-                            <!-- /.user-block -->
-                            <p>1994-09-02</p>
-                        </div>
-                        <!-- /.post -->
-
-                        <!-- Post -->
-                        <div class="post clearfix">
-                            <div class="user-block">
-                                <span class="username">
-                                    Gender
-                                </span>
-                            </div>
-                            <!-- /.user-block -->
-                            <p>Male</p>
-                        </div>
-                        <!-- /.post -->
-
-                        <!-- Post -->
-                        <div class="post clearfix">
-                            <div class="user-block">
-                                <span class="username">
-                                    Postal Address
-                                </span>
-                            </div>
-                            <!-- /.user-block -->
-                            <p>Male</p>
-                        </div>
-                        <!-- /.post -->
-
-                        <!-- Post -->
-                        <div class="post clearfix">
-                            <div class="user-block">
-                                <span class="username">
-                                    Physical Address
-                                </span>
-                            </div>
-                            <!-- /.user-block -->
-                            <p>Male</p>
-                        </div>
-                        <!-- /.post -->
-
-                        <!-- Post -->
-                        <div class="post clearfix">
-                            <div class="user-block">
-                                <span class="username">
-                                    Country
-                                </span>
-                            </div>
-                            <!-- /.user-block -->
-                            <p>Male</p>
-                        </div>
-                        <!-- /.post -->
-
-                         <!-- Post -->
-                         <div class="post clearfix">
-                            <div class="user-block">
-                                <span class="username">
-                                    Phone Number
-                                </span>
-                            </div>
-                            <!-- /.user-block -->
-                            <p>Male</p>
-                        </div>
-                        <!-- /.post -->
                     </div>
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="customer_document">
                          <!-- Post -->
-                         <div class="post">
-                            <div class="user-block">
-                                <span class="username">
-                                    ID Number:
-                                </span>
-                            </div>
-                            <!-- /.user-block -->
-                            <p>31443160</p>
-                        </div>
-                        <!-- /.post -->
-                        
+                         <div class="table-responsive">
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>ID Number: </th>
+                                    <td>31443160</td>
+                                </tr>
+                            </table>
+                         </div>
                     </div>
 
                     <div class="tab-pane" id="settings">
                         <form class="form-horizontal">
+                            <h3>Change Username</h3>
+                            <hr>
                             <div class="form-group">
-                                <label for="inputName" class="col-sm-2 control-label">Name</label>
+                                <label for="accountUserName" class="col-sm-2 control-label">Name</label>
                                 <div class="col-sm-10">
-                                    <input type="email" class="form-control" id="inputName" placeholder="Name">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputEmail" class="col-sm-2 control-label">Email</label>
-
-                                <div class="col-sm-10">
-                                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="inputName" class="col-sm-2 control-label">Name</label>
-
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputName" placeholder="Name">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="inputExperience" class="col-sm-2 control-label">Experience</label>
-
-                                <div class="col-sm-10">
-                                    <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputSkills" class="col-sm-2 control-label">Skills</label>
-
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
+                                    <input type="text" class="form-control" id="accountUserName" placeholder="User Name">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
-                                        </label>
-                                    </div>
+                                    <button type="submit" class="btn btn-danger">Update</button>
+                                </div>
+                            </div>
+                        </form>
+                        
+                        <form class="form-horizontal">
+                            <h3>Change Password</h3>
+                            <hr>
+                            <div class="form-group">
+                                <label for="currentPassword" class="col-sm-2 control-label">Current Password</label>
+
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" id="currentPassword" placeholder="Enter Current Password">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="newPassword" class="col-sm-2 control-label">New Password</label>
+
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" id="newPassword" placeholder="New Password">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirmPassword" class="col-sm-2 control-label">Confirm Password</label>
+
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
                                 </div>
                             </div>
                             <div class="form-group">
