@@ -10,6 +10,7 @@ $(document).ready(function(){
                 $('#profileImg').html('<img class="profile-user-img img-responsive img-circle" src="'+base_url+'public/dist/img/'+data.profile+'" alt="User profile picture">');
                 $('.profile-username').html(data.username);
                 $('#profileEmail').html(data.email);
+                find_customer_by_id(data.customer_id);
             }
         });
     } 
