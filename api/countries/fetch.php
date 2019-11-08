@@ -39,3 +39,15 @@ if($_POST['action'] == 'FETCH_ALL'){
     
     echo json_encode($data);
 }
+
+if($_POST['action'] == 'FETCH_COUNTRY'){
+    $country_id = $_POST['country_id'];
+
+    $current_country = $countries->fetch_by_id($country_id);
+
+    if($current_country){
+        echo json_encode($current_country);
+    }else{
+        echo json_encode(array('message'=>'countryError'));
+    }
+}

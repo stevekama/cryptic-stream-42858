@@ -44,11 +44,24 @@ $(document).ready(function(){
                 find_gender_by_id(data.gender_id);
                 $('#customerPostalAddress').html(data.postal_address);
                 $('#customerPhysicalAddress').html(data.physical_address);
-                $('#customerCountry').html(data.country_id);
+                find_country_by_id(data.country_id);
                 $('#customerPhone').html(data.phone_number);
                 $('#customerAltPhone').html(data.alt_phone_number);
             }
-        });
-        
+        }); 
     }
+
+     // find country by id 
+     function find_country_by_id(country_id){
+        var action = "FETCH_COUNTRY";
+        $.ajax({
+            url  : base_url+'api/countries/fetch.php',
+            type : "POST",
+            data : {action:action, country_id:country_id}, 
+            success: function(data){
+                $('#customerCountry').html(data.country);
+            }
+        });
+    }
+
 });
