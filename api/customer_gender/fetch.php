@@ -42,3 +42,16 @@ if($_POST['action'] == 'FETCH_ALL'){
     
     echo json_encode($data);
 }
+
+if($_POST['action'] == 'FECH_GENDER'){
+    
+    $gender_id = $_POST['gender_id'];
+
+    $current_gender = $gender->fetch_by_id($gender_id);
+
+    if($current_gender){
+        echo json_encode($current_gender);
+    }else{
+        echo json_encode(array('message'=>'genderError'));
+    }
+}

@@ -16,6 +16,20 @@ $(document).ready(function(){
     } 
     find_user_by_id();
 
+    
+    // gender gender by id 
+    function find_gender_by_id(gender_id){
+        var action = "FECH_GENDER";
+        $.ajax({
+            url  : base_url+'api/customer_gender/fetch.php',
+            type : "POST",
+            data : {action:action, customer_id:customer_id}, 
+            success: function(data){
+                $('#customerGender').html(data.gender);
+            }
+        });
+    }
+    
     // get customer details
     function find_customer_by_id(customer_id){
         var action = "FETCH_CUSTOMER";
@@ -27,7 +41,7 @@ $(document).ready(function(){
                 $('#customerFullNames').html(data.first_name+' '+data.other_names);
                 $('#customerEmailAddress').html(data.email_address);
                 $('#customerDOB').html(data.dob);
-                $('#customerGender').html(data.gender_id);
+                find_gender_by_id(data.gender_id);
                 $('#customerPostalAddress').html(data.postal_address);
                 $('#customerPhysicalAddress').html(data.physical_address);
                 $('#customerCountry').html(data.country_id);
