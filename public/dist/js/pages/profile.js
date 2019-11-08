@@ -23,13 +23,13 @@ $(document).ready(function(){
         $.ajax({
             url  : base_url+'api/customer_gender/fetch.php',
             type : "POST",
-            data : {action:action, customer_id:customer_id}, 
+            data : {action:action, gender_id:gender_id}, 
             success: function(data){
                 $('#customerGender').html(data.gender);
             }
         });
     }
-    
+
     // get customer details
     function find_customer_by_id(customer_id){
         var action = "FETCH_CUSTOMER";
