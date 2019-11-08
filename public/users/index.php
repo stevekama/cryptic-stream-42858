@@ -22,7 +22,7 @@ require_once('../layouts/systems/header.php'); ?>
                 <div class="box-body box-profile">
                     <span id="profileImg"></span>
                     <p id="" class="text-muted text-center"></p>
-                    <a href="#" class="btn btn-primary btn-block"><b>Edit Profile</b></a>
+                    <a href="#" id="editProfilePic" class="btn btn-primary btn-block"><b>Edit Profile</b></a>
                 </div>
                 <!-- /.box-body -->
             </div>
@@ -60,7 +60,7 @@ require_once('../layouts/systems/header.php'); ?>
                             <table class="table table-hover">
                                 <tr>
                                     <th>Full Names: </th>
-                                    <td>Stephen Kamau</td>
+                                    <td id="customerFullNames"></td>
                                 </tr>
                                 <tr>
                                     <th>Email Address:</th>

@@ -11,15 +11,17 @@ include_once '../../models/initialization.php';
 /// Bring in customer 
 $customer = new Customers();
 
-// get customer id 
-$customer_id = $_POST['customer_id'];
+if($_POST['action'] == 'FETCH_CUSTOMER'){
+    // get customer id 
+    $customer_id = $_POST['customer_id'];
 
-// current customer
-$current_customer = $customer->find_by_id($customer_id);
+    // current customer
+    $current_customer = $customer->find_by_id($customer_id);
 
-if(!$current_customer){
-    echo json_encode(array('message'=>'error_customer'));
-    die();
+    if(!$current_customer){
+        echo json_encode(array('message'=>'error_customer'));
+        die();
+    }
+
+    echo json_encode($current_customer);
 }
-
-echo json_encode($current_customer);

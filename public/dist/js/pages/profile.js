@@ -16,5 +16,16 @@ $(document).ready(function(){
     find_user_by_id();
 
     // get customer details
-    
+    function find_customer_by_id(customer_id){
+        var action = "FETCH_CUSTOMER";
+        $.ajax({
+            url  : base_url+'api/customers/fetch_customers.php',
+            type : "POST",
+            data : {action:action, customer_id:customer_id}, 
+            success: function(data){
+                $('#customerFullNames').html(data.first_name+' '+data.other_names);
+            }
+        });
+        
+    }
 });
