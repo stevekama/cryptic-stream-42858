@@ -64,35 +64,35 @@ require_once('../layouts/systems/header.php'); ?>
                                 </tr>
                                 <tr>
                                     <th>Email Address:</th>
-                                    <td></td>
+                                    <td id="customerEmailAddress"></td>
                                 </tr>
                                 <tr>
                                     <th>Date of birth:</th>
-                                    <td></td>
+                                    <td id="customerDOB"></td>
                                 </tr>
                                 <tr>
                                     <th>Gender:</th>
-                                    <td></td>
+                                    <td id="customerGender"></td>
                                 </tr>
                                 <tr>
                                     <th>Postal Address</th>
-                                    <td></td>
+                                    <td id="customerPostalAddress"></td>
                                 </tr>
                                 <tr>
                                     <th>Physical Address</th>
-                                    <td></td>
+                                    <td id="customerPhysicalAddress"></td>
                                 </tr>
                                 <tr>
                                     <th>Country</th>
-                                    <td></td>
+                                    <td id="customerCountry"></td>
                                 </tr>
                                 <tr>
                                     <th>Phone Number</th>
-                                    <td></td>
+                                    <td id="customerPhone"></td>
                                 </tr>
                                 <tr>
                                     <th>Alt Phone Number</th>
-                                    <td></td>
+                                    <td id="customerAltPhone"></td>
                                 </tr>
                             </table>
                         </div>

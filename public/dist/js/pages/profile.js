@@ -25,6 +25,14 @@ $(document).ready(function(){
             data : {action:action, customer_id:customer_id}, 
             success: function(data){
                 $('#customerFullNames').html(data.first_name+' '+data.other_names);
+                $('#customerEmailAddress').html(data.email_address);
+                $('#customerDOB').html(data.dob);
+                $('#customerGender').html(data.gender_id);
+                $('#customerPostalAddress').html(data.postal_address);
+                $('#customerPhysicalAddress').html(data.physical_address);
+                $('#customerCountry').html(data.country_id);
+                $('#customerPhone').html(data.phone_number);
+                $('#customerAltPhone').html(data.alt_phone_number);
             }
         });
         
