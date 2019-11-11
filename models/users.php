@@ -97,4 +97,39 @@ class Users {
             return true;
         } 
     }
+
+    // update user info
+    public function update()
+    {
+        $query = "UPDATE ".$this->table_name." SET fullnames = :fullnames, phone = :phone, email = :email, username = :username, customer_id = :customer_id, profile = :profile WHERE id = :id";
+
+        //propare statement 
+        $stmt = $this->conn->prepare($query);
+
+        //clean data
+        $this->id = htmlentities($this->id);
+        $this->fullnames = htmlentities($this->fullnames);
+        $this->phone = htmlentities($this->phone);
+        $this->email = htmlentities($this->email);
+        $this->username = htmlentities($this->username);
+        $this->customer_id = htmlentities($this->customer_id);
+        $this->profile = htmlentities($this->profile);
+
+        //Bind Data
+        $stmt->bindParam(':id', $this->id);
+        $stmt->bindParam(':fullnames', $this->fullnames);
+        $stmt->bindParam(':phone', $this->phone);
+        $stmt->bindParam(':email', $this->email);
+        $stmt->bindParam(':username', $this->username);
+        $stmt->bindParam(':customer_id', $this->customer_id);
+        $stmt->bindParam(':profile', $this->profile);
+
+        //Execute Query 
+        if($stmt->execute()){
+            return true;
+        } 
+    }
+
+    // update user password
+    
 }
