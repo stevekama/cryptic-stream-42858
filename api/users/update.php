@@ -19,7 +19,7 @@ if(!$current_user){
 $user->id          = $current_user['id'];
 $user->fullnames   = $current_user['fullnames'];
 $user->phone       = $current_user['phone'];
-$user->email       = $current_user['phone'];
+$user->email       = $current_user['email'];
 $user->username    = $_POST['username'];
 $user->password    = $current_user['password'];
 $user->customer_id = $current_user['customer_id'];
