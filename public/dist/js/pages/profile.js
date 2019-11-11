@@ -70,7 +70,7 @@ $(document).ready(function(){
         event.preventDefault();
         var action = "UPDATE_USERNAME";
         var username = $('#accountUserName').val();
-        var DataToSend = 'action='+action+'$username='+username;
+        var DataToSend = 'action='+action+'&username='+username;
         $.ajax({
             url  : base_url+'api/users/update.php',
             type : "POST",
