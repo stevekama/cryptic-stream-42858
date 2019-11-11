@@ -45,7 +45,7 @@ require_once('layouts/systems/header.php'); ?>
               <div class="row">
                 <div class="col-md-8">
                   <p class="text-center">
-                    <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
+                    <strong>Transactions</strong>
                   </p>
 
                   <div class="chart">
@@ -59,6 +59,22 @@ require_once('layouts/systems/header.php'); ?>
                   <p class="text-center">
                     <strong>Goal Completion</strong>
                   </p>
+                  <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-aqua">
+                      <div class="inner">
+                        <h3>150</h3>
+
+                        <p>New Orders</p>
+                      </div>
+                      <div class="icon">
+                        <i class="ion ion-bag"></i>
+                      </div>
+                      <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                  </div>
+                  <!-- ./col -->
+                  
 
                   <div class="progress-group">
                     <span class="progress-text">Add Products to Cart</span>
