@@ -72,11 +72,19 @@ $(document).ready(function(){
         var username = $('#accountUserName').val();
         var DataToSend = 'action='+action+'&username='+username;
         $.ajax({
-            url  : base_url+'api/users/update.php',
-            type : "POST",
-            data : DataToSend, 
+            url        : base_url+'api/users/update.php',
+            type       : "POST",
+            data       : DataToSend, 
+            beforeSend : function(){
+                $('#updateUsernameBtn').html('Updating...');
+            },
             success: function(data){
-                find_user_by_id();
+                $('#updateUsernameBtn').html('Update');
+                if(data.message == 'success'){
+                    find_user_by_id();
+                }else{
+                    $('#alertMessage').html('<div class="alert alert-danger alert-dismissible">There was a problem in updating username</div>');
+                }
             }
         });
 

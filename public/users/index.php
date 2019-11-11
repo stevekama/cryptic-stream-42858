@@ -131,6 +131,12 @@ require_once('../layouts/systems/header.php'); ?>
                             <h3>Change Password</h3>
                             <hr>
                             <div class="form-group">
+                                <div class="col-sm-12">
+                                    <div id="alertMessage"></div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
                                 <label for="currentPassword" class="col-sm-2 control-label">Current Password</label>
 
                                 <div class="col-sm-10">
@@ -155,7 +161,7 @@ require_once('../layouts/systems/header.php'); ?>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-info">Submit</button>
+                                    <button type="submit" id="updateUsernameBtn" class="btn btn-info">Submit</button>
                                 </div>
                             </div>
                         </form>
