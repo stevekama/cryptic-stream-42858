@@ -56,18 +56,31 @@ require_once('layouts/systems/header.php'); ?>
                 </div>
                 <!-- /.col -->
                 <div class="col-md-4">
-                    <!-- small box -->
-                    <div class="small-box bg-aqua">
-                      <div class="inner">
-                        <h3>150</h3>
+                  <!-- small box -->
+                  <div class="small-box bg-aqua">
+                    <div class="inner">
+                      <h3>150</h3>
 
-                        <p>New Orders</p>
-                      </div>
-                      <div class="icon">
-                        <i class="ion ion-bag"></i>
-                      </div>
-                      <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                      <p>New Orders</p>
                     </div>
+                    <div class="icon">
+                      <i class="ion ion-bag"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                  </div>
+
+                  <!-- small box -->
+                  <div class="small-box bg-green">
+                    <div class="inner">
+                      <h3>150</h3>
+
+                      <p>New Orders</p>
+                    </div>
+                    <div class="icon">
+                      <i class="ion ion-bag"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                  </div>
                   
 
                   <div class="progress-group">
