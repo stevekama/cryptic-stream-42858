@@ -16,18 +16,17 @@ if(!$current_user){
     echo json_encode(array('message'=>'errorUser'));
     die();
 }
-
-echo json_encode($current_user);
-// $user->fullnames   = $customer['first_name'].' '.$customer['other_names'];
-// $user->phone       = $customer['phone_number'];
-// $user->email       = $customer['email_address'];
-// $user->username    = $_POST['username'];
-// $user->password    = $_POST['password'];
-// $user->customer_id = $customer['id'];
-// $user->profile     = 'profile.png'; 
-// ///create user 
-// if($user->create()){
-//     echo json_encode(array('message'=>'success'));
-// }else{
-//     echo json_encode(array('message'=>'failed'));
-// }
+$user->id          = $current_user['id'];
+$user->fullnames   = $current_user['fullnames'];
+$user->phone       = $current_user['phone'];
+$user->email       = $current_user['phone'];
+$user->username    = $_POST['username'];
+$user->password    = $current_user['password'];
+$user->customer_id = $current_user['customer_id'];
+$user->profile     = $current_user['profile'];
+//create user 
+if($user->update()){
+    echo json_encode(array('message'=>'success'));
+}else{
+    echo json_encode(array('message'=>'failed'));
+}
