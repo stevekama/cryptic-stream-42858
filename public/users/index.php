@@ -111,7 +111,7 @@ require_once('../layouts/systems/header.php'); ?>
                     </div>
 
                     <div class="tab-pane" id="settings">
-                        <form class="form-horizontal">
+                        <form id="usernameForm" class="form-horizontal">
                             <h3>Change Username</h3>
                             <hr>
                             <div class="form-group">

@@ -9,6 +9,7 @@ $(document).ready(function(){
             success: function(data){
                 $('#profileImg').html('<img class="profile-user-img img-responsive img-circle" src="'+base_url+'public/dist/img/'+data.profile+'" alt="User profile picture">');
                 $('.profile-username').html(data.username);
+                $('#accountUserName').val(data.username);
                 $('#profileEmail').html(data.email);
                 find_customer_by_id(data.customer_id);
             }
@@ -51,8 +52,8 @@ $(document).ready(function(){
         }); 
     }
 
-     // find country by id 
-     function find_country_by_id(country_id){
+    // find country by id 
+    function find_country_by_id(country_id){
         var action = "FETCH_COUNTRY";
         $.ajax({
             url  : base_url+'api/countries/fetch.php',
@@ -63,5 +64,23 @@ $(document).ready(function(){
             }
         });
     }
+
+    // update username 
+    $('#usernameForm').submit(function(event){
+        event.preventDefault();
+        var action = "UPDATE_USERNAME";
+        var username = $('#accountUserName').val();
+        var DataToSend = 'action='+action+'$username='+username;
+        $.ajax({
+            url  : base_url+'api/users/update.php',
+            type : "POST",
+            data : DataToSend, 
+            success: function(data){
+                find_user_by_id();
+            }
+        });
+
+    });
+
 
 });
