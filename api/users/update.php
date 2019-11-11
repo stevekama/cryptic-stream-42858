@@ -12,6 +12,11 @@ $user = new Users();
 // find user by id 
 $current_user = $user->find_user_by_id($_POST['user_id']);
 
+if(!$current_user){
+    echo json_encode(array('message'=>'errorUser'));
+    die();
+}
+
 echo json_encode($current_user);
 // $user->fullnames   = $customer['first_name'].' '.$customer['other_names'];
 // $user->phone       = $customer['phone_number'];
