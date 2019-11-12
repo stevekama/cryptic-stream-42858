@@ -139,7 +139,7 @@ class Users {
         // use user id to get the user password and compare with the password
         $user = $this->find_user_by_id($id);
         // verify password
-        return $password;
+        return $user['password'];
         // if(password_verify($password, $user['password'])){
         //     return $user;
         //     // // change and update password
