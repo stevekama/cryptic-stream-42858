@@ -82,6 +82,7 @@ $(document).ready(function(){
                 $('#updateUsernameBtn').html('Update');
                 if(data.message == 'success'){
                     find_user_by_id();
+                    window.location.href = base_url+'public/users/index.php';
                 }else{
                     $('#alertMessage').html('<div class="alert alert-danger alert-dismissible">There was a problem in updating username</div>');
                 }
