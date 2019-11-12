@@ -27,7 +27,7 @@ if($new_password !== $confirm_pass){
     die();
 }
 // check the old pass and update
-$update_pass = $user->update_password($user_id, $password);
+$update_pass = $user->update_password($user_id, $password, $new_password);
 
 if(!$update_pass){
     echo json_encode(array('message'=>'wrongPass'));

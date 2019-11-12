@@ -90,4 +90,61 @@ $(document).ready(function(){
         });
 
     });
+
+    // update password 
+    $('#changePassForm').submit(function(event){
+        event.preventDefault();
+        var password = $('#currentPassword').val();
+        var new_password = $('#newPassword').val();
+        var confirm_pass = $('#confirmPassword').val();
+        if(new_password === confirm_pass){
+            var DataToSend = 'password='+password+'&new_password='+new_password+'&confirm_pass='+confirm_pass;
+            $.ajax({
+                url        : base_url+'api/users/change_pass.php',
+                type       : "POST",
+                data       : DataToSend, 
+                beforeSend : function(){
+                    $('#updatePassBtn').html('Updating...');
+                },
+                success: function(data){
+                    $('#updatePassBtn').html('Submit');
+                    if(data.message == 'success'){
+                        find_user_by_id();
+                        window.location.href = base_url+'public/users/index.php';
+                    }
+                    if(data.message == 'passwordDoNotMatch'){
+                        $('#alertPassMessage').html('<div class="alert alert-danger alert-dismissible">The password entered do not match. Please check and try again..</div>');
+                        return false;
+                    }
+                    if(data.message == 'wrongPass'){
+                        $('#alertPassMessage').html('<div class="alert alert-danger alert-dismissible">The password entered do not match. Please check and try again..</div>');
+                        //logout 
+                        logout();
+                        return false;
+                    }
+                }
+            });
+        }else{
+            $('#alertPassMessage').html('<div class="alert alert-danger alert-dismissible">The password entered do not match. Please check and try again..</div>');
+        }
+    });
+
+    // function loggout 
+    function logout()
+    {
+        var action = "LOGOUT";
+        $.ajax({
+            url:base_url+'api/users/users.php',
+            type:'POST',
+            data:{action:action},
+            dataType:"json",
+            success:function(data){
+                if(data.message == 'success'){
+                    window.location.href = base_url+'index.php';
+                }
+            }
+        });
+    }
+
+
 });
