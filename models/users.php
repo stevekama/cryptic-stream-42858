@@ -135,27 +135,27 @@ class Users {
         //clean data
         $id = htmlentities($id);
         // hash password
-        $password = password_hash($password, PASSWORD_DEFAULT);
+        // $password = password_hash($password, PASSWORD_DEFAULT);
         // use user id to get the user password and compare with the password
         $user = $this->find_user_by_id($id);
         // verify password
-        return $user['password'];
-        // if(password_verify($password, $user['password'])){
-        //     return $user;
-        //     // // change and update password
-        //     // $query = "UPDATE ".$this->table_name." SET password = :password WHERE id = :id";
-        //     // //propare statement 
-        //     // $stmt = $this->conn->prepare($query);
-        //     // //Bind Data
-        //     // $stmt->bindParam(':id', $id);
-        //     // $stmt->bindParam(':password', $password);
-        //     // //Execute Query 
-        //     // if($stmt->execute()){
-        //     //     return true;
-        //     // } 
-        // }else{
-        //     return false;
-        // }
+        // return $user['password'];
+        if(password_verify($password, $user['password'])){
+            return $user;
+            // // change and update password
+            // $query = "UPDATE ".$this->table_name." SET password = :password WHERE id = :id";
+            // //propare statement 
+            // $stmt = $this->conn->prepare($query);
+            // //Bind Data
+            // $stmt->bindParam(':id', $id);
+            // $stmt->bindParam(':password', $password);
+            // //Execute Query 
+            // if($stmt->execute()){
+            //     return true;
+            // } 
+        }else{
+            return false;
+        }
         
     }
 }
