@@ -141,18 +141,18 @@ class Users {
         // verify password
         // return $user['password'];
         if(password_verify($password, $user['password'])){
-            return $user;
-            // // change and update password
-            // $query = "UPDATE ".$this->table_name." SET password = :password WHERE id = :id";
-            // //propare statement 
-            // $stmt = $this->conn->prepare($query);
-            // //Bind Data
-            // $stmt->bindParam(':id', $id);
-            // $stmt->bindParam(':password', $password);
-            // //Execute Query 
-            // if($stmt->execute()){
-            //     return true;
-            // } 
+            // return $user;
+            // change and update password
+            $query = "UPDATE ".$this->table_name." SET password = :password WHERE id = :id";
+            //propare statement 
+            $stmt = $this->conn->prepare($query);
+            //Bind Data
+            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':password', $password);
+            //Execute Query 
+            if($stmt->execute()){
+                return true;
+            } 
         }else{
             return false;
         }
