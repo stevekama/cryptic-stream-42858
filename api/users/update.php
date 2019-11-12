@@ -10,7 +10,7 @@ include_once '../../models/initialization.php';
 $user = new Users();
 
 // find user by id 
-$current_user = $user->find_user_by_id($_POST['user_id']);
+$current_user = $user->find_user_by_id($session->user_id);
 
 if(!$current_user){
     echo json_encode(array('message'=>'errorUser'));
