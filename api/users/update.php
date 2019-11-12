@@ -17,14 +17,20 @@ if(!$current_user){
     die();
 }
 
-$user_id          = $current_user['id'];
-$password         = $_POST['password'];
+$user->id          = $current_user['id'];
+$user->fullnames   = $current_user['fullnames'];
+$user->phone       = $current_user['phone'];
+$user->email       = $current_user['email'];
 
-$check_pass = $user->update_password($user_id, $password);
-
-if(!$check_pass){
-    echo json_encode(array('message'=>'wrongPass'));
-    die();
+if($_POST['action'] == 'UPDATE_USERNAME'){
+    $user->username    = $_POST['username'];
+    $user->password    = $current_user['password'];
+    $user->customer_id = $current_user['customer_id'];
+    $user->profile     = $current_user['profile'];
+    //create user 
+    if($user->update()){
+        echo json_encode(array('message'=>'success'));
+    }else{
+        echo json_encode(array('message'=>'failed'));
+    }
 }
-
-echo json_encode($check_pass);
