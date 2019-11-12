@@ -19,9 +19,10 @@ if(!$current_user){
 
 $user_id          = $current_user['id'];
 $password         = $_POST['password'];
+$new_password     = $_POST['new_password'];
 $confirm_pass     = $_POST['confirm_pass'];
 // send password and confirm password 
-if($password !== $confirm_pass){
+if($new_password !== $confirm_pass){
     echo json_encode(array('message'=>'passwordDoNotMatch'));
     die();
 }
@@ -32,5 +33,5 @@ if(!$update_pass){
     echo json_encode(array('message'=>'wrongPass'));
     die();
 }
- 
+
 echo json_encode(array('message'=>'success'));

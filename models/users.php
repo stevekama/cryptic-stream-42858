@@ -131,11 +131,10 @@ class Users {
     }
 
     // update user password
-    public function update_password($id=0, $password = ""){
+    public function update_password($id=0, $password = "", $new_password = ""){
         //clean data
         $id = htmlentities($id);
-        // hash password
-        // $password = password_hash($password, PASSWORD_DEFAULT);
+        
         // use user id to get the user password and compare with the password
         $user = $this->find_user_by_id($id);
         // verify password
@@ -146,9 +145,13 @@ class Users {
             $query = "UPDATE ".$this->table_name." SET password = :password WHERE id = :id";
             //propare statement 
             $stmt = $this->conn->prepare($query);
+
+            // hash password
+            $new_password = password_hash($new_password, PASSWORD_DEFAULT);
+
             //Bind Data
             $stmt->bindParam(':id', $id);
-            $stmt->bindParam(':password', $password);
+            $stmt->bindParam(':password', $new_password);
             //Execute Query 
             if($stmt->execute()){
                 return true;
