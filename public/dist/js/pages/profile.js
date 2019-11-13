@@ -146,5 +146,9 @@ $(document).ready(function(){
         });
     }
 
-
+    /// profile modal 
+    $('#editProfilePic').click(function(){
+        $('#profileForm')[0].reset();
+        $('#profileModal').modal('open');
+    });
 });

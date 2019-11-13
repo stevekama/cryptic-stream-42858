@@ -27,7 +27,6 @@ require_once('../layouts/systems/header.php'); ?>
                 <!-- /.box-body -->
             </div>
             <!-- /.box -->
-            
             <!-- About Me Box -->
             <div class="box box-primary">
                 <div class="box-header with-border">
@@ -178,6 +177,36 @@ require_once('../layouts/systems/header.php'); ?>
             <!-- /.nav-tabs-custom -->
         </div>
         <!-- /.col -->
+
+        <div class="modal fade" id="profileModal">
+            <div class="modal-dialog">
+                <form id="profileForm" role="form">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Change User Profile</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="userProfile">User Profile</label>
+                                <input type="file" id="userProfile">
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                            <button type="submit" id="profileBtn" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </form>
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
     </div>
     <!-- /.row -->
 </section>

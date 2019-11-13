@@ -14,7 +14,7 @@ $current_user = $user->find_user_by_id($_POST['user_id']);
 
 if(!$current_user){
     echo json_encode(array('message'=>'errorUser'));
-    die();
+    die();  
 }
 
 $user->id          = $current_user['id'];
