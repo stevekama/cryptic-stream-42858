@@ -22,8 +22,7 @@ $user->id          = $current_user['id'];
 // look if file has been uploaded 
 if(isset($_FILES["profile"]["type"])){
     $user->attach_file($_FILES['profile']);
-    echo $user->save_photo();
-    // if($user->save_photo()){
-    //     echo json_encode(array('message'=>'success'));
-    // }
+    if($user->save_photo()){
+        echo json_encode(array('message'=>'success'));
+    }
 }
