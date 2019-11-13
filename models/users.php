@@ -211,51 +211,7 @@ class Users {
 
     public function save_photo(){
         if(isset($this->id)){
-            /*
-            * Make sure there are no errors
-             * Attempt to move the file
-             * Save corresponding entry to the database
-             */
-            //1. make sure there are no errors
-
-            if(!empty($this->errors)){ return false; }
-
-            //2. cant sae without filename and tempt location
-            if(empty($this->profile) || empty($this->temp_path)){
-                $this->errors[] = "The file location was not available. ";
-                return false;
-            }
-
-            //3. Determine the target_path
-            $target_path = SITE_ROOT.DS.'public'.DS.'dist'.DS.$this->upload_dir.DS.$this->profile;
-            //return $target_path;
-
-            //4. make sure the file doesn't exist
-            if(file_exists($target_path)){
-                return unlink($target_path) ? true : false;
-            }
-
-            //5. Attempt to move the file
-            if(move_uploaded_file($this->temp_path, $target_path)){
-                // Success
-                $query = "UPDATE ".$this->table_name." SET profile = :profile WHERE id = :id";
-                //propare statement 
-                $stmt = $this->conn->prepare($query);
-
-                // bind profile pic 
-                $stmt->bindParam(':profile', $this->profile);
-
-                // Execute Query 
-                if($stmt->execute()){
-                    return true;
-                } 
-            }else{
-                /*
-                 * File was not moved
-                 */
-                $this->errors[] = "The file upload failed, possibly due to incorrect permissions on the uploaded folder.";
-                return false;
-            }
+            return $this->id;
         }else{
             return false;
         }
