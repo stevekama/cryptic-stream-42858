@@ -211,7 +211,7 @@ class Users {
 
     public function save_photo(){
         if(isset($this->id)){
-            return $this->id;
+            return $this->profile;
         }else{
             return false;
         }
