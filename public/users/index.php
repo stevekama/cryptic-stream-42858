@@ -190,9 +190,13 @@ require_once('../layouts/systems/header.php'); ?>
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
+                                <div id="alertMessageProfile"></div>
+                            </div>
+                            
+                            <div class="form-group">
                                 <label for="userProfile">User Profile</label>
-                                <input type="file" id="userProfile">
-                                <p class="help-block">Example block-level help text here.</p>
+                                <input type="file" id="userProfile" name="profile">
+                                <p class="help-block">Change user profile details.</p>
                             </div>
                         </div>
                         <div class="modal-footer">

@@ -151,4 +151,42 @@ $(document).ready(function(){
         $('#profileForm')[0].reset();
         $('#profileModal').modal('show');
     });
+
+    // Submit user profile 
+    $('#profileForm').submit(function(event){
+        event.preventDefault();
+        var user_profile = $('#userProfile').val();
+        if(user_profile == ''){
+            $('#alertMessageProfile').html('<div class="alert alert-danger alert-dismissible">Please Select a profile pic</div>');
+            return false;
+        }else{
+            var extension = user_profile.split('.').pop().toLowerCase();
+            if(jQuery.inArray(extension, ['gif', 'png', 'jpg', 'jpeg']) == -1){
+                $('#userProfile').val('');
+                $('#alertMessageProfile').html('<div class="alert alert-danger alert-dismissible">The file selected is invalid. Please check and try again</div>');
+                return false;
+            }else{
+                $.ajax({
+                    url:base_url+"api/users/change_photo.php",
+                    type:"POST",
+                    data: new FormData(this),
+                    dataType:"json",
+                    contentType: false,       // The content type used when sending data to the server.
+                    cache: false,             // To unable request pages to be cached
+                    processData: false,
+                    beforeSend: function () {
+                        $("#profileBtn").val('Uploading..');
+                    },
+                    success:function(data){
+                        $("#profileBtn").val('Save changes');
+                        if(data.message == 'success'){
+                            find_user_by_id();
+                            $('#profileForm')[0].reset();
+                            $('#profileModal').modal('hide');
+                        }
+                    }
+                });
+            }
+        }
+    });
 });
