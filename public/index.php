@@ -43,7 +43,7 @@ require_once('layouts/systems/header.php'); ?>
             <!-- /.box-header -->
             <div class="box-body">
               <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-12">
                   <p class="text-center">
                     <strong>Transactions</strong>
                   </p>
@@ -55,75 +55,30 @@ require_once('layouts/systems/header.php'); ?>
                   <!-- /.chart-responsive -->
                 </div>
                 <!-- /.col -->
-                <div class="col-md-4">
-                  <!-- small box -->
-                  <div class="small-box bg-aqua">
-                    <div class="inner">
-                      <h3>150</h3>
-
-                      <p>Transactions</p>
-                    </div>
-                    <div class="icon">
-                      <i class="ion ion-bag"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                  </div>
-
-                  <!-- small box -->
-                  <div class="small-box bg-green">
-                    <div class="inner">
-                      <h3>200</h3>
-
-                      <p>My Wallet</p>
-                    </div>
-                    <div class="icon">
-                      <i class="ion ion-bag"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                  </div>
-                </div>
-                <!-- /.col -->
               </div>
               <!-- /.row -->
             </div>
             <!-- ./box-body -->
             <div class="box-footer">
               <div class="row">
-                <div class="col-sm-3 col-xs-6">
+                <div class="col-sm-6 col-xs-6">
                   <div class="description-block border-right">
                     <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 17%</span>
                     <h5 class="description-header">$35,210.43</h5>
-                    <span class="description-text">TOTAL REVENUE</span>
+                    <span class="description-text">TOTAL TRANSACTIONS</span>
                   </div>
                   <!-- /.description-block -->
                 </div>
                 <!-- /.col -->
-                <div class="col-sm-3 col-xs-6">
+                <div class="col-sm-6 col-xs-6">
                   <div class="description-block border-right">
                     <span class="description-percentage text-yellow"><i class="fa fa-caret-left"></i> 0%</span>
                     <h5 class="description-header">$10,390.90</h5>
-                    <span class="description-text">TOTAL COST</span>
+                    <span class="description-text">MY WALLET</span>
                   </div>
                   <!-- /.description-block -->
                 </div>
                 <!-- /.col -->
-                <div class="col-sm-3 col-xs-6">
-                  <div class="description-block border-right">
-                    <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 20%</span>
-                    <h5 class="description-header">$24,813.53</h5>
-                    <span class="description-text">TOTAL PROFIT</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-3 col-xs-6">
-                  <div class="description-block">
-                    <span class="description-percentage text-red"><i class="fa fa-caret-down"></i> 18%</span>
-                    <h5 class="description-header">1200</h5>
-                    <span class="description-text">GOAL COMPLETIONS</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
               </div>
               <!-- /.row -->
             </div>
