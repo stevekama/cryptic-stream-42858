@@ -103,7 +103,41 @@ require_once('../layouts/systems/header.php'); ?>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </form>
+
+            <form id="mpesaDetailsForm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Mpesa Details</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="text" id="mpesaAppToken" name="app_token" class="form-control">
+                        </div>
+                        <div class="form-group">    
+                            <label for="shortcode">Mpesa Shortcode:</label>
+                            <input type="text" class="form-control" id="shortcode" name="shortcode" placeholder="Enter mpesa till number">
+                        </div> 
+
+                        <div class="form-group">    
+                            <label for="lipanampesacode">Lipa Na Mpesa Code:</label>
+                            <input type="text" class="form-control" id="lipanampesacode" name="lipanampesacode" placeholder="Enter the Lipa na Mpesa code">
+                        </div> 
+
+                        <div class="form-group">    
+                            <label for="lipanampesapasskey">Lipa Na Mpesa passkey:</label>
+                            <input type="text" class="form-control" id="lipanampesapasskey" name="passkey" placeholder="Enter the Lipa na Mpesa pass key">
+                        </div> 
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success">Enter Details</button>
                     </div>
                 </div>
                 <!-- /.modal-content -->

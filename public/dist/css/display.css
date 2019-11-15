@@ -1,3 +1,7 @@
 #customerTypeForm{ display: none; }
 #individualForm{ display: none; }
 #userAccountForm{ display: none; }
+
+/* Apps */
+#newAppForm{ display: none; }
+#mpesaDetailsForm{ display: none; }
