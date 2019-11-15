@@ -73,10 +73,33 @@ require_once('../layouts/systems/header.php'); ?>
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Default Modal</h4>
+                        <h4 class="modal-title">New Application</h4>
                     </div>
                     <div class="modal-body">
-                        <p>One fine body&hellip;</p>
+                        <div class="form-group">   
+                            <label for="appName">App Name:</label>
+                            <input type="text" class="form-control" id="appName" name="name" placeholder="Enter app name">
+                        </div> 
+                        <div class="form-group">   
+                            <label for="appMethod">App Method</label>
+                            <select name="method" id="appMethod" class="form-control">
+                                <option disabled selected>Choose App Method</option>
+                                <option value="PAYPAL">PAYPAL</option>
+                                <option value="MPESA">MPESA</option>
+                            </select>
+                        </div>
+                        <div class="form-group">   
+                            <label for="appKey">App Key:</label>
+                            <input type="text" class="form-control" id="appKey" name="key" placeholder="Enter app key">
+                        </div> 
+                        <div class="form-group">   
+                            <label for="appSecret">App Secret:</label>
+                            <input type="text" class="form-control" id="appSecret" name="secret" placeholder="Enter app secret">
+                        </div> 
+                        <div class="form-group">   
+                            <label for="responseUrl">Response URL:</label>
+                            <input type="text" class="form-control" id="responseUrl" name="url" placeholder="Enter the url where data will be dumped">
+                        </div> 
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
@@ -89,7 +112,7 @@ require_once('../layouts/systems/header.php'); ?>
         <!-- /.modal-dialog -->
     </div>
     <!-- /.modal -->
-    
+
 </section>
 <!-- /.content -->
 <script src="<?php echo base_url(); ?>public/dist/js/pages/apps.js"></script>
