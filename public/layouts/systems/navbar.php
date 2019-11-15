@@ -74,7 +74,7 @@
                     <span>Apps Api</span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="<?php echo base_url(); ?>public/mpesa/index.php"><i class="fa fa-circle-o"></i> Transactions</a></li>
+                    <li><a href="<?php echo base_url(); ?>public/apps/index.php"><i class="fa fa-circle-o"></i> Transactions</a></li>
                 </ul>
             </li>
         </ul>
