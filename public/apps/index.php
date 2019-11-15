@@ -24,12 +24,12 @@ require_once('../layouts/systems/header.php'); ?>
             <!-- TABLE: LATEST ORDERS -->
             <div class="box box-info">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Transactions</h3>
+                    <h3 class="box-title">Applications</h3>
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body">  
+                <div id="appsAlertMessage" class="box-body">  
                     <div class="table-responsive">
-                        <table id="payPalTrns" class="table table-bordered table-hover">
+                        <table class="table table-bordered table-hover">
                             <thead>
                             <tr>
                                 <th>App Name</th>
@@ -38,7 +38,7 @@ require_once('../layouts/systems/header.php'); ?>
                                 <th>Response Url</th>
                             </tr>
                             </thead>
-                            <tbody id="paypalTransactionsData">
+                            <tbody id="apps_data">
                             </tbody>
                             <tfoot>
                             <tr>
@@ -58,6 +58,7 @@ require_once('../layouts/systems/header.php'); ?>
         <!-- /.col -->
     </div>
     <!-- /.row -->
+
 </section>
 <!-- /.content -->
 <script src="<?php echo base_url(); ?>public/dist/js/pages/apps.js"></script>

@@ -97,16 +97,18 @@ require_once('layouts/systems/header.php'); ?>
                   </tr>
                   </thead>
                   <tbody id="loadTransactions">
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
                   </tbody>
+                  <tfoot>
+                  <tr>
+                    <th>Transaction #</th>
+                    <th>Transaction Time</th>
+                    <th>Product</th>
+                    <th>Amount</th>
+                    <th>Currency</th>
+                    <th>Method</th>
+                    <th>Status</th>
+                  </tr>
+                  </tfoot>
                 </table>
               </div>
               <!-- /.table-responsive -->
