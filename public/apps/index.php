@@ -24,7 +24,7 @@ require_once('../layouts/systems/header.php'); ?>
             <!-- TABLE: LATEST ORDERS -->
             <div class="box box-info">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Applications</h3>
+                    <h3 class="box-title">Transactions</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">  
@@ -33,10 +33,9 @@ require_once('../layouts/systems/header.php'); ?>
                             <thead>
                             <tr>
                                 <th>App Name</th>
-                                <th>Transaction ID</th>
-                                <th>Transaction Amount</th>
-                                <th>Transaction Status</th>
-                                <th>Transaction Date</th>
+                                <th>App Method</th>
+                                <th>App Token</th>
+                                <th>Response Url</th>
                             </tr>
                             </thead>
                             <tbody id="paypalTransactionsData">
@@ -44,10 +43,9 @@ require_once('../layouts/systems/header.php'); ?>
                             <tfoot>
                             <tr>
                                 <th>App Name</th>
-                                <th>Transaction ID</th>
-                                <th>Transaction Amount</th>
-                                <th>Transaction Status</th>
-                                <th>Transaction Date</th>
+                                <th>App Method</th>
+                                <th>App Token</th>
+                                <th>Response Url</th>
                             </tr>
                             </tfoot>
                         </table>
@@ -62,5 +60,5 @@ require_once('../layouts/systems/header.php'); ?>
     <!-- /.row -->
 </section>
 <!-- /.content -->
-<script src="<?php echo base_url(); ?>public/dist/js/pages/paypal_transactions.js"></script>
+<script src="<?php echo base_url(); ?>public/dist/js/pages/apps.js"></script>
 <?php require_once('../layouts/systems/footer.php'); ?>
