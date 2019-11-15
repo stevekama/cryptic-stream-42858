@@ -78,7 +78,9 @@ $(document).ready(function(){
             cache:false,
             success:function(data){
                 if(data.message == 'success'){
-                    
+                    fetch_apps();
+                    $('#newAppModal').modal('hide');
+                    $('#newAppForm')[0].reset();
                 }
             }
         });
