@@ -81,6 +81,7 @@ $(document).ready(function(){
                     fetch_apps();
                     $('#newAppModal').modal('hide');
                     $('#newAppForm')[0].reset();
+                    $('#mpesaDetailsForm')[0].reset();
                 }
             }
         });
