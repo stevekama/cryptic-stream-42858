@@ -25,6 +25,12 @@ require_once('../layouts/systems/header.php'); ?>
             <div class="box box-info">
                 <div class="box-header with-border">
                     <h3 class="box-title">Applications</h3>
+                    
+                    <div class="box-tools pull-right">
+                        <button type="button" id="newAppBtn" class="btn btn-sm btn-success">
+                            <i class="fa fa-plus"></i> New App
+                        </button>
+                    </div>
                 </div>
                 <!-- /.box-header -->
                 <div id="appsAlertMessage" class="box-body">  
@@ -58,6 +64,32 @@ require_once('../layouts/systems/header.php'); ?>
         <!-- /.col -->
     </div>
     <!-- /.row -->
+    
+    <!--New app modal -->
+    <div class="modal fade" id="newAppModal">
+        <div class="modal-dialog">
+            <form id="newAppForm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Default Modal</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>One fine body&hellip;</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </form>
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    
 </section>
 <!-- /.content -->
 <script src="<?php echo base_url(); ?>public/dist/js/pages/apps.js"></script>

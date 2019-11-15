@@ -26,4 +26,66 @@ $(document).ready(function(){
         });
     }
     fetch_apps();
+
+    // new app.
+    $('#newAppBtn').click(function(){
+        $('#newAppModal').modal('show');
+        $('#newAppForm')[0].reset();
+    });
+
+     // submit app
+     $('#newAppForm').submit(function(event){
+        event.preventDefault();
+        var form_data = $(this).serialize();
+        $.ajax({
+            url:base_url+'api/app/register_app.php',
+            type: 'POST',
+            data:form_data,
+            dataType:'json',
+            cache:false,
+            success:function(data){
+                if(data.message == 'success'){
+                    if(data.method == 'PAYPAL'){
+                        fetch_apps();
+                        $('#newAppModal').modal('hide');
+                        $('#newAppForm')[0].reset();
+                        window.location.href = base_url+'public/index.php';
+                    }
+                    if(data.method == 'MPESA'){
+                        $('#newAppModal').modal('hide');
+                        $('#newAppForm')[0].reset();
+                        $('#shortcode').val('');
+                        $('#lipanampesacode').val('');
+                        $('#lipanampesapasskey').val('');
+                        $('#mpesaAppToken').val(data.token);
+                        $('#mpesaDetailsModal').modal('show');
+                    }
+                }
+            }
+        });
+    });
+
+    // submit mpesa details 
+    $('#mpesaDetailsForm').submit(function(event){
+        event.preventDefault();
+        var form_data = $(this).serialize();
+        $.ajax({
+            url:base_url+'api/m_api/register_url.php',
+            type: 'POST',
+            data:form_data,
+            dataType:'json',
+            cache:false,
+            success:function(data){
+                if(data.message == 'success'){
+                    fetch_apps();
+                    $('#mpesaDetailsModal').modal('hide');
+                    $('#mpesaDetailsForm')[0].reset();
+                    window.location.href = base_url+'public/index.php';
+                }
+            }
+        });
+
+    });
+    
+
 });
