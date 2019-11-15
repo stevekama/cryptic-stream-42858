@@ -58,7 +58,6 @@ require_once('../layouts/systems/header.php'); ?>
         <!-- /.col -->
     </div>
     <!-- /.row -->
-
 </section>
 <!-- /.content -->
 <script src="<?php echo base_url(); ?>public/dist/js/pages/apps.js"></script>

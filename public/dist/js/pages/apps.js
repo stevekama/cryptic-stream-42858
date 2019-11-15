@@ -25,5 +25,5 @@ $(document).ready(function(){
             }
         });
     }
-    //fetch_apps();
+    fetch_apps();
 });
