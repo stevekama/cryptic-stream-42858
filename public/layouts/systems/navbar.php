@@ -45,7 +45,8 @@
                     <span>Transactions</span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="<?php echo base_url(); ?>public/paypal/index.php"><i class="fa fa-circle-o"></i> Transactions</a></li>
+                    <li><a href="<?php echo base_url(); ?>public/paypal/index.php"><i class="fa fa-circle-o"></i> PAYPAL Transactions</a></li>
+                    <li><a href="<?php echo base_url(); ?>public/mpesa/index.php"><i class="fa fa-circle-o"></i> MPESA Transactions</a></li>
                 </ul>
             </li> 
             <li class="treeview">
@@ -54,7 +55,7 @@
                     <span>Pay Bills</span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="<?php echo base_url(); ?>public/mpesa/index.php"><i class="fa fa-circle-o"></i> Transactions</a></li>
+                    <li><a href="<?php echo base_url(); ?>public/bills/index.php"><i class="fa fa-circle-o"></i> Paybills</a></li>
                 </ul>
             </li>
             <li class="header">LABELS</li>
