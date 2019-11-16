@@ -8,6 +8,7 @@ $(document).ready(function(){
             success:function(data){
                 if(data.message == 'empty'){
                     $('#errorMessageData').html('<div class="alert alert-danger alert-dismissible">No Transactions Found yet</div>');
+                    return false;
                 }else{
                     var create_div = ""; 
                     data.map(function(opt){
