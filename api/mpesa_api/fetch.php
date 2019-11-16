@@ -35,6 +35,6 @@ if($num_trns > 0){
         array_push($data, $mpesa_item);
     }
 }else{
-    $data['message'] = 'No transactions found';
+    $data['message'] = 'empty';
 }
 echo json_encode($data);

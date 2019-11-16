@@ -28,7 +28,7 @@ require_once('../layouts/systems/header.php'); ?>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">  
-                    <div class="table-responsive">
+                    <div id="alertMessage" class="table-responsive">
                         <table id="payPalTrns" class="table table-bordered table-hover">
                             <thead>
                             <tr>
