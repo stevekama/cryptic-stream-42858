@@ -16,8 +16,8 @@ $docs->created_user_id = $_POST['user_id'];
 
 $d = new DateTime();
 
-$docs->created_date = $d->format('Y-m-d H:s:i');
-$docs->edited_date = $d->format('Y-m-d H:s:i');
+$docs->created_date = $d->format('Y-m-d');
+$docs->edited_date = $d->format('Y-m-d');
 $docs->edited_user_id = $_POST['user_id'];
 
 if($docs->create()){
