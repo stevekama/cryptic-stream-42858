@@ -20,10 +20,12 @@ $docs->created_date = $d->format('Y-m-d');
 $docs->edited_date = $d->format('Y-m-d');
 $docs->edited_user_id = $_POST['user_id'];
 
-if($docs->create()){
-    $data['message'] = 'success';
-}else{
-    $data['message'] = 'failed';
-}
-echo json_encode($data);
+echo $docs->created_date;
+
+// if($docs->create()){
+//     $data['message'] = 'success';
+// }else{
+//     $data['message'] = 'failed';
+// }
+// echo json_encode($data);
 ?>
