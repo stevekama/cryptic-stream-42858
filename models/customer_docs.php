@@ -38,7 +38,48 @@ class Customer_Docs{
 
     public function create()
     {
-        
+        $query = "INSERT INTO usr.".$this->table_name."(";
+        $query .= "customer_id, customer_identity_doc_type_id, identification_doc, ";
+        $query .= "created_date, created_user_id, edited_date, edited_user_id";
+        $query .= ")VALUES(";
+        $query .= ":customer_id, :customer_identity_doc_type_id, :identification_doc, ";
+        $query .= ":created_date, :created_user_id, :edited_date, :edited_user_id";
+        $query .= ")";
+
+        //Prepare statement
+        $stmt = $this->conn->prepare($query);
+
+        //clean data
+        $this->customer_id = htmlentities($this->customer_id);
+        $this->customer_identity_doc_type_id = htmlentities($this->customer_identity_doc_type_id);
+        $this->identification_doc = htmlentities($this->identification_doc);
+        $this->created_date = htmlentities($this->created_date);
+        $this->created_user_id = htmlentities($this->created_user_id);
+        $this->edited_date = htmlentities($this->edited_date);
+        $this->edited_user_id = htmlentities($this->edited_user_id);
+
+        // Bind Data
+        $stmt->bindParam(':customer_id', $this->customer_id);
+        $stmt->bindParam(':customer_identity_doc_type_id', $this->customer_identity_doc_type_id);
+        $stmt->bindParam(':identification_doc', $this->identification_doc);
+        $stmt->bindParam(':created_date', $this->created_date);
+        $stmt->bindParam(':created_user_id', $this->created_user_id);
+        $stmt->bindParam(':edited_date', $this->edited_date);
+        $stmt->bindParam(':edited_user_id', $this->edited_user_id);
+
+        //Execute query 
+        if($stmt->execute()){
+            $this->id = $this->conn->lastInsertId();
+            return true;
+        }
+        //print error 
+        $error = new ErrorLogs();
+        $error->errors = $stmt->error;
+        $error->description = $stmt->error;
+        if($error->create()){
+            return false;
+        }
+
     }
 
     public function fetch_by_id($id = ""){
