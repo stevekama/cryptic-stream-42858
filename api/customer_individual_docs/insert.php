@@ -12,12 +12,12 @@ $data = array();
 $docs->customer_id = $_POST['customer_id'];
 $docs->customer_identity_doc_type_id = $_POST['customer_identity_doc_type_id'];
 $docs->identification_doc = $_POST['identification_doc'];
-$docs->created_user_id = $session->user_id;
+$docs->created_user_id = $_POST['user_id'];
 
 $d = new DateTime();
 
 $docs->created_date = $d->format('Y-m-d H:s:i');
-$docs->edited_user_id = $session->user_id;
+$docs->edited_user_id = $_POST['user_id'];
 
 if($docs->create()){
     $data['message'] = 'success';
