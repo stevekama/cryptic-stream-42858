@@ -32,7 +32,9 @@
                     }
                 });
             }
+
             find_user();
+
             $(document).on('click', '.logout', function(){
                 var action = "LOGOUT";
                 $.ajax({
