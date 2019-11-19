@@ -85,10 +85,8 @@ class Customer_Docs{
         $query = "SELECT * FROM usr.".$this->table_name." WHERE identification_doc = :identification_doc LIMIT 1";
         // prepare statement
         $stmt = $this->conn->prepare($query);
-        // clean the data
-        $this->identification_doc = htmlentities($this->identification_doc);
         // execute statement
-        $stmt->execute(array('identification_doc', $identification_doc));
+        $stmt->execute(array('identification_doc'=>$identification_doc));
         // count row 
         $count = $stmt->rowCount();
         if($count > 0){
