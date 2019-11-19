@@ -17,20 +17,23 @@ $current_doc = $docs->fetch_by_idenfication_doc($docs->identification_doc);
 if($current_doc){
     echo json_encode(array('message'=>'errorDocs'));
     die();
-}
-
-$docs->created_user_id = $_POST['user_id'];
-
-$d = new DateTime();
-
-$docs->created_date = $d->format('Y-m-d');
-$docs->edited_date = $d->format('Y-m-d');
-$docs->edited_user_id = $_POST['user_id'];
-
-if($docs->create()){
-    $data['message'] = 'success';
 }else{
-    $data['message'] = 'failed';
+    echo json_encode(array('message'=>'docs'));
+    die();
 }
-echo json_encode($data);
+
+// $docs->created_user_id = $_POST['user_id'];
+
+// $d = new DateTime();
+
+// $docs->created_date = $d->format('Y-m-d');
+// $docs->edited_date = $d->format('Y-m-d');
+// $docs->edited_user_id = $_POST['user_id'];
+
+// if($docs->create()){
+//     $data['message'] = 'success';
+// }else{
+//     $data['message'] = 'failed';
+// }
+// echo json_encode($data);
 ?>
