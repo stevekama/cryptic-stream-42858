@@ -12,6 +12,12 @@ $data = array();
 $docs->customer_id = $_POST['customer_id'];
 $docs->customer_identity_doc_type_id = $_POST['customer_identity_doc_type_id'];
 $docs->identification_doc = $_POST['identification_doc'];
+// fetch doc by identification doc
+$current_doc = $docs->fetch_by_idenfication_doc();
+if($current_doc){
+    echo json_encode(array('message'=>'errorDocs'));
+    die();
+}
 $docs->created_user_id = $_POST['user_id'];
 
 $d = new DateTime();
