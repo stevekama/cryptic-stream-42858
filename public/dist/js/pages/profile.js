@@ -52,6 +52,33 @@ $(document).ready(function(){
         }); 
     }
 
+    // get customer docs 
+    function find_customer_docs(customer_id){
+        var action = "FETCH_ALL_FOR_CUSTOMER";
+        $.ajax({
+            url  : base_url+'api/customer_individual_docs/fetch.php',
+            type : "POST",
+            data : {action:action, customer_id:customer_id}, 
+            success: function(data){
+                var create_div = "";
+                if(data.message == 'empty'){
+                    $('#alertMessage').html('<div class="alert alert-danger alert-dismissible">No Customer Documents found...</div');
+                    return false;
+                }else{
+                    data.map(function(opt){
+                        create_div += '<tr>';
+                        create_div += '<td>'+opt.customer_identity_doc_type_id+'</td>';
+                        create_div += '<td>'+opt.identification_doc+'</td>';
+                        create_div += '</tr>';
+                    });
+                    $('#loadDocs').append(create_div);
+
+                }
+            }
+        });
+
+    }
+
     // find country by id 
     function find_country_by_id(country_id){
         var action = "FETCH_COUNTRY";

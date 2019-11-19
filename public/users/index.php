@@ -99,12 +99,22 @@ require_once('../layouts/systems/header.php'); ?>
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="customer_document">
                          <!-- Post -->
-                         <div class="table-responsive">
+                         <div id='docsDataMessage' class="table-responsive">
                             <table class="table table-hover">
+                                <thead>
                                 <tr>
-                                    <th>ID Number: </th>
-                                    <td>31443160</td>
+                                    <th>Document</th>
+                                    <th>Pin</th>
                                 </tr>
+                                </thead>
+                                <tbody id='loadDocs'>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th>Document</th>
+                                    <th>Pin</th>
+                                </tr>
+                                </tfoot>
                             </table>
                          </div>
                     </div>
