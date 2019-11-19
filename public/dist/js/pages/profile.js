@@ -12,6 +12,7 @@ $(document).ready(function(){
                 $('#accountUserName').val(data.username);
                 $('#profileEmail').html(data.email);
                 find_customer_by_id(data.customer_id);
+                find_customer_docs(data.customer_id);
             }
         });
     } 
