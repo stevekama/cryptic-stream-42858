@@ -11,16 +11,6 @@ class Customers{
     public $first_name;
     public $other_names;
     public $cust_type_id;
-    public $customer_identity_doc_type_id1;
-    public $identification_doc1;
-    public $customer_identity_doc_type_id2;
-    public $identification_doc2;
-    public $customer_identity_doc_type_id3;
-    public $identification_doc3;
-    public $customer_identity_doc_type_id4;
-    public $identification_doc4;
-    public $customer_identity_doc_type_id5;
-    public $identification_doc5;
     public $email_address;
     public $dob;
     public $date_of_registration;
@@ -46,16 +36,16 @@ class Customers{
     {
         $query = "INSERT INTO usr.".$this->table_name."(";
         $query .= "first_name, other_names, cust_type_id, ";
-        $query .= "customer_identity_doc_type_id1, identification_doc1, customer_identity_doc_type_id2, identification_doc2, ";
-        $query .= "customer_identity_doc_type_id3, identification_doc3, customer_identity_doc_type_id4, identification_doc4, ";
-        $query .= "customer_identity_doc_type_id5, identification_doc5, email_address, dob, ";
-        $query .= "date_of_registration, gender_id, postal_address, physical_address, country_id, phone_number, alt_phone_number, created_date, created_user_id, edited_date, edited_user_id";
+        $query .= "email_address, dob, ";
+        $query .= "date_of_registration, gender_id, postal_address, "; 
+        $query .= "physical_address, country_id, phone_number, alt_phone_number, "; 
+        $query .= "created_date, created_user_id, edited_date, edited_user_id";
         $query .= ")VALUES(";
         $query .= ":first_name, :other_names, :cust_type_id, ";
-        $query .= ":customer_identity_doc_type_id1, :identification_doc1, :customer_identity_doc_type_id2, :identification_doc2, ";
-        $query .= ":customer_identity_doc_type_id3, :identification_doc3, :customer_identity_doc_type_id4, :identification_doc4, ";
-        $query .= ":customer_identity_doc_type_id5, :identification_doc5, :email_address, :dob, ";
-        $query .= ":date_of_registration, :gender_id, :postal_address, :physical_address, :country_id, :phone_number, :alt_phone_number, :created_date, :created_user_id, :edited_date, :edited_user_id";
+        $query .= ":email_address, :dob, ";
+        $query .= ":date_of_registration, :gender_id, :postal_address, "; 
+        $query .= ":physical_address, :country_id, :phone_number, :alt_phone_number, "; 
+        $query .= ":created_date, :created_user_id, :edited_date, :edited_user_id";
         $query .= ")";
 
         //Prepare statement
@@ -65,16 +55,6 @@ class Customers{
         $this->first_name = htmlentities($this->first_name);
         $this->other_names = htmlentities($this->other_names);
         $this->cust_type_id = htmlentities($this->cust_type_id);
-        $this->customer_identity_doc_type_id1 = htmlentities($this->customer_identity_doc_type_id1);
-        $this->identification_doc1 = htmlentities($this->identification_doc1);
-        $this->customer_identity_doc_type_id2 = htmlentities($this->customer_identity_doc_type_id2);
-        $this->identification_doc2 = htmlentities($this->identification_doc2);
-        $this->customer_identity_doc_type_id3 = htmlentities($this->customer_identity_doc_type_id3);
-        $this->identification_doc3 = htmlentities($this->identification_doc3);
-        $this->customer_identity_doc_type_id4 = htmlentities($this->customer_identity_doc_type_id4);
-        $this->identification_doc4 = htmlentities($this->identification_doc4);
-        $this->customer_identity_doc_type_id5 = htmlentities($this->customer_identity_doc_type_id5);
-        $this->identification_doc5 = htmlentities($this->identification_doc5);
         $this->email_address = htmlentities($this->email_address);
         $this->dob = htmlentities($this->dob);
         $this->date_of_registration = htmlentities($this->date_of_registration);
@@ -93,16 +73,6 @@ class Customers{
         $stmt->bindParam(':first_name', $this->first_name);
         $stmt->bindParam(':other_names', $this->other_names);
         $stmt->bindParam(':cust_type_id', $this->cust_type_id);
-        $stmt->bindParam(':customer_identity_doc_type_id1', $this->customer_identity_doc_type_id1);
-        $stmt->bindParam(':identification_doc1', $this->identification_doc1);
-        $stmt->bindParam(':customer_identity_doc_type_id2', $this->customer_identity_doc_type_id2);
-        $stmt->bindParam(':identification_doc2', $this->identification_doc2);
-        $stmt->bindParam(':customer_identity_doc_type_id3', $this->customer_identity_doc_type_id3);
-        $stmt->bindParam(':identification_doc3', $this->identification_doc3);
-        $stmt->bindParam(':customer_identity_doc_type_id4', $this->customer_identity_doc_type_id4);
-        $stmt->bindParam(':identification_doc4', $this->identification_doc4);
-        $stmt->bindParam(':customer_identity_doc_type_id5', $this->customer_identity_doc_type_id5);
-        $stmt->bindParam(':identification_doc5', $this->identification_doc5);
         $stmt->bindParam(':email_address', $this->email_address);
         $stmt->bindParam(':dob', $this->dob);
         $stmt->bindParam(':date_of_registration', $this->date_of_registration); 
