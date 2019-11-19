@@ -93,7 +93,7 @@ class Customer_Docs{
         $count = $stmt->rowCount();
         if($count > 0){
             $customer_doc = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $customer_doccustomer_doc;
+            return $customer_doc;
         }else{
             return false;
         }
@@ -107,7 +107,7 @@ class Customer_Docs{
         $count = $stmt->rowCount();
         if($count > 0){
             $customer_doc = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $customer_doccustomer_doc;
+            return $customer_doc;
         }else{
             return false;
         }
