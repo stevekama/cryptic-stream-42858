@@ -26,8 +26,8 @@
                             window.location.href = base_url + 'index.php';
                         }else{
                             $('#userProfileImage').html(' <img src="'+base_url+'/public/dist/img/'+data.profile+'" class="img-circle" alt="User Image">');
-                            $('#headerImg').html('<img src="'+base_url+'/public/dist/img/'+data.profile+'" class="user-image" alt="User Image">');
-                            $('#sidebarImg').html('<img src="'+base_url+'/public/dist/img/'+data.profile+'" class="img-circle" alt="User Image">');
+                            $('#headerImg').html('<img src="'+base_url+'/public/dist/img/'+data.profile+'" width="200" class="user-image" alt="User Image">');
+                            $('#sidebarImg').html('<img src="'+base_url+'/public/dist/img/'+data.profile+'" width="80" class="img-circle" alt="User Image">');
                             $('#userFullNames').html(data.fullnames);
                             $('.userName').html(data.username);
                             $('#userEmailAddress').html(data.email);
