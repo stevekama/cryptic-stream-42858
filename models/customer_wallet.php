@@ -23,8 +23,8 @@ class Customer_Wallet{
         $this->conn = $database->connect();
     }
 
-    public function fetch_by_customer_id($customer_id = ""){
-        $query = "SELECT * FROM usr.".$this->table_name." WHERE customer_id = :customer_id LIMIT 1";
+    public function fetch_wallet_for_customer($customer_id = ""){
+        $query = "SELECT * FROM api.".$this->table_name." WHERE customer_id = :customer_id LIMIT 1";
         $stmt = $this->conn->prepare($query);
         if($stmt->execute(array('customer_id'=>$customer_id))){
             // count row 
@@ -41,7 +41,7 @@ class Customer_Wallet{
 
     public function create()
     {
-        $query = "INSERT INTO usr.".$this->table_name."(";
+        $query = "INSERT INTO api.".$this->table_name."(";
         $query .= "user_id, customer_id, amount, phone_number, ";
         $query .= "created_date, created_user_id, edited_date, edited_user_id";
         $query .= ")VALUES(";
@@ -51,7 +51,7 @@ class Customer_Wallet{
 
         //Prepare statement
         $stmt = $this->conn->prepare($query);
-        
+
         //clean data
         $this->user_id = htmlentities($this->user_id);
         $this->customer_id = htmlentities($this->customer_id);
@@ -86,7 +86,7 @@ class Customer_Wallet{
         }
     }
     public function fetch_by_id($id = ""){
-        $query = "SELECT * FROM usr.".$this->table_name." WHERE id = :id LIMIT 1";
+        $query = "SELECT * FROM api.".$this->table_name." WHERE id = :id LIMIT 1";
         $stmt = $this->conn->prepare($query);
         $stmt->execute(array('id'=>$id));
         $count = $stmt->rowCount();
