@@ -10,6 +10,7 @@ class Customer_Wallet{
     public $user_id;
     public $customer_id;
     public $amount;
+    public $phone_number;
     public $created_date;
     public $created_user_id;
     public $edited_date;
@@ -22,46 +23,50 @@ class Customer_Wallet{
         $this->conn = $database->connect();
     }
 
-    public function fetch_by_customer_id(){
-        $query = "SELECT * FROM usr.".$this->table_name." WHERE customer_id = :customer_id ORDER BY id DESC";
+    public function fetch_by_customer_id($customer_id = ""){
+        $query = "SELECT * FROM usr.".$this->table_name." WHERE customer_id = :customer_id LIMIT 1";
         $stmt = $this->conn->prepare($query);
-        // clean statement
-        $this->customer_id = htmlentities($this->customer_id);
+        if($stmt->execute(array('customer_id'=>$customer_id))){
+            // count row 
+            $count = $stmt->rowCount();
+            if($count > 0){
+                $wallet = $stmt->fetch(PDO::FETCH_ASSOC);
+                return $wallet;
+            }else{
+                return false;
+            }
 
-        //bind statement
-        $stmt->bindParam(':customer_id', $this->customer_id);
-
-        if($stmt->execute()){
-            return $stmt;
         }
     }
 
     public function create()
     {
         $query = "INSERT INTO usr.".$this->table_name."(";
-        $query .= "customer_id, customer_identity_doc_type_id, identification_doc, ";
+        $query .= "user_id, customer_id, amount, phone_number, ";
         $query .= "created_date, created_user_id, edited_date, edited_user_id";
         $query .= ")VALUES(";
-        $query .= ":customer_id, :customer_identity_doc_type_id, :identification_doc, ";
+        $query .= ":user_id, :customer_id, :amount, :phone_number, ";
         $query .= ":created_date, :created_user_id, :edited_date, :edited_user_id";
         $query .= ")";
 
         //Prepare statement
         $stmt = $this->conn->prepare($query);
-
+        
         //clean data
+        $this->user_id = htmlentities($this->user_id);
         $this->customer_id = htmlentities($this->customer_id);
-        $this->customer_identity_doc_type_id = htmlentities($this->customer_identity_doc_type_id);
-        $this->identification_doc = htmlentities($this->identification_doc);
+        $this->amount = htmlentities($this->amount);
+        $this->phone_number = htmlentities($this->phone_number);
         $this->created_date = htmlentities($this->created_date);
         $this->created_user_id = htmlentities($this->created_user_id);
         $this->edited_date = htmlentities($this->edited_date);
         $this->edited_user_id = htmlentities($this->edited_user_id);
 
         // Bind Data
+        $stmt->bindParam(':user_id', $this->user_id);
         $stmt->bindParam(':customer_id', $this->customer_id);
-        $stmt->bindParam(':customer_identity_doc_type_id', $this->customer_identity_doc_type_id);
-        $stmt->bindParam(':identification_doc', $this->identification_doc);
+        $stmt->bindParam(':amount', $this->amount);
+        $stmt->bindParam(':phone_number', $this->phone_number);
         $stmt->bindParam(':created_date', $this->created_date);
         $stmt->bindParam(':created_user_id', $this->created_user_id);
         $stmt->bindParam(':edited_date', $this->edited_date);
@@ -80,32 +85,14 @@ class Customer_Wallet{
             return false;
         }
     }
-
-    public function fetch_by_idenfication_doc($identification_doc = ''){
-        $query = "SELECT * FROM usr.".$this->table_name." WHERE identification_doc = :identification_doc LIMIT 1";
-        // prepare statement
-        $stmt = $this->conn->prepare($query);
-        // execute statement
-        $stmt->execute(array('identification_doc'=>$identification_doc));
-        // count row 
-        $count = $stmt->rowCount();
-        if($count > 0){
-            $customer_doc = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $customer_doc;
-        }else{
-            return false;
-        }
-
-    }
-
     public function fetch_by_id($id = ""){
         $query = "SELECT * FROM usr.".$this->table_name." WHERE id = :id LIMIT 1";
         $stmt = $this->conn->prepare($query);
         $stmt->execute(array('id'=>$id));
         $count = $stmt->rowCount();
         if($count > 0){
-            $customer_doc = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $customer_doc;
+            $wallet = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $wallet;
         }else{
             return false;
         }

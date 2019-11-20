@@ -71,3 +71,6 @@ require_once(LIB_PATH.DS.'customer_gender.php');
 
 //bring customer docs
 require_once(LIB_PATH.DS.'customer_docs.php');
+
+// customer wallet 
+require_once(LIB_PATH.DS.'customer_wallet.php');
