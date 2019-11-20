@@ -27,33 +27,34 @@ if($_POST['password'] === $_POST['confirm']){
         // initialize customer wallet.
         $wallet = new Customer_Wallet();
         $wallet->user_id = $user->id;
-        $wallet->customer_id = $user->customer_id;
-        // check if the customer has a wallet 
-        $current_customer_wallet = $wallet->fetch_wallet_for_customer($wallet->customer_id);
-        // check if this wallet exists 
-        if($current_customer_wallet){
-            echo json_encode(array('message'=>'existingCusomerWallet'));
-            die();
-        }
-        // initialize customer
-        $customer = new Customers();
-        // find customer by id 
-        $current_customer = $customer->find_by_id($wallet->customer_id);
-        if(!$current_customer){
-            echo json_encode(array('message'=>'errorCustomer'));
-            die();
-        }
-        $wallet->amount = 0;
-        $wallet->phone_number = $current_customer['phone_number'];
-        $wallet->created_date = $d->format('Y-m-d');
-        $wallet->created_user_id = $_POST['user_id'];
-        $wallet->edited_date = $d->format('Y-m-d');
-        $wallet->edited_user_id = $_POST['user_id'];
-        if($wallet->create()){
-            $data['message'] = 'success';
-        }else{
-            $data['message'] = 'failed';
-        }
+        echo $wallet->user_id;
+        // $wallet->customer_id = $user->customer_id;
+        // // check if the customer has a wallet 
+        // $current_customer_wallet = $wallet->fetch_wallet_for_customer($wallet->customer_id);
+        // // check if this wallet exists 
+        // if($current_customer_wallet){
+        //     echo json_encode(array('message'=>'existingCusomerWallet'));
+        //     die();
+        // }
+        // // initialize customer
+        // $customer = new Customers();
+        // // find customer by id 
+        // $current_customer = $customer->find_by_id($wallet->customer_id);
+        // if(!$current_customer){
+        //     echo json_encode(array('message'=>'errorCustomer'));
+        //     die();
+        // }
+        // $wallet->amount = 0;
+        // $wallet->phone_number = $current_customer['phone_number'];
+        // $wallet->created_date = $d->format('Y-m-d');
+        // $wallet->created_user_id = $_POST['user_id'];
+        // $wallet->edited_date = $d->format('Y-m-d');
+        // $wallet->edited_user_id = $_POST['user_id'];
+        // if($wallet->create()){
+        //     $data['message'] = 'success';
+        // }else{
+        //     $data['message'] = 'failed';
+        // }
     }else{
         $data['message'] = 'failed';
     }
