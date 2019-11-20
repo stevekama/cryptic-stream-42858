@@ -43,18 +43,17 @@ if($_POST['password'] === $_POST['confirm']){
             echo json_encode(array('message'=>'errorCustomer'));
             die();
         }
-        $data['customer'] = $wallet->customer_id;
-        // $wallet->amount = 0;
-        // $wallet->phone_number = $current_customer['phone_number'];
-        // $wallet->created_date = $d->format('Y-m-d');
-        // $wallet->created_user_id = $_POST['user_id'];
-        // $wallet->edited_date = $d->format('Y-m-d');
-        // $wallet->edited_user_id = $_POST['user_id'];
-        // if($wallet->create()){
-        //     $data['message'] = 'success';
-        // }else{
-        //     $data['message'] = 'failed';
-        // }
+        $wallet->amount = 0;
+        $wallet->phone_number = $current_customer['phone_number'];
+        $wallet->created_date = $d->format('Y-m-d');
+        $wallet->created_user_id = $user->id;
+        $wallet->edited_date = $d->format('Y-m-d');
+        $wallet->edited_user_id = $user->id;
+        if($wallet->create()){
+            $data['message'] = 'success';
+        }else{
+            $data['message'] = 'failed';
+        }
     }else{
         $data['message'] = 'failed';
     }
