@@ -94,6 +94,7 @@ class Users {
 
         //Execute Query 
         if($stmt->execute()){
+            $this->id = $this->conn->lastInsertId();
             return true;
         } 
     }

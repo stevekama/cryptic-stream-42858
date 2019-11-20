@@ -9,9 +9,9 @@ include_once '../../models/initialization.php';
 
 $user = new Users();
 $cust = new Customers();
-
+$data = array();
+$d = new DateTime();
 if($_POST['password'] === $_POST['confirm']){
-    
     // find customer by customer is 
     $customer = $cust->find_by_id($_POST['customer_id']);
     //echo json_encode($customer);
@@ -24,10 +24,40 @@ if($_POST['password'] === $_POST['confirm']){
     $user->profile     = 'profile.png'; 
     ///create user 
     if($user->create()){
-        echo json_encode(array('message'=>'success'));
+        // initialize customer wallet.
+        $wallet = new Customer_Wallet();
+        $wallet->user_id = $user->id;
+        $wallet->customer_id = $user->customer_id;
+        // check if the customer has a wallet 
+        $current_customer_wallet = $wallet->fetch_wallet_for_customer($wallet->customer_id);
+        // check if this wallet exists 
+        if($current_customer_wallet){
+            echo json_encode(array('message'=>'existingCusomerWallet'));
+            die();
+        }
+        // initialize customer
+        $customer = new Customers();
+        // find customer by id 
+        $current_customer = $customer->find_by_id($wallet->customer_id);
+        if(!$current_customer){
+            echo json_encode(array('message'=>'errorCustomer'));
+            die();
+        }
+        $wallet->amount = 0;
+        $wallet->phone_number = $current_customer['phone_number'];
+        $wallet->created_date = $d->format('Y-m-d');
+        $wallet->created_user_id = $_POST['user_id'];
+        $wallet->edited_date = $d->format('Y-m-d');
+        $wallet->edited_user_id = $_POST['user_id'];
+        if($wallet->create()){
+            $data['message'] = 'success';
+        }else{
+            $data['message'] = 'failed';
+        }
     }else{
-        echo json_encode(array('message'=>'failed'));
+        $data['message'] = 'failed';
     }
 }else{
-    echo json_encode(array('message'=>'errorPass'));
+    $data['message'] = 'errorPass';
 }
+echo json_encode($data);
