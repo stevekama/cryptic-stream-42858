@@ -51,42 +51,6 @@ function find_customer_type(){
 }
 find_customer_type();
 
-// functions to select customer doc type 
-var isSelectDoc = 0;
-function selectCustomerDoc(data, docId){
-  if(isSelectDoc == 0){
-    isSelectDoc = 1;
-    var select = document.getElementById(docId);
-    var defaultOption = document.createElement('option');
-    defaultOption.appendChild(document.createTextNode('Choose identification document'));
-    defaultOption.setAttribute('value', '');
-    defaultOption.setAttribute('disabled', '');
-    defaultOption.setAttribute('selected', '');
-    select.appendChild(defaultOption);
-    data.map(function(oneOpt){
-        var option = document.createElement('option');
-        option.appendChild(document.createTextNode(oneOpt.identification_doc_type));
-        option.setAttribute('value', oneOpt.id);
-        select.appendChild(option);
-    });
-  }else{
-    isSelectDoc = 0;
-  }
-}
-
-function find_customer_doc(){
-  var action = "FETCH_ALL";
-  $.ajax({
-    url : base_url+'api/customer_docs/fetch.php',
-    type: 'POST',
-    data:{action:action},
-    dataType: 'json',
-    success:function(data){
-      selectCustomerDoc(data, 'customer_identity_doc_type1');
-    }
-  });
-}
-
 // function to select gender
 var isSelectGender = 0;
 function selectCustomerGender(data, genderId){
