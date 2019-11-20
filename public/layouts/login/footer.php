@@ -132,7 +132,6 @@ $('#customerTypeForm').submit(function(event){
   var customer_type_id = $('#cust_type_id').val();
   $('#type_id').val(customer_type_id);
   $('#customerTypeForm').fadeOut(900).hide();
-  find_customer_doc();
   find_customer_gender();
   find_customer_country();
   $('#individualForm').fadeIn(800).show();
