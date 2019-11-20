@@ -35,15 +35,15 @@ if($_POST['password'] === $_POST['confirm']){
             echo json_encode(array('message'=>'existingCusomerWallet'));
             die();
         }
+        // initialize customer
+        $customer = new Customers();
+        // find customer by id 
+        $current_customer = $customer->find_by_id($wallet->customer_id);
+        if(!$current_customer){
+            echo json_encode(array('message'=>'errorCustomer'));
+            die();
+        }
         $data['customer'] = $wallet->customer_id;
-        // // initialize customer
-        // $customer = new Customers();
-        // // find customer by id 
-        // $current_customer = $customer->find_by_id($wallet->customer_id);
-        // if(!$current_customer){
-        //     echo json_encode(array('message'=>'errorCustomer'));
-        //     die();
-        // }
         // $wallet->amount = 0;
         // $wallet->phone_number = $current_customer['phone_number'];
         // $wallet->created_date = $d->format('Y-m-d');
