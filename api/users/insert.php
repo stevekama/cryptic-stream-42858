@@ -28,14 +28,14 @@ if($_POST['password'] === $_POST['confirm']){
         $wallet = new Customer_Wallet();
         $wallet->user_id = $user->id;
         $wallet->customer_id = $user->customer_id;
+        // check if the customer has a wallet 
+        $current_customer_wallet = $wallet->fetch_wallet_for_customer($wallet->customer_id);
+        // check if this wallet exists 
+        if($current_customer_wallet){
+            echo json_encode(array('message'=>'existingCusomerWallet'));
+            die();
+        }
         $data['customer'] = $wallet->customer_id;
-        // // check if the customer has a wallet 
-        // $current_customer_wallet = $wallet->fetch_wallet_for_customer($wallet->customer_id);
-        // // check if this wallet exists 
-        // if($current_customer_wallet){
-        //     echo json_encode(array('message'=>'existingCusomerWallet'));
-        //     die();
-        // }
         // // initialize customer
         // $customer = new Customers();
         // // find customer by id 
