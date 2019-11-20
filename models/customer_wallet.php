@@ -97,5 +97,4 @@ class Customer_Wallet{
             return false;
         }
     }
-
 }

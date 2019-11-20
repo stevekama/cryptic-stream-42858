@@ -9,10 +9,16 @@ include_once '../../models/initialization.php';
 $wallet = new Customer_Wallet();
 $data = array();
 $wallet->user_id = $_POST['user_id'];
+$wallet->customer_id = $_POST['customer_id'];
+// check if the customer has a wallet 
+$current_customer_wallet = $wallet->fetch_wallet_for_customer($wallet->customer_id);
+// check if this wallet exists 
+if($current_customer_wallet){
+    echo json_encode(array('message'=>'existingCusomerWallet'));
+    die();
+}
 // initialize customer
 $customer = new Customers();
-// customer id
-$wallet->customer_id = $_POST['customer_id'];
 // find customer by id 
 $current_customer = $customer->find_by_id($wallet->customer_id);
 if(!$current_customer){
