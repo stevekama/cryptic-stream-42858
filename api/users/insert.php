@@ -27,8 +27,8 @@ if($_POST['password'] === $_POST['confirm']){
         // initialize customer wallet.
         $wallet = new Customer_Wallet();
         $wallet->user_id = $user->id;
-        echo $wallet->user_id;
-        // $wallet->customer_id = $user->customer_id;
+        $wallet->customer_id = $user->customer_id;
+        $data['customer'] = $wallet->customer_id;
         // // check if the customer has a wallet 
         // $current_customer_wallet = $wallet->fetch_wallet_for_customer($wallet->customer_id);
         // // check if this wallet exists 
