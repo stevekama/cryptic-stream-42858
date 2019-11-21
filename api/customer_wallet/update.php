@@ -22,7 +22,6 @@ $msisdn     = '254708374149'; // phone number paying
 $billRef    = 'inv95'; // This is anything that helps identify the specific transaction. Can be a clients ID, Account Number, Invoice amount, cart no.. etc
 $curl_response = $app_auth->simulate_transactions($ShortCode, $amount, $msisdn, $billRef);
 $data = json_decode($curl_response, true);
-$response_url = $current_app['response_url'];
 if($data['ResponseDescription'] != 'Accept the service request successfully.'){
        $data['message'] = 'Failed';
        die();
