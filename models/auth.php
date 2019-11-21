@@ -30,10 +30,12 @@ class Auth{
         curl_close($curl);
     }
 
-    public function register_url($access_token="", $shortCode="", $confirmationUrl="", $validationUrl="")
+    public function register_url($shortCode="", $confirmationUrl="", $validationUrl="")
     {
         //register url 
         $url = 'https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl';
+        // generate access token 
+        $access_token = $this->Access_Token();
         // call the safaricom servers
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);

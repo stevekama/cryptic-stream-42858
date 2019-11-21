@@ -20,8 +20,6 @@ $consumerSecret = $current_app['app_secret']; // Fill with your app Secret
 // initialize mpesa auth class
 $app = new Auth($consumerKey, $consumerSecret);
 
-$access_token = $app->Access_Token();
-
 $shortCode = $_POST['shortcode']; // provide the short code obtained from your test credentials
 
 // 2. provide confirmation url and validation urls 
@@ -29,7 +27,7 @@ $confirmationUrl = base_url().'api/m_api/confirmation.php?app_token='.$current_a
 $validationUrl = base_url().'api/m_api/validation.php?app_token='.$current_app['app_token']; // path to your validation url. can be IP address that is publicly accessible or a url
 
 // 3. call register url class
-$register_url = $app->register_url($access_token, $shortCode, $confirmationUrl, $validationUrl);
+$register_url = $app->register_url($shortCode, $confirmationUrl, $validationUrl);
 
 // decode data
 $data = json_decode($register_url, true);
