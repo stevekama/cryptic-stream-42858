@@ -37,4 +37,21 @@ if(!$customer_wallet){
 }
 
 // wallet amout 
-echo $response;
+$amount = $customer_wallet['amount'] + $jsonMpesaResponse['TransAmount'];
+
+$d = new DateTime();
+
+// update wallet 
+$wallet->id              = $customer_wallet['id'];
+$wallet->user_id         = $current_user['id'];
+$wallet->customer_id     = $customer_wallet['customer_id'];
+$wallet->amount          = $amount;
+$wallet->phone_number    = $customer_wallet['phone_number'];
+$wallet->created_date    = $customer_wallet['created_date'];
+$wallet->created_user_id = $customer_wallet['created_user_id'];
+$wallet->edited_date     = $d->format('Y-m-d H:i:s');
+$wallet->edited_user_id  = $current_user['id'];
+
+if($wallet->update()){
+    echo $response;
+}
