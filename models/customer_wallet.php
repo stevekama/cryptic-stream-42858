@@ -85,6 +85,54 @@ class Customer_Wallet{
             return false;
         }
     }
+    
+    // update 
+    public function update()
+    {
+        $query = "UPDATE api.".$this->table_name." SET ";
+        $query .= "user_id = :user_id, customer_id = :customer_id, amount = :amount, phone_number = :phone_number, ";
+        $query .= "created_date = :created_date, created_user_id = :created_user_id, edited_date = :edited_date, edited_user_id = :edited_user_id ";
+        $query .= "WHERE id = :id";
+
+        //Prepare statement
+        $stmt = $this->conn->prepare($query);
+
+        //clean data
+        $this->id = htmlentities($this->id);
+        $this->user_id = htmlentities($this->user_id);
+        $this->customer_id = htmlentities($this->customer_id);
+        $this->amount = htmlentities($this->amount);
+        $this->phone_number = htmlentities($this->phone_number);
+        $this->created_date = htmlentities($this->created_date);
+        $this->created_user_id = htmlentities($this->created_user_id);
+        $this->edited_date = htmlentities($this->edited_date);
+        $this->edited_user_id = htmlentities($this->edited_user_id);
+
+        // Bind Data
+        $stmt->bindParam(':id', $this->id);
+        $stmt->bindParam(':user_id', $this->user_id);
+        $stmt->bindParam(':customer_id', $this->customer_id);
+        $stmt->bindParam(':amount', $this->amount);
+        $stmt->bindParam(':phone_number', $this->phone_number);
+        $stmt->bindParam(':created_date', $this->created_date);
+        $stmt->bindParam(':created_user_id', $this->created_user_id);
+        $stmt->bindParam(':edited_date', $this->edited_date);
+        $stmt->bindParam(':edited_user_id', $this->edited_user_id);
+
+        //Execute query 
+        if($stmt->execute()){
+            return true;
+        }
+        //print error 
+        $error = new ErrorLogs();
+        $error->errors = $stmt->error;
+        $error->description = $stmt->error;
+        if($error->create()){
+            return false;
+        }
+    }
+
+
     public function fetch_by_id($id = ""){
         $query = "SELECT * FROM api.".$this->table_name." WHERE id = :id LIMIT 1";
         $stmt = $this->conn->prepare($query);
