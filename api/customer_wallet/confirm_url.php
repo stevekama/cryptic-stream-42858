@@ -15,6 +15,11 @@ $user = new Users();
 // get current user
 $current_user = $user->find_user_by_id($_GET['user']);
 
+if(!$current_user){
+    echo json_encode(array('message'=>'user not found'));
+    die();
+}
+
 // DATA
 $mpesaResponse = file_get_contents('php://input');
 $jsonMpesaResponse = json_decode($mpesaResponse, true);
