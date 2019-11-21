@@ -74,3 +74,6 @@ require_once(LIB_PATH.DS.'customer_docs.php');
 
 // customer wallet 
 require_once(LIB_PATH.DS.'customer_wallet.php');
+
+// customer wallet transactions
+require_once(LIB_PATH.DS.'customer_wallet_transactions.php');
