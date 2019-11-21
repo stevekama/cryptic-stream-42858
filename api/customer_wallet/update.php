@@ -7,26 +7,15 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 
 include_once '../../models/initialization.php';
 
-// 1. Obtain access token and shortcode
-// Get app using app token 
-$apps = new Apps();
+$data = array();
 
-$current_app = $apps->find_by_token($_POST['app_token']);
-
-$consumerKey = $current_app['app_key']; //Fill with your app Consumer Key
-
-$consumerSecret = $current_app['app_secret']; // Fill with your app Secret
-
+$consumerKey = "P0jSGSSzPDQjY6TXE9CzKA5G8UY8iPGr";
+$consumerSecret = "S9TlOILseXCfzw9l";
 // initialize mpesa auth class
-$app = new Auth($consumerKey, $consumerSecret);
+$app_auth = new Auth($consumerKey, $consumerSecret);
 
-// get details from mpesa details table
-// initiate the mpesa details table 
-$m_datails = new MPESA_APPS_Details();
-
-$details = $m_datails->find_by_token($current_app['app_token']);
-
-$ShortCode  = $details['shortcode']; // Shortcode. Same as the one on register_url.php
+// get app shortcode 
+$ShortCode = '600290';
 // This will be posted data
 $amount     = $_POST['amount']; // amount the client/we are paying to the paybill
 $msisdn     = '254708374149'; // phone number paying 
@@ -35,7 +24,9 @@ $curl_response = $app->simulate_transactions($ShortCode, $amount, $msisdn, $bill
 $data = json_decode($curl_response, true);
 $response_url = $current_app['response_url'];
 if($data['ResponseDescription'] != 'Accept the service request successfully.'){
-       redirect_to($response_url.'?transaction_status=failed');
+       $data['message'] = 'Failed';
        die();
 }
-redirect_to($response_url.'?transaction_status=success');
+$data['message'] = 'Success';
+
+echo json_encode($data);

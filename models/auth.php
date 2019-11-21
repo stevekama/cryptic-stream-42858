@@ -30,6 +30,7 @@ class Auth{
         curl_close($curl);
     }
 
+    // register url
     public function register_url($shortCode="", $confirmationUrl="", $validationUrl="")
     {
         //register url 
@@ -55,5 +56,33 @@ class Auth{
         // print_r($curl_response);
         return $curl_response;
     }
+
+    //simulate transactions 
+    public function simulate_transactions($shortCode = '', $amount = '', $msisdn = '', $billRef = ''){
+        // get url
+        $url = 'https://sandbox.safaricom.co.ke/mpesa/c2b/v1/simulate';
+
+        // access token 
+        $access_token = $this->Access_Token();
+        // initiate curl
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer '.$access_token));
+        $curl_post_data = array(
+            'ShortCode' => $shortCode,
+            'CommandID' => 'CustomerPayBillOnline',
+            'Amount' => $amount,
+            'Msisdn' => $msisdn,
+            'BillRefNumber' => $billRef
+        );
+        // encode posted data array
+        $data_string = json_encode($curl_post_data);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_POST, true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
+        $curl_response = curl_exec($curl);
+        return $curl_response;
+    }
+
 
 }
