@@ -35,8 +35,8 @@ if($_POST['password'] === $_POST['confirm']){
         $shortcode = '600290';
 
         // provide confirmation and validation urls
-        $confirmationUrl = base_url().'api/customer_wallet/confirm_url.php'; // path to your confirmation url. can be IP address that is publicly accessible or a url
-        $validationUrl = base_url().'api/customer_wallet/validation.php'; // path to your validation url. can be IP address that is publicly accessible or a url
+        $confirmationUrl = base_url().'api/customer_wallet/confirm_url.php?user='.$user->id; // path to your confirmation url. can be IP address that is publicly accessible or a url
+        $validationUrl = base_url().'api/customer_wallet/validation.php?user='.$user->id; // path to your validation url. can be IP address that is publicly accessible or a url
 
         // register url 
         $register_url = $app_auth->register_url($shortcode, $confirmationUrl, $validationUrl);
