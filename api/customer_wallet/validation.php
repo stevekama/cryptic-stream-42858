@@ -11,3 +11,6 @@ $response = '{
 // DATA
 $mpesaResponse = file_get_contents('php://input');
 $jsonMpesaResponse = json_decode($mpesaResponse, true);
+
+
+echo $response;

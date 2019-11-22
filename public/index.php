@@ -18,62 +18,42 @@ require_once('layouts/systems/header.php'); ?>
    <section class="content">
       <!-- Main row -->
       <div class="row">
-        <div class="col-md-12">
-          <div class="box">
+        <div class="col-md-6">
+          <div class="box box-solid">
             <div class="box-header with-border">
-              <h3 class="box-title">Monthly Recap Report</h3>
+              <i class="fa fa-text-width"></i>
+              <h3 class="box-title">E Wallet</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <div class="row">
-                <div class="col-md-12">
-                  <p class="text-center">
-                    <strong>Transactions</strong>
-                  </p>
-
-                  <div class="chart">
-                    <!-- Sales Chart Canvas -->
-                    <canvas id="salesChart" style="height: 180px;"></canvas>
-                  </div>
-                  <!-- /.chart-responsive -->
-                </div>
-                <!-- /.col -->
-              </div>
-              <!-- /.row -->
+              <p>Current Balance</p>
+              <h1>
+                <span id="customerWallet">$0.00</span>
+              </h1>
+              <p></p>
             </div>
-            <!-- ./box-body -->
-            <div class="box-footer">
-              <div class="row">
-                <div class="col-sm-6 col-xs-6">
-                  <div class="description-block border-right">
-                    <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 17%</span>
-                    <h5 class="description-header">$35,210.43</h5>
-                    <span class="description-text">TOTAL TRANSACTIONS</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-6 col-xs-6">
-                  <div class="description-block border-right">
-                    <span class="description-percentage text-yellow"><i class="fa fa-caret-left"></i> 0%</span>
-                    <h5 class="description-header">$10,390.90</h5>
-                    <span class="description-text">MY WALLET</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-              </div>
-              <!-- /.row -->
-            </div>
-            <!-- /.box-footer -->
+            <!-- /.box-body -->
           </div>
           <!-- /.box -->
         </div>
-        <!-- /.col -->
+        <!-- ./col -->
+        <div class="col-md-6">
+          <div class="box box-solid">
+            <div class="box-body">
+              <h1>Welcome To Iko Pay</h1>
+
+              <p>We have a way you can pay for anything anytime</p>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- ./col -->
+
       </div>
       <!-- /.row -->
-      <!-- /.row (main row) -->
 
+      <!-- /.row (main row) -->
       <div class="row">
         <section class="col-lg-12 col-md-12 col-sm-12">
           <!-- TABLE: LATEST ORDERS -->
@@ -123,6 +103,6 @@ require_once('layouts/systems/header.php'); ?>
     <!-- /.content -->
 </section>
 <!-- /.content -->
-<script src="<?php echo base_url(); ?>/public/dist/js/pages/dashboard2.js"></script>
+<!-- <script src="<?php //echo base_url(); ?>/public/dist/js/pages/dashboard2.js"></script> -->
 <script src="<?php echo base_url(); ?>/public/dist/js/pages/main.js"></script>
 <?php require_once('layouts/systems/footer.php'); ?>
