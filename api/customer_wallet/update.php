@@ -7,8 +7,6 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 
 include_once '../../models/initialization.php';
 
-$data = array();
-
 $consumerKey = "P0jSGSSzPDQjY6TXE9CzKA5G8UY8iPGr";
 $consumerSecret = "S9TlOILseXCfzw9l";
 // initialize mpesa auth class
