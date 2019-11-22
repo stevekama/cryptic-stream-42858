@@ -43,6 +43,8 @@ require_once('layouts/systems/header.php'); ?>
               <h1>Welcome To Iko Pay</h1>
 
               <p>We have a way you can pay for anything anytime</p>
+
+              <p><button type="button" class="btn btn-default btn-block btn-flat">Update Wallet</button></p>
             </div>
             <!-- /.box-body -->
           </div>
