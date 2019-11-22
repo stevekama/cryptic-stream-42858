@@ -1,4 +1,21 @@
 $(document).ready(function(){
+    // user wallet
+    function fetch_user_wallet(){
+        var action = "FETCH_FOR_CUSTOMER";
+        $.ajax({
+            url: base_url+'api/customer_wallet/fetch.php',
+            type:'POST',
+            data:{action:action, customer_id:customer_id},
+            dataType:'json',
+            success:function(data){
+                $('#customerWallet').html(data.amount);
+                fetch_transactions();
+
+            }
+        });
+    }
+    fetch_user_wallet()
+
     // get tranactions
     function fetch_transactions(){
         $.ajax({
@@ -27,8 +44,7 @@ $(document).ready(function(){
             }
         });
     }
-    fetch_transactions();
-    
+
     $('#newAppBtn').click(function(){
         $('#newAppModal').modal('show');
         $('#newAppForm')[0].reset();

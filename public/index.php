@@ -28,7 +28,7 @@ require_once('layouts/systems/header.php'); ?>
             <div class="box-body">
               <p>Current Balance</p>
               <h1>
-                <span id="customerWallet">$0.00</span>
+                $<span id="customerWallet"></span>
               </h1>
               <p></p>
             </div>
@@ -44,7 +44,7 @@ require_once('layouts/systems/header.php'); ?>
 
               <p>We have a way you can pay for anything anytime</p>
 
-              <p><button type="button" class="btn btn-default btn-block btn-flat">Update Wallet</button></p>
+              <p><button type="button" class="btn btn-info btn-block btn-flat">Top Up My Wallet</button></p>
             </div>
             <!-- /.box-body -->
           </div>

@@ -9,7 +9,13 @@ include_once '../../models/initialization.php';
 $wallet = new Customer_Wallet();
 
 if($_POST['action'] == 'FETCH_FOR_CUSTOMER'){
-    $customer_wallet = $wallet->fetch_wallet_for_customer($_POST['customer_id']);
+    // find logged in user
+    $user = new Users();
+    
+    // find current logged in user
+    $current_user = $user->find_user_by_id($session->user_id);
+    
+    $customer_wallet = $wallet->fetch_wallet_for_customer($current_user['customer_id']);
     if(!$customer_wallet){
         echo json_encode(array('message'=>'noWalletFound'));
         die();
