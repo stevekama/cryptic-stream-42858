@@ -24,27 +24,18 @@ if(!$current_user){
 $mpesaResponse = file_get_contents('php://input');
 $jsonMpesaResponse = json_decode($mpesaResponse, true);
 
-// Save Data In DB
-// 1.initialize mpesa class
-$trns = new Customer_Wallet_Transactions();
+/* If we have any validation, we will do it here then change the $response if we reject the transaction */
+// Your Validation
+// $response = '{  "ResultCode": 1, "ResultDesc": "Transaction Rejected."  }';
+/* Ofcourse we will be checking for amount, account number(incase of paybill), invoice number and inventory.
+But we reserve this for future tutorials*/
+// log the response
+$logFile = "confirmationResponse.txt";
 
-$trns->user_id            = $current_user['id'];
-$trns->customer_id        = $current_user['customer_id'];
-$trns->transaction_type   = $jsonMpesaResponse['TransactionType'];
-$trns->transaction_id     = $jsonMpesaResponse['TransID'];
-$trns->transaction_time   = $jsonMpesaResponse['TransTime'];
-$trns->transaction_amount = $jsonMpesaResponse['TransAmount'];
-$trns->business_shortcode = $jsonMpesaResponse['BusinessShortCode'];
-$trns->bill_refnumber     = $jsonMpesaResponse['BillRefNumber'];
-$trns->invoice_number     = $jsonMpesaResponse['InvoiceNumber'];
-$trns->original_balance   = $jsonMpesaResponse['OrgAccountBalance'];
-$trns->third_party_transaction_id = $jsonMpesaResponse['ThirdPartyTransID'];
-$trns->msisdn             = $jsonMpesaResponse['MSISDN'];
-$trns->first_name         = $jsonMpesaResponse['FirstName'];
-$trns->middle_name        = $jsonMpesaResponse['MiddleName'];
-$trns->last_name          = $jsonMpesaResponse['LastName'];
-
-// save transaction
-if($trns->create()){
-    echo $response;
-}
+// will be used when we want to save the response to database for our reference
+$jsonMpesaResponse = json_decode($mpesaResponse, true); 
+// write the M-PESA Response to file
+$log = fopen($logFile, "a");
+fwrite($log, $mpesaResponse);
+fclose($log);
+echo $response;
