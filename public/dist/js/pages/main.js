@@ -5,7 +5,7 @@ $(document).ready(function(){
         $.ajax({
             url: base_url+'api/customer_wallet/fetch.php',
             type:'POST',
-            data:{action:action, customer_id:customer_id},
+            data:{action:action},
             dataType:'json',
             success:function(data){
                 $('#customerWallet').html(data.amount);
