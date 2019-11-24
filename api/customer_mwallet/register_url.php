@@ -21,8 +21,8 @@ $shortcode = '600290';
 $user_id = $_POST['user_id'];
 
 // provide confirmation and validation urls
-$confirmationUrl = base_url().'api/customer_wallet/confirm_url.php?user='.$user_id; // path to your confirmation url. can be IP address that is publicly accessible or a url
-$validationUrl = base_url().'api/customer_wallet/validation.php?user='.$user_id; // path to your validation url. can be IP address that is publicly accessible or a url
+$confirmationUrl = base_url().'api/customer_mwallet/confirm_url.php?user='.$user_id; // path to your confirmation url. can be IP address that is publicly accessible or a url
+$validationUrl = base_url().'api/customer_mwallet/validation.php?user='.$user_id; // path to your validation url. can be IP address that is publicly accessible or a url
 
  // register url 
  $register_url = $app_auth->register_url($shortcode, $confirmationUrl, $validationUrl);
