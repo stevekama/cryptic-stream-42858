@@ -26,4 +26,4 @@ $validationUrl = base_url().'api/customer_mwallet/validation.php?user='.$user_id
 
  // register url 
  $register_url = $app_auth->register_url($shortcode, $confirmationUrl, $validationUrl);
- echo $register_url;
+ echo $register_url;    
