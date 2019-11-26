@@ -76,4 +76,7 @@ require_once(LIB_PATH.DS.'customer_docs.php');
 require_once(LIB_PATH.DS.'customer_wallet.php');
 
 // customer wallet transactions
+require_once(LIB_PATH.DS.'customer_wallet_mpesa_transactions.php');
+
+// customer wallet transactions
 require_once(LIB_PATH.DS.'customer_wallet_transactions.php');

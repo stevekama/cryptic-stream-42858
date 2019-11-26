@@ -1,23 +1,29 @@
 <?php 
 require_once('initialization.php');
 
-class Customer_Wallet_Transactions{
+class Customer_Wallet_MPESA_Transactions{
     //Decalare table name 
     private $conn;
-    private $table_name = 'customer_wallet_transactions';
+    private $table_name = 'customer_wallet_mpesa_transactions';
     
     //Declare class properties 
     public $id;
     public $user_id;
     public $customer_id;
+    public $transaction_type;
     public $transaction_id;
     public $transaction_time;
-    public $product;
     public $transaction_amount;
-    public $transaction_currency;
-    public $transaction_method;
-    public $transaction_status;
-    
+    public $business_shortcode;
+    public $bill_refnumber;
+    public $invoice_number;
+    public $original_balance;
+    public $third_party_transaction_id;
+    public $msisdn;
+    public $first_name;
+    public $middle_name;
+    public $last_name;
+
     //connect to db 
     public function __construct()
     {
@@ -38,11 +44,16 @@ class Customer_Wallet_Transactions{
        $this->transaction_type = htmlentities($this->transaction_type);
        $this->transaction_id = htmlentities($this->transaction_id);
        $this->transaction_time = htmlentities($this->transaction_time);
-       $this->product = htmlentities($this->product);
        $this->transaction_amount = htmlentities($this->transaction_amount);
-       $this->transaction_method = htmlentities($this->transaction_method);
-       $this->transaction_currency = htmlentities($this->transaction_currency);
-       $this->transaction_status = htmlentities($this->transaction_status);
+       $this->business_shortcode = htmlentities($this->business_shortcode);
+       $this->bill_refnumber = htmlentities($this->bill_refnumber);
+       $this->invoice_number = htmlentities($this->invoice_number);
+       $this->original_balance = htmlentities($this->original_balance);
+       $this->third_party_transaction_id = htmlentities($this->third_party_transaction_id);
+       $this->msisdn = htmlentities($this->msisdn);
+       $this->first_name = htmlentities($this->first_name);
+       $this->middle_name = htmlentities($this->middle_name);
+       $this->last_name = htmlentities($this->last_name);
        
        //Bind Data
        $stmt->bindParam(':user_id', $this->user_id);
@@ -50,17 +61,21 @@ class Customer_Wallet_Transactions{
        $stmt->bindParam(':transaction_type', $this->transaction_type);
        $stmt->bindParam(':transaction_id', $this->transaction_id);
        $stmt->bindParam(':transaction_time', $this->transaction_time);
-       $stmt->bindParam(':product', $this->product);
        $stmt->bindParam(':transaction_amount', $this->transaction_amount);
-       $stmt->bindParam(':transaction_method', $this->transaction_method);
-       $stmt->bindParam(':transaction_currency', $this->transaction_currency);
-       $stmt->bindParam(':transaction_status', $this->transaction_status);
+       $stmt->bindParam(':business_shortcode', $this->business_shortcode);
+       $stmt->bindParam(':bill_refnumber', $this->bill_refnumber);
+       $stmt->bindParam(':invoice_number', $this->invoice_number);
+       $stmt->bindParam(':original_balance', $this->original_balance);
+       $stmt->bindParam(':third_party_transaction_id', $this->third_party_transaction_id);
+       $stmt->bindParam(':msisdn', $this->msisdn);
+       $stmt->bindParam(':first_name', $this->first_name);
+       $stmt->bindParam(':middle_name', $this->middle_name);
+       $stmt->bindParam(':last_name', $this->last_name);
 
        //Execute query 
        if($stmt->execute()){
            return true;
        }
-       
        //print error 
        $error = new ErrorLogs();
        $error->errors = 'Error';
