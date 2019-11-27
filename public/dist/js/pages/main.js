@@ -45,6 +45,15 @@ $(document).ready(function(){
         });
     }
 
+
+    // topup wallet
+    $('#topUpWalletBtn').click(function(){
+        $('#topUpWalletModal').modal('show');
+        $('#topUpWalletForm')[0].reset();
+    });
+
+
+
     $('#newAppBtn').click(function(){
         $('#newAppModal').modal('show');
         $('#newAppForm')[0].reset();

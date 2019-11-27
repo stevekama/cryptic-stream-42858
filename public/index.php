@@ -44,7 +44,7 @@ require_once('layouts/systems/header.php'); ?>
 
               <p>We have a way you can pay for anything anytime</p>
 
-              <p><button type="button" class="btn btn-info btn-block btn-flat">Top Up My Wallet</button></p>
+              <p><button type="button" id="topUpWalletBtn" class="btn btn-info btn-block btn-flat">Top Up My Wallet</button></p>
             </div>
             <!-- /.box-body -->
           </div>
@@ -101,6 +101,39 @@ require_once('layouts/systems/header.php'); ?>
         </section>
       </div>
       <!--row-->
+
+      <!--Top up Wallet Modal -->
+      <div class="modal fade" id="topUpWalletModal">
+        <div class="modal-dialog">
+          <form id="topUpWalletForm">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Top Up Wallet</h4>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="amount">Amount</label>
+                  <input type="text" class="form-control" id="amount" name="price" placeholder="Enter Amount">
+                </div>
+
+                <div class="form-group">
+                  <label for="currency">Currency</label>
+                  <input type="text" class="form-control" id="currency" name="currency" placeholder="Enter Currency">
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="submit" id="topUpSubmitBtn" class="btn btn-primary">Top Up</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </form>
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
     </section>
     <!-- /.content -->
 </section>
