@@ -105,7 +105,7 @@ require_once('layouts/systems/header.php'); ?>
       <!--Top up Wallet Modal -->
       <div class="modal fade" id="topUpWalletModal">
         <div class="modal-dialog">
-          <form id="topUpWalletForm">
+          <form action="http://34.215.237.227/api/api/paypal_customer_wallet/checkout.php" method="post">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
