@@ -21,9 +21,10 @@ if($_POST['password'] === $_POST['confirm']){
     $user->username    = $_POST['username'];
     $user->password    = $_POST['password'];
     $user->customer_id = $customer['id'];
-    $user->profile     = 'profile.png'; 
-    ///create user 
-    if($user->create()){
+    $user->profile     = 'profile.png';
+     ///create user 
+     if($user->create()){
+        // user wallet 
         // initialize customer wallet.
         $wallet = new Customer_Wallet();
         $wallet->user_id = $user->id;
@@ -31,10 +32,11 @@ if($_POST['password'] === $_POST['confirm']){
         // check if the customer as a wallet 
         $current_customer_wallet = $wallet->fetch_wallet_for_customer($wallet->customer_id);
         // check if this wallet exists 
-        if($current_customer_wallet)h{
+        if($current_customer_wallet){
             echo json_encode(array('message'=>'existingCusomerWallet'));
             die();
         }
+
         // initialize customer
         $customer = new Customers();
         // find customer by id 
@@ -43,6 +45,7 @@ if($_POST['password'] === $_POST['confirm']){
             echo json_encode(array('message'=>'errorCustomer'));
             die();
         }
+        
         $wallet->amount = 0;
         $wallet->phone_number = $current_customer['phone_number'];
         $wallet->created_date = $d->format('Y-m-d');
@@ -50,13 +53,26 @@ if($_POST['password'] === $_POST['confirm']){
         $wallet->edited_date = $d->format('Y-m-d');
         $wallet->edited_user_id = $user->id;
         if($wallet->create()){
-            $data['message'] = 'success';
+            // initial customer balance movement account 
+            $balance_movement = new Customer_Wallet_Balance_Movement();
+            $balance_movement->user_id = $user->id;
+            $balance_movement->customer_id = $user->customer_id;
+            $balance_movement->initial_balance = $wallet->amount;
+            $balance_movement->updated_amount = $wallet->amount;
+            $balance_movement->current_balance = $wallet->amount;
+            $balance_movement->created_date = $d->format('Y-m-d');
+            $balance_movement->created_user_id = $user->id;
+            $balance_movement->edited_date = $d->format('Y-m-d');
+            $balance_movement->edited_user_id = $user->id;
+            if($balance_movement->create()){
+                $data['message'] = 'success';
+            }
         }else{
             $data['message'] = 'failed';
         }
-    }else{
-        $data['message'] = 'failed';
-    }
+
+     }
+
 }else{
     $data['message'] = 'errorPass';
 }
