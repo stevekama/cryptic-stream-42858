@@ -95,8 +95,19 @@ try{
         $wallet->edited_date = $d->format('Y-m-d H:m:s');
         $wallet->edited_user_id = $current_user['id'];
         if($wallet->update()){
-            // create moving balance in trasaction
-            $data['message'] = 'success';
+            // enter customer wallet paypal 
+            $paypal = new CustomerWalletPayPal();
+            $paypal->user_id = $current_user['id'];
+            $paypal->customer_id = $current_user['customer_id'];
+            $paypal->transaction_id = $payment->getId();
+            $paypal->payment_amount = $payment->transactions[0]->amount->total;
+            $paypal->payment_status = $payment->getState();
+            $paypal->invoice_id = $payment->transactions[0]->invoice_number;
+            $paypal->transaction_date = date('YmdHis');
+            if($paypal->create()){
+                // create moving balance in trasaction
+                $data['message'] = 'success';
+            }
         }   
     }
 } catch(Exception $e) {
