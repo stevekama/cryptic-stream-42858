@@ -8,15 +8,19 @@ $data = array();
 
 $d = new DateTime();
 
+$url = base_url().'public/index.php';
+
 // find logged in user
 $user = new Users();
 
 $current_user = $user->find_user_by_id($session->user_id);
 
 if(!$current_user){
-    $data['message'] = 'errorUser';
-    echo json_encode($data);    
+    redirect_to($url.'?message=errorUser');
     die();
 }
 
-echo json_encode($current_user);
+if(!isset($_GET['success'], $_GET['paymentId'], $_GET['PayerID'])){
+    redirect_to($url.'?message=errorTransactions');   
+    die();
+}
