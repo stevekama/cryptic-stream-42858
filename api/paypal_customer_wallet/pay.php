@@ -78,7 +78,7 @@ try{
         $balance_movement = new Customer_Wallet_Balance_Movement();
         $balance_movement->user_id = $current_user['id'];
         $balance_movement->customer_id = $current_user['customer_id'];
-        $balance_movement->initial_balance = $wallet->amount;
+        $balance_movement->initial_balance = $current_wallet['amount'];
         $balance_movement->updated_amount = $payment->transactions[0]->amount->total;
         $total = $current_wallet['amount'] + $payment->transactions[0]->amount->total;
         $balance_movement->current_balance = $total;
@@ -94,8 +94,6 @@ try{
             // populate wallet data 
             $wallet->user_id = $current_user['id'];
             $wallet->customer_id = $current_user['customer_id'];
-            // get total amount 
-            $total = $wallet->amount + $payment->transactions[0]->amount->total;
             // amout 
             $wallet->amount = $total;
             $wallet->phone_number = $current_wallet['phone_number'];
