@@ -52,6 +52,7 @@ $execute->setPayerId($payerId);
 
 try{
     $result = $payment->execute($execute, $paypal);
+    // initialize customer wallet
     $wallet = new Customer_Wallet();
     // current wallet 
     $current_wallet = $wallet->fetch_wallet_for_customer($current_user['customer_id']);
@@ -60,19 +61,20 @@ try{
         echo json_encode($data);
         die();
     }
-    // enter customer wallet paypal 
-    $paypal = new CustomerWalletPayPal();
-    $paypal->user_id = $current_user['id'];
-    $paypal->customer_id = $current_user['customer_id'];
-    $paypal->transaction_id = $payment->getId();
-    $paypal->payment_amount = $payment->transactions[0]->amount->total;
-    $paypal->payment_status = $payment->getState();
-    $paypal->invoice_id = $payment->transactions[0]->invoice_number;
-    $paypal->transaction_date = date('YmdHis');
-    // save data in db
-    if($paypal->create()){
-        $data['message'] = 'success';
-    }
+    echo json_encode($current_wallet);
+    // // enter customer wallet paypal 
+    // $paypal = new CustomerWalletPayPal();
+    // $paypal->user_id = $current_user['id'];
+    // $paypal->customer_id = $current_user['customer_id'];
+    // $paypal->transaction_id = $payment->getId();
+    // $paypal->payment_amount = $payment->transactions[0]->amount->total;
+    // $paypal->payment_status = $payment->getState();
+    // $paypal->invoice_id = $payment->transactions[0]->invoice_number;
+    // $paypal->transaction_date = date('YmdHis');
+    // // save data in db
+    // if($paypal->create()){
+    //     $data['message'] = 'success';
+    // }
 } catch(Exception $e) {
     $data['message'] = 'errorInTransaction';
     $data['error'] = $e->getData();
@@ -80,4 +82,4 @@ try{
     die();
 }
 
-redirect_to($url.'?message=success');
+// redirect_to($url.'?message=success');
