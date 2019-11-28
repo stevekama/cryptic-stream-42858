@@ -60,52 +60,18 @@ try{
         echo json_encode($data);
         die();
     }
-    // create wallet balance movement
-    // initial customer balance movement account 
-    $balance_movement = new Customer_Wallet_Balance_Movement();
-
-    $balance_movement->user_id = $current_user['id'];
-    $balance_movement->customer_id = $current_user['customer_id'];
-    $balance_movement->initial_balance = $wallet->amount;
-    $balance_movement->updated_amount = $payment->transactions[0]->amount->total;
-    $total = $current_wallet['amount'] + $payment->transactions[0]->amount->total;
-    $balance_movement->current_balance = $total;
-    $balance_movement->created_date = $d->format('Y-m-d');
-    $balance_movement->created_user_id = $current_user['id'];
-    $balance_movement->edited_date = $d->format('Y-m-d');
-    $balance_movement->edited_user_id = $current_user['id'];
-    if($balance_movement->create()){
-        // update transaction 
-        // get wallet id 
-        $wallet->id = $current_wallet['id'];
-
-        // populate wallet data 
-        $wallet->user_id = $current_user['id'];
-        $wallet->customer_id = $current_user['customer_id'];
-        // get total amount 
-        $total = $wallet->amount + $payment->transactions[0]->amount->total;
-        // amout 
-        $wallet->amount = $total;
-        $wallet->phone_number = $current_wallet['phone_number'];
-        $wallet->created_date = $current_wallet['created_date'];
-        $wallet->created_user_id = $current_wallet['created_user_id'];
-        $wallet->edited_date = $d->format('Y-m-d H:m:s');
-        $wallet->edited_user_id = $current_user['id'];
-        if($wallet->update()){
-            // enter customer wallet paypal 
-            $paypal = new CustomerWalletPayPal();
-            $paypal->user_id = $current_user['id'];
-            $paypal->customer_id = $current_user['customer_id'];
-            $paypal->transaction_id = $payment->getId();
-            $paypal->payment_amount = $payment->transactions[0]->amount->total;
-            $paypal->payment_status = $payment->getState();
-            $paypal->invoice_id = $payment->transactions[0]->invoice_number;
-            $paypal->transaction_date = date('YmdHis');
-            if($paypal->create()){
-                // create moving balance in trasaction
-                $data['message'] = 'success';
-            }
-        }   
+    // enter customer wallet paypal 
+    $paypal = new CustomerWalletPayPal();
+    $paypal->user_id = $current_user['id'];
+    $paypal->customer_id = $current_user['customer_id'];
+    $paypal->transaction_id = $payment->getId();
+    $paypal->payment_amount = $payment->transactions[0]->amount->total;
+    $paypal->payment_status = $payment->getState();
+    $paypal->invoice_id = $payment->transactions[0]->invoice_number;
+    $paypal->transaction_date = date('YmdHis');
+    // save data in db
+    if($paypal->create()){
+        $data['message'] = 'success';
     }
 } catch(Exception $e) {
     $data['message'] = 'errorInTransaction';

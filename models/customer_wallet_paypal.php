@@ -24,7 +24,13 @@ class CustomerWalletPayPal{
 
     public function create()
     {
-       $query = 'INSERT INTO '.$this->table_name.'(user_id, customer_id, transaction_id, payment_amount, payment_status, invoice_id, transaction_date)VALUES(:user_id, :customer_id, :transaction_id, :payment_amount, :payment_status, :invoice_id, :transaction_date)';
+       $query = "INSERT INTO api.".$this->table_name."(";
+       $query .= "user_id, customer_id, transaction_id, payment_amount, ";
+       $query .= "payment_status, invoice_id, transaction_date";
+       $query .= ")VALUES(";
+       $query .= ":user_id, :customer_id, :transaction_id, :payment_amount, ";
+       $query .= ":payment_status, :invoice_id, :transaction_date";
+       $query .= ")";
 
        //Prepare statement
        $stmt = $this->conn->prepare($query);
