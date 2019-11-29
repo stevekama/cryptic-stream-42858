@@ -52,23 +52,6 @@ $(document).ready(function(){
         $('#topUpWalletForm')[0].reset();
     });
 
-    $('#topUpWalletForm').submit(function(event){
-        event.preventDefault();
-        var form_data = $(this).serialize();
-        $.ajax({
-            url:base_url+'api/paypal_customer_wallet/checkout.php',
-            type: 'POST',
-            data:form_data,
-            dataType:'json',
-            cache:false,
-            success:function(data){
-                console.table(data);
-            }
-        });
-    });
-
-
-
     $('#newAppBtn').click(function(){
         $('#newAppModal').modal('show');
         $('#newAppForm')[0].reset();
