@@ -20,7 +20,7 @@ try {
     $mail->Username   = 'stevekamahertz@gmail.com';                     // SMTP username
     $mail->Password   = 'stevekama';                               // SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
-    $mail->Port       = 587;                                    // TCP port to connect to
+    $mail->Port       = 465;                                    // TCP port to connect to
 
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
