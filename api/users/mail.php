@@ -19,7 +19,7 @@ try {
     $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
     $mail->Username   = 'stevekamahertz@gmail.com';                     // SMTP username
     $mail->Password   = 'stevekama';                               // SMTP password
-    // $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
+    $mail->SMTPSecure = 'ssl';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
     $mail->Port       = 465;                                    // TCP port to connect to
 
     //Recipients
@@ -27,7 +27,7 @@ try {
     $mail->addAddress('matibejeremy@gmail.com', 'Matibe Jeremy');     // Add a recipient
     $mail->addAddress('matibejeremy@gmail.com');               // Name is optional
     // $mail->addReplyTo('info@example.com', 'Information');
-    // $mail->addCC('cc@example.com');
+    $mail->addCC('stevekamahertz@gmail.com');
     // $mail->addBCC('bcc@example.com');
 
     // Attachments
