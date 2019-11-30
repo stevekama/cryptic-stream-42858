@@ -19,8 +19,8 @@ try {
     $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
     $mail->Username   = 'f3bfa0269a5ef9';                     // SMTP username
     $mail->Password   = '8acbed906d4b44';                               // SMTP password
-    $mail->SMTPSecure = 'ssl';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
-    $mail->Port       = 465;                                    // TCP port to connect to
+    $mail->SMTPSecure = 'TLS';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
+    $mail->Port       = 25;                                    // TCP port to connect to
 
     //Recipients
     $mail->setFrom('stevekamahertz@gmail.com', 'Steve Kama');
