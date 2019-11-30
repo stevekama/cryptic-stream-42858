@@ -13,12 +13,12 @@ $mail = new PHPMailer(true);
 
 try {
     /// Server settings
-    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
+    // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
     $mail->isSMTP();                                            // Send using SMTP
-    $mail->Host       = 'smtp.gmail.com';                       // Set the SMTP server to send through
+    $mail->Host       = 'smtp.mailtrap.io';                       // Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-    $mail->Username   = 'stevekamahertz@gmail.com';                     // SMTP username
-    $mail->Password   = 'stevekama';                               // SMTP password
+    $mail->Username   = 'f3bfa0269a5ef9';                     // SMTP username
+    $mail->Password   = '8acbed906d4b44';                               // SMTP password
     $mail->SMTPSecure = 'ssl';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
     $mail->Port       = 465;                                    // TCP port to connect to
 
