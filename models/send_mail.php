@@ -52,11 +52,9 @@ class SendMail{
 
             if($this->mail->send()){
                 return true;
-            }else{
-                return false;
             }
         }catch (Exception $e) {
-            return $mail->ErrorInfo;
+            return $this->mail->ErrorInfo;
         }
     }
 
