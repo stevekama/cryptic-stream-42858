@@ -21,6 +21,9 @@ require_once(LIB_PATH.DS.'users.php');
 // bring in php mailer 
 require_once(VENDOR_PATH.DS.'autoload.php');
 
+// bring in mail class
+require_once(LIB_PATH.DS.'send_mail.php');
+
 // bring in error logs 
 require_once(LIB_PATH.DS.'error_logs.php');
 
