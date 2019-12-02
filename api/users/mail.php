@@ -9,3 +9,5 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 include_once '../../models/initialization.php';
 
 $mail = new SendMail();
+
+$mail->mail();
