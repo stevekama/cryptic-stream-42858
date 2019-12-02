@@ -29,8 +29,8 @@ class SendMail{
             $this->mail->SMTPAuth   = true;                                   // Enable SMTP authentication
             $this->mail->Username   = 'stevekamahertz@gmail.com';                     // SMTP username
             $this->mail->Password   = 'stevekama';                               // SMTP password
-            $this->mail->SMTPSecure = 'TLS';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
-            $this->mail->Port       = 587;            // TCP port to connect to
+            $this->mail->SMTPSecure = 'SSL';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
+            $this->mail->Port       = 465;            // TCP port to connect to
 
              //Recipients
             $this->mail->setFrom($this->from, $this->from_username);
