@@ -30,12 +30,12 @@ class SendMail{
             $this->mail->Username   = 'stevekamahertz@gmail.com';                     // SMTP username
             $this->mail->Password   = 'stevekama';                               // SMTP password
             $this->mail->SMTPSecure = 'SSL';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
-            $this->mail->Port       = 465;            // TCP port to connect to
+            $this->mail->Port       = 587;            // TCP port to connect to
 
              //Recipients
             $this->mail->setFrom($this->from, $this->from_username);
             $this->mail->addAddress($this->to, $this->to_username);     // Add a recipient
-            $this->mail->addAddress($this->to);               // Name is optional
+            $this->mail->addAddress($this->to);                         // Name is optional
             // $mail->addReplyTo('info@example.com', 'Information');
             $this->mail->addCC('stevekamahertz@gmail.com');
             // $mail->addBCC('bcc@example.com');
