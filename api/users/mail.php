@@ -19,4 +19,15 @@ $mail = new PHPMailer(true);
 
 $sendMail = new SendMail($mail);
 
-$sendMail->send_mail();
+// define the mail values 
+$sendMail->from = 'stevekamahertz@gmail.com';
+$sendMail->from_username = 'Steve Kama';
+$sendMail->to = 'bizstevekama@gmail.com';
+$sendMail->to_username = 'Biz steve';
+$sendMail->subject = 'Hello World';
+$sendMail->message = 'This is a test mail of hello world';
+
+if($sendMail->send_mail()){
+    echo "Message Sent";
+    die();
+}
