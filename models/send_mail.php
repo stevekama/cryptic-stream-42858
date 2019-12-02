@@ -23,13 +23,13 @@ class SendMail{
 
         try{
             // Server settings
-            // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
+            $this->mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
             $this->mail->isSMTP();                                            // Send using SMTP
             $this->mail->Host       = 'smtp.gmail.com';                       // Set the SMTP server to send through
             $this->mail->SMTPAuth   = true;                                   // Enable SMTP authentication
             $this->mail->Username   = 'stevekamahertz@gmail.com';                     // SMTP username
             $this->mail->Password   = 'stevekama';                               // SMTP password
-            $this->mail->SMTPSecure = 'SSL';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
+            $this->mail->SMTPSecure = 'TLS';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
             $this->mail->Port       = 587;            // TCP port to connect to
 
              //Recipients
