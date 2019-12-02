@@ -31,3 +31,5 @@ if($sendMail->send_mail()){
     echo "Message Sent";
     die();
 }
+
+echo $sendMail->send_mail();
