@@ -32,4 +32,4 @@ if($sendMail->send_mail()){
     die();
 }
 
-echo $sendMail->send_mail();
+echo 'Not send';
