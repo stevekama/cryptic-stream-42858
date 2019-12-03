@@ -13,7 +13,6 @@ class SendMail{
     public $subject;
     public $message;
  
-
     public function __construct($mail)
     {
         $this->mail = $mail;
@@ -25,12 +24,12 @@ class SendMail{
             // Server settings
             $this->mail->SMTPDebug = 0;                      // Enable verbose debug output
             $this->mail->isSMTP();                                            // Send using SMTP
-            $this->mail->Host       = 'smtp.gmail.com';                       // Set the SMTP server to send through
+            $this->mail->Host       = 'smtp.mailtrap.io';                       // Set the SMTP server to send through
             $this->mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-            $this->mail->Username   = 'stevekamahertz@gmail.com';                     // SMTP username
-            $this->mail->Password   = 'stevekama';                               // SMTP password
+            $this->mail->Username   = 'f3bfa0269a5ef9';                     // SMTP username
+            $this->mail->Password   = '8acbed906d4b44';                               // SMTP password
             $this->mail->SMTPSecure = 'TLS';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
-            $this->mail->Port       = 587;            // TCP port to connect to
+            $this->mail->Port       = 25;            // TCP port to connect to
 
              //Recipients
             $this->mail->setFrom($this->from, $this->from_username);

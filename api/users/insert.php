@@ -5,6 +5,12 @@ header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
+// Import PHPMailer classes into the global namespace
+// These must be at the top of your script, not inside a function
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 include_once '../../models/initialization.php';
 
 $user = new Users();
@@ -65,7 +71,25 @@ if($_POST['password'] === $_POST['confirm']){
             $balance_movement->edited_date = $d->format('Y-m-d');
             $balance_movement->edited_user_id = $user->id;
             if($balance_movement->create()){
-                $data['message'] = 'success';
+                // Instantiation and passing `true` enables exception
+                $mail = new PHPMailer(true);
+                // send email after signing up 
+                $sendMail = new SendMail($mail);
+                // define the mail values 
+                $sendMail->from = 'stevekamahertz@gmail.com';
+                $sendMail->from_username = 'Steve Kama';
+                $sendMail->to = $user->email;
+                $sendMail->to_username = $user->username;
+                $sendMail->subject = 'Welcome To Iko Pay';
+                $sendMail->message = '<p>Thank you for creating an account with us. </p>';
+                $sendMail->message .= '<p>Your wallet has been successfully created and assigned to the number '.$user->phone.'</p>';
+                $sendMail->message .= '<p>You can now login into your account and continue...</p>';
+                if($sendMail->send_mail()){
+                    $data['message'] = 'success';
+                    die();
+                }
+                echo $sendMail->send_mail();
+               
             }
         }else{
             $data['message'] = 'failed';
