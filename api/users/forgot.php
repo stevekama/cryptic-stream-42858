@@ -17,7 +17,7 @@ include_once '../../models/initialization.php';
 // initialize user 
 $user = new Users();
 
-$user_email = $_POST['eamail'];
+$user_email = $_POST['email'];
 
 $current_user = $user->find_user_by_email($user_email);
 
