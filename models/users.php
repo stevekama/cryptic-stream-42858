@@ -14,6 +14,7 @@ class Users {
     public $password;
     public $customer_id;
     public $profile;
+    public $forgot_code;
 
     //db connect
     public function __construct(){
@@ -68,7 +69,7 @@ class Users {
     }
 
     public function create(){
-        $query = "INSERT INTO ".$this->table_name."(fullnames, phone, email, username, password, customer_id, profile)VALUES(:fullnames, :phone, :email, :username, :password, :customer_id, :profile)";
+        $query = "INSERT INTO ".$this->table_name."(fullnames, phone, email, username, password, customer_id, profile, forgot_code)VALUES(:fullnames, :phone, :email, :username, :password, :customer_id, :profile, :forgot_code)";
 
         //propare statement 
         $stmt = $this->conn->prepare($query);
@@ -81,6 +82,7 @@ class Users {
         $this->password = password_hash($this->password, PASSWORD_DEFAULT);
         $this->customer_id = htmlentities($this->customer_id);
         $this->profile = htmlentities($this->profile);
+        $this->forgot_code = htmlentities($this->forgot_code);
         
 
         //Bind Data
@@ -91,6 +93,7 @@ class Users {
         $stmt->bindParam(':password', $this->password);
         $stmt->bindParam(':customer_id', $this->customer_id);
         $stmt->bindParam(':profile', $this->profile);
+        $stmt->bindParam(':forgot_code', $this->forgot_code);
 
         //Execute Query 
         if($stmt->execute()){
@@ -102,7 +105,7 @@ class Users {
     // update user info
     public function update()
     {
-        $query = "UPDATE ".$this->table_name." SET fullnames = :fullnames, phone = :phone, email = :email, username = :username, customer_id = :customer_id, profile = :profile WHERE id = :id";
+        $query = "UPDATE ".$this->table_name." SET fullnames = :fullnames, phone = :phone, email = :email, username = :username, customer_id = :customer_id, profile = :profile, forgot_code = :forgot_code WHERE id = :id";
 
         //propare statement 
         $stmt = $this->conn->prepare($query);
@@ -115,6 +118,7 @@ class Users {
         $this->username = htmlentities($this->username);
         $this->customer_id = htmlentities($this->customer_id);
         $this->profile = htmlentities($this->profile);
+        $this->forgot_code = htmlentities($this->forgot_code);
 
         //Bind Data
         $stmt->bindParam(':id', $this->id);
@@ -124,6 +128,7 @@ class Users {
         $stmt->bindParam(':username', $this->username);
         $stmt->bindParam(':customer_id', $this->customer_id);
         $stmt->bindParam(':profile', $this->profile);
+        $stmt->bindParam(':forgot_code', $this->forgot_code);
 
         //Execute Query 
         if($stmt->execute()){
