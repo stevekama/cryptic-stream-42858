@@ -30,30 +30,42 @@ if(!$current_user){
 /// send code on the email
 ///generate random code 
 $bytes = 6;
-$results = bin2hex(random_bytes($bytes));
-echo $results;
-// enter the code to db 
+$code = bin2hex(random_bytes($bytes));
+// enter the code to db
+$user->id = $current_user['id'];
+$user->fullnames = $current_user['fullnames'];
+$user->phone = $current_user['pone'];
+$user->email = $current_user['email'];
+$user->username = $current_user['username'];
+$user->password = $current_user['password'];
+$user->customer_id = $current_user['customer_id'];
+$user->profile = $current_user['profile'];
+$user->forgot_code = $code;
+if($user->update()){
+    // Instantiation and passing `true` enables exception
+    $mail = new PHPMailer(true);
+    // send email after signing up 
+    $sendMail = new SendMail($mail);
+    // define the mail values 
+    $sendMail->from = 'stevekamahertz@gmail.com';
+    $sendMail->from_username = 'Steve Kama';
+    $sendMail->to = $current_user['email'];
+    $sendMail->to_username = $current_user['username'];
+    $sendMail->subject = 'Welcome To Iko Pay';
+    $sendMail->message = '<p>Your request to change password has been received. </p>';
+    $sendMail->message .= '<p>Please use the following code to continue '.$user->forgot_code.'</p>';
+    if($sendMail->send_mail()){
+        $data['message'] = 'success';
+        echo json_encode($data);
+        die();
+    }
+    $data['message'] = 'failed';
+    $data['error'] = $sendMail->send_mail();
+    echo json_encode($data);
+    
+}
 
-// Instantiation and passing `true` enables exception
-// $mail = new PHPMailer(true);
-// // send email after signing up 
-// $sendMail = new SendMail($mail);
-// // define the mail values 
-// $sendMail->from = 'stevekamahertz@gmail.com';
-// $sendMail->from_username = 'Steve Kama';
-// $sendMail->to = $current_user['email'];
-// $sendMail->to_username = $current_user['username'];
-// $sendMail->subject = 'Welcome To Iko Pay';
-// $sendMail->message = '<p>Your request to change password has been received. </p>';
-// $sendMail->message .= '<p>Please use the following code to continue 12345</p>';
-// if($sendMail->send_mail()){
-//     $data['message'] = 'success';
-//     echo json_encode($data);
-//     die();
-// }
-// $data['message'] = 'failed';
-// $data['error'] = $sendMail->send_mail();
-// echo json_encode($data);
+
 
 
 
