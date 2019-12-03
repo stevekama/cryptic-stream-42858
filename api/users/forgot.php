@@ -15,14 +15,39 @@ include_once '../../models/initialization.php';
 
 // find user by email 
 // initialize user 
+$data = array();
 $user = new Users();
 
 $user_email = $_POST['email'];
 
 $current_user = $user->find_user_by_email($user_email);
 
-echo json_encode($current_user);
-/// send code on the email 
+if(!$current_user){
+    $data['message'] = 'emailDoesnotExist';
+    echo json_encode($data);
+    die();
+}
+/// send code on the email
+ // Instantiation and passing `true` enables exception
+$mail = new PHPMailer(true);
+// send email after signing up 
+$sendMail = new SendMail($mail);
+// define the mail values 
+$sendMail->from = 'stevekamahertz@gmail.com';
+$sendMail->from_username = 'Steve Kama';
+$sendMail->to = $current_user['email'];
+$sendMail->to_username = $current_user['username'];
+$sendMail->subject = 'Welcome To Iko Pay';
+$sendMail->message = '<p>Your request to change password has been received. </p>';
+$sendMail->message .= '<p>Please use the following code to continue 12345</p>';
+if($sendMail->send_mail()){
+    $data['message'] = 'success';
+    echo json_encode($data);
+    die();
+}
+$data['message'] = 'failed';
+$data['error'] = $sendMail->send_mail();
+echo json_encode($data);
 
 
 /// enter the code 
