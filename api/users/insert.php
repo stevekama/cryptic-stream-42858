@@ -88,7 +88,8 @@ if($_POST['password'] === $_POST['confirm']){
                     $data['message'] = 'success';
                     die();
                 }
-                echo $sendMail->send_mail();
+                $data['message'] = 'failed';
+                $data['error'] = $sendMail->send_mail();
                
             }
         }else{
