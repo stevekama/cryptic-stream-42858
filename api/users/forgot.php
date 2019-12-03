@@ -29,19 +29,9 @@ if(!$current_user){
 }
 /// send code on the email
 ///generate random code 
-function getName($n){
-    $characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    $randomString = "";
-    for($i = 0; $i < $n; $i++){
-        $index = rand(0, strlen($characters) - 1);
-        $randomString = $characters[$index];
-    }
-
-    return $randomString;
-}
-
-$code = getName(6);
-echo $code;
+$bytes = 6;
+$results = bin2hex(random_bytes($bytes));
+echo $results;
 // enter the code to db 
 
 // Instantiation and passing `true` enables exception
