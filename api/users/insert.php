@@ -86,6 +86,7 @@ if($_POST['password'] === $_POST['confirm']){
                 $sendMail->message .= '<p>You can now login into your account and continue...</p>';
                 if($sendMail->send_mail()){
                     $data['message'] = 'success';
+                    echo json_encode($data);
                     die();
                 }
                 $data['message'] = 'failed';
