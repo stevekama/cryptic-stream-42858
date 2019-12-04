@@ -69,18 +69,22 @@ class Users {
     }
 
     // find user by code 
-    public function find_user_by_forgot_code($forgot_code = '')
+    public function find_user_by_forgot_code($forgot_code="")
     {
-        $query = "SELECT * FROM ".$this->table_name." WHERE forgot_code = :forgot_code LIMIT 1";
-
+        $query = 'SELECT * FROM api.' . $this->table_name . ' WHERE forgot_code = :forgot_code LIMIT 1';
+        
+        //Prepare statement 
         $stmt = $this->conn->prepare($query);
 
+        // Execute query
         $stmt->execute(array('forgot_code'=>$forgot_code));
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+        // Set properties
         return $user;
-    }
+    }  
+
 
     public function create(){
         $query = "INSERT INTO ".$this->table_name."(fullnames, phone, email, username, password, customer_id, profile, forgot_code)VALUES(:fullnames, :phone, :email, :username, :password, :customer_id, :profile, :forgot_code)";
