@@ -5,6 +5,8 @@ header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
+include_once '../../models/initialization.php';
+
 // initialize user 
 $user = new Users();
 $data = array();
