@@ -68,6 +68,24 @@ class Users {
         return $user;
     }
 
+    // find user by code 
+    public function find_user_by_forgot_code($forgot_code = '')
+    {
+        $query = "SELECT * FROM api.".$this->table_name." WHERE forgot_code = :forgot_code LIMIT 1";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute(
+            array('forgot_code'=>$forgot_code)
+        );
+        $count = $stmt->rowCount();
+        if($count > 0){
+            while($user = $stmt->fetch(PDO::FETCH_ASSOC)){
+                return $user;
+            }
+        }else{
+            return false;
+        }
+    }
+
     public function create(){
         $query = "INSERT INTO ".$this->table_name."(fullnames, phone, email, username, password, customer_id, profile, forgot_code)VALUES(:fullnames, :phone, :email, :username, :password, :customer_id, :profile, :forgot_code)";
 
@@ -134,6 +152,27 @@ class Users {
         if($stmt->execute()){
             return true;
         } 
+    }
+
+    // update new password
+    public function update_new_password()
+    {
+        $query = "UPDATE ".$this->table_name." SET password = :password WHERE id = :id";
+
+        //propare statement 
+        $stmt = $this->conn->prepare($query);
+
+        // hash password
+        $this->password = password_hash($this->password, PASSWORD_DEFAULT);
+
+        /// bind statements
+        $stmt->bindParam(':id', $this->id);
+        $stmt->bindParam(':password', $this->password);
+         
+        //Execute Query 
+        if($stmt->execute()){
+            return true;
+        }
     }
 
     // update user password
