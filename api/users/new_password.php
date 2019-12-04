@@ -13,12 +13,12 @@ $data = array();
 /// find user by token 
 if($_POST['action'] == 'FETCH_USER_BY_TOKEN'){
     $forgot_code = $_POST['code'];
-    // $current_user = $user->find_user_by_forgot_code($forgot_code);
-    // if(!$current_user){
-    //     $data['message'] = 'wrongToken';
-    //     echo json_encode($data);
-    //     die();
-    // }
-    // // send json user data 
-    // echo json_encode($current_user);
+    $current_user = $user->find_user_by_forgot_code($forgot_code);
+    if(!$current_user){
+        $data['message'] = 'wrongToken';
+        echo json_encode($data);
+        die();
+    }
+    // send json user data 
+    echo json_encode($current_user);
 }
