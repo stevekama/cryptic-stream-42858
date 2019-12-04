@@ -72,9 +72,13 @@ class Users {
     public function find_user_by_forgot_code($forgot_code = '')
     {
         $query = "SELECT * FROM ".$this->table_name." WHERE forgot_code = :forgot_code LIMIT 1";
+
         $stmt = $this->conn->prepare($query);
+
         $stmt->execute(array('forgot_code'=>$forgot_code));
+
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
         return $user;
     }
 
