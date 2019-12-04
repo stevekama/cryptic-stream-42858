@@ -51,7 +51,5 @@ if($_POST['action'] == 'CHANGE_USER_PASSS'){
             echo json_encode($data);
             die();
         }
-
-
     }
 }
