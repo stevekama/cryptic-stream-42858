@@ -64,4 +64,3 @@ if($user->update()){
     echo json_encode($data);
     
 }
-/// change pass

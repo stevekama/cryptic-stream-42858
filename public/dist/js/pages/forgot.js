@@ -4,6 +4,7 @@ $(document).ready(function(){
     $('#checkCodeForm').fadeOut(900).hide();
     $('#newPasswordForm').fadeOut(900).hide();
 
+    // submit forgot pass
     $('#forgotPassForm').submit(function(event){
         var form_data = $(this).serialize();
         $.ajax({
@@ -15,9 +16,15 @@ $(document).ready(function(){
                 $('#forgotPassSubmitBtn').html('Loading...');
             },
             success:function(data){
-
+                if(data.message == 'success'){
+                    $('#forgotPassForm').fadeOut(900).hide();
+                    $('#checkCodeForm').fadeIn(800).show();
+                    $('#newPasswordForm').fadeOut(900).hide();
+                }
             }
 
         }); 
     });
+
+    // submit the code
 });

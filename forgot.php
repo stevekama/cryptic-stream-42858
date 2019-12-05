@@ -63,7 +63,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" id="checkCodeSubmitBtn" class="btn btn-primary btn-block btn-flat">Enter</button>
+          <button type="submit" id="newPasswordSubmitBtn" class="btn btn-primary btn-block btn-flat">Enter</button>
         </div>
         <!-- /.col -->
       </div>
