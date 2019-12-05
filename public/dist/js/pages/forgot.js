@@ -72,9 +72,10 @@ $(document).ready(function(){
                 $('#newPasswordSubmitBtn').html('Loading...');
             },
             success:function(data){
-                console.log(data);
                 $('#newPasswordSubmitBtn').html('Enter');
-
+                if(data.message == 'success'){
+                    console.log(data.user.id)
+                }
             }
         }); 
     });
