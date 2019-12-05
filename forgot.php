@@ -4,10 +4,10 @@
   <div class="register-box-body">
     <p class="login-box-msg">Forgot password</p>
 
-    <form action="../../index.html" method="post">
+    <form id="forgotPassForm" method="post">
       
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+        <input type="email" id="email" name="email" class="form-control" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       
@@ -17,12 +17,57 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Enter</button>
+          <button type="submit" id="forgotPassSubmitBtn" class="btn btn-primary btn-block btn-flat">Enter</button>
+        </div>
+        <!-- /.col -->
+      </div>
+      <a href="index.php" class="text-center">Remembered Password</a>
+    </form>
+    
+    <form id="checkCodeForm">
+      <div class="form-group has-feedback">
+        <input type="text" id="forgot_code" name="code" class="form-control" placeholder="Enter the code here">
+        <span class="glyphicon glyphicon-cog form-control-feedback"></span>
+      </div>
+      
+      <div class="row">
+        <div class="col-xs-8">
+          &nbsp;
+        </div>
+        <!-- /.col -->
+        <div class="col-xs-4">
+          <button type="submit" id="checkCodeSubmitBtn" class="btn btn-primary btn-block btn-flat">Enter</button>
         </div>
         <!-- /.col -->
       </div>
     </form>
-    <a href="index.php" class="text-center">Remembered Password</a>
+
+    <form id="newPasswordForm">
+      <div class="form-group has-feedback">
+        <input type="text" class="form-control" id="currentUserId" name="user_id">
+      </div>
+
+      <div class="form-group has-feedback">
+        <input type="password" id="new_pass" name="new_pass" class="form-control" placeholder="Enter the new password">
+        <span class="glyphicon glyphicon-cog form-control-feedback"></span>
+      </div>
+
+      <div class="form-group has-feedback">
+        <input type="password" id="confirm_pass" name="confirm_pass" class="form-control" placeholder="Re-write the password">
+        <span class="glyphicon glyphicon-cog form-control-feedback"></span>
+      </div>
+      
+      <div class="row">
+        <div class="col-xs-8">
+          &nbsp;
+        </div>
+        <!-- /.col -->
+        <div class="col-xs-4">
+          <button type="submit" id="checkCodeSubmitBtn" class="btn btn-primary btn-block btn-flat">Enter</button>
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>
   </div>
   <!-- /.form-box -->
 </div>
@@ -34,14 +79,8 @@
 <script src="<?php echo base_url(); ?>public/components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- iCheck -->
 <script src="<?php echo base_url(); ?>public/plugins/iCheck/icheck.min.js"></script>
-<script>
-  $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' /* optional */
-    });
-  });
-</script>
+<!-- iCheck -->
+<script src="<?php echo base_url(); ?>public/dist/js/pages/forgot.js"></script>
+
 </body>
 </html>
