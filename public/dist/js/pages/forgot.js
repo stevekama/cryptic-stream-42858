@@ -50,7 +50,7 @@ $(document).ready(function(){
                     $('#checkCodeErrorMessage').html('<div class="alert alert-danger alert-dismissible">The code entered is wrong. Please check and try again...</div>');
                     return false;
                 }else{
-                    $('#currentUserId').value(data.id);
+                    $('#currentUserId').val(data.id);
                     $('#forgotPassForm').fadeOut(900).hide();
                     $('#checkCodeForm').fadeOut(900).hide();
                     $('#newPasswordForm').fadeIn(800).show();    
