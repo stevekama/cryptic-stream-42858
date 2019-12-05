@@ -74,7 +74,14 @@ $(document).ready(function(){
             success:function(data){
                 $('#newPasswordSubmitBtn').html('Enter');
                 if(data.message == 'success'){
-                    console.log(data.user.id)
+                    // send notification email and redirect
+                    var to = data.user.email;
+                    var to_username = data.user.username;
+                    var subject = "Welcome To Iko Pay";
+                    var message = '<p>You have successfully changed your password.</p><p>You can now log in to your account..</p>';
+                    if(send_mail(to, to_username, subject, message)){
+                        window.location.href = base_url+'index.php';
+                    }
                 }
             }
         }); 
