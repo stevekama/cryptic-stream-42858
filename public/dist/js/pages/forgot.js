@@ -1,4 +1,9 @@
 $(document).ready(function(){
+    // display the forgot pass form and hide other forms
+    $('#forgotPassForm').fadeIn(800).show();
+    $('#checkCodeForm').fadeOut(900).hide();
+    $('#newPasswordForm').fadeOut(900).hide();
+
     $('#forgotPassForm').submit(function(event){
         var form_data = $(this).serialize();
         $.ajax({
@@ -10,7 +15,7 @@ $(document).ready(function(){
                 $('#forgotPassSubmitBtn').html('Loading...');
             },
             success:function(data){
-                
+
             }
 
         }); 

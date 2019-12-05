@@ -5,3 +5,8 @@
 /* Apps */
 #newAppForm{ display: none; }
 #mpesaDetailsForm{ display: none; }
+
+/* Forgot Pass */
+#forgotPassForm{ display: none;}
+#checkCodeForm{ display: none;}
+#newPasswordForm{ display: none;}

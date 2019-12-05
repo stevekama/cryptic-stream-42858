@@ -49,12 +49,12 @@
 
       <div class="form-group has-feedback">
         <input type="password" id="new_pass" name="new_pass" class="form-control" placeholder="Enter the new password">
-        <span class="glyphicon glyphicon-cog form-control-feedback"></span>
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
 
       <div class="form-group has-feedback">
         <input type="password" id="confirm_pass" name="confirm_pass" class="form-control" placeholder="Re-write the password">
-        <span class="glyphicon glyphicon-cog form-control-feedback"></span>
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       
       <div class="row">
