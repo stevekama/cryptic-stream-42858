@@ -17,6 +17,7 @@ $(document).ready(function(){
                 $('#forgotPassSubmitBtn').html('Loading...');
             },
             success:function(data){
+                $('#forgotPassSubmitBtn').html('Enter');
                 if(data.message == 'success'){
                     $('#forgotPassForm').fadeOut(900).hide();
                     $('#checkCodeForm').fadeIn(800).show();
@@ -32,4 +33,29 @@ $(document).ready(function(){
     });
 
     // submit the code
+    $('#checkCodeForm').submit(function(event){
+        event.preventDefault();
+        var form_data = $(this).serialize();
+        $.ajax({
+            url: base_url + "api/users/new_password.php",
+            type: 'POST',
+            data: form_data,
+            dataType: 'json',
+            beforeSend:function(){
+                $('#checkCodeSubmitBtn').html('Loading...');
+            },
+            success:function(data){
+                $('#checkCodeSubmitBtn').html('Enter');
+                if(data.message == 'wrongToken'){
+                    $('#checkCodeErrorMessage').html('<div class="alert alert-danger alert-dismissible">The code entered is wrong. Please check and try again...</div>');
+                    return false;
+                }else{
+                    $('#forgotPassForm').fadeOut(900).hide();
+                    $('#checkCodeForm').fadeOut(900).hide();
+                    $('#newPasswordForm').fadeIn(800).show();    
+                }                
+            }
+
+        }); 
+    });
 });

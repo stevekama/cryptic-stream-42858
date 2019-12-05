@@ -28,6 +28,13 @@
     
     <form id="checkCodeForm">
       <div class="form-group has-feedback">
+        <span id="checkCodeErrorMessage"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="text" name="action" class="form-control" value="FETCH_USER_BY_TOKEN"/>
+      </div>
+
+      <div class="form-group has-feedback">
         <input type="text" id="forgot_code" name="code" class="form-control" placeholder="Enter the code here">
         <span class="glyphicon glyphicon-cog form-control-feedback"></span>
       </div>
