@@ -4,7 +4,7 @@
   <div class="register-box-body">
     <p class="login-box-msg">Forgot password</p>
 
-    <form id="forgotPassForm" method="post">
+    <form id="forgotPassForm">
       
       <div class="form-group has-feedback">
         <input type="email" id="email" name="email" class="form-control" placeholder="Email">
