@@ -31,7 +31,7 @@
         <span id="checkCodeErrorMessage"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="text" name="action" class="form-control" value="FETCH_USER_BY_TOKEN"/>
+        <input type="hidden" name="action" class="form-control" value="FETCH_USER_BY_TOKEN"/>
       </div>
 
       <div class="form-group has-feedback">
@@ -54,6 +54,10 @@
     <form id="newPasswordForm">
       <div class="form-group has-feedback">
         <input type="text" class="form-control" id="currentUserId" name="user_id">
+      </div>
+
+      <div class="form-group has-feedback">
+        <input type="text" class="form-control" name="action" value="CHANGE_USER_PASSS"/>
       </div>
 
       <div class="form-group has-feedback">
