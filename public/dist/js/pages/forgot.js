@@ -6,6 +6,7 @@ $(document).ready(function(){
 
     // submit forgot pass
     $('#forgotPassForm').submit(function(event){
+        event.preventDefault();
         var form_data = $(this).serialize();
         $.ajax({
             url: base_url + "api/users/forgot.php",
@@ -20,6 +21,10 @@ $(document).ready(function(){
                     $('#forgotPassForm').fadeOut(900).hide();
                     $('#checkCodeForm').fadeIn(800).show();
                     $('#newPasswordForm').fadeOut(900).hide();
+                }
+                if(data.message == 'emailDoesnotExist'){
+                    $('#forgotPassErrorMessage').html('<div class="alert alert-danger alert-dismissible">The email entered doesnot exists. Please check and try again...</div>');
+                    return false;
                 }
             }
 
