@@ -72,16 +72,9 @@ $(document).ready(function(){
                 $('#newPasswordSubmitBtn').html('Loading...');
             },
             success:function(data){
+                console.log(data);
                 $('#newPasswordSubmitBtn').html('Enter');
-                if(data.message == 'success'){
-                    $('#checkCodeErrorMessage').html('<div class="alert alert-danger alert-dismissible">The code entered is wrong. Please check and try again...</div>');
-                    return false;
-                }else{
-                    $('#currentUserId').value(data.id);
-                    $('#forgotPassForm').fadeOut(900).hide();
-                    $('#checkCodeForm').fadeOut(900).hide();
-                    $('#newPasswordForm').fadeIn(800).show();    
-                }                
+
             }
         }); 
     });
