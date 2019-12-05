@@ -60,4 +60,46 @@ $(document).ready(function(){
     });
 
     // submit new password
+    $('#newPasswordForm').submit(function(event){
+        event.preventDefault();
+        var form_data = $(this).serialize();
+        $.ajax({
+            url: base_url + "api/users/new_password.php",
+            type: 'POST',
+            data: form_data,
+            dataType: 'json',
+            beforeSend:function(){
+                $('#newPasswordSubmitBtn').html('Loading...');
+            },
+            success:function(data){
+                $('#newPasswordSubmitBtn').html('Enter');
+                if(data.message == 'success'){
+                    $('#checkCodeErrorMessage').html('<div class="alert alert-danger alert-dismissible">The code entered is wrong. Please check and try again...</div>');
+                    return false;
+                }else{
+                    $('#currentUserId').value(data.id);
+                    $('#forgotPassForm').fadeOut(900).hide();
+                    $('#checkCodeForm').fadeOut(900).hide();
+                    $('#newPasswordForm').fadeIn(800).show();    
+                }                
+            }
+        }); 
+    });
+
+    function send_mail(to, to_username, subject, message){
+        var dataToSend = 'to='+to+'&to_username='+to_username+'&subject='+subject+'&message='+message;
+        $.ajax({
+            url: base_url + "api/users/mail.php",
+            type: 'POST',
+            data: dataToSend,
+            dataType: 'json',
+            success:function(data){
+                if(data.message == 'success'){
+                    return true;
+                }else{
+                    return false;    
+                }                
+            }
+        }); 
+    }
 });

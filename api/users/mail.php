@@ -22,13 +22,15 @@ $sendMail = new SendMail($mail);
 // define the mail values 
 $sendMail->from = 'stevekamahertz@gmail.com';
 $sendMail->from_username = 'Steve Kama';
-$sendMail->to = 'bizstevekama@gmail.com';
-$sendMail->to_username = 'Biz steve';
-$sendMail->subject = 'Hello World';
-$sendMail->message = 'This is a test mail of hello world';
+$sendMail->to = $_POST['to'];
+$sendMail->to_username = $_POST['to_username'];
+$sendMail->subject = $_POST['subject'];
+$sendMail->message = $_POST['message'];
 
+$data = array();
 if($sendMail->send_mail()){
-    echo "Message Sent";
+    $data['message'] = 'success';
+    echo json_encode($data);
     die();
 }
 

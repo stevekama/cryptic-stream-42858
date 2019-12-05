@@ -51,6 +51,7 @@ if($_POST['action'] == 'CHANGE_USER_PASSS'){
         $user->forgot_code = '';
         if($user->update()){
             $data['message'] = 'success';
+            $data['user'] = $current_user;
             echo json_encode($data);
             die();
         }
