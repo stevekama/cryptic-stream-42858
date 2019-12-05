@@ -39,7 +39,7 @@ if($_POST['action'] == 'CHANGE_USER_PASS'){
     }
     $user->id = $current_user['id'];
     $user->password = $_POST['new_pass'];
-    if($user->update_new_password){
+    if($user->update_new_password()){
         /// destroy token
         $user->fullnames = $current_user['fullnames'];
         $user->phone = $current_user['pone'];

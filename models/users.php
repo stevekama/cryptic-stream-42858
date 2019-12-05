@@ -127,7 +127,7 @@ class Users {
 
         //propare statement 
         $stmt = $this->conn->prepare($query);
-
+        
         //clean data
         $this->id = htmlentities($this->id);
         $this->fullnames = htmlentities($this->fullnames);
