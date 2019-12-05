@@ -24,7 +24,7 @@ if($_POST['action'] == 'FETCH_USER_BY_TOKEN'){
 }
 
 /// change pass
-if($_POST['action'] == 'CHANGE_USER_PASSS'){
+if($_POST['action'] == 'CHANGE_USER_PASS'){
     if($_POST['new_pass'] !== $_POST['confirm_pass']){
         $data['message'] = 'passDoNotMatch';
         echo json_encode($data);
@@ -55,5 +55,9 @@ if($_POST['action'] == 'CHANGE_USER_PASSS'){
             echo json_encode($data);
             die();
         }
+    }else{
+        $data['message'] = 'Failed to update password';
+        echo json_encode($data);
+        die();
     }
 }

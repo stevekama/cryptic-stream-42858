@@ -57,7 +57,7 @@
       </div>
 
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" name="action" value="CHANGE_USER_PASSS"/>
+        <input type="text" class="form-control" name="action" value="CHANGE_USER_PASS"/>
       </div>
 
       <div class="form-group has-feedback">
