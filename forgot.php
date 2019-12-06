@@ -40,7 +40,7 @@
       </div>
       
       <div class="row">
-        <div class="col-xs-8">
+        <div class="col-xzs-8">
           &nbsp;
         </div>
         <!-- /.col -->
@@ -53,11 +53,11 @@
 
     <form id="newPasswordForm">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" id="currentUserId" name="user_id">
+        <input type="hidden" class="form-control" id="currentUserId" name="user_id">
       </div>
 
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" name="action" value="CHANGE_USER_PASS"/>
+        <input type="hidden" class="form-control" name="action" value="CHANGE_USER_PASS"/>
       </div>
 
       <div class="form-group has-feedback">
