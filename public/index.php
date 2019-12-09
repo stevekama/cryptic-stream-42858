@@ -32,7 +32,10 @@ require_once('layouts/systems/header.php'); ?>
               <p></p>
             </div>
             <!-- /.box-body -->
-          </div>
+            <div class="box-footer">
+              <p><button type="button" id="topUpWalletBtn" class="btn btn-info btn-block btn-flat">Top Up My Wallet</button></p>
+            </div>
+          </div> 
           <!-- /.box -->
         </div>
         <!-- ./col -->
@@ -41,14 +44,12 @@ require_once('layouts/systems/header.php'); ?>
           <div class="nav-tabs-custom">
             <!-- Tabs within a box -->
             <ul class="nav nav-tabs pull-right">
-              <li class="active"><a href="#revenue-chart" data-toggle="tab">Area</a></li>
-              <li><a href="#sales-chart" data-toggle="tab">Donut</a></li>
-              <li class="pull-left header"><i class="fa fa-inbox"></i> Sales</li>
+              <li class="active"><a href="#salesChart" data-toggle="tab">Area</a></li>
+              <li class="pull-left header"><i class="fa fa-inbox"></i> My Transactions</li>
             </ul>
             <div class="tab-content no-padding">
               <!-- Morris chart - Sales -->
-              <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"></div>
-              <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"></div>
+              <div class="chart tab-pane active" id="salesChart" style="position: relative; height: 300px;"></div>
             </div>
           </div>
           <!-- /.nav-tabs-custom -->
@@ -139,6 +140,6 @@ require_once('layouts/systems/header.php'); ?>
     <!-- /.content -->
 </section>
 <!-- /.content -->
-<script src="<?php echo base_url(); ?>/public/dist/js/pages/dashboard.js"></script>
+<script src="<?php echo base_url(); ?>/public/dist/js/pages/dashboard2.js"></script>
 <script src="<?php echo base_url(); ?>/public/dist/js/pages/main.js"></script>
 <?php require_once('layouts/systems/footer.php'); ?>
