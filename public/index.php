@@ -50,7 +50,7 @@ require_once('layouts/systems/header.php'); ?>
             <div class="tab-content no-padding">
               <!-- Morris chart - Sales -->
               <div class="tab-pane active" id="area-chart" style="position: relative; height: 300px; padding: 10px;">
-                <canvas id="salesChart" style="height: 180px;"></canvas>
+                <canvas id="salesChart" style="height: 100px;"></canvas>
               </div>
             </div>
           </div>
