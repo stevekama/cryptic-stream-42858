@@ -16,7 +16,6 @@ require_once('layouts/systems/header.php'); ?>
 <section class="content">
    <!-- Main content -->
    <section class="content">
-      <!-- Main row -->
       <div class="row">
         <div class="col-md-6">
           <div class="box box-solid">
@@ -38,23 +37,25 @@ require_once('layouts/systems/header.php'); ?>
         </div>
         <!-- ./col -->
         <div class="col-md-6">
-          <div class="box box-solid">
-            <div class="box-body">
-              <h1>Welcome To Iko Pay</h1>
-
-              <p>We have a way you can pay for anything anytime</p>
-
-              <p><button type="button" id="topUpWalletBtn" class="btn btn-info btn-block btn-flat">Top Up My Wallet</button></p>
+          <!-- Custom tabs (Charts with tabs)-->
+          <div class="nav-tabs-custom">
+            <!-- Tabs within a box -->
+            <ul class="nav nav-tabs pull-right">
+              <li class="active"><a href="#revenue-chart" data-toggle="tab">Area</a></li>
+              <li><a href="#sales-chart" data-toggle="tab">Donut</a></li>
+              <li class="pull-left header"><i class="fa fa-inbox"></i> Sales</li>
+            </ul>
+            <div class="tab-content no-padding">
+              <!-- Morris chart - Sales -->
+              <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"></div>
+              <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"></div>
             </div>
-            <!-- /.box-body -->
           </div>
-          <!-- /.box -->
+          <!-- /.nav-tabs-custom -->
         </div>
         <!-- ./col -->
-
       </div>
       <!-- /.row -->
-
       <!-- /.row (main row) -->
       <div class="row">
         <section class="col-lg-12 col-md-12 col-sm-12">
@@ -138,6 +139,6 @@ require_once('layouts/systems/header.php'); ?>
     <!-- /.content -->
 </section>
 <!-- /.content -->
-<!-- <script src="<?php //echo base_url(); ?>/public/dist/js/pages/dashboard2.js"></script> -->
+<script src="<?php echo base_url(); ?>/public/dist/js/pages/dashboard.js"></script>
 <script src="<?php echo base_url(); ?>/public/dist/js/pages/main.js"></script>
 <?php require_once('layouts/systems/footer.php'); ?>
