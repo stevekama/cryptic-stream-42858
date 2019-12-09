@@ -44,12 +44,12 @@ require_once('layouts/systems/header.php'); ?>
           <div class="nav-tabs-custom">
             <!-- Tabs within a box -->
             <ul class="nav nav-tabs pull-right">
-              <li class="active"><a href=".chart" data-toggle="tab">Area</a></li>
+              <li class="active"><a data-toggle="tab">Area</a></li>
               <li class="pull-left header"><i class="fa fa-inbox"></i> My Transactions</li>
             </ul>
             <div class="tab-content no-padding">
               <!-- Morris chart - Sales -->
-              <div class="chart tab-pane active" id="salesChart" style="position: relative; height: 300px;"></div>
+              <div class="tab-pane active" id="salesChart" style="position: relative; height: 300px;"></div>
             </div>
           </div>
           <!-- /.nav-tabs-custom -->
