@@ -65,7 +65,7 @@
                     <span>My Organizations</span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="<?php echo base_url(); ?>public/mpesa/index.php"><i class="fa fa-circle-o"></i> Transactions</a></li>
+                    <li><a href="<?php echo base_url(); ?>public/organizations/index.php"><i class="fa fa-circle-o"></i> Organizations</a></li>
                 </ul>
             </li>
 

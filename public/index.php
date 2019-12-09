@@ -17,7 +17,7 @@ require_once('layouts/systems/header.php'); ?>
    <!-- Main content -->
    <section class="content">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
           <div class="box box-solid">
             <div class="box-header with-border">
               <i class="fa fa-text-width"></i>
@@ -39,7 +39,7 @@ require_once('layouts/systems/header.php'); ?>
           <!-- /.box -->
         </div>
         <!-- ./col -->
-        <div class="col-md-6">
+        <div class="col-md-8">
           <!-- Custom tabs (Charts with tabs)-->
           <div class="nav-tabs-custom">
             <!-- Tabs within a box -->
