@@ -53,7 +53,9 @@ if($user->update()){
     $sendMail->to_username = $current_user['username'];
     $sendMail->subject = 'Welcome To Iko Pay';
     $sendMail->message = '<p>Your request to change password has been received. </p>';
-    $sendMail->message .= '<p>Please use the following code to continue '.$user->forgot_code.'</p>';
+    $sendMail->message .= '<p>Please click the following link to continue.</p>';
+    $sendMail->message .= '<hr>';
+    $sendMail->message .= '<p>'.base_url().'api/users/confirm_url.php?code='.$user->forgot_code.'</p>';
     if($sendMail->send_mail()){
         $data['message'] = 'success';
         echo json_encode($data);
