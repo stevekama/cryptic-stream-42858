@@ -63,7 +63,7 @@ $(document).ready(function(){
             success: function(data){
                 var create_div = "";
                 if(data.message == 'empty'){
-                    $('#alertMessage').html('<div class="alert alert-danger alert-dismissible">No Customer Documents found...</div');
+                    $('#docsDataMessage').html('<div class="alert alert-danger alert-dismissible">No Customer Documents found...</div');
                     return false;
                 }else{
                     data.map(function(opt){
@@ -92,6 +92,9 @@ $(document).ready(function(){
             }
         });
     }
+
+    // find customer document
+
 
     // update username 
     $('#usernameForm').submit(function(event){

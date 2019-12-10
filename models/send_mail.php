@@ -37,7 +37,7 @@ class SendMail{
             $this->mail->addAddress($this->to);                         // Name is optional
             // $mail->addReplyTo('info@example.com', 'Information');
             $this->mail->addCC('stevekamahertz@gmail.com');
-            // $mail->addBCC('bcc@example.com');
+            // $mail->addBCC('bcc@example   .com');
 
             // Attachments
             // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
