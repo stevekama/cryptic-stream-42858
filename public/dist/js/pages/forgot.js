@@ -16,6 +16,7 @@ $(document).ready(function(){
                 $('#forgotPassSubmitBtn').html('Enter');
                 if(data.message == 'success'){
                     $('#forgotPassErrorMessage').html('<div class="alert alert-success alert-dismissible">An Email has been successfully sent to you. Check your email to continue...</div>');
+                    $('#email').val('');
                 }
                 if(data.message == 'emailDoesnotExist'){
                     $('#forgotPassErrorMessage').html('<div class="alert alert-danger alert-dismissible">The email entered doesnot exists. Please check and try again...</div>');
