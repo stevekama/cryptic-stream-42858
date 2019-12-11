@@ -25,62 +25,6 @@
       </div>
       <a href="index.php" class="text-center">Remembered Password</a>
     </form>
-    
-    <form id="checkCodeForm">
-      <div class="form-group has-feedback">
-        <span id="checkCodeErrorMessage"></span>
-      </div>
-      <div class="form-group has-feedback">
-        <input type="hidden" name="action" class="form-control" value="FETCH_USER_BY_TOKEN"/>
-      </div>
-
-      <div class="form-group has-feedback">
-        <input type="text" id="forgot_code" name="code" class="form-control" placeholder="Enter the code here">
-        <span class="glyphicon glyphicon-cog form-control-feedback"></span>
-      </div>
-      
-      <div class="row">
-        <div class="col-xzs-8">
-          &nbsp;
-        </div>
-        <!-- /.col -->
-        <div class="col-xs-4">
-          <button type="submit" id="checkCodeSubmitBtn" class="btn btn-primary btn-block btn-flat">Enter</button>
-        </div>
-        <!-- /.col -->
-      </div>
-    </form>
-
-    <form id="newPasswordForm">
-      <div class="form-group has-feedback">
-        <input type="hidden" class="form-control" id="currentUserId" name="user_id">
-      </div>
-
-      <div class="form-group has-feedback">
-        <input type="hidden" class="form-control" name="action" value="CHANGE_USER_PASS"/>
-      </div>
-
-      <div class="form-group has-feedback">
-        <input type="password" id="new_pass" name="new_pass" class="form-control" placeholder="Enter the new password">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      </div>
-
-      <div class="form-group has-feedback">
-        <input type="password" id="confirm_pass" name="confirm_pass" class="form-control" placeholder="Re-write the password">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      </div>
-      
-      <div class="row">
-        <div class="col-xs-8">
-          &nbsp;
-        </div>
-        <!-- /.col -->
-        <div class="col-xs-4">
-          <button type="submit" id="newPasswordSubmitBtn" class="btn btn-primary btn-block btn-flat">Enter</button>
-        </div>
-        <!-- /.col -->
-      </div>
-    </form>
   </div>
   <!-- /.form-box -->
 </div>

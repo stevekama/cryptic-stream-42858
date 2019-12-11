@@ -1,8 +1,4 @@
 $(document).ready(function(){
-    // display the forgot pass form and hide other forms
-    $('#forgotPassForm').fadeIn(800).show();
-    $('#checkCodeForm').fadeOut(900).hide();
-    $('#newPasswordForm').fadeOut(900).hide();
 
     // submit forgot pass
     $('#forgotPassForm').submit(function(event){
@@ -19,9 +15,7 @@ $(document).ready(function(){
             success:function(data){
                 $('#forgotPassSubmitBtn').html('Enter');
                 if(data.message == 'success'){
-                    $('#forgotPassForm').fadeOut(900).hide();
-                    $('#checkCodeForm').fadeIn(800).show();
-                    $('#newPasswordForm').fadeOut(900).hide();
+                    $('#forgotPassErrorMessage').html('<div class="alert alert-success alert-dismissible">An Email has been successfully sent to you. Check your email to continue...</div>');
                 }
                 if(data.message == 'emailDoesnotExist'){
                     $('#forgotPassErrorMessage').html('<div class="alert alert-danger alert-dismissible">The email entered doesnot exists. Please check and try again...</div>');
