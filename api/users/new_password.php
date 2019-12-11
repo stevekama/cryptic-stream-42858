@@ -10,19 +10,6 @@ include_once '../../models/initialization.php';
 // initialize user 
 $user = new Users();
 $data = array();
-/// find user by token 
-if($_POST['action'] == 'FETCH_USER_BY_TOKEN'){
-    $forgot_code = $_POST['code'];
-    $current_user = $user->find_user_by_forgot_code($forgot_code);
-    if(!$current_user){
-        $data['message'] = 'wrongToken';
-        echo json_encode($data);
-        die();
-    }
-    // send json user data 
-    echo json_encode($current_user);
-}
-
 /// change pass
 if($_POST['action'] == 'CHANGE_USER_PASS'){
     if($_POST['new_pass'] !== $_POST['confirm_pass']){
@@ -50,8 +37,26 @@ if($_POST['action'] == 'CHANGE_USER_PASS'){
         $user->profile = $current_user['profile'];
         $user->forgot_code = '';
         if($user->update()){
-            redirect_to(base_url().'index.php');
-            die();
+            // send mail
+            // Instantiation and passing `true` enables exception
+            $mail = new PHPMailer(true);
+            // send email after signing up 
+            $sendMail = new SendMail($mail);
+            // define the mail values 
+            $sendMail->from = 'stevekamahertz@gmail.com';
+            $sendMail->from_username = 'Steve Kama';
+            $sendMail->to = $current_user['email'];
+            $sendMail->to_username = $current_user['username'];
+            $sendMail->subject = 'Welcome To Iko Pay';
+            $sendMail->message = '<p>Your password has been successfully changed. </p>';
+            $sendMail->message .= '<p>Thank you for using Iko Pay.</p>';
+            if($sendMail->send_mail()){
+                redirect_to(base_url().'index.php');
+                die();
+            }
+            $data['message'] = 'failed';
+            $data['error'] = $sendMail->send_mail();
+            echo json_encode($data);
         }
     }else{
         $data['message'] = 'Failed to update password';

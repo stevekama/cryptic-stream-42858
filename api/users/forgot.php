@@ -63,6 +63,5 @@ if($user->update()){
     }
     $data['message'] = 'failed';
     $data['error'] = $sendMail->send_mail();
-    echo json_encode($data);
-    
+    echo json_encode($data);   
 }
