@@ -5,9 +5,9 @@
         // ceck if user id isset 
         if(isset($_GET['user_id'])){?>
             <p class="login-box-msg">New Password</p>
-            <form id="newPasswordForm">
+            <form action="<?php echo base_url(); ?>api/users/new_password.php" method="post">
                 <div class="form-group has-feedback">
-                    <input type="hidden" class="form-control" id="currentUserId" name="user_id">
+                    <input type="hidden" class="form-control" value="<?php echo htmlentities($_GET['user_id']); ?>" name="user_id">
                 </div>
 
                 <div class="form-group has-feedback">
