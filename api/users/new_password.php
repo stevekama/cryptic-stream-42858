@@ -50,9 +50,7 @@ if($_POST['action'] == 'CHANGE_USER_PASS'){
         $user->profile = $current_user['profile'];
         $user->forgot_code = '';
         if($user->update()){
-            $data['message'] = 'success';
-            $data['user'] = $current_user;
-            echo json_encode($data);
+            redirect_to(base_url().'index.php');
             die();
         }
     }else{
