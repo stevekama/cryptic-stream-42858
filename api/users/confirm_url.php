@@ -11,6 +11,8 @@ $error_url = base_url().'forgot.php';
 
 $success_url = base_url().'new_password.php';
 
+echo $_GET['code'];
+
 // if(isset($_GET['code'])){
 //     $forgot_code = $_GET['code'];
 //     $current_user = $user->find_user_by_forgot_code($forgot_code);
