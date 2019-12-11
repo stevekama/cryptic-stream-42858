@@ -60,9 +60,7 @@ if($_POST['action'] == 'CHANGE_USER_PASS'){
                 redirect_to(base_url().'index.php');
                 die();
             }
-            $data['message'] = 'failed';
-            $data['error'] = $sendMail->send_mail();
-            echo json_encode($data);
+            redirect_to(base_url().'index.php');
         }
     }else{
         $data['message'] = 'Failed to update password';
