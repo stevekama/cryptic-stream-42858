@@ -11,13 +11,15 @@ $error_url = base_url().'forgot.php';
 
 $success_url = base_url().'new_password.php';
 
+$user = new Users();
+
 if(isset($_GET['code'])){
     $forgot_code = $_GET['code'];
     echo $forgot_code;
-    // $current_user = $user->find_user_by_forgot_code($forgot_code);
-    // if(!$current_user){
-    //     redirect_to($error_url.'?error=wrongToken');
-    //     die();
-    // }
-    // redirect_to($success_url.'?user_id='.$current_user['id']);
+    $current_user = $user->find_user_by_forgot_code($forgot_code);
+    if(!$current_user){
+        redirect_to($error_url.'?error=wrongToken');
+        die();
+    }
+    redirect_to($success_url.'?user_id='.$current_user['id']);
 }
