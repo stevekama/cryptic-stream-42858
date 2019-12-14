@@ -55,7 +55,7 @@ if($user->update()){
     $sendMail->message = '<p>Your request to change password has been received. </p>';
     $sendMail->message .= '<p>Please click the following link to continue.</p>';
     $sendMail->message .= '<hr>';
-    $sendMail->message .= '<p>'.base_url().'api/users/confirm_url.php?code='.$user->forgot_code.'</p>';
+    $sendMail->message .= '<p><a href='.base_url().'api/users/confirm_url.php?code='.$user->forgot_code.'>'.base_url().'api/users/confirm_url.php?code='.$user->forgot_code.'</a></p>';
     if($sendMail->send_mail()){
         $data['message'] = 'success';
         echo json_encode($data);
