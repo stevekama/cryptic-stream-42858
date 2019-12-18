@@ -60,7 +60,7 @@ if($_POST['action'] == 'CHANGE_USER_PASS'){
                 redirect_to(base_url().'index.php');
                 die();
             }
-            redirect_to(base_url().'index.php');
+            redirect_to(base_url().'404.php');
         }
     }else{
         $data['message'] = 'Failed to update password';
