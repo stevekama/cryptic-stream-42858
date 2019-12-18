@@ -39,6 +39,9 @@
     <!-- DataTables -->
     <script src="<?php echo base_url(); ?>public/components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="<?php echo base_url(); ?>public/components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <!-- Morris.js charts -->
+    <script src="<?php echo base_url(); ?>public/components/raphael/raphael.min.js"></script>
+    <script src="<?php echo base_url(); ?>public/components/morris.js/morris.min.js"></script>
     <!-- FastClick -->
     <script src="<?php echo base_url(); ?>public/components/fastclick/lib/fastclick.js"></script>
     <!-- AdminLTE App -->
