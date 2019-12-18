@@ -50,7 +50,6 @@ require_once('layouts/systems/header.php'); ?>
             <div class="tab-content no-padding">
               <!-- Morris chart - Sales -->
               <div class="tab-pane active" id="area-chart">
-                <canvas id="salesChart" style="height: 60px;"></canvas>
               </div>
             </div>
           </div>
@@ -142,6 +141,6 @@ require_once('layouts/systems/header.php'); ?>
     <!-- /.content -->
 </section>
 <!-- /.content -->
-<script src="<?php echo base_url(); ?>/public/dist/js/pages/dashboard2.js"></script>
+<script src="<?php echo base_url(); ?>/public/dist/js/pages/graph.js"></script>
 <script src="<?php echo base_url(); ?>/public/dist/js/pages/main.js"></script>
 <?php require_once('layouts/systems/footer.php'); ?>

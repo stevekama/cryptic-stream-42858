@@ -85,6 +85,4 @@ class Auth{
         $curl_response = curl_exec($curl);
         return $curl_response;
     }
-
-
 }
