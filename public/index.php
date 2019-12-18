@@ -49,8 +49,7 @@ require_once('layouts/systems/header.php'); ?>
             </ul>
             <div class="tab-content no-padding">
               <!-- Morris chart - Sales -->
-              <div class="tab-pane active" id="area-chart">
-              </div>
+              <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"></div>
             </div>
           </div>
           <!-- /.nav-tabs-custom -->

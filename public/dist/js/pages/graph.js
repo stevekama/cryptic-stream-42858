@@ -52,9 +52,6 @@ $(document).ready(function(){
         gridTextFamily   : 'Open Sans',
         gridTextSize     : 10
     });
-    $('.box ul.nav a').on('shown.bs.tab', function () {
-        area.redraw();
-        line.redraw();
-    });
-    
+    area.redraw();
+    line.redraw();
 });
