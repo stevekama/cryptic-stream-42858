@@ -13,6 +13,7 @@ $customer->first_name = $_POST['first_name'];
 $customer->other_names = $_POST['other_names'];
 $customer->cust_type_id = $_POST['cust_type_id'];
 $customer->email_address = $_POST['email_address'];
+
 // check if the email exists
 $current_customer_email = $customer->find_by_email($customer->email_address);
 if($current_customer_email){

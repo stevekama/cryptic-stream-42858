@@ -15,6 +15,7 @@ class Users {
     public $customer_id;
     public $profile;
     public $forgot_code;
+    public $type_id;
 
     //db connect
     public function __construct(){
@@ -87,7 +88,7 @@ class Users {
 
 
     public function create(){
-        $query = "INSERT INTO ".$this->table_name."(fullnames, phone, email, username, password, customer_id, profile, forgot_code)VALUES(:fullnames, :phone, :email, :username, :password, :customer_id, :profile, :forgot_code)";
+        $query = "INSERT INTO ".$this->table_name."(fullnames, phone, email, username, password, customer_id, profile, forgot_code, type_id)VALUES(:fullnames, :phone, :email, :username, :password, :customer_id, :profile, :forgot_code, :type_id)";
 
         //propare statement 
         $stmt = $this->conn->prepare($query);
@@ -101,6 +102,7 @@ class Users {
         $this->customer_id = htmlentities($this->customer_id);
         $this->profile = htmlentities($this->profile);
         $this->forgot_code = htmlentities($this->forgot_code);
+        $this->type_id = htmlentities($this->type_id);
         
 
         //Bind Data
@@ -112,6 +114,8 @@ class Users {
         $stmt->bindParam(':customer_id', $this->customer_id);
         $stmt->bindParam(':profile', $this->profile);
         $stmt->bindParam(':forgot_code', $this->forgot_code);
+        $stmt->bindParam(':type_id', $this->type_id);
+
 
         //Execute Query 
         if($stmt->execute()){
@@ -137,6 +141,7 @@ class Users {
         $this->customer_id = htmlentities($this->customer_id);
         $this->profile = htmlentities($this->profile);
         $this->forgot_code = htmlentities($this->forgot_code);
+        $this->type_id = htmlentities($this->type_id);
 
         //Bind Data
         $stmt->bindParam(':id', $this->id);
@@ -147,6 +152,7 @@ class Users {
         $stmt->bindParam(':customer_id', $this->customer_id);
         $stmt->bindParam(':profile', $this->profile);
         $stmt->bindParam(':forgot_code', $this->forgot_code);
+        $stmt->bindParam(':type_id', $this->type_id);
 
         //Execute Query 
         if($stmt->execute()){
