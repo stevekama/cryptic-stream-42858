@@ -58,6 +58,26 @@
                     <li><a href="<?php echo base_url(); ?>public/bills/index.php"><i class="fa fa-circle-o"></i> Paybills</a></li>
                 </ul>
             </li>
+            <li class="header">LABELS</li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-bank"></i>
+                    <span>Organizations</span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="<?php echo base_url(); ?>public/organizations/index.php"><i class="fa fa-circle-o"></i> My Organizations</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-check-square"></i>
+                    <span>Apps Api</span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="<?php echo base_url(); ?>public/apps/index.php"><i class="fa fa-circle-o"></i> My Applications</a></li>
+                </ul>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->
