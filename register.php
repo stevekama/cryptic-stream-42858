@@ -1,6 +1,8 @@
 <?php require_once('models/initialization.php'); ?>
 <?php require_once('public/layouts/login/header.php'); ?>
+
   <p class="login-box-msg">Register a new account</p>
+
   <!-- Select customer type between corporates and individuals -->
   <form id="customerTypeForm" method="post">
     <div class="form-group has-feedback">
@@ -200,4 +202,5 @@
       <!-- /.col -->
     </div>
   </form>
+  
 <?php require_once('public/layouts/login/footer.php'); ?>

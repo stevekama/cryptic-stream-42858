@@ -190,6 +190,7 @@ $('#organizationForm').submit(function(event){
       if(data.message == 'success'){
         $('#customer_id').val(data.customer_id);
         $('#individualForm').fadeIn(900).hide();
+        $('#organizationForm').fadeIn(900).hide();
         $('#userAccountForm').fadeIn(800).show();
         $('#customerTypeForm').fadeOut(900).hide();
       }
