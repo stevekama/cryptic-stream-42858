@@ -138,6 +138,9 @@ $('#customerTypeForm').submit(function(event){
     $('#individualForm').fadeIn(800).show();
   }
   find_customer_country();
+  if(customer_type_id == 2){
+    $('#organizationForm').fadeIn(800).show();
+  }
 });
 
 /// submit individual form 
