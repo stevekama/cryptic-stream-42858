@@ -67,7 +67,7 @@
     </div>
 
     <div class="form-group has-feedback">
-      <select name="country_id" id="country_id" class="form-control">
+      <select name="country_id" id="individual_country_id" class="form-control">
       </select>
     </div>
 
@@ -124,7 +124,7 @@
     </div>
 
     <div class="form-group has-feedback">
-      <input type="hidden" value="3" class="form-control">
+      <input type="hidden" name="gender_id" value="3" class="form-control">
     </div>
 
     <div class="form-group has-feedback">
@@ -138,7 +138,7 @@
     </div>
 
     <div class="form-group has-feedback">
-      <select name="country_id" id="country_id" class="form-control">
+      <select name="country_id" id="organization_country_id" class="form-control">
       </select>
     </div>
 

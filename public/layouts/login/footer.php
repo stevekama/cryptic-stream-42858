@@ -135,11 +135,11 @@ $('#customerTypeForm').submit(function(event){
   $('#userAccountForm').fadeOut(900).hide();
   if(customer_type_id == 1){
     find_customer_gender();
-    find_customer_country('country_id');
+    find_customer_country('individual_country_id');
     $('#individualForm').fadeIn(800).show();
   }
   if(customer_type_id == 2){
-    find_customer_country();
+    find_customer_country('organization_country_id');
     $('#organizationForm').fadeIn(800).show();
   }
 });
