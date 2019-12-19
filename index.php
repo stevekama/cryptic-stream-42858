@@ -104,8 +104,11 @@
                     success    : function(data){
                         $('#loginBtn').html('Sign In');
                         if(data.message == 'success'){
-                            console.log(data);
-                            //window.location.href = base_url+'public/index.php';
+                            if(data.type_id == 2){
+                                window.location.href = base_url+'public/org-index.php';
+                            }else{
+                                window.location.href = base_url+'public/index.php';
+                            }
                         }
                         if(data.message == 'failed'){
                             $('#messageAlert').html('<div class="alert alert-danger alert-dismissible">Failed to Login. Please check your Email and Password and try again...</div>');
