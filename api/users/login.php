@@ -13,7 +13,7 @@ $user = new Users();
 $usersD = $user->authenticate_user($email, $password);
 if($usersD){
     $session->login($usersD);
-    echo json_encode(array('message'=>'success'));
+    echo json_encode(array('message'=>'success', 'type_id'=>$usersD['type_id']));
 }else{
     echo json_encode(array('message'=>'failed'));
 }
