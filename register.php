@@ -119,7 +119,7 @@
     </div>
 
     <div class="form-group has-feedback">
-      <input type="hidden" name="dob" id="dob" value="0000-00-00" class="form-control datepicker" placeholder="Date of birth">
+      <input type="hidden" name="dob" id="dob" value="2019-02-01" class="form-control datepicker" placeholder="Date of birth">
       <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
     </div>
 
