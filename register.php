@@ -38,7 +38,7 @@
     </div>
 
     <div class="form-group has-feedback">
-      <input type="hidden" name="cust_type_id" id="type_id" class="form-control">
+      <input type="hidden" name="cust_type_id" id="individual_type_id" class="form-control">
     </div>
 
     <div class="form-group has-feedback">
@@ -110,7 +110,7 @@
     </div>
 
     <div class="form-group has-feedback">
-      <input type="hidden" name="cust_type_id" id="type_id" class="form-control">
+      <input type="hidden" name="cust_type_id" id="organization_type_id" class="form-control">
     </div>
 
     <div class="form-group has-feedback">
