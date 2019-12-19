@@ -105,7 +105,7 @@
     </div>
 
     <div class="form-group has-feedback">
-      <input type="text" name="other_names" value="NULL" class="form-control" placeholder="Other Names">
+      <input type="hidden" name="other_names" value="NULL" class="form-control" placeholder="Other Names">
       <span class="glyphicon glyphicon-user form-control-feedback"></span>
     </div>
 
@@ -119,12 +119,12 @@
     </div>
 
     <div class="form-group has-feedback">
-      <input type="text" name="dob" id="dob" value="0000-00-00" class="form-control datepicker" placeholder="Date of birth">
+      <input type="hidden" name="dob" id="dob" value="0000-00-00" class="form-control datepicker" placeholder="Date of birth">
       <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
     </div>
 
     <div class="form-group has-feedback">
-      <input type="text" value="3" class="form-control">
+      <input type="hidden" value="3" class="form-control">
     </div>
 
     <div class="form-group has-feedback">

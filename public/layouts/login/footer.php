@@ -171,6 +171,8 @@ $('#individualForm').submit(function(event){
   });
 });
 
+// submit organization form
+
 
 $('#userAccountForm').submit(function(event){
   event.preventDefault();
