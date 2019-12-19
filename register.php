@@ -124,8 +124,7 @@
     </div>
 
     <div class="form-group has-feedback">
-      <select name="gender_id" id="gender_id" class="form-control">
-      </select>
+      <input type="text" value="3" class="form-control">
     </div>
 
     <div class="form-group has-feedback">
