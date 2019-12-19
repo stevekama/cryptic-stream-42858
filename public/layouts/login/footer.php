@@ -202,7 +202,6 @@ $('#organizationForm').submit(function(event){
   });
 });
 
-
 $('#userAccountForm').submit(function(event){
   event.preventDefault();
   var form_data = $(this).serialize();
