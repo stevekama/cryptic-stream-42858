@@ -159,7 +159,7 @@
       </div>
       <!-- /.col -->
       <div class="col-xs-5">
-        <button type="submit" id="individualFormBtn" class="btn btn-primary btn-block btn-flat">Save</button>
+        <button type="submit" id="organizationFormBtn" class="btn btn-primary btn-block btn-flat">Save</button>
       </div>
       <!-- /.col -->
     </div>
