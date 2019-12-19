@@ -110,7 +110,7 @@ function selectCustomerCountry(data, countryId){
   }
 }
 
-function find_customer_country(){
+function find_customer_country(country_id){
   var action = "FETCH_ALL";
   $.ajax({
     url : base_url+'api/countries/fetch.php',
@@ -118,7 +118,7 @@ function find_customer_country(){
     data:{action:action},
     dataType: 'json',
     success:function(data){
-      selectCustomerCountry(data, 'country_id');
+      selectCustomerCountry(data, country_id);
     }
   });
 }
@@ -135,7 +135,7 @@ $('#customerTypeForm').submit(function(event){
   $('#userAccountForm').fadeOut(900).hide();
   if(customer_type_id == 1){
     find_customer_gender();
-    find_customer_country();
+    find_customer_country('country_id');
     $('#individualForm').fadeIn(800).show();
   }
   if(customer_type_id == 2){
