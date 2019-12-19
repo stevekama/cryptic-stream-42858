@@ -173,6 +173,32 @@ $('#individualForm').submit(function(event){
 });
 
 // submit organization form
+$('#organizationForm').submit(function(event){
+  event.preventDefault();
+  var form_data = $(this).serialize();
+  $.ajax({
+    url : base_url+'api/customers/new_customer.php',
+    type: 'POST',
+    data:form_data,
+    dataType: 'json',
+    beforeSend:function(){
+      $('#organizationFormBtn').html('Loading...');
+    },
+    success:function(data){
+      $('#organizationFormBtn').html('Save');
+      if(data.message == 'success'){
+        $('#customer_id').val(data.customer_id);
+        $('#individualForm').fadeIn(900).hide();
+        $('#userAccountForm').fadeIn(800).show();
+        $('#customerTypeForm').fadeOut(900).hide();
+      }
+      if(data.message == 'duplicatedEmail'){
+        $('#individualFormMessageAlert').html('<div class="alert alert-danger alert-dismissible">Email Entererd Exist. Please Check and Try again...</div>');
+        return false;
+      }
+    }
+  });
+});
 
 
 $('#userAccountForm').submit(function(event){

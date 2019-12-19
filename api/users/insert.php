@@ -28,6 +28,7 @@ if($_POST['password'] === $_POST['confirm']){
     $user->password    = $_POST['password'];
     $user->customer_id = $customer['id'];
     $user->profile     = 'profile.png';
+    $user->type_id     = $customer['cust_type_id'];
      ///create user 
      if($user->create()){
         // user wallet 
