@@ -140,6 +140,7 @@ require_once('layouts/systems/header.php'); ?>
     <!-- /.content -->
 </section>
 <!-- /.content -->
+
 <script src="<?php echo base_url(); ?>/public/dist/js/pages/graph.js"></script>
 <script src="<?php echo base_url(); ?>/public/dist/js/pages/main.js"></script>
 <?php require_once('layouts/systems/footer.php'); ?>
