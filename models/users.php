@@ -17,12 +17,17 @@ class Users {
     public $forgot_code;
     public $type_id;
 
+    // columns for datatables
+    private $columns;
+    private $search;
+    private $order;
+    private $length;
+
     //db connect
     public function __construct(){
         global $database;
         $this->conn = $database->connect();
     }
-
     //get user by email 
     public function find_user_by_id($id=0)
     {
@@ -84,7 +89,9 @@ class Users {
 
         // Set properties
         return $user;
-    }  
+    }
+
+   
 
 
     public function create(){
