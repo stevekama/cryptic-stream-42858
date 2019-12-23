@@ -392,7 +392,7 @@ require_once('../layouts/systems/header.php'); ?>
 </section>
 <!-- /.content -->
 <!-- <script src="<?php //echo base_url(); ?>public/dist/js/pages/mpesa_transactions.js"></script> -->
-<script>
+<script>    
 $('#loadMerchants').DataTable({
     'paging'      : true,
     'lengthChange': false,
