@@ -348,7 +348,6 @@ require_once('../layouts/systems/header.php'); ?>
                                             <option value="prepaid_tokens">Prepaid Tokens</option>
                                             <option value="postpaid_bill">Postpaid Bill</option>
                                         </select>
-                                        <input type="text"  id="" name="service" placeholder="Enter the Account Number">
                                     </div>
                                     <div class="form-group">
                                         <label for="utilitiesAccount">Account Number</label>
