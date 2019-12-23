@@ -345,8 +345,8 @@ require_once('../layouts/systems/header.php'); ?>
                                         <label for="utilitiesService">Select Service</label>
                                         <select name="service" id="utilitiesService" class="form-control">
                                             <option selected disabled>Choose a service</option>
-                                            <option value="prepaid_tokens">Prepaid Tokens</option>
-                                            <option value="postpaid_bill">Postpaid Bill</option>
+                                            <option value="prepaid_tokens">KPLC Prepaid Tokens</option>
+                                            <option value="postpaid_bill">KPLC Postpaid Bill</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
