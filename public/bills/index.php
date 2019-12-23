@@ -22,7 +22,6 @@ require_once('../layouts/systems/header.php'); ?>
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#tab_1" data-toggle="tab">Merchants</a></li>
                     <li><a href="#tab_2" data-toggle="tab">Utilities</a></li>
-                    <li><a href="#tab_3" data-toggle="tab">Buy Airtime</a></li>
                     <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
                 </ul>
                 <div class="tab-content">
@@ -339,12 +338,18 @@ require_once('../layouts/systems/header.php'); ?>
                         <!-- general form elements -->
                         <div class="box">
                             <!-- form start -->
-                            <form role="form">
-                                <div class="box-header with-border">
-                                    <h3 class="box-title">Pay For Utilities</h3>
-                                </div>
+                            <form id="utilitiesForm" role="form">
                                 <!-- /.box-header -->
                                 <div class="box-body">
+                                    <div class="form-group">
+                                        <label for="utilitiesService">Select Service</label>
+                                        <select name="service" id="utilitiesService" class="form-control">
+                                            <option selected disabled>Choose a service</option>
+                                            <option value="prepaid_tokens">Prepaid Tokens</option>
+                                            <option value="postpaid_bill">Postpaid Bill</option>
+                                        </select>
+                                        <input type="text"  id="" name="service" placeholder="Enter the Account Number">
+                                    </div>
                                     <div class="form-group">
                                         <label for="utilitiesAccount">Account Number</label>
                                         <input type="text" class="form-control" id="utilitiesAccount" name="account" placeholder="Enter the Account Number">
@@ -365,45 +370,6 @@ require_once('../layouts/systems/header.php'); ?>
                                     <div class="form-group">
                                         <label for="utilitiesEmail">Email Address</label>
                                         <input type="text" class="form-control" id="utilitiesEmail" name="email" placeholder="Email Address">
-                                    </div>
-                                </div>
-                                <!-- /.box-body -->
-
-                                <div class="box-footer">
-                                    <button type="submit" class="btn btn-primary">Proceed Payment</button>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- /.box -->
-                    </div>
-                    <!-- /.tab-pane -->
-                    <div class="tab-pane" id="tab_3">
-                        <!-- general form elements -->
-                        <div class="box box-primary">
-                            <div class="box-header with-border">
-                                <h3 class="box-title">Quick Example</h3>
-                            </div>
-                            <!-- /.box-header -->
-                            <!-- form start -->
-                            <form role="form">
-                                <div class="box-body">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Password</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputFile">File input</label>
-                                        <input type="file" id="exampleInputFile">
-                                        <p class="help-block">Example block-level help text here.</p>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox"> Check me out
-                                        </label>
                                     </div>
                                 </div>
                                 <!-- /.box-body -->
