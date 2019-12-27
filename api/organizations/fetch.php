@@ -35,3 +35,28 @@ $statement->execute();
 $result = $statement->fetchAll();
 $data = array();
 $filtered_rows = $statement->rowCount();
+
+foreach($result as $row){
+   $profile = '';
+   if($row["profile"] != ''){
+      $profile = '<img src="'.base_url().'/public/dist/img/'.$row['profile'].'" class="profile-user-img img-responsive img-circle" width="50" height="35" />';
+   }else{
+      $profile = '';
+   }
+   $sub_array = array();
+   $sub_array[] = $profile;
+   $sub_array[] = $row["fullnames"];
+   $sub_array[] = $row["phone"];
+   $sub_array[] = $row["email"];
+   $sub_array[] = '<button type="button" id="'.$row["id"].'" class="btn btn-warning btn-xs pay">Pay</button>';
+   $data[] = $sub_array;
+}
+
+$output = array(
+   "draw"    => intval($_POST["draw"]),
+   "recordsTotal"  =>  $filtered_rows,
+   "recordsFiltered" => get_total_all_records(),
+   "data"    => $data
+);
+
+echo json_encode($output);
