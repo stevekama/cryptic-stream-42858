@@ -380,15 +380,5 @@ require_once('../layouts/systems/header.php'); ?>
     <!-- /.row -->
 </section>
 <!-- /.content -->
-<!-- <script src="<?php //echo base_url(); ?>public/dist/js/pages/mpesa_transactions.js"></script> -->
-<script>    
-$('#loadMerchants').DataTable({
-    'paging'      : true,
-    'lengthChange': false,
-    'searching'   : true,
-    'ordering'    : true,
-    'info'        : true,
-    'autoWidth'   : false
-})
-</script>
+<script src="<?php echo base_url(); ?>public/dist/js/pages/bills.js"></script>
 <?php require_once('../layouts/systems/footer.php'); ?>

@@ -9,80 +9,55 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 // initialize
 include_once '../../models/initialization.php';
 
-$columns = array('fullnames', 'phone', 'email');
-// connect to db
 $conn = $database->connect();
 
-## Read value
-$draw = $_POST['draw'];
-$row = $_POST['start'];
-$rowperpage = $_POST['length']; // Rows display per page
-$columnIndex = $_POST['order'][0]['column']; // Column index
-$columnName = $_POST['columns'][$columnIndex]['data']; // Column name
-$columnSortOrder = $_POST['order'][0]['dir']; // asc or desc$records = $stmt->fetch();
-$searchValue = $_POST['search']['value']; // Search value
+$query = '';
+$output = array();
+$query .= 'SELECT * FROM users WHERE type_id = '.htmlentities($_POST['type_id']).' ';
 
-$searchArray = array();
-
-## Search 
-$searchQuery = " ";
-if($searchValue != ''){
-    $searchQuery = " AND (fullnames LIKE :fullnames OR phone LIKE :phone OR email LIKE :email ) ";
-    $searchArray = array( 
-         'fullnames'=>"%$searchValue%", 
-         'phone'=>"%$searchValue%",
-         'email'=>"%$searchValue%"
-    );
+if(isset($_POST["search"]["value"])){
+   $query .= 'AND (fullnames LIKE "%'.$_POST["search"]["value"].'%" ';
+   $query .= 'OR phone LIKE "%'.$_POST["search"]["value"].'%"';
+   $query .= 'OR email LIKE "%'.$_POST["search"]["value"].'%") ';
 }
 
-## Total number of records without filtering
-$stmt = $conn->prepare("SELECT COUNT(*) AS allcount FROM users ");
-
-$stmt->execute();
-
-$records = $stmt->fetch();
-
-$totalRecords = $records['allcount'];
-
-## Total number of records with filtering
-$stmt = $conn->prepare("SELECT COUNT(*) AS allcount FROM users WHERE 1 ".$searchQuery);
-
-$stmt->execute($searchArray);
-
-$records = $stmt->fetch();
-$totalRecordwithFilter = $records['allcount'];
-
-## Fetch records
-$stmt = $conn->prepare("SELECT * FROM users WHERE 1 ".$searchQuery." ORDER BY ".$columnName." ".$columnSortOrder." LIMIT :limit, :offset");
-
-// Bind values
-foreach($searchArray as $key=>$search){
-    $stmt->bindValue(':'.$key, $search,PDO::PARAM_STR);
+if(isset($_POST["order"])){
+   $query .= 'ORDER BY '.$_POST['order']['0']['column'].' '.$_POST['order']['0']['dir'].' ';
+}else{
+   $query .= 'ORDER BY id DESC ';
 }
 
-$stmt->bindValue(':limit', (int)$row, PDO::PARAM_INT);
-$stmt->bindValue(':offset', (int)$rowperpage, PDO::PARAM_INT);
-$stmt->execute();
+if($_POST["length"] != -1){
+   $query .= 'LIMIT ' . $_POST['start'] . ', ' . $_POST['length'];
+}
 
-
-$empRecords = $stmt->fetchAll();
-
+$statement = $conn->prepare($query);
+$statement->execute();
+$result = $statement->fetchAll();
 $data = array();
+$filtered_rows = $statement->rowCount();
 
-foreach($empRecords as $row){
-   $data[] = array(
-      "fullnames"=>$row['fullnames'],
-      "phone"=>$row['phone'],
-      "email"=>$row['email']
-   );
+foreach($result as $row){
+   $profile = '';
+   if($row["profile"] != ''){
+      $profile = '<img src="'.base_url().'/public/dist/img/'.$row['profile'].'" class="profile-user-img img-responsive img-circle" width="50" height="35" />';
+   }else{
+      $profile = '';
+   }
+   $sub_array = array();
+   $sub_array[] = $profile;
+   $sub_array[] = $row["fullnames"];
+   $sub_array[] = $row["phone"];
+   $sub_array[] = $row["email"];
+   $sub_array[] = '<button type="button" id="'.$row["id"].'" class="btn btn-warning btn-xs pay">Pay</button>';
+   $data[] = $sub_array;
 }
 
-## Response
-$response = array(
-   "draw" => intval($draw),
-   "iTotalRecords" => $totalRecords,
-   "iTotalDisplayRecords" => $totalRecordwithFilter,
-   "aaData" => $data
+$output = array(
+   "draw"    => intval($_POST["draw"]),
+   "recordsTotal"  =>  $filtered_rows,
+   "recordsFiltered" => get_total_all_records(),
+   "data"    => $data
 );
 
-echo json_encode($response);
+echo json_encode($output);
