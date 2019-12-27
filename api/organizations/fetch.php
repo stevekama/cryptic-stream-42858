@@ -10,9 +10,9 @@ include_once '../../models/initialization.php';
 
 $conn = $database->connect();
 
-$query = '';
+$query = "";
 $output = array();
-$query .= 'SELECT * FROM api.users WHERE type_id = "2" ';
+$query .= "SELECT * FROM api.users WHERE type_id = '2' ";
 // if(isset($_POST["search"]["value"])){
 //    $query .= 'AND fullnames LIKE "%'.$_POST["search"]["value"].'%" ';
 //    $query .= 'OR phone LIKE "%'.$_POST["search"]["value"].'%" ';
