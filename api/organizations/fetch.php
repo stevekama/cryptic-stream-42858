@@ -13,7 +13,7 @@ $conn = $database->connect();
 
 $query = '';
 $output = array();
-$query .= 'SELECT * FROM users WHERE type_id = '.htmlentities($_POST['type_id']).' ';
+$query .= 'SELECT * FROM users WHERE type_id = 2 ';
 
 if(isset($_POST["search"]["value"])){
    $query .= 'AND (fullnames LIKE "%'.$_POST["search"]["value"].'%" ';
