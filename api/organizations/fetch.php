@@ -25,9 +25,13 @@ if(isset($_POST["order"])){
    $query .= "ORDER BY id DESC ";
 }
 
-// if($_POST["length"] != -1){
-//    $query .= "LIMIT " . $_POST['start'] . ", " . $_POST['length'];
-// }
+if($_POST["length"] != -1){
+   $query .= "LIMIT " . $_POST['start'] . ", " . $_POST['length'];
+}
 
 $statement = $conn->prepare($query);
 $statement->execute();
+
+$result = $statement->fetchAll();
+$data = array();
+$filtered_rows = $statement->rowCount();
