@@ -13,11 +13,11 @@ $conn = $database->connect();
 $query = "";
 $output = array();
 $query .= "SELECT * FROM api.users WHERE type_id = '2' ";
-// if(isset($_POST["search"]["value"])){
-//    $query .= 'AND fullnames LIKE "%'.$_POST["search"]["value"].'%" ';
-//    $query .= 'OR phone LIKE "%'.$_POST["search"]["value"].'%" ';
-//    $query .= 'OR email LIKE "%'.$_POST["search"]["value"].'%" ';
-// }
+if(isset($_POST["search"]["value"])){
+   $query .= "AND fullnames LIKE '%".$_POST["search"]["value"]."' ";
+   $query .= "OR phone LIKE '%".$_POST["search"]["value"]."' ";
+   $query .= "OR email LIKE '%".$_POST["search"]["value"]."' ";
+}
 
 // if(isset($_POST["order"])){
 //    $query .= 'ORDER BY '.$_POST['order']['0']['column'].' '.$_POST['order']['0']['dir'].' ';
