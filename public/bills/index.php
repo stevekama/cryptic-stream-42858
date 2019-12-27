@@ -335,50 +335,39 @@ require_once('../layouts/systems/header.php'); ?>
                     </div>
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="tab_2">
-                        <!-- general form elements -->
-                        <div class="box">
-                            <!-- form start -->
-                            <form id="utilitiesForm" role="form">
-                                <!-- /.box-header -->
-                                <div class="box-body">
-                                    <div class="form-group">
-                                        <label for="utilitiesService">Select Service</label>
-                                        <select name="service" id="utilitiesService" class="form-control">
-                                            <option selected disabled>Choose a service</option>
-                                            <option value="prepaid_tokens">KPLC Prepaid Tokens</option>
-                                            <option value="postpaid_bill">KPLC Postpaid Bill</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="utilitiesAccount">Account Number</label>
-                                        <input type="text" class="form-control" id="utilitiesAccount" name="account" placeholder="Enter the Account Number">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="utilitiesAmount">Amount</label>
-                                        <input type="text" class="form-control" id="utilitiesAmount" name="amount" placeholder="Enter Amount">
-                                    </div>
-                                    <hr>
-                                    <div class="form-group">
-                                        <label for="utilitiesAmount">Your Name</label>
-                                        <input type="text" class="form-control" id="utilitiesName" name="name" placeholder="Enter Your name">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="utilitiesPhone">Phone Nmber</label>
-                                        <input type="text" class="form-control" id="utilitiesPhone" name="phone" placeholder="Enter Phone Number">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="utilitiesEmail">Email Address</label>
-                                        <input type="text" class="form-control" id="utilitiesEmail" name="email" placeholder="Email Address">
-                                    </div>
-                                </div>
-                                <!-- /.box-body -->
-
-                                <div class="box-footer">
-                                    <button type="submit" class="btn btn-primary">Proceed Payment</button>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- /.box -->
+                        <!-- form start -->
+                        <form id="utilitiesForm" role="form">
+                            <div class="form-group">
+                                <label for="utilitiesService">Select Service</label>
+                                <select name="service" id="utilitiesService" class="form-control">
+                                    <option selected disabled>Choose a service</option>
+                                    <option value="prepaid_tokens">KPLC Prepaid Tokens</option>
+                                    <option value="postpaid_bill">KPLC Postpaid Bill</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="utilitiesAccount">Account Number</label>
+                                <input type="text" class="form-control" id="utilitiesAccount" name="account" placeholder="Enter the Account Number">
+                            </div>
+                            <div class="form-group">
+                                <label for="utilitiesAmount">Amount</label>
+                                <input type="text" class="form-control" id="utilitiesAmount" name="amount" placeholder="Enter Amount">
+                            </div>
+                            <hr>
+                            <div class="form-group">
+                                <label for="utilitiesAmount">Your Name</label>
+                                <input type="text" class="form-control" id="utilitiesName" name="name" placeholder="Enter Your name">
+                            </div>
+                            <div class="form-group">
+                                <label for="utilitiesPhone">Phone Nmber</label>
+                                <input type="text" class="form-control" id="utilitiesPhone" name="phone" placeholder="Enter Phone Number">
+                            </div>
+                            <div class="form-group">
+                                <label for="utilitiesEmail">Email Address</label>
+                                <input type="text" class="form-control" id="utilitiesEmail" name="email" placeholder="Email Address">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Proceed Payment</button>    
+                        </form>
                     </div>
                     <!-- /.tab-pane -->
                 </div>
