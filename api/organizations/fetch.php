@@ -8,3 +8,4 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 // initialize
 include_once '../../models/initialization.php';
 
+$conn = $database->connect();
