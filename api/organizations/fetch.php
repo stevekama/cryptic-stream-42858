@@ -9,3 +9,7 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 include_once '../../models/initialization.php';
 
 $conn = $database->connect();
+
+$query = '';
+$output = array();
+$query .= 'SELECT * FROM api.users WHERE type_id = 2 ';
