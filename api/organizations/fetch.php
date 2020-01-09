@@ -66,7 +66,7 @@ while($row = $statement->fetch(PDO::FETCH_ASSOC)){
    $sub_array[] = $row["fullnames"];
    $sub_array[] = $row["phone"];
    $sub_array[] = $row["email"];
-   $sub_array[] = '<button type="button" id="'.$row["id"].'" class="btn btn-info btn-xs pay">Pay</button>';
+   $sub_array[] = '<button type="button" id="'.$row["id"].'" class="btn btn-info btn -sm pay">Pay</button>';
    $data[] = $sub_array;
 }
 
