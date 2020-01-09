@@ -28,9 +28,11 @@ $query = "";
 $output = array();
 $query .= "SELECT * FROM api.users WHERE type_id = '{$type_id}' ";
 if(isset($_POST["search"]["value"])){
-   $query .= "AND fullnames LIKE '%".$_POST["search"]["value"]."' ";
-   $query .= "OR phone LIKE '%".$_POST["search"]["value"]."' ";
-   $query .= "OR email LIKE '%".$_POST["search"]["value"]."' ";
+   $query .= "AND (";
+   $query .= "fullnames LIKE '%".$_POST["search"]["value"]."%' ";
+   $query .= "OR phone LIKE '%".$_POST["search"]["value"]."%' ";
+   $query .= "OR email LIKE '%".$_POST["search"]["value"]."%'";
+   $query.=") ";
 }
 
 if(isset($_POST["order"])){
@@ -47,11 +49,12 @@ if($_POST["length"] != -1){
 $statement = $connection->prepare($query);
 $statement->execute();
 
-$result = $statement->fetchAll();
-$data = array();
+// fetch num row
 $filtered_rows = $statement->rowCount();
 
-foreach($result as $row){
+$data = array();
+// loop through the array 
+while($row = $statement->fetch(PDO::FETCH_ASSOC)){
    $profile = '';
    if($row["profile"] != ''){
       $profile = '<img src="'.base_url().'/public/dist/img/'.$row['profile'].'" class="profile-user-img img-responsive img-circle" width="50" height="35" />';
