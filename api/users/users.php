@@ -14,7 +14,7 @@ if($_POST['action'] == 'FETCH_USER'){
         echo json_encode($userData);
     }else{
         echo json_encode(array('message'=>'notLoggedIn'));
-    }
+    }   
     
 } 
 

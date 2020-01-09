@@ -22,7 +22,11 @@ require_once('../layouts/systems/header.php'); ?>
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#tab_1" data-toggle="tab">Merchants</a></li>
                     <li><a href="#tab_2" data-toggle="tab">Utilities</a></li>
-                    <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
+                    <li class="pull-right">
+                        <a href="#" class="text-muted">
+                            <i class="fa fa-gear"></i>
+                        </a>
+                    </li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab_1">
@@ -70,19 +74,16 @@ require_once('../layouts/systems/header.php'); ?>
                                 <label for="utilitiesAmount">Amount</label>
                                 <input type="text" class="form-control" id="utilitiesAmount" name="amount" placeholder="Enter Amount">
                             </div>
+                            <div class="form-group">
+                                <label for="utilitiesMethod">Method</label>
+                                <input type="text"  id="" name="" placeholder="Enter Amount">
+                                <select name="metod" id="utilitiesMethod" class="form-control">
+                                    <option disabled selected>Choose a payment method</option>
+                                    <option value="M-PESA">M-PESA</option>
+                                    <option value="PAY-PAL">PAYPAL</option>
+                                </select>
+                            </div>
                             <hr>
-                            <div class="form-group">
-                                <label for="utilitiesAmount">Your Name</label>
-                                <input type="text" class="form-control" id="utilitiesName" name="name" placeholder="Enter Your name">
-                            </div>
-                            <div class="form-group">
-                                <label for="utilitiesPhone">Phone Nmber</label>
-                                <input type="text" class="form-control" id="utilitiesPhone" name="phone" placeholder="Enter Phone Number">
-                            </div>
-                            <div class="form-group">
-                                <label for="utilitiesEmail">Email Address</label>
-                                <input type="text" class="form-control" id="utilitiesEmail" name="email" placeholder="Email Address">
-                            </div>
                             <button type="submit" class="btn btn-primary">Proceed Payment</button>    
                         </form>
                     </div>
@@ -97,5 +98,5 @@ require_once('../layouts/systems/header.php'); ?>
     <!-- /.row -->
 </section>
 <!-- /.content -->
-<script src="<?php echo base_url(); ?>public/dist/js/pages/bills.js"></script>
 <?php require_once('../layouts/systems/footer.php'); ?>
+<script src="<?php echo base_url(); ?>public/dist/js/pages/bills.js"></script>

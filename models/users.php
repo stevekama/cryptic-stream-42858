@@ -3,6 +3,7 @@ require_once('initialization.php');
 
 class Users {
     private $conn;
+    private $schemma = 'api';
     private $table_name = 'users';
 
     // Users properties 
@@ -28,10 +29,10 @@ class Users {
         global $database;
         $this->conn = $database->connect();
     }
-    //get user by email 
+    //get user by id
     public function find_user_by_id($id=0)
     {
-        $query = 'SELECT * FROM ' . $this->table_name . ' WHERE id = :id LIMIT 1';
+        $query = 'SELECT * FROM '.$this->schemma.'.'.$this->table_name.' WHERE id = :id LIMIT 1';
         
         //Prepare statement 
         $stmt = $this->conn->prepare($query);
@@ -43,11 +44,11 @@ class Users {
 
         // Set properties
         return $user;
-    }  
+    }
 
     public function authenticate_user($email = '', $password = '')
     {
-        $query = "SELECT * FROM ".$this->table_name." WHERE email = :email";
+        $query = "SELECT * FROM ".$this->schemma.".".$this->table_name." WHERE email = :email";
         $stmt = $this->conn->prepare($query);
         $stmt->execute(
             array('email'=>$email)
@@ -65,7 +66,7 @@ class Users {
     //find user by email 
     public function find_user_by_email($email="")
     {
-        $query = "SELECT * FROM ".$this->table_name." WHERE email = :email LIMIT 1";
+        $query = "SELECT * FROM ".$this->schemma.".".$this->table_name." WHERE email = :email LIMIT 1";
         $stmt = $this->conn->prepare($query);
         $stmt->execute(array('email'=>$email));
 
@@ -74,10 +75,25 @@ class Users {
         return $user;
     }
 
+    // find user by type id 
+    public function find_user_by_type_id($type_id=0)
+    {
+        $query = "SELECT * FROM ".$this->schemma.".".$this->table_name." WHERE type_id = :type_id ORDER BY id DESC";
+
+        // prepare statement 
+        $stmt = $this->conn->prepare($query);
+
+        // execute statement 
+        $stmt->execute(array('type_id'=>$type_id));
+
+        // return statement
+        return $stmt;
+    }
+
     // find user by code 
     public function find_user_by_forgot_code($forgot_code="")
     {
-        $query = 'SELECT * FROM api.' . $this->table_name . ' WHERE forgot_code = :forgot_code LIMIT 1';
+        $query = "SELECT * FROM api.".$this->schemma.".".$this->table_name." WHERE forgot_code = :forgot_code LIMIT 1";
         
         //Prepare statement 
         $stmt = $this->conn->prepare($query);
@@ -95,7 +111,7 @@ class Users {
 
 
     public function create(){
-        $query = "INSERT INTO ".$this->table_name."(fullnames, phone, email, username, password, customer_id, profile, forgot_code, type_id)VALUES(:fullnames, :phone, :email, :username, :password, :customer_id, :profile, :forgot_code, :type_id)";
+        $query = "INSERT INTO ".$this->schemma.".".$this->table_name."(fullnames, phone, email, username, password, customer_id, profile, forgot_code, type_id)VALUES(:fullnames, :phone, :email, :username, :password, :customer_id, :profile, :forgot_code, :type_id)";
 
         //propare statement 
         $stmt = $this->conn->prepare($query);
@@ -134,7 +150,7 @@ class Users {
     // update user info
     public function update()
     {
-        $query = "UPDATE ".$this->table_name." SET fullnames = :fullnames, phone = :phone, email = :email, username = :username, customer_id = :customer_id, profile = :profile, forgot_code = :forgot_code WHERE id = :id";
+        $query = "UPDATE ".$this->schemma.".".$this->table_name." SET fullnames = :fullnames, phone = :phone, email = :email, username = :username, customer_id = :customer_id, profile = :profile, forgot_code = :forgot_code WHERE id = :id";
 
         //propare statement 
         $stmt = $this->conn->prepare($query);
@@ -170,7 +186,7 @@ class Users {
     // update new password
     public function update_new_password()
     {
-        $query = "UPDATE ".$this->table_name." SET password = :password WHERE id = :id";
+        $query = "UPDATE ".$this->schemma.".".$this->table_name." SET password = :password WHERE id = :id";
 
         //propare statement 
         $stmt = $this->conn->prepare($query);
@@ -200,7 +216,7 @@ class Users {
         if(password_verify($password, $user['password'])){
             // return $user;
             // change and update password
-            $query = "UPDATE ".$this->table_name." SET password = :password WHERE id = :id";
+            $query = "UPDATE ".$this->schemma.".".$this->table_name." SET password = :password WHERE id = :id";
             //prepare statement 
             $stmt = $this->conn->prepare($query);
 
@@ -295,7 +311,7 @@ class Users {
             // 5. Attempt to move the file
             if(move_uploaded_file($this->temp_path, $target_path)){  
                 // create query to update profile
-                $query = "UPDATE ".$this->table_name." SET profile = :profile WHERE id = :id";
+                $query = "UPDATE ".$this->schemma.".".$this->table_name." SET profile = :profile WHERE id = :id";
 
                 //prepare statement 
                 $stmt = $this->conn->prepare($query);
@@ -320,7 +336,4 @@ class Users {
         }
 
     }
-
-
-
 }

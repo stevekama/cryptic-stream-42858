@@ -8,11 +8,25 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 // initialize
 include_once '../../models/initialization.php';
 
-$conn = $database->connect();
+$type_id = '2';
+
+$connection = $database->connect();
+
+// find total number of merchants registered with us
+// call users class
+$usr = new Users();
+
+/// call the metod to find all merchants 
+$merchants = $usr->find_user_by_type_id($type_id);
+
+/// num of merchants 
+$count_merchants = $merchants->rowCount();
+
+// run the fetch query
 
 $query = "";
 $output = array();
-$query .= "SELECT * FROM api.users WHERE type_id = '2' ";
+$query .= "SELECT * FROM api.users WHERE type_id = '{$type_id}' ";
 if(isset($_POST["search"]["value"])){
    $query .= "AND fullnames LIKE '%".$_POST["search"]["value"]."' ";
    $query .= "OR phone LIKE '%".$_POST["search"]["value"]."' ";
@@ -25,11 +39,12 @@ if(isset($_POST["order"])){
    $query .= "ORDER BY id DESC ";
 }
 
-// if($_POST["length"] != -1){
-//    $query .= "LIMIT " . $_POST['start'] . ", " . $_POST['length'];
-// }
+if($_POST["length"] != -1){
+   $query .= "LIMIT " . intval($_POST['length']) . " OFFSET " . intval($_POST['start']);
+}
 
-$statement = $conn->prepare($query);
+// prepare and execute statement
+$statement = $connection->prepare($query);
 $statement->execute();
 
 $result = $statement->fetchAll();
@@ -48,14 +63,14 @@ foreach($result as $row){
    $sub_array[] = $row["fullnames"];
    $sub_array[] = $row["phone"];
    $sub_array[] = $row["email"];
-   $sub_array[] = '<button type="button" id="'.$row["id"].'" class="btn btn-warning btn-xs pay">Pay</button>';
+   $sub_array[] = '<button type="button" id="'.$row["id"].'" class="btn btn-info btn-xs pay">Pay</button>';
    $data[] = $sub_array;
 }
 
 $output = array(
    "draw"    => intval($_POST["draw"]),
    "recordsTotal"  =>  $filtered_rows,
-   "recordsFiltered" => get_total_all_records(),
+   "recordsFiltered" => $count_merchants,
    "data"    => $data
 );
 

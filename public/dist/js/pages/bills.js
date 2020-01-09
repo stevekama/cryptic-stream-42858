@@ -9,9 +9,10 @@ $(document).ready(function(){
         },
         "columnDefs":[
             {
-                "targets":[0, 3, 4],
+                "targets":[0, 4],
                 "orderable":false,
-            },
+            },  
         ],
+        "autoWidth":false
     });
 });
