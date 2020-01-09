@@ -57,7 +57,7 @@ $data = array();
 while($row = $statement->fetch(PDO::FETCH_ASSOC)){
    $profile = '';
    if($row["profile"] != ''){
-      $profile = '<img src="'.base_url().'/public/dist/img/'.$row['profile'].'" class="profile-user-img img-responsive img-circle" width="50" height="35" />';
+      $profile = '<img src="'.base_url().'/public/dist/img/'.$row['profile'].'" class="profile-user-img img-responsive img-circle" width="35" height="35" />';
    }else{
       $profile = '';
    }
