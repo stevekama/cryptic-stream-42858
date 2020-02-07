@@ -27,9 +27,7 @@ $query .= "SELECT * FROM app.utilities ";
 
 // Bring  in search query
 if(isset($_POST["search"]["value"])){
-	$query .= "WHERE(";
-	$query .= "utility LIKE '%{$_POST["search"]["value"]}%'";
-	$query .= ") ";
+	$query .= "WHERE utility LIKE '%{$_POST["search"]["value"]}%' ";
 }
 
 // order query
