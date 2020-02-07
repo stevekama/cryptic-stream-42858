@@ -1,1 +1,1 @@
-const base_url = 'http://localhost/cryptic-stream-42858/';
+const base_url = window.location.origin;
