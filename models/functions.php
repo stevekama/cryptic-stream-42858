@@ -1,8 +1,13 @@
 <?php 
 
 function base_url(){
-    $url = "http://34.215.237.227/api/";
-    return $url;
+    if(isset($_SERVER['HTTPS'])){
+        $protocol = ($_SERVER['HTTPS'] && $_SERVER['HTTPS'] != "off") ? "https" : "http";
+    }
+    else{
+        $protocol = 'http';
+    }
+    return $protocol . "://" . $_SERVER['HTTP_HOST'] .dirname($_SERVER['REQUEST_URI']).'/';
 }
 
 function redirect_to($new_location){

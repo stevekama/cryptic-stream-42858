@@ -46,34 +46,48 @@ class Users {
         return $user;
     }
 
+    // find user by email 
+    public function find_user_by_email($email="")
+    {
+        $query = "SELECT * FROM ".$this->schemma.".".$this->table_name." WHERE email = :email LIMIT 1";
+
+        // prepare query 
+        $stmt = $this->conn->prepare($query);
+
+        // execute
+        if($stmt->execute(array('email'=>$email))){
+            // fetch usetr
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            return $user;
+        }else{
+            return false;
+        }
+    }
+
     public function authenticate_user($email = '', $password = '')
     {
-        $query = "SELECT * FROM ".$this->schemma.".".$this->table_name." WHERE email = :email";
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute(
-            array('email'=>$email)
-        );
-        $count = $stmt->rowCount();
-        if($count > 0){
-            while($user = $stmt->fetch(PDO::FETCH_ASSOC)){
-                if(password_verify($password, $user['password'])){
-                    return $user;
-                }
+        $user = $this->find_user_by_email($email);
+        if($user){
+            if(password_verify($password, $user['password'])){
+                return $user;
             }
+        }else{
+            return false;
         }
     }  
 
     //find user by email 
-    public function find_user_by_email($email="")
-    {
-        $query = "SELECT * FROM ".$this->schemma.".".$this->table_name." WHERE email = :email LIMIT 1";
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute(array('email'=>$email));
+    // public function find_user_by_email($email="")
+    // {
+    //     $query = "SELECT * FROM ".$this->schemma.".".$this->table_name." WHERE email = :email LIMIT 1";
+    //     $stmt = $this->conn->prepare($query);
+    //     $stmt->execute(array('email'=>$email));
 
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    //     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        return $user;
-    }
+    //     return $user;
+    // }
 
     // find user by type id 
     public function find_user_by_type_id($type_id=0)

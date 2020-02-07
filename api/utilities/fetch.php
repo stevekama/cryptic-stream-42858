@@ -23,27 +23,44 @@ $query = '';
 // output array
 $output = array();
 
-$query .= "SELECT * FROM app.utilities ";
+$query .= "SELECT * FROM api.utilities ";
 
-// // Bring  in search query
-// if(isset($_POST["search"]["value"])){
-// 	$query .= "WHERE utility LIKE '%{$_POST["search"]["value"]}%' ";
-// }
+// Bring  in search query
+if(isset($_POST["search"]["value"])){
+	$query .= "WHERE utility LIKE '%{$_POST["search"]["value"]}%' ";
+}
 
-// // order query
-// if(isset($_POST["order"])){
-// 	$query .= "ORDER BY ".$_POST['order']['0']['column']." ".$_POST['order']['0']['dir']." ";
-// }else{
-// 	$query .= "ORDER BY id DESC ";
-// }
+// order query
+if(isset($_POST["order"])){
+	$query .= "ORDER BY ".$_POST['order']['0']['column']." ".$_POST['order']['0']['dir']." ";
+}else{
+	$query .= "ORDER BY id DESC ";
+}
 
-// // Pagging
-// if($_POST["length"] != -1){
-// 	$query .= 'LIMIT '.intval($_POST["length"]).' OFFSET '.intval($_POST["start"]);
-// }
+// Pagging
+if($_POST["length"] != -1){
+	$query .= 'LIMIT '.intval($_POST["length"]).' OFFSET '.intval($_POST["start"]);
+}
 
 $statement = $connection->prepare($query);
 $statement->execute();
 $filtered_rows = $statement->rowCount();
 
-echo $filtered_rows;
+// data array
+$data = array();
+
+while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+    $sub_array = array();
+    $sub_array[] = $row["utility"];
+    $sub_array[] = '<button type="button" name="user" id="'.$row["id"].'" class="btn btn-success btn-xs user">Buy</button>';
+    $data[] = $sub_array;
+}
+
+// store results in output array
+$output = array(
+	"draw"				=>	intval($_POST["draw"]),
+	"recordsTotal"		=> 	$filtered_rows,
+	"recordsFiltered"	=>	$num_utilities,
+	"data"				=>	$data
+);
+echo json_encode($output);
