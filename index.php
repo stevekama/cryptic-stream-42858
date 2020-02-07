@@ -1,5 +1,4 @@
 <?php require_once('models/initialization.php'); ?>
-<?php echo base_url(); ?>
 <!DOCTYPE html>
 <html>
 <head>
