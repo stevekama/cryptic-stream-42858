@@ -25,22 +25,22 @@ $output = array();
 
 $query .= "SELECT * FROM app.utilities ";
 
-// Bring  in search query
-if(isset($_POST["search"]["value"])){
-	$query .= "WHERE utility LIKE '%{$_POST["search"]["value"]}%' ";
-}
+// // Bring  in search query
+// if(isset($_POST["search"]["value"])){
+// 	$query .= "WHERE utility LIKE '%{$_POST["search"]["value"]}%' ";
+// }
 
-// order query
-if(isset($_POST["order"])){
-	$query .= "ORDER BY ".$_POST['order']['0']['column']." ".$_POST['order']['0']['dir']." ";
-}else{
-	$query .= "ORDER BY id DESC ";
-}
+// // order query
+// if(isset($_POST["order"])){
+// 	$query .= "ORDER BY ".$_POST['order']['0']['column']." ".$_POST['order']['0']['dir']." ";
+// }else{
+// 	$query .= "ORDER BY id DESC ";
+// }
 
-// Pagging
-if($_POST["length"] != -1){
-	$query .= 'LIMIT '.intval($_POST["length"]).' OFFSET '.intval($_POST["start"]);
-}
+// // Pagging
+// if($_POST["length"] != -1){
+// 	$query .= 'LIMIT '.intval($_POST["length"]).' OFFSET '.intval($_POST["start"]);
+// }
 
 $statement = $connection->prepare($query);
 $statement->execute();
