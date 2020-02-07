@@ -89,3 +89,6 @@ require_once(LIB_PATH.DS.'customer_wallet_transactions.php');
 
 // customer paypal wallet
 require_once(LIB_PATH.DS.'customer_wallet_paypal.php');
+
+// utilities
+require_once(LIB_PATH.DS.'utilities.php');
