@@ -32,60 +32,48 @@ require_once('../layouts/systems/header.php'); ?>
                     <div class="tab-pane active" id="tab_1">
                         <h2>Our Merchants:</h2>
                         <div class="box-body table-responsive no-padding">
-                            <table id="loadMerchants" class="table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Logo</th>
-                                        <th>Merchant</th>
-                                        <th>Phone</th>
-                                        <th>Email</th>
-                                        <th>Pay</th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>Logo</th>
-                                        <th>Merchant</th>
-                                        <th>Phone</th>
-                                        <th>Email</th>
-                                        <th>Pay</th>
-                                    </tr>
-                                </tfoot>
-                            </table>
+                            <div class="table-responsive">
+                                <table id="loadMerchants" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Logo</th>
+                                            <th>Merchant</th>
+                                            <th>Phone</th>
+                                            <th>Email</th>
+                                            <th>Pay</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Logo</th>
+                                            <th>Merchant</th>
+                                            <th>Phone</th>
+                                            <th>Email</th>
+                                            <th>Pay</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
                         </div>
                     </div>
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="tab_2">
-                        <!-- form start -->
-                        <form id="utilitiesForm" role="form">
-                            <div class="form-group">
-                                <label for="utilitiesService">Select Service</label>
-                                <select name="service" id="utilitiesService" class="form-control">
-                                    <option selected disabled>Choose a service</option>
-                                    <option value="prepaid_tokens">KPLC Prepaid Tokens</option>
-                                    <option value="postpaid_bill">KPLC Postpaid Bill</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="utilitiesAccount">Account Number</label>
-                                <input type="text" class="form-control" id="utilitiesAccount" name="account" placeholder="Enter the Account Number">
-                            </div>
-                            <div class="form-group">
-                                <label for="utilitiesAmount">Amount</label>
-                                <input type="text" class="form-control" id="utilitiesAmount" name="amount" placeholder="Enter Amount">
-                            </div>
-                            <div class="form-group">
-                                <label for="utilitiesMethod">Method</label>
-                                <input type="text"  id="" name="" placeholder="Enter Amount">
-                                <select name="metod" id="utilitiesMethod" class="form-control">
-                                    <option disabled selected>Choose a payment method</option>
-                                    <option value="M-PESA">M-PESA</option>
-                                    <option value="PAY-PAL">PAYPAL</option>
-                                </select>
-                            </div>
-                            <hr>
-                            <button type="submit" class="btn btn-primary">Proceed Payment</button>    
-                        </form>
+                        <div class="table-responsive">
+                            <table id="loadUtilities" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Utility</th>
+                                        <th>Buy</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Utility</th>
+                                        <th>Buy</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
                     </div>
                     <!-- /.tab-pane -->
                 </div>
