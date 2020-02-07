@@ -7,7 +7,7 @@ function base_url(){
     else{
         $protocol = 'http';
     }
-    return $protocol . "://" . $_SERVER['HTTP_HOST'] .dirname($_SERVER['REQUEST_URI']).'api/';
+    return $protocol . "://" . $_SERVER['HTTP_HOST'] .dirname($_SERVER['REQUEST_URI']).'/api/';
 }
 
 function redirect_to($new_location){
