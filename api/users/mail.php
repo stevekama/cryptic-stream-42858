@@ -20,7 +20,7 @@ $mail = new PHPMailer(true);
 $sendMail = new SendMail($mail);
 
 // define the mail values 
-$sendMail->from = 'stevekamahertz@gmail.com';
+$sendMail->from = 'stevekama@mail.com';
 $sendMail->from_username = 'Steve Kama';
 $sendMail->to = $_POST['to'];
 $sendMail->to_username = $_POST['to_username'];

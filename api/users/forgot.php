@@ -47,7 +47,7 @@ if($user->update()){
     // send email after signing up 
     $sendMail = new SendMail($mail);
     // define the mail values 
-    $sendMail->from = 'stevekamahertz@gmail.com';
+    $sendMail->from = 'stevekama@mail.com';
     $sendMail->from_username = 'Steve Kama';
     $sendMail->to = $current_user['email'];
     $sendMail->to_username = $current_user['username'];

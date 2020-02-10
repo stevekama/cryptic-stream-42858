@@ -4,6 +4,7 @@ class Database{
      private $username = 'api';
      private $password = '12345';
      private $dbname = 'cubes';
+     private $driver;
      private $conn;
 
      public function connect()

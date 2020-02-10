@@ -77,7 +77,7 @@ if($_POST['password'] === $_POST['confirm']){
                 // send email after signing up 
                 $sendMail = new SendMail($mail);
                 // define the mail values 
-                $sendMail->from = 'stevekamahertz@gmail.com';
+                $sendMail->from = 'stevekama@mail.com';
                 $sendMail->from_username = 'Steve Kama';
                 $sendMail->to = $user->email;
                 $sendMail->to_username = $user->username;

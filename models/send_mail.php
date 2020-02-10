@@ -12,6 +12,7 @@ class SendMail{
     public $to_username;
     public $subject;
     public $message;
+    public $attachment;
  
     public function __construct($mail)
     {
@@ -24,10 +25,10 @@ class SendMail{
             // Server settings
             $this->mail->SMTPDebug = 0;                      // Enable verbose debug output
             $this->mail->isSMTP();                                            // Send using SMTP
-            $this->mail->Host       = 'smtp.mailtrap.io';                       // Set the SMTP server to send through
+            $this->mail->Host       = 'smtp.mail.com';                       // Set the SMTP server to send through
             $this->mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-            $this->mail->Username   = 'f3bfa0269a5ef9';                     // SMTP username
-            $this->mail->Password   = '8acbed906d4b44';                               // SMTP password
+            $this->mail->Username   = 'stevekama@mail.com';                     // SMTP username
+            $this->mail->Password   = 'ci/05041/2013';                               // SMTP password
             $this->mail->SMTPSecure = 'TLS';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
             $this->mail->Port       = 25;            // TCP port to connect to
 
@@ -40,7 +41,9 @@ class SendMail{
             // $mail->addBCC('bcc@example   .com');
 
             // Attachments
-            // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+            if(!empty($this->attachment)){
+                 $this->mail->addAttachment($this->attachment);         // Add attachments
+            }
             // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
 
             // Content

@@ -96,3 +96,6 @@ require_once(LIB_PATH.DS.'customer_wallet_paypal.php');
 
 // utilities
 require_once(LIB_PATH.DS.'utilities.php');
+
+// lipa na mpesa 
+require_once(LIB_PATH.DS.'lipa.php');

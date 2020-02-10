@@ -95,7 +95,7 @@ require_once('../layouts/systems/header.php'); ?>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="paymentUserId">
+                            <input type="hidden" class="form-control" id="paymentUserId">
                         </div>
                         <div class="form-grou   p">
                             <label for="paymentAmount">Amount</label>
