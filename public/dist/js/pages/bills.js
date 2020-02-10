@@ -28,12 +28,18 @@ $(document).ready(function(){
             data:{action:action, user_id:user_id},
             dataType:"json",
             success:function(data){
-                console.table(data);
-                $('#paymentUserId').val(data.user.id);
+                if(data.message == "errorUser"){
+                    return false;
+                }else{
+                    $('#paymentUserId').val(data.user.id);
+                    $('#makePaymentModal').modal('show');
+                }
             }
         });
     });
 
+    // submit payments
+    
 
     // bring in utilities
     var loadUtilities = $('#loadUtilities').DataTable({
