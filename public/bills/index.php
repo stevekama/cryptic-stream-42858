@@ -84,6 +84,42 @@ require_once('../layouts/systems/header.php'); ?>
         <!-- /.col -->
     </div>
     <!-- /.row -->
+    <div class="modal fade" id="makePaymentModal">
+        <div class="modal-dialog">
+            <form id="makePaymentForm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Make Payment</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="paymentUserId">
+                        </div>
+                        <div class="form-group">
+                            <label for="paymentAmount">Amount</label>
+                            <input type="text" class="form-control" id="paymentAmount" placeholder="Enter Amount">
+                        </div>
+                        <div class="form-group">
+                            <label for="paymentMethod">Method</label>
+                            <select name="method" id="paymentMethod">
+                                <option disabled selected>Payment Method</option>
+                                <option value="LIPA_NA_MPESA">LIPA_NA_MPESA</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                        <button type="submit" id="makePaymentSubmitBtn" class="btn btn-primary">Make Payment</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </form>
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+        <!-- /.modal -->
 </section>
 <!-- /.content -->
 <?php require_once('../layouts/systems/footer.php'); ?>

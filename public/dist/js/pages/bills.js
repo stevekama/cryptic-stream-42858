@@ -18,6 +18,23 @@ $(document).ready(function(){
         "autoWidth":false
     });
 
+    // make payments
+    $(document).on('click', '.pay', function(){
+        var action = "FETCH_USER_BY_ID";
+        var user_id = $(this).attr('id');
+        $.ajax({
+            url:base_url+'/api/organizations/organizations.php',
+            type:"POST",
+            data:{action:action, user_id:user_id},
+            dataType:"json",
+            success:function(data){
+                console.table(data);
+                $('#paymentUserId').val(data.user.id);
+            }
+        });
+    });
+
+
     // bring in utilities
     var loadUtilities = $('#loadUtilities').DataTable({
         "processing":true,
