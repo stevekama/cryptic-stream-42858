@@ -103,9 +103,18 @@ require_once('../layouts/systems/header.php'); ?>
                         </div>
                         <div class="form-group">
                             <label for="paymentMethod">Method</label>
-                            <select name="method" id="paymentMethod">
+                            <?php $method = new Payment_Methods(); ?>
+                            <?php $all_methods = $method->find_all_methods(); ?>
+                            <select name="method" id="paymentMethod" class="form-control">
                                 <option disabled selected>Payment Method</option>
-                                <option value="LIPA_NA_MPESA">LIPA_NA_MPESA</option>
+                                <?php $count = $all_methods->rowCount(); ?>
+                                <?php if($count > 0){ ?>
+                                    <?php while($payment_method = $all_methods->fetch(PDO::FETCH_ASSOC)){?>
+                                        <option value="<?php echo htmlentities($payment_method['id']); ?>">
+                                            <?php echo htmlentities($payment_method['method']); ?>
+                                        </option>
+                                    <?php } ?>
+                                <?php } ?>
                             </select>
                         </div>
                     </div>
