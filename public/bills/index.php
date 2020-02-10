@@ -97,7 +97,7 @@ require_once('../layouts/systems/header.php'); ?>
                         <div class="form-group">
                             <input type="text" class="form-control" id="paymentUserId">
                         </div>
-                        <div class="form-group">
+                        <div class="form-grou   p">
                             <label for="paymentAmount">Amount</label>
                             <input type="text" class="form-control" id="paymentAmount" placeholder="Enter Amount">
                         </div>
@@ -114,6 +114,8 @@ require_once('../layouts/systems/header.php'); ?>
                                             <?php echo htmlentities($payment_method['method']); ?>
                                         </option>
                                     <?php } ?>
+                                <?php }else{ ?>
+                                    <option disabled>No Methods set</option>
                                 <?php } ?>
                             </select>
                         </div>
