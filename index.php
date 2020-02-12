@@ -41,7 +41,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="index.php"><b>Payments</b>GATEWAY</a>
+            <a href="index.php"><b>IKO </b>Systems</a>
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
