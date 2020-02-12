@@ -7,13 +7,20 @@ include_once '../../models/initialization.php';
 
 $email = $_POST['email'];
 $password = $_POST['password'];
-
+$project_id = $_POST['project_id'];
 $user = new Users();
 
 $usersD = $user->authenticate_user($email, $password);
 if($usersD){
     $session->login($usersD);
-    echo json_encode(array('message'=>'success', 'type_id'=>$usersD['type_id']));
+    $project = new Projects();
+    $current_project = $project->fetch_by_id($project_id);
+    if(!$current_project){
+        $data['message'] = "errorProject";
+        echo json_encode($data);
+        die();
+    }
+    echo json_encode(array('message'=>'success', 'url'=>$current_project['url']));
 }else{
     echo json_encode(array('message'=>'failed'));
 }

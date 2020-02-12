@@ -99,3 +99,6 @@ require_once(LIB_PATH.DS.'utilities.php');
 
 // lipa na mpesa 
 require_once(LIB_PATH.DS.'lipa.php');
+
+// projects
+require_once(LIB_PATH.DS.'projects.php');

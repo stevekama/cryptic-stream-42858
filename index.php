@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Payments | Log in</title>
+    <title>Iko Systems | Log in</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -50,6 +50,9 @@
             <form id="loginForm" method="post">
                 <div class="form-group has-feedback">
                     <div id="messageAlert"></div>
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="text" value="<?php htmlentities($_GET['project_id']); ?>"  class="form-control" name="project_id">
                 </div>
                 <div class="form-group has-feedback">
                     <input type="email" name="email" id="loginEmail" class="form-control" placeholder="Email">
@@ -104,16 +107,9 @@
                     success    : function(data){
                         $('#loginBtn').html('Sign In');
                         if(data.message == 'success'){
-                            if(data.type_id == 2){
-                                window.location.href = base_url+'public/org-index.php';
-                            }else{
-                                window.location.href = base_url+'public/index.php';
-                            }
+                            window.location.href = data.url;
                         }
-                        if(data.message == 'failed'){
-                            $('#messageAlert').html('<div class="alert alert-danger alert-dismissible">Failed to Login. Please check your Email and Password and try again...</div>');
-                            $('#loginPass').val('');
-                        }
+
                     }
                 });
             });
