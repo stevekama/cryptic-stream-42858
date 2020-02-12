@@ -20,7 +20,7 @@ if($usersD){
         echo json_encode($data);
         die();
     }
-    echo json_encode(array('message'=>'success', 'url'=>$current_project['url']));
+    echo json_encode(array('message'=>'success', 'url'=>$current_project['url'], 'user_session'=>$session->user_id));
 }else{
     echo json_encode(array('message'=>'failed'));
 }

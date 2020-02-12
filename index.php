@@ -107,7 +107,7 @@
                     success    : function(data){
                         $('#loginBtn').html('Sign In');
                         if(data.message == 'success'){
-                            window.location.href = data.url;
+                            window.location.href = data.url+'?user_id='+data.user_session;
                         }
 
                     }
