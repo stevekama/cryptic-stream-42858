@@ -13,7 +13,6 @@ class Database{
           try{
                $this->conn = new PDO('pgsql:host=' . $this->host . ';dbname=' . $this->dbname, $this->username, $this->password);
                $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
           }catch(PDOException $e){
                echo 'Connection Error: ' . $e->getMessage();
           }
