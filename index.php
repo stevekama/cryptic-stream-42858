@@ -52,7 +52,7 @@
                     <div id="messageAlert"></div>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="text" value="<?php htmlentities($_GET['project_id']); ?>"  class="form-control" name="project_id">
+                    <input type="text" value="<?php echo htmlentities($_GET['project_id']); ?>"  class="form-control" name="project_id">
                 </div>
                 <div class="form-group has-feedback">
                     <input type="email" name="email" id="loginEmail" class="form-control" placeholder="Email">
