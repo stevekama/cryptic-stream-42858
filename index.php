@@ -103,11 +103,13 @@
                     dataType   : 'json',
                     beforeSend : function(){
                         $('#loginBtn').html('Loading...');
-                    }, 
+                    },
+                    
                     success    : function(data){
                         $('#loginBtn').html('Sign In');
                         if(data.message == 'success'){
-                            window.location.href = data.url+'?user_id='+data.user_session;
+                            var loggedUserId = $.trim(data.user_session);
+                            window.location.href = data.url+'?user_id='+loggedUserId;
                         }
 
                     }
