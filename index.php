@@ -72,7 +72,7 @@
                 </div>
             </form>
             <a href="forgot.php">I forgot my password</a><br>
-            <a href="register.php" class="text-center">Register a new membership</a>
+            <a href="register.php?project_id=2" class="text-center">Register a new membership</a>
         </div>
         <!-- /.login-box-body -->
     </div>
