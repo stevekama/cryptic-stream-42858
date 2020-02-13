@@ -7,6 +7,7 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 include_once '../../models/initialization.php';
 
 $customer = new Customers();
+$d = new DateTime();
 $data = array();
 
 $customer->first_name = $_POST['first_name'];
@@ -22,8 +23,6 @@ if($current_customer_email){
     die();
 }
 $customer->dob = $_POST['dob'];
-// registratin date
-$d = new DateTime();
 
 $customer->date_of_registration = $d->format('Y-m-d H:i:s');
 
