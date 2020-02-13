@@ -20,6 +20,11 @@ $d = new DateTime();
 if($_POST['password'] === $_POST['confirm']){
     // find customer by customer is 
     $customer = $cust->find_by_id($_POST['customer_id']);
+    if(!$customer){
+        $data['message'] = "errorCustomer";
+        echo json_encode($data);
+        die();
+    }
     //echo json_encode($customer);
     $user->fullnames   = $customer['first_name'].' '.$customer['other_names'];
     $user->phone       = $customer['phone_number'];
