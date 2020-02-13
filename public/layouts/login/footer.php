@@ -132,7 +132,7 @@
     $('#userAccountForm').fadeOut(900).hide();
 
     /// submit cistomers
-    $('#userAccountForm').submit(function(event){
+    $('#customerForm').submit(function(event){
       event.preventDefault();
       var form_data = $(this).serialize();
       $.ajax({
