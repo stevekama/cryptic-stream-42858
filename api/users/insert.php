@@ -15,8 +15,10 @@ include_once '../../models/initialization.php';
 
 $user = new Users();
 $cust = new Customers();
+$proj = new Projects();
 $data = array();
 $d = new DateTime();
+
 if($_POST['password'] === $_POST['confirm']){
     // find customer by customer is 
     $customer = $cust->find_by_id($_POST['customer_id']);
@@ -91,7 +93,11 @@ if($_POST['password'] === $_POST['confirm']){
                 $sendMail->message .= '<p>Your wallet has been successfully created and assigned to the number '.$user->phone.'</p>';
                 $sendMail->message .= '<p>You can now login into your account and continue...</p>';
                 if($sendMail->send_mail()){
+                    // find project we are dealing with 
+                    $current_project = $proj->fetch_by_id($_POST['project_id']);
+                    $project_url = $current_project['url'];
                     $data['message'] = 'success';
+                    $data['url'] = $project_url;
                     echo json_encode($data);
                     die();
                 }

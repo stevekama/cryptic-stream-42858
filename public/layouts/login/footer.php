@@ -126,6 +126,66 @@
     $('.datepicker').datepicker({
         format: 'yyyy-mm-dd'
     });
+    
+    // bring in customer form 
+    $('#customerForm').fadeIn(800).show();
+    $('#userAccountForm').fadeOut(900).hide();
+
+    /// submit cistomers
+    $('#userAccountForm').submit(function(event){
+      event.preventDefault();
+      var form_data = $(this).serialize();
+      $.ajax({
+        url : base_url+'api/customers/new_customer.php',
+        type: 'POST',
+        data:form_data,
+        dataType: 'json',
+        beforeSend:function(){
+          $('#customerFormBtn').html('Loading...');
+        },
+        success:function(data){
+          $('#customerFormBtn').html('Save');
+          if(data.message == 'success'){
+            $('#customer_id').val(data.customer_id);
+            $('#customerForm').fadeIn(900).hide();
+            $('#userAccountForm').fadeIn(800).show();
+          }
+          if(data.message == 'duplicatedEmail'){
+            $('#customerFormMessageAlert').html('<div class="alert alert-danger alert-dismissible">Email Entererd Exist. Please Check and Try again...</div>');
+            return false;
+          }
+        }
+      });
+    });
+
+
+    $('#userAccountForm').submit(function(event){
+      event.preventDefault();
+      var form_data = $(this).serialize();
+      $.ajax({
+        url : base_url+'api/users/insert.php',
+        type: 'POST',
+        data:form_data,
+        dataType: 'json',
+        beforeSend:function(){
+          $('#userAccountBtn').html('Loading...');
+        },
+        success:function(data){
+          if(data.message == 'success'){
+            window.location.href = data.url;  
+          }
+          if(data.message == 'failed'){
+            $('#signupAccountFormMessageAlert').html('<div class="alert alert-danger alert-dismissible">Failed To Register user. Please Try again..</div>');
+            return false;
+          }
+          
+          if(data.message == 'errorPass'){
+            $('#signupAccountFormMessageAlert').html('<div class="alert alert-danger alert-dismissible">Failed To Register user. The password entered do not match. Please check and try again...</div>');
+            return false;
+          }
+        }
+      });
+});
 
 
   </script>

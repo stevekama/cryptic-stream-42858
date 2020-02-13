@@ -1,5 +1,6 @@
 /* Registration */
 #customerForm{ display: none; }
+#userAccountForm{ display: none; }
 
 /* Apps */
 #newAppForm{ display: none; }
