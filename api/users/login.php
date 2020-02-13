@@ -13,7 +13,9 @@ $user = new Users();
 $usersD = $user->authenticate_user($email, $password);
 if($usersD){
     $session->login($usersD);
-    echo json_encode(array('message'=>'success', 'user_session'=>$session->user_id));
+    $user_type = $usersD['type_id'];
+    $user_session = $session->user_id;
+    echo json_encode(array('message'=>'success', 'user_session'=>$user_session, 'type_id'=>$user_type));
 }else{
     echo json_encode(array('message'=>'failed'));
 }

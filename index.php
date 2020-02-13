@@ -51,9 +51,7 @@
                 <div class="form-group has-feedback">
                     <div id="messageAlert"></div>
                 </div>
-                <div class="form-group has-feedback">
-                    <input type="text" value="<?php echo htmlentities($_GET['project_id']); ?>"  class="form-control" name="project_id">
-                </div>
+
                 <div class="form-group has-feedback">
                     <input type="email" name="email" id="loginEmail" class="form-control" placeholder="Email">
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -109,7 +107,14 @@
                         $('#loginBtn').html('Sign In');
                         if(data.message == 'success'){
                             var loggedUserId = $.trim(data.user_session);
-                            window.location.href = data.url+'?user_id='+loggedUserId;
+                            var type_id = $.trim(data.type_id);
+                            if(type_id == 1){
+                                // go to the individuals account 
+                                window.location.href = base_url+'/public/index.php';
+                            }else{
+                                 // go to the organizations account 
+                                window.location.href = base_url+'/public/org-index.php';
+                            }
                         }
 
                     }
