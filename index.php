@@ -107,14 +107,15 @@
                         $('#loginBtn').html('Sign In');
                         if(data.message == 'success'){
                             var loggedUserId = $.trim(data.user_session);
-                            console.log(data.type_id);
-                            // if(data.type_id == 1){
-                            //     // go to the individuals account 
-                            //     window.location.href = base_url+'/public/index.php';
-                            // }else{
-                            //      // go to the organizations account 
-                            //     window.location.href = base_url+'/public/org-index.php';
-                            // }
+                            if(data.type_id == 1){
+                                // go to the individuals account 
+                                window.location.href = base_url+'/public/index.php';
+                            }
+
+                            if(data.type_id == 2){
+                                // go to the individuals account 
+                                window.location.href = base_url+'/public/org-index.php';
+                            }
                         }
 
                     }
