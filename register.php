@@ -36,7 +36,7 @@ if(!$current_project){
 
     <div class="form-group has-feedback">
       <div class="form-group has-feedback">
-        <select id="cust_type_id" class="form-control">
+        <select id="cust_type_id" name="cust_type_id" class="form-control">
         </select>
       </div>
     </div>
@@ -101,7 +101,7 @@ if(!$current_project){
 
     <div class="form-group has-feedback">
       <input type="text" name="customer_id" id="customer_id" class="form-control">
-      <input type="text" name="project_id" value="<?php echo htmlentities($current_project['id']); ?><" class="form-control">
+      <input type="text" name="project_id" value="<?php echo htmlentities($current_project['id']); ?>" class="form-control">
     </div>
 
     <div class="form-group has-feedback">
