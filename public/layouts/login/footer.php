@@ -120,6 +120,7 @@
         }
       });
     }
+    find_customer_country();
 
     // date format 
     $('.datepicker').datepicker({
