@@ -83,6 +83,7 @@
         }
       });
     }
+    find_customer_gender();
 
     // bring in country
     var isSelectCountry = 0;
@@ -107,7 +108,7 @@
       }
     }
 
-    function find_customer_country(country_id){
+    function find_customer_country(){
       var action = "FETCH_ALL";
       $.ajax({
         url : base_url+'api/countries/fetch.php',
@@ -115,7 +116,7 @@
         data:{action:action},
         dataType: 'json',
         success:function(data){
-          selectCustomerCountry(data, country_id);
+          selectCustomerCountry(data, 'country_id');
         }
       });
     }

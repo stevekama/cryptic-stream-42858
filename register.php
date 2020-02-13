@@ -52,7 +52,7 @@
       </div>
 
       <div class="form-group has-feedback">
-        <select name="country_id" id="individual_country_id" class="form-control">
+        <select name="country_id" id="country_id" class="form-control">
         </select>
       </div>
 
