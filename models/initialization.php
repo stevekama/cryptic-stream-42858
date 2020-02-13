@@ -1,8 +1,8 @@
 <?php 
 //define the path
 defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
-// defined('SITE_ROOT') ? null : define('SITE_ROOT', DS.'var'.DS.'www'.DS.'html'.DS.'api');
-defined('SITE_ROOT') ? null : define('SITE_ROOT', DS.'xampp'.DS.'htdocs'.DS.'cryptic-stream-42858');
+defined('SITE_ROOT') ? null : define('SITE_ROOT', DS.'var'.DS.'www'.DS.'html'.DS.'api');
+// defined('SITE_ROOT') ? null : define('SITE_ROOT', DS.'xampp'.DS.'htdocs'.DS.'cryptic-stream-42858');
 defined('CONFIG_PATH') ? null : define('CONFIG_PATH', SITE_ROOT.DS.'config');
 defined('LIB_PATH') ? null : define('LIB_PATH', SITE_ROOT.DS.'models');
 defined('VENDOR_PATH') ? null : define('VENDOR_PATH', SITE_ROOT.DS.'vendor');
