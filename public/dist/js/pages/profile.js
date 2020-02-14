@@ -6,13 +6,15 @@ $(document).ready(function(){
             url  : base_url+'api/users/users.php',
             type : "POST",
             data : {action:action}, 
+            dataType:"json",
             success: function(data){
-                $('#profileImg').html('<img class="profile-user-img img-responsive img-circle" src="'+base_url+'public/dist/img/'+data.profile+'" alt="User profile picture">');
-                $('.profile-username').html(data.username);
-                $('#accountUserName').val(data.username);
-                $('#profileEmail').html(data.email);
-                find_customer_by_id(data.customer_id);
-                find_customer_docs(data.customer_id);
+                console.table(data);
+                // $('#profileImg').html('<img class="profile-user-img img-responsive img-circle" src="'+base_url+'public/dist/img/'+data.profile+'" alt="User profile picture">');
+                // $('.profile-username').html(data.username);
+                // $('#accountUserName').val(data.username);
+                // $('#profileEmail').html(data.email);
+                // find_customer_by_id(data.customer_id);
+                // find_customer_docs(data.customer_id);
             }
         });
     } 
