@@ -131,7 +131,8 @@ $(document).ready(function(){
             data : {action:action}, 
             dataType:"json",
             success: function(data){
-                console.table(data);
+                selectCustomerDocs(data, 'userDocTypeId');
+                $('#newDocModal').modal('show');
             }
         });
 

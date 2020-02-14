@@ -242,14 +242,13 @@ require_once('../layouts/systems/header.php'); ?>
                             </div>
                             
                             <div class="form-group">
-                                <label for="userDocType">Document Type</label>
-                                <input type="file" id="userProfile" name="profile">
-                                <p class="help-block">Change user profile details.</p>
+                                <label for="userDocTypeId">Document Type</label>
+                                <select name="customer_identity_doc_type_id" id="userDocTypeId" class="form-control"></select>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                            <button type="submit" id="profileBtn" class="btn btn-primary">Save changes</button>
+                            <button type="submit" id="newDocSubmitBtn" class="btn btn-primary">Save changes</button>
                         </div>
                     </div>
                     <!-- /.modal-content -->
