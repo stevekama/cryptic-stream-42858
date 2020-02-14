@@ -4,6 +4,7 @@ require_once('initialization.php');
 class Customer_Identity_Doc_Types{
     //Decalare table name 
     private $conn;
+    private $schemma = "usr";
     private $table_name = 'customer_identity_doc_types';
     //Declare class properties 
     public $id;
@@ -21,10 +22,24 @@ class Customer_Identity_Doc_Types{
     }
 
     public function fetch_all(){
-        $query = "SELECT * FROM usr.".$this->table_name." ORDER BY id DESC";
+        $query = "SELECT * FROM ".$this->schemma.".".$this->table_name." ORDER BY id DESC";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;
+    }
+
+    public function find_by_id($id=0)
+    {
+        $query = "SELECT * FROM ".$this->table_name." WHERE id = :id LIMIT 1";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute(array('id'=>$id));
+        $count = $stmt->rowCount();
+        if($count > 0){
+            $doc = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $doc;
+        }else{
+            return false;
+        }
     }
 
     public function create()

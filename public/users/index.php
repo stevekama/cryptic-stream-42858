@@ -238,7 +238,7 @@ require_once('../layouts/systems/header.php'); ?>
                                 <div id="alertMessageDoc"></div>
                             </div>
                             <div class="form-group">
-                                <input type="text" id="customerDocId" class="form-control" name="customer_id"/>
+                                <input type="hide" id="customerDocId" class="form-control" name="customer_id"/>
                             </div>
                             
                             <div class="form-group">
