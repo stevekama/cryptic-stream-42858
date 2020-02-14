@@ -8,13 +8,13 @@ $(document).ready(function(){
             data : {action:action}, 
             dataType:"json",
             success: function(data){
-                console.table(data);
+                // console.table(data);
                 $('#profileImg').html('<img class="profile-user-img img-responsive img-circle" src="'+base_url+'public/dist/img/'+data.profile+'" alt="User profile picture">');
                 $('.profile-username').html(data.username);
                 $('#accountUserName').val(data.username);
                 $('#profileEmail').html(data.email);
                 find_customer_by_id(data.customer_id);
-                // find_customer_docs(data.customer_id);
+                find_customer_docs(data.customer_id);
             }
         });
     } 
@@ -43,16 +43,16 @@ $(document).ready(function(){
             data : {action:action, customer_id:customer_id},
             dataType: "json", 
             success: function(data){
-                console.table(data);
-                // $('#customerFullNames').html(data.first_name+' '+data.other_names);
-                // $('#customerEmailAddress').html(data.email_address);
-                // $('#customerDOB').html(data.dob);
-                // find_gender_by_id(data.gender_id);
-                // $('#customerPostalAddress').html(data.postal_address);
-                // $('#customerPhysicalAddress').html(data.physical_address);
-                // find_country_by_id(data.country_id);
-                // $('#customerPhone').html(data.phone_number);
-                // $('#customerAltPhone').html(data.alt_phone_number);
+                // console.table(data);
+                $('#customerFullNames').html(data.first_name+' '+data.other_names);
+                $('#customerEmailAddress').html(data.email_address);
+                $('#customerDOB').html(data.dob);
+                find_gender_by_id(data.gender_id);
+                $('#customerPostalAddress').html(data.postal_address);
+                $('#customerPhysicalAddress').html(data.physical_address);
+                find_country_by_id(data.country_id);
+                $('#customerPhone').html(data.phone_number);
+                $('#customerAltPhone').html(data.alt_phone_number);
             }
         }); 
     }
