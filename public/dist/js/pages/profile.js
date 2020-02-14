@@ -126,7 +126,7 @@ $(document).ready(function(){
         // find all documents
         var action = "FETCH_ALL";
         $.ajax({
-            url  : base_url+'api/customer_doc/fetch.php',
+            url  : base_url+'api/customer_docs/fetch.php',
             type : "POST",
             data : {action:action}, 
             dataType:"json",
