@@ -138,6 +138,29 @@ $(document).ready(function(){
 
     });
 
+    // submit doc
+    $('#newDocForm').submit(function(event){
+        event.preventDefault();
+        var form_data = $(this).serialize();
+        $.ajax({
+            url  : base_url+'api/customer_individual_docs/insert.php',
+            type : "POST",
+            data : form_data, 
+            dataType:"json",
+            beforeSend:function(){
+                $('#newDocSubmitBtn').html('Loading..');
+            },
+            success: function(data){
+                $('#newDocSubmitBtn').html('Save Doc');
+                if(data.message == 'success'){
+                    find_user_by_id();
+                    $('#newDocForm')[0].reset();
+                    $('#newDocModal').modal('hide');
+                }
+            }
+        });
+    });
+
     // update username 
     $('#usernameForm').submit(function(event){
         event.preventDefault();

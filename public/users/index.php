@@ -245,10 +245,15 @@ require_once('../layouts/systems/header.php'); ?>
                                 <label for="userDocTypeId">Document Type</label>
                                 <select name="customer_identity_doc_type_id" id="userDocTypeId" class="form-control"></select>
                             </div>
+
+                            <div class="form-group">
+                                <label>Identity Document</label>
+                                <input type="text" name="identification_doc" class="form-control" placeholder="Identity Pin">
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                            <button type="submit" id="newDocSubmitBtn" class="btn btn-primary">Save changes</button>
+                            <button type="submit" id="newDocSubmitBtn" class="btn btn-primary">Save Doc</button>
                         </div>
                     </div>
                     <!-- /.modal-content -->
