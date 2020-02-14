@@ -100,8 +100,8 @@ if(!$current_project){
     </div>
 
     <div class="form-group has-feedback">
-      <input type="text" name="customer_id" id="customer_id" class="form-control">
-      <input type="text" name="project_id" value="<?php echo htmlentities($current_project['id']); ?>" class="form-control">
+      <input type="hidden" name="customer_id" id="customer_id" class="form-control">
+      <input type="hidden" name="project_id" value="<?php echo htmlentities($current_project['id']); ?>" class="form-control">
     </div>
 
     <div class="form-group has-feedback">
