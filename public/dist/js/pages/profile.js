@@ -73,7 +73,7 @@ $(document).ready(function(){
                 }else{
                     data.map(function(opt){
                         create_div += '<tr>';
-                        create_div += '<td>'+opt.customer_identity_doc_type_id+'</td>';
+                        create_div += '<td>'+opt.identification_doc_type+'</td>';
                         create_div += '<td>'+opt.identification_doc+'</td>';
                         create_div += '</tr>';
                     });

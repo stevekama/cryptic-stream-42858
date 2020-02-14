@@ -4,6 +4,7 @@ require_once('initialization.php');
 class Customer_Docs{
     //Decalare table name 
     private $conn;
+    private $schemma = "usr";
     private $table_name = 'customer_docs';
     //Declare class properties 
     public $id;
@@ -23,7 +24,10 @@ class Customer_Docs{
     }
 
     public function fetch_by_customer_id(){
-        $query = "SELECT * FROM usr.".$this->table_name." WHERE customer_id = :customer_id ORDER BY id DESC";
+        $query = "SELECT * FROM ".$this->schemma.".".$this->table_name." ";
+        $query .= "INNER JOIN ".$this->schemma.".customer_identity_doc_types ON ".$this->schemma.".".$this->table_name.".customer_identity_doc_type_id = ".$this->schemma.".customer_identity_doc_types.id ";
+        $query .= "WHERE ".$this->schemma.".".$this->table_name.".customer_id = :customer_id ";
+        $query .= "ORDER BY ".$this->schemma.".".$this->table_name.".id DESC";
         $stmt = $this->conn->prepare($query);
         // clean statement
         $this->customer_id = htmlentities($this->customer_id);
