@@ -50,6 +50,6 @@
 <body class="hold-transition register-page">
     <div class="register-box">
         <div class="register-logo">
-            <a href="<?php echo base_url(); ?>public/index.php"><b>Payments</b>GATEWAY</a>
+            <a href="<?php echo base_url(); ?>public/index.php"><b>IKO</b>Systems</a>
         </div>
         <div class="register-box-body">
