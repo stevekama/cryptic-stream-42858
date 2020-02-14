@@ -79,31 +79,13 @@ if($_POST['password'] === $_POST['confirm']){
             $balance_movement->edited_date = $d->format('Y-m-d');
             $balance_movement->edited_user_id = $user->id;
             if($balance_movement->create()){
-                // Instantiation and passing `true` enables exception
-                $mail = new PHPMailer(true);
-                // send email after signing up 
-                $sendMail = new SendMail($mail);
-                // define the mail values 
-                $sendMail->from = 'stevekama@mail.com';
-                $sendMail->from_username = 'Steve Kama';
-                $sendMail->to = $user->email;
-                $sendMail->to_username = $user->username;
-                $sendMail->subject = 'Welcome To Iko Pay';
-                $sendMail->message = '<p>Thank you for creating an account with us. </p>';
-                $sendMail->message .= '<p>Your wallet has been successfully created and assigned to the number '.$user->phone.'</p>';
-                $sendMail->message .= '<p>You can now login into your account and continue...</p>';
-                if($sendMail->send_mail()){
-                    // find project we are dealing with 
-                    $current_project = $proj->fetch_by_id($_POST['project_id']);
-                    $project_url = $current_project['url'];
-                    $data['message'] = 'success';
-                    $data['url'] = $project_url;
-                    echo json_encode($data);
-                    die();
-                }
-                $data['message'] = 'failed';
-                $data['error'] = $sendMail->send_mail();
-               
+                // find project we are dealing with 
+                $current_project = $proj->fetch_by_id($_POST['project_id']);
+                $project_url = $current_project['url'];
+                $data['message'] = 'success';
+                $data['url'] = $project_url;
+                echo json_encode($data);
+                die();
             }
         }else{
             $data['message'] = 'failed';

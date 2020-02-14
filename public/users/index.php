@@ -99,7 +99,7 @@ require_once('../layouts/systems/header.php'); ?>
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="customer_document">
                          <!-- Post -->
-                         <div id='docsDataMessage' class="table-responsive">
+                        <div id='docsDataMessage' class="table-responsive">
                             <table class="table table-hover">
                                 <thead>
                                 <tr>
@@ -116,7 +116,9 @@ require_once('../layouts/systems/header.php'); ?>
                                 </tr>
                                 </tfoot>
                             </table>
-                         </div>
+                        </div>
+                        <hr>
+                        <button id="newDocBtn" class="btn btn-success">New Document</button>
                     </div>
 
                     <div class="tab-pane" id="settings">
@@ -205,6 +207,42 @@ require_once('../layouts/systems/header.php'); ?>
                             
                             <div class="form-group">
                                 <label for="userProfile">User Profile</label>
+                                <input type="file" id="userProfile" name="profile">
+                                <p class="help-block">Change user profile details.</p>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                            <button type="submit" id="profileBtn" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </form>
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+        <div class="modal fade" id="newDocModal">
+            <div class="modal-dialog">
+                <form id="newDocForm" role="form">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">New Document</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <div id="alertMessageDoc"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="customerDocId" class="form-control" name="customer_id"/>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="userDocType">Document Type</label>
                                 <input type="file" id="userProfile" name="profile">
                                 <p class="help-block">Change user profile details.</p>
                             </div>

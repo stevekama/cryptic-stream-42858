@@ -44,6 +44,7 @@ $(document).ready(function(){
             dataType: "json", 
             success: function(data){
                 // console.table(data);
+                $('#customerDocId').val(data.id);
                 $('#customerFullNames').html(data.first_name+' '+data.other_names);
                 $('#customerEmailAddress').html(data.email_address);
                 $('#customerDOB').html(data.dob);
@@ -61,7 +62,7 @@ $(document).ready(function(){
     function find_customer_docs(customer_id){
         var action = "FETCH_ALL_FOR_CUSTOMER";
         $.ajax({
-            url  : base_url+'api/customer_individual_docs/fetch.php',
+            url  : base_url+'/api/customer_individual_docs/fetch.php',
             type : "POST",
             data : {action:action, customer_id:customer_id}, 
             success: function(data){
@@ -97,8 +98,44 @@ $(document).ready(function(){
         });
     }
 
-    // find customer document
+    // add customer document
+    var isSelectDocs = 0;
+    function selectCustomerDocs(data, customerDocId){
+      if(isSelectDocs == 0){
+        isSelectDocs = 1;
+        var select = document.getElementById(customerDocId);
+        var defaultOption = document.createElement('option');
+        defaultOption.appendChild(document.createTextNode('Choose document'));
+        defaultOption.setAttribute('value', '');
+        defaultOption.setAttribute('disabled', '');
+        defaultOption.setAttribute('selected', '');
+        select.appendChild(defaultOption);
+        data.map(function(oneOpt){
+            var option = document.createElement('option');
+            option.appendChild(document.createTextNode(oneOpt.identification_doc_type));
+            option.setAttribute('value', oneOpt.id);
+            select.appendChild(option);
+        });
+      }else{
+        isSelectDocs = 0;
+      }
+    }
+    // fetch all customer identity docs
+    // click new doc 
+    $('#newDocBtn').click(function(){
+        // find all documents
+        var action = "FETCH_ALL";
+        $.ajax({
+            url  : base_url+'api/customer_doc/fetch.php',
+            type : "POST",
+            data : {action:action}, 
+            dataType:"json",
+            success: function(data){
+                console.table(data);
+            }
+        });
 
+    });
 
     // update username 
     $('#usernameForm').submit(function(event){
