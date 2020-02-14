@@ -8,7 +8,7 @@ $(document).ready(function(){
             data : {action:action}, 
             dataType:"json",
             success: function(data){
-                // console.table(data);
+                console.table(data);
                 $('#profileImg').html('<img class="profile-user-img img-responsive img-circle" src="'+base_url+'public/dist/img/'+data.profile+'" alt="User profile picture">');
                 $('.profile-username').html(data.username);
                 $('#accountUserName').val(data.username);
